@@ -12,9 +12,20 @@
         .ant-row {
             margin-bottom: 10px;
 
-            .ant-tag {
+            .field {
+                box-sizing: border-box;
+                font-size: 12px;
+                line-height: 30px;
+                height: 30px;
                 width: 100%;
                 text-align: center;
+                border: 1px dashed rgba(0, 0, 0, 0);
+                background-color: #f4f6fc;
+
+                &:hover {
+                    border: 1px dashed #1890ff;
+                    color: #1890ff;
+                }
             }
         }
     }
@@ -25,26 +36,81 @@
                 background: #fff;
                 height: 44px;
                 line-height: 44px;
-                border-bottom: 1px solid #eeeeee;
+                border-bottom: 1px solid #eee;
                 padding: 0 16px;
             }
 
             .form-editor-editarea {
                 padding: 10px;
 
-                > .form-editing {
+                > .editable-form {
                     min-height: 100%;
-                    border: 1px dashed #dddddd;
-                    background-color: #ffffff;
+                    border: 1px dashed #ddd;
+                    background-color: #fff;
+
+                    .field-editable {
+                        display: flex;
+                        padding: 16px;
+                        margin: 4px;
+                        border: 1px dashed #ddd;
+
+                        &-label {
+                            font-size: 14px;
+                            line-height: 32px;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            white-space: nowrap;
+
+                            &:after {
+                                content: '：';
+                            }
+                        }
+
+                        &-content {
+                            flex: 1;
+
+                            > .ant-checkbox-group {
+                                line-height: 32px;
+                            }
+                        }
+                    }
                 }
             }
         }
 
         &-attrs {
-            div.label {
-                font-size: 16px;
-                line-height: 64px;
-                padding-left: 16px;
+            .attrs {
+                padding: 0 16px;
+
+                .attr-item {
+                    margin-bottom: 16px;
+
+                    .label {
+                        font-size: 14px;
+                        line-height: 21px;
+                        height: 30px;
+
+                        &::after {
+                            content: '：';
+                        }
+                    }
+
+                    .input {
+                        display: inline-block;
+                        width: 100%;
+
+                        .ant-radio-button-wrapper {
+                            width: 80px;
+                            padding: 0;
+
+                            > span:last-child {
+                                display: inline-block;
+                                width: 80px;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

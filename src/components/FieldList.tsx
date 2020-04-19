@@ -1,35 +1,32 @@
 import React from 'react'
 import { Row, Col, Tag } from 'antd'
 
+import Field from './Field'
+
 const fields = [
     {
-        type: 'input',
-        text: '单行文本'
+        name: 'input',
+        text: '文本框'
     },
     {
-        type: 'textarea',
-        text: '多行文本'
+        name: 'textarea',
+        text: '文本域'
     },
     {
-        type: 'checkbox',
+        name: 'checkbox',
         text: '多选框'
     },
     {
-        type: 'radio',
+        name: 'radio',
         text: '单选框'
     },
     {
-        type: 'text',
-        text: '文字'
-    },
-    {
-        type: 'textarea',
-        text: '多行文本'
+        name: 'select',
+        text: '下拉选择框'
     }
 ]
 
-function ComponentList () {
-
+function FieldList () {
     return (
         <>
             <div className="label">字段类型</div>
@@ -39,7 +36,7 @@ function ComponentList () {
 
                     return (<Row gutter={10} key={i}>
                         {fieldsInRow.map((field, j) => <Col span={12} key={`${i}-${j}`}>
-                            <Tag color="blue">{field.text}</Tag>
+                           <Field name={field.name} text={field.text} />
                         </Col>)}
                     </Row>)
                 }
@@ -50,4 +47,4 @@ function ComponentList () {
     )
 }
 
-export default ComponentList
+export default FieldList

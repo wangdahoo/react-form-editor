@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, notification } from 'antd'
-import { FormEditor } from '../src'
+import FormEditor from '../src'
 
 interface Props {
    name: string
