@@ -1,8 +1,9 @@
 import React, { useRef } from 'react'
 import { useDrag, useDrop, DragObjectWithType } from 'react-dnd'
 import ItemTypes from '../ItemTypes'
-import { Input, Radio, Checkbox, Select } from 'antd'
+import { Input, Radio, Checkbox, Select, Button } from 'antd'
 import formAttrs from '../stores/FormAttrsStore'
+import form from '../stores/FormStore'
 import { OutputFormItem, FormItemType, InputItem, TextareaItem, RadioItem, CheckboxItem, SelectItem } from '../stores/FormStore'
 import { observer } from 'mobx-react'
 import classnames from 'classnames'
@@ -148,9 +149,18 @@ function EditableField (props: EditableFieldProps) {
     }
 
     return (
-        <div ref={ref} className={classnames('field-editable', formAttrs.labelAlign === 'top' ? 'label-standalone' : '')} style={{
-            opacity: isDragging ? 0.4 : 1
-        }}>
+        <div
+            ref={ref}
+            className={classnames(
+                'field-editable',
+                formAttrs.labelAlign === 'top' ? 'label-standalone' : '',
+                formItem.isActive ? 'field-editable-active' : ''
+            )}
+            style={{
+                opacity: isDragging ? 0.4 : 1
+            }}
+            onMouseDown={() => form.activate(formItem.id)}
+        >
             <div className={classnames('field-editable-label', formAttrs.labelAlign === 'top' ? 'field-editable-label-top' : '')} style={{
                 width: formAttrs.labelWidth,
                 ...(formAttrs.labelAlign !== 'top' ? {
@@ -162,6 +172,8 @@ function EditableField (props: EditableFieldProps) {
             <div className='field-editable-content'>
                 {renderFormItem(formItem)}
             </div>
+
+            <Button className="btn-delete" type="danger" size="small" icon="delete" onClick={() => form.delete(formItem.id)}>删除</Button>
         </div>
     )
 }

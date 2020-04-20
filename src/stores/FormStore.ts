@@ -149,8 +149,12 @@ export class FormStore {
         this.items.push(newItem)
     }
 
+    delete (id: string) {
+        this.items = this.items.filter(item => item.id !== id)
+    }
+
     activate (id: string) {
-        if (this.items.map(item => item.id).indexOf(id) > -1) {
+        if (this.items.filter(item => item.id === id).length > 0) {
             this.activeId = id
         }
     }

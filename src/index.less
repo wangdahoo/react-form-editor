@@ -53,10 +53,15 @@
                     background-color: #fff;
 
                     .field-editable {
+                        position: relative;
                         display: flex;
                         padding: 16px;
                         margin: 4px;
                         border: 1px dashed #ddd;
+
+                        &.field-editable-active {
+                            border: 1px solid #1890ff;
+                        }
 
                         &.label-standalone {
                            flex-direction: column;
@@ -85,6 +90,13 @@
                             > .ant-checkbox-group {
                                 line-height: 32px;
                             }
+                        }
+
+                        .btn-delete {
+                            position: absolute;
+                            right: 4px;
+                            bottom: 4px;
+                            z-index: 2;
                         }
                     }
                 }
