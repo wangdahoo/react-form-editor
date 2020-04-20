@@ -84,7 +84,7 @@ function EditableField (props: EditableFieldProps) {
 
             return (
                 <Select
-                    defaultValue={selectItem.defaultValue}
+                    value={selectItem.defaultValue}
                     style={{width: '100%'}}
                 >
                     {selectItem.options.map((option, optionIndex) => (
@@ -100,7 +100,7 @@ function EditableField (props: EditableFieldProps) {
 
             return (
                 <Checkbox.Group
-                    defaultValue={checkboxItem.defaultValue}
+                    value={checkboxItem.defaultValue}
                 >
                     {checkboxItem.options.map((option, optionIndex) => (
                         <Checkbox key={optionIndex} value={option.value}>
@@ -115,7 +115,7 @@ function EditableField (props: EditableFieldProps) {
 
             return (
                 <Radio.Group
-                  defaultValue={radioItem.defaultValue}
+                  value={radioItem.defaultValue}
                   buttonStyle={radioItem.buttonStyle}
                 >
                   {radioItem.options.map((option, optionIndex) => (
@@ -131,7 +131,7 @@ function EditableField (props: EditableFieldProps) {
 
             return (
                 <Input.TextArea
-                    defaultValue={textareaItem.defaultValue}
+                    value={textareaItem.defaultValue}
                     placeholder={textareaItem.placeholder}
                 />
             )
@@ -141,7 +141,7 @@ function EditableField (props: EditableFieldProps) {
 
             return (
                 <Input
-                    defaultValue={inputItem.defaultValue || ''}
+                    value={inputItem.defaultValue || ''}
                     placeholder={inputItem.placeholder}
                 />
             )

@@ -60,7 +60,7 @@ export type SelectItem = {
     defaultValue: string|number
 }
 
-type FormItem = InputItem | TextareaItem | CheckboxItem | RadioItem | SelectItem
+export type FormItem = InputItem | TextareaItem | CheckboxItem | RadioItem | SelectItem
 
 export type OutputFormItem = FormItem & { isActive: boolean }
 
@@ -133,8 +133,10 @@ export class FormStore {
     @observable
     private items: FormItem[] = [
         createFormItem(FormItemType.INPUT),
+        createFormItem(FormItemType.TEXTAREA),
+        createFormItem(FormItemType.CHECKBOX),
         createFormItem(FormItemType.RADIO),
-        createFormItem(FormItemType.TEXTAREA)
+        createFormItem(FormItemType.SELECT),
     ]
 
     @observable
@@ -151,6 +153,14 @@ export class FormStore {
 
     delete (id: string) {
         this.items = this.items.filter(item => item.id !== id)
+    }
+
+    update (newItem: FormItem) {
+        this.items = this.items.map((item) => {
+            return item.id === newItem.id
+                ? newItem
+                : item
+        })
     }
 
     activate (id: string) {
@@ -176,6 +186,24 @@ export class FormStore {
             isActive: item.id === this.activeId
         }))
     }
+
+    get activeItem (): FormItem {
+        return find(this.items, this.activeId) as FormItem
+    }
+}
+
+function find(items: FormItem[], id: string) {
+    let result = null
+
+    for (let i = 0, len = items.length; i < len; i++) {
+        const item = items[i]
+        if (item.id === id) {
+            result = item
+            break
+        }
+    }
+
+    return result || {}
 }
 
 export default new FormStore()
