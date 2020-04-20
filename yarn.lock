@@ -3080,6 +3080,13 @@ image-size@~0.5.0:
   resolved "https://registry.npm.taobao.org/image-size/download/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
   integrity sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=
 
+immutability-helper@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.npm.taobao.org/immutability-helper/download/immutability-helper-3.0.2.tgz#e9187158b47c93368a92e84c31714c4b3dff30b0"
+  integrity sha1-6RhxWLR8kzaKkuhMMXFMSz3/MLA=
+  dependencies:
+    invariant "^2.2.4"
+
 immutable@^3.7.4:
   version "3.8.2"
   resolved "https://registry.npm.taobao.org/immutable/download/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"

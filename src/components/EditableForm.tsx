@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { observer } from 'mobx-react'
 import { FormAttrsStore } from '../stores/FormAttrsStore'
 import { useDrop } from 'react-dnd'
 import ItemTypes from '../ItemTypes'
-import formStore, { FormStore } from '../stores/FormStore'
+import { FormStore } from '../stores/FormStore'
 import EditableField from './EditableField'
 
 interface EditableFormProps {
@@ -13,6 +13,7 @@ interface EditableFormProps {
 
 function EditableForm (props: EditableFormProps) {
     const { formAttrs, form } = props
+    const moveFormItem = useCallback((dragIndex: number, hoverIndex: number) => form.move(dragIndex, hoverIndex), [form.formItems])
 
     const [{ isOver, canDrop }, drop ] = useDrop({
         accept: [
@@ -20,7 +21,7 @@ function EditableForm (props: EditableFormProps) {
         ],
         drop: (item: any, monitor) => {
             if (item.type === ItemTypes.FIELD) {
-                formStore.add(item.name)
+                form.add(item.name)
             }
         },
         collect: monitor => ({
@@ -33,10 +34,12 @@ function EditableForm (props: EditableFormProps) {
         <div ref={drop} className="editable-form" style={{
             width: formAttrs.formWidthString
         }}>
-            {form.formItems.map(formItem => (
+            {form.formItems.map((formItem, index) => (
                 <EditableField
                     key={formItem.id}
                     formItem={formItem}
+                    formItemIndex={index}
+                    moveFormItem={moveFormItem}
                 />
             ))}
         </div>

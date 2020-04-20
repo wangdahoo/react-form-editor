@@ -1,5 +1,6 @@
 import { observable, autorun } from 'mobx'
 import { generate } from 'shortid'
+import update from 'immutability-helper'
 
 export enum FormItemType {
     INPUT = 'input',
@@ -60,8 +61,6 @@ export type SelectItem = {
 }
 
 type FormItem = InputItem | TextareaItem | CheckboxItem | RadioItem | SelectItem
-
-type PlainFormItem = Omit<InputItem, 'id'> | Omit<TextareaItem, 'id'> | Omit<CheckboxItem, 'id'> | Omit<RadioItem, 'id'> | Omit<SelectItem, 'id'>
 
 export type OutputFormItem = FormItem & { isActive: boolean }
 
@@ -132,13 +131,17 @@ const createOption = (value: string) => ({
 
 export class FormStore {
     @observable
-    private items: FormItem[] = [createFormItem(FormItemType.INPUT)]
+    private items: FormItem[] = [
+        createFormItem(FormItemType.INPUT),
+        createFormItem(FormItemType.RADIO),
+        createFormItem(FormItemType.TEXTAREA)
+    ]
 
     @observable
     private activeId: string = ''
 
     constructor () {
-        autorun(() => console.log('form items: ', this.formItems))
+        // autorun(() => console.log('form items: ', this.formItems))
     }
 
     add (itemType: string) {
@@ -150,6 +153,17 @@ export class FormStore {
         if (this.items.map(item => item.id).indexOf(id) > -1) {
             this.activeId = id
         }
+    }
+
+    move (dragIndex: number, hoverIndex: number) {
+        const dragItem = this.items[dragIndex]
+
+        this.items = update(this.items, {
+            $splice: [
+              [dragIndex, 1],
+              [hoverIndex, 0, dragItem],
+            ],
+        })
     }
 
     get formItems (): OutputFormItem[] {
