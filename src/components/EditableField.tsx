@@ -5,6 +5,7 @@ import { Input, Radio, Checkbox, Select } from 'antd'
 import formAttrs from '../stores/FormAttrsStore'
 import { OutputFormItem, FormItemType, InputItem, TextareaItem, RadioItem, CheckboxItem, SelectItem } from '../stores/FormStore'
 import { observer } from 'mobx-react'
+import classnames from 'classnames'
 
 interface EditableFieldProps {
     formItem: OutputFormItem
@@ -147,11 +148,14 @@ function EditableField (props: EditableFieldProps) {
     }
 
     return (
-        <div ref={ref} className="field-editable" style={{
+        <div ref={ref} className={classnames('field-editable', formAttrs.labelAlign === 'top' ? 'label-standalone' : '')} style={{
             opacity: isDragging ? 0.4 : 1
         }}>
-            <div className='field-editable-label' style={{
-                width: formAttrs.labelWidth
+            <div className={classnames('field-editable-label', formAttrs.labelAlign === 'top' ? 'field-editable-label-top' : '')} style={{
+                width: formAttrs.labelWidth,
+                ...(formAttrs.labelAlign !== 'top' ? {
+                    textAlign: formAttrs.labelAlign
+                } : {})
             }}>
                 {formItem.labelText}
             </div>
