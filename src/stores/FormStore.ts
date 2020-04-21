@@ -75,7 +75,8 @@ const createFormItem = (itemType: string): FormItem => {
                 labelText: '下拉选择框',
                 options: [
                     createOption('选项 1'),
-                    createOption('选项 2')
+                    createOption('选项 2'),
+                    createOption('选项 3')
                 ],
                 defaultValue: '选项 1'
             }
@@ -177,6 +178,67 @@ export class FormStore {
               [dragIndex, 1],
               [hoverIndex, 0, dragItem],
             ],
+        })
+    }
+
+    addOption (id: string) {
+        this.items = this.items.map(item => {
+            if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
+                const value = ``
+                ;(item as any).options.push(createOption(value))
+            }
+
+            return item
+        })
+    }
+
+    deleteOption (id: string, optionIndex: number) {
+        this.items = this.items.map(item => {
+            if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
+                (item as any).options.splice(optionIndex, 1)
+            }
+
+            return item
+        })
+    }
+
+    updateOption (id: string, optionIndex: number, value: string) {
+        this.items = this.items.map(item => {
+            if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
+                (item as any).options.splice(optionIndex, 1, createOption(value))
+            }
+
+            return item
+        })
+    }
+
+    setCheckboxDefaultOption(id: string, values: string[]) {
+        this.items = this.items.map(item => {
+            if (item.id === id && FormItemType.CHECKBOX === item.itemType) {
+                (item as CheckboxItem).defaultValue = values
+            }
+
+            return item
+        })
+    }
+
+    setRadioDefaultOption(id: string, value: string) {
+        this.items = this.items.map(item => {
+            if (item.id === id && FormItemType.RADIO === item.itemType) {
+                (item as RadioItem).defaultValue = value
+            }
+
+            return item
+        })
+    }
+
+    setSelectDefaultOption(id: string, value: string) {
+        this.items = this.items.map(item => {
+            if (item.id === id && FormItemType.SELECT === item.itemType) {
+                (item as SelectItem).defaultValue = value
+            }
+
+            return item
         })
     }
 
