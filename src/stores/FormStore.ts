@@ -7,7 +7,8 @@ export enum FormItemType {
     TEXTAREA = 'textarea',
     CHECKBOX = 'checkbox',
     RADIO = 'radio',
-    SELECT = 'select'
+    SELECT = 'select',
+    LAYOUT = 'layout'
 }
 
 export type InputItem = {
@@ -60,7 +61,17 @@ export type SelectItem = {
     defaultValue: string|number
 }
 
-export type FormItem = InputItem | TextareaItem | CheckboxItem | RadioItem | SelectItem
+export type LayoutItemCol = {
+    span: number
+}
+
+export type LayoutItem = {
+    id: string
+    itemType: FormItemType.LAYOUT
+    rows: LayoutItemCol[][]
+}
+
+export type FormItem = InputItem | TextareaItem | CheckboxItem | RadioItem | SelectItem | LayoutItem
 
 export type OutputFormItem = FormItem & { isActive: boolean }
 
@@ -68,6 +79,18 @@ const createFormItem = (itemType: string): FormItem => {
     const id = generate()
 
     switch (itemType) {
+        case FormItemType.LAYOUT:
+            return {
+                id,
+                itemType,
+                rows: [
+                    [
+                        { span: 12 },
+                        { span: 12 }
+                    ]
+                ]
+            }
+
         case FormItemType.SELECT:
             return {
                 id,
@@ -138,6 +161,7 @@ export class FormStore {
         createFormItem(FormItemType.CHECKBOX),
         createFormItem(FormItemType.RADIO),
         createFormItem(FormItemType.SELECT),
+        createFormItem(FormItemType.LAYOUT),
     ]
 
     @observable
@@ -236,6 +260,38 @@ export class FormStore {
         this.items = this.items.map(item => {
             if (item.id === id && FormItemType.SELECT === item.itemType) {
                 (item as SelectItem).defaultValue = value
+            }
+
+            return item
+        })
+    }
+
+    addCol (id: string, rowIndex: number) {
+        this.items = this.items.map(item => {
+            if (item.id === id && FormItemType.LAYOUT === item.itemType) {
+                (item as LayoutItem).rows[rowIndex].push({
+                    span: 12
+                })
+            }
+
+            return item
+        })
+    }
+
+    updateColSpan (id: string, rowIndex: number, colIndex: number, span: number) {
+        this.items = this.items.map(item => {
+            if (item.id === id && FormItemType.LAYOUT === item.itemType) {
+                (item as LayoutItem).rows[rowIndex].splice(colIndex, 1, { span })
+            }
+
+            return item
+        })
+    }
+
+    deleteCol (id: string, rowIndex: number, colIndex: number) {
+        this.items = this.items.map(item => {
+            if (item.id === id && FormItemType.LAYOUT === item.itemType) {
+                (item as LayoutItem).rows[rowIndex].splice(colIndex, 1)
             }
 
             return item

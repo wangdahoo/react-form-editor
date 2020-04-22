@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useDrag, useDrop, DragObjectWithType } from 'react-dnd'
 import ItemTypes from '../ItemTypes'
-import { Input, Radio, Checkbox, Select, Button } from 'antd'
+import { Input, Radio, Checkbox, Select, Button, Row, Col } from 'antd'
 import formAttrs from '../stores/FormAttrsStore'
 import form from '../stores/FormStore'
 import { OutputFormItem, FormItemType, InputItem, TextareaItem, RadioItem, CheckboxItem, SelectItem } from '../stores/FormStore'
@@ -148,6 +148,43 @@ function EditableField (props: EditableFieldProps) {
         }
     }
 
+    const renderFormInnerLayout = (formItem: OutputFormItem) => {
+        return (
+            <div className="editable-layout">
+                <Row>
+                    <Col span={12}></Col>
+                    <Col span={12}></Col>
+                </Row>
+            </div>
+        )
+    }
+
+    if (formItem.itemType === FormItemType.LAYOUT) {
+        return (
+            <div
+                ref={ref}
+                className={classnames(
+                    'field-editable field-editable-layout',
+                    formItem.isActive ? 'field-editable-active' : ''
+                )}
+                style={{
+                    opacity: isDragging ? 0.4 : 1
+                }}
+                onMouseDown={() => form.activate(formItem.id)}
+            >
+                {formItem.rows.map((row, rowIndex) => (
+                    <Row key={rowIndex} gutter={5}>
+                        {row.map((col, colIndex) => (
+                            <Col key={colIndex} span={col.span}></Col>
+                        ))}
+                    </Row>
+                ))}
+
+                <Button className="btn-delete" type="danger" size="small" icon="delete" onClick={() => form.delete(formItem.id)}>删除</Button>
+            </div>
+        )
+    }
+
     return (
         <div
             ref={ref}
@@ -167,7 +204,7 @@ function EditableField (props: EditableFieldProps) {
                     textAlign: formAttrs.labelAlign
                 } : {})
             }}>
-                {formItem.labelText}
+                {(formItem as any).labelText}
             </div>
             <div className='field-editable-content'>
                 {renderFormItem(formItem)}

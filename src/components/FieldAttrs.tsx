@@ -1,7 +1,7 @@
 import React from 'react'
-import { Input, List, Button, Select } from 'antd'
+import { Input, List, Button, Select, InputNumber } from 'antd'
 import { observer } from 'mobx-react'
-import form, { FormStore, FormItemType, FormItem, InputItem, TextareaItem, CheckboxItem, RadioItem, SelectItem } from '../stores/FormStore'
+import form, { FormStore, FormItemType, FormItem, InputItem, TextareaItem, CheckboxItem, RadioItem, SelectItem, LayoutItem } from '../stores/FormStore'
 
 interface FieldAttrsProps {
     form: FormStore
@@ -9,7 +9,8 @@ interface FieldAttrsProps {
 
 function FieldAttrs (props: FieldAttrsProps) {
     const { form } = props
-    const { id, labelText, itemType } = form.activeItem
+    const { id, itemType } = form.activeItem as any
+    const labelText = (form.activeItem as any).labelText
 
     function onChangeAttrs (newItem: FormItem) {
         form.update(newItem)
@@ -109,6 +110,55 @@ function FieldAttrs (props: FieldAttrsProps) {
         )
     }
 
+    const renderLayoutExtraAttrs = (item: LayoutItem) => {
+        const { rows } = item
+
+        return (
+            <>
+                {rows.map((row, rowIndex) => {
+                    return (
+                        <div className="attr-item" key={rowIndex}>
+                            <div className="label">列宽</div>
+
+                            <List
+                                size="small"
+                                itemLayout="horizontal"
+                                dataSource={row}
+                                renderItem={(col, colIndex) => (
+                                    <List.Item key={colIndex}>
+                                        <div className="attr-item-option">
+                                            <InputNumber
+                                                className="input"
+                                                value={col.span}
+                                                min={1}
+                                                max={24}
+                                                step={1}
+                                                onChange={value => {
+                                                    form.updateColSpan(item.id, rowIndex, colIndex, Number(value))
+                                                }}
+                                            />
+                                            <Button type="danger" icon="delete" className="btn-delete-option" onClick={() => form.deleteCol(item.id, rowIndex, colIndex)}>删除</Button>
+                                        </div>
+                                    </List.Item>
+                                )}
+                            />
+
+                            <Button type="primary" onClick={() => form.addCol(item.id, rowIndex)} icon="plus">添加列</Button>
+                        </div>
+                    )
+                })}
+            </>
+        )
+    }
+
+    const hasLabelText = [
+        FormItemType.INPUT,
+        FormItemType.TEXTAREA,
+        FormItemType.CHECKBOX,
+        FormItemType.RADIO,
+        FormItemType.SELECT
+    ].indexOf(itemType) > -1
+
     return (
         <div className="attrs">
             <div className="attr-item">
@@ -116,13 +166,17 @@ function FieldAttrs (props: FieldAttrsProps) {
                 <Input className="input" value={id} disabled={true} />
             </div>
 
-            <div className="attr-item">
-                <div className="label">标签文字</div>
-                <Input className="input" value={labelText} onChange={e => onChangeAttrs({
-                    ...form.activeItem,
-                    labelText: e.target.value
-                })} />
-            </div>
+            {hasLabelText ? (
+                <div className="attr-item">
+                    <div className="label">标签文字</div>
+                    <Input className="input" value={labelText} onChange={e => onChangeAttrs({
+                        ...form.activeItem,
+                        ...(labelText ? {
+
+                        } : {})
+                    })} />
+                </div>
+            ) : null}
 
             {itemType === FormItemType.INPUT ? renderInputExtraAttrs(form.activeItem as InputItem) : null}
             {itemType === FormItemType.TEXTAREA ? renderInputExtraAttrs(form.activeItem as TextareaItem) : null}
@@ -135,6 +189,8 @@ function FieldAttrs (props: FieldAttrsProps) {
 
             {itemType === FormItemType.SELECT ? renderItemOptions(form.activeItem as SelectItem) : null}
             {itemType === FormItemType.SELECT ? renderSelectExtraAttrs(form.activeItem as SelectItem) : null}
+
+            {itemType === FormItemType.LAYOUT ? renderLayoutExtraAttrs(form.activeItem as LayoutItem) : null}
         </div>
     )
 }

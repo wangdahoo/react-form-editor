@@ -98,6 +98,21 @@
                             bottom: 4px;
                             z-index: 2;
                         }
+
+                        &.field-editable-layout {
+                            display: block;
+                            padding: 0;
+
+                            .ant-row {
+                                > .ant-col {
+                                    box-sizing: border-box;
+                                    padding: 10px;
+                                    border: 1px dashed #ddd;
+                                    min-height: 64px;
+                                    box-sizing: border-box;
+                                }
+                            }
+                        }
                     }
                 }
             }
