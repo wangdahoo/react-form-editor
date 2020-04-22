@@ -24,6 +24,10 @@ const fields = {
         {
             name: 'select',
             text: '下拉选择框'
+        },
+        {
+            name: 'text',
+            text: '文字'
         }
     ],
 

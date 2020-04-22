@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input, List, Button, Select, InputNumber } from 'antd'
 import { observer } from 'mobx-react'
-import form, { FormStore, FormItemType, FormItem, InputItem, TextareaItem, CheckboxItem, RadioItem, SelectItem, LayoutItem } from '../stores/FormStore'
+import form, { FormStore, FormItemType, FormItem, InputItem, TextareaItem, CheckboxItem, RadioItem, SelectItem, LayoutItem, TextItem } from '../stores/FormStore'
 
 interface FieldAttrsProps {
     form: FormStore
@@ -151,6 +151,64 @@ function FieldAttrs (props: FieldAttrsProps) {
         )
     }
 
+    const renderTextExtraAttrs = (item: TextItem) => {
+        const { id, content, fontSize, lineHeight, textAlign } = item
+
+        return (
+            <>
+                <div className="attr-item">
+                    <div className="label">文字内容</div>
+
+                    <Input.TextArea
+                        value={content}
+                        onChange={e => form.updateTextItem(id, e.target.value, fontSize, lineHeight, textAlign)}
+                    />
+                </div>
+
+                <div className="attr-item">
+                    <div className="label">文字大小</div>
+
+                    <InputNumber
+                        className="input"
+                        value={fontSize}
+                        min={12}
+                        max={100}
+                        step={1}
+                        onChange={newFontSize => form.updateTextItem(id, content, Number(newFontSize), lineHeight, textAlign)}
+                    />
+                </div>
+
+                <div className="attr-item">
+                    <div className="label">文字行高</div>
+
+                    <InputNumber
+                        className="input"
+                        value={lineHeight}
+                        min={12}
+                        max={100}
+                        step={1}
+                        onChange={newLineHeight => form.updateTextItem(id, content, fontSize, Number(newLineHeight), textAlign)}
+                    />
+                </div>
+
+
+                <div className="attr-item">
+                    <div className="label">对齐方式</div>
+
+                    <Select
+                        style={{ width: '100%' }}
+                        value={textAlign}
+                        onChange={(newTextAlign: 'left'|'right'|'center') => form.updateTextItem(id, content, fontSize, lineHeight, newTextAlign)}
+                    >
+                        <Select.Option value={'left'}>左对齐</Select.Option>
+                        <Select.Option value={'right'}>右对齐</Select.Option>
+                        <Select.Option value={'center'}>居中</Select.Option>
+                    </Select>
+                </div>
+            </>
+        )
+    }
+
     const hasLabelText = [
         FormItemType.INPUT,
         FormItemType.TEXTAREA,
@@ -191,6 +249,8 @@ function FieldAttrs (props: FieldAttrsProps) {
             {itemType === FormItemType.SELECT ? renderSelectExtraAttrs(form.activeItem as SelectItem) : null}
 
             {itemType === FormItemType.LAYOUT ? renderLayoutExtraAttrs(form.activeItem as LayoutItem) : null}
+
+            {itemType === FormItemType.TEXT ? renderTextExtraAttrs(form.activeItem as TextItem) : null}
         </div>
     )
 }

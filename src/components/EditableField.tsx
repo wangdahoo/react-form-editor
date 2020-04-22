@@ -148,17 +148,6 @@ function EditableField (props: EditableFieldProps) {
         }
     }
 
-    const renderFormInnerLayout = (formItem: OutputFormItem) => {
-        return (
-            <div className="editable-layout">
-                <Row>
-                    <Col span={12}></Col>
-                    <Col span={12}></Col>
-                </Row>
-            </div>
-        )
-    }
-
     if (formItem.itemType === FormItemType.LAYOUT) {
         return (
             <div
@@ -179,6 +168,34 @@ function EditableField (props: EditableFieldProps) {
                         ))}
                     </Row>
                 ))}
+
+                <Button className="btn-delete" type="danger" size="small" icon="delete" onClick={() => form.delete(formItem.id)}>删除</Button>
+            </div>
+        )
+    }
+
+    if (formItem.itemType === FormItemType.TEXT) {
+        return (
+            <div
+                ref={ref}
+                className={classnames(
+                    'field-editable field-editable-text',
+                    formItem.isActive ? 'field-editable-active' : ''
+                )}
+                style={{
+                    opacity: isDragging ? 0.4 : 1
+                }}
+                onMouseDown={() => form.activate(formItem.id)}
+            >
+                <div
+                    style={{
+                        fontSize: formItem.fontSize,
+                        lineHeight: `${formItem.lineHeight}px`,
+                        textAlign: formItem.textAlign
+                    }}
+                >
+                    {formItem.content}
+                </div>
 
                 <Button className="btn-delete" type="danger" size="small" icon="delete" onClick={() => form.delete(formItem.id)}>删除</Button>
             </div>

@@ -3,6 +3,7 @@ import { generate } from 'shortid'
 import update from 'immutability-helper'
 
 export enum FormItemType {
+    TEXT = 'text',
     INPUT = 'input',
     TEXTAREA = 'textarea',
     CHECKBOX = 'checkbox',
@@ -71,7 +72,16 @@ export type LayoutItem = {
     rows: LayoutItemCol[][]
 }
 
-export type FormItem = InputItem | TextareaItem | CheckboxItem | RadioItem | SelectItem | LayoutItem
+export type TextItem = {
+    id: string
+    itemType: FormItemType.TEXT
+    content: string
+    fontSize: number
+    lineHeight: number
+    textAlign: 'center'|'left'|'right'
+}
+
+export type FormItem =  InputItem | TextareaItem | CheckboxItem | RadioItem | SelectItem | LayoutItem | TextItem
 
 export type OutputFormItem = FormItem & { isActive: boolean }
 
@@ -79,6 +89,16 @@ const createFormItem = (itemType: string): FormItem => {
     const id = generate()
 
     switch (itemType) {
+        case FormItemType.TEXT:
+            return {
+                id,
+                itemType,
+                content: '文字内容',
+                fontSize: 14,
+                lineHeight: 21,
+                textAlign: 'left'
+            }
+
         case FormItemType.LAYOUT:
             return {
                 id,
@@ -162,6 +182,7 @@ export class FormStore {
         createFormItem(FormItemType.RADIO),
         createFormItem(FormItemType.SELECT),
         createFormItem(FormItemType.LAYOUT),
+        createFormItem(FormItemType.TEXT),
     ]
 
     @observable
@@ -292,6 +313,19 @@ export class FormStore {
         this.items = this.items.map(item => {
             if (item.id === id && FormItemType.LAYOUT === item.itemType) {
                 (item as LayoutItem).rows[rowIndex].splice(colIndex, 1)
+            }
+
+            return item
+        })
+    }
+
+    updateTextItem (id: string, content: string, fontSize: number, lineHeight: number, textAlign: 'center'|'left'|'right') {
+        this.items = this.items.map(item => {
+            if (item.id === id && FormItemType.TEXT === item.itemType) {
+                ;(item as TextItem).content = content
+                ;(item as TextItem).fontSize = fontSize
+                ;(item as TextItem).lineHeight = lineHeight
+                ;(item as TextItem).textAlign = textAlign
             }
 
             return item
