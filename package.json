@@ -1,7 +1,7 @@
 {
-    "name": "react-form-editor",
+    "name": "@wangdahoo/react-form-editor",
     "version": "0.1.0",
-    "main": "index.js",
+    "main": "dist/index.js",
     "repository": "git@github.com:wangdahoo/react-form-editor.git",
     "author": "wangdahoo <15715705@qq.com>",
     "license": "ISC",
@@ -24,7 +24,8 @@
     "scripts": {
         "clean": "rm dist/**",
         "start": "parcel serve app/index.html",
-        "build-app": "parcel build app/index.html -d docs --public-url ./"
+        "build-app": "parcel build app/index.html -d docs --public-url ./",
+        "build": "parcel build src/index.tsx -t node --public-url ./"
     },
     "dependencies": {
         "antd": "^3.26",
