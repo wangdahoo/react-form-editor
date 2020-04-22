@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button, notification } from 'antd'
 import FormEditor from '../src'
 
 interface Props {
@@ -7,14 +6,6 @@ interface Props {
 }
 
 export default function App (props: Props) {
-    const { name } = props
-
-    function greeting () {
-        notification.info({
-            message: `Hi, ${name}`
-        })
-    }
-
     return (
         <div>
             <FormEditor style={{
