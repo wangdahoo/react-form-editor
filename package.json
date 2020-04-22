@@ -24,7 +24,7 @@
     "scripts": {
         "clean": "rm dist/**",
         "start": "parcel serve app/index.html",
-        "build-app": "parcel build app/index.html -d docs"
+        "build-app": "parcel build app/index.html -d docs --public-url ./"
     },
     "dependencies": {
         "antd": "^3.26",

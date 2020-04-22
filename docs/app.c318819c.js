@@ -2309,4 +2309,4 @@ const e=require("react-dom");require("./dist").observerBatching(e.unstable_batch
 },{"rc-pagination/es/locale/zh_CN":"zaj0","../date-picker/locale/zh_CN":"ZJKc","../time-picker/locale/zh_CN":"b272","../calendar/locale/zh_CN":"vZVB"}],"zo2T":[function(require,module,exports) {
 "use strict";var e=u(require("react")),r=u(require("react-dom"));require("antd/dist/antd.css"),require("./index.less");var t=u(require("./App")),a=require("antd"),d=u(require("antd/es/locale/zh_CN"));function u(e){return e&&e.__esModule?e:{default:e}}r.default.render(e.default.createElement(a.ConfigProvider,{locale:d.default},e.default.createElement(t.default,{name:"Tom"})),document.getElementById("root"));
 },{"react":"n8MK","react-dom":"NKHc","antd/dist/antd.css":"pp0i","./index.less":"pp0i","./App":"NHn6","antd":"cmSP","antd/es/locale/zh_CN":"gnRG"}]},{},["zo2T"], null)
-//# sourceMappingURL=/app.c318819c.js.map
+//# sourceMappingURL=app.c318819c.js.map
