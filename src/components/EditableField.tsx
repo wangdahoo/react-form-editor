@@ -3,7 +3,7 @@ import { useDrag, useDrop, DragObjectWithType } from 'react-dnd'
 import ItemTypes from '../ItemTypes'
 import { Input, Radio, Checkbox, Select, Button, Row, Col } from 'antd'
 import formAttrs from '../stores/FormAttrsStore'
-import form from '../stores/FormStore'
+import form, { ResultItem } from '../stores/FormStore'
 import { OutputFormItem, FormItemType, InputItem, TextareaItem, RadioItem, CheckboxItem, SelectItem } from '../stores/FormStore'
 import { observer } from 'mobx-react'
 import classnames from 'classnames'
@@ -79,6 +79,26 @@ function EditableField (props: EditableFieldProps) {
         const { itemType } = formItem
 
         switch (itemType) {
+        case FormItemType.RESULT:
+            // const resultItem = formItem as (ResultItem & { isActive: boolean })
+
+            return (
+                <div>
+                    <Radio.Group defaultValue="" style={{
+                        height: 32,
+                        lineHeight: '32px',
+                        marginBottom: 16
+                    }}>
+                        <Radio value="合格">合格</Radio>
+                        <Radio value="不合格">不合格</Radio>
+                    </Radio.Group>
+
+                    <Input.TextArea
+                        placeholder="备注"
+                    />
+                </div>
+            )
+
         case FormItemType.SELECT:
             const selectItem = formItem as (SelectItem & { isActive: boolean })
 

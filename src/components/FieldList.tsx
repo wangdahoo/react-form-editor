@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Tag, Divider } from 'antd'
+import { Row, Col } from 'antd'
 
 import Field from './Field'
 
@@ -32,45 +32,41 @@ const fields = {
     ],
 
     advanced: [
+        // {
+        //     name: 'layout',
+        //     text: '布局'
+        // },
         {
-            name: 'layout',
-            text: '布局'
+            name: 'result',
+            text: '检验结果'
         }
     ]
 }
 
 function FieldList () {
+    const renderFields = (label: string, fields: { name: string, text: string }[]) => (
+        <div>
+            <div className="label">{label}</div>
+            {fields.map((_, i, fields) => {
+                if (i % 2 === 0) {
+                    const fieldsInRow = fields.slice(i, i + 2)
+
+                    return (<Row gutter={10} key={i}>
+                        {fieldsInRow.map((field, j) => <Col span={12} key={`${i}-${j}`}>
+                        <Field name={field.name} text={field.text} />
+                        </Col>)}
+                    </Row>)
+                }
+
+                return null
+            })}
+        </div>
+    )
+
     return (
         <>
-            <div className="label">基础字段</div>
-            {fields.basic.map((_, i, fields) => {
-                if (i % 2 === 0) {
-                    const fieldsInRow = fields.slice(i, i + 2)
-
-                    return (<Row gutter={10} key={i}>
-                        {fieldsInRow.map((field, j) => <Col span={12} key={`${i}-${j}`}>
-                           <Field name={field.name} text={field.text} />
-                        </Col>)}
-                    </Row>)
-                }
-
-                return null
-            })}
-
-            <div className="label">高级字段</div>
-            {fields.advanced.map((_, i, fields) => {
-                if (i % 2 === 0) {
-                    const fieldsInRow = fields.slice(i, i + 2)
-
-                    return (<Row gutter={10} key={i}>
-                        {fieldsInRow.map((field, j) => <Col span={12} key={`${i}-${j}`}>
-                           <Field name={field.name} text={field.text} />
-                        </Col>)}
-                    </Row>)
-                }
-
-                return null
-            })}
+            {renderFields('通用字段', fields.basic)}
+            {renderFields('自定义字段', fields.advanced)}
         </>
     )
 }

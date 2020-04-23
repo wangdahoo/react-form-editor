@@ -1,6 +1,7 @@
-import { observable, autorun } from 'mobx'
+import { observable } from 'mobx'
 import { generate } from 'shortid'
 import update from 'immutability-helper'
+import { message } from 'antd'
 
 export enum FormItemType {
     TEXT = 'text',
@@ -9,7 +10,8 @@ export enum FormItemType {
     CHECKBOX = 'checkbox',
     RADIO = 'radio',
     SELECT = 'select',
-    LAYOUT = 'layout'
+    LAYOUT = 'layout',
+    RESULT = 'result'
 }
 
 export type InputItem = {
@@ -62,6 +64,12 @@ export type SelectItem = {
     defaultValue: string|number
 }
 
+export type ResultItem = {
+    id: string
+    itemType: FormItemType.RESULT
+    labelText: string
+}
+
 export type LayoutItemCol = {
     span: number
 }
@@ -81,7 +89,7 @@ export type TextItem = {
     textAlign: 'center'|'left'|'right'
 }
 
-export type FormItem =  InputItem | TextareaItem | CheckboxItem | RadioItem | SelectItem | LayoutItem | TextItem
+export type FormItem =  InputItem | TextareaItem | CheckboxItem | RadioItem | SelectItem | ResultItem | LayoutItem | TextItem
 
 export type OutputFormItem = FormItem & { isActive: boolean }
 
@@ -89,6 +97,13 @@ const createFormItem = (itemType: string): FormItem => {
     const id = generate()
 
     switch (itemType) {
+        case FormItemType.RESULT:
+            return {
+                id,
+                itemType,
+                labelText: '检验结果'
+            }
+
         case FormItemType.TEXT:
             return {
                 id,
@@ -181,8 +196,9 @@ export class FormStore {
         createFormItem(FormItemType.CHECKBOX),
         createFormItem(FormItemType.RADIO),
         createFormItem(FormItemType.SELECT),
-        createFormItem(FormItemType.LAYOUT),
+        // createFormItem(FormItemType.LAYOUT),
         createFormItem(FormItemType.TEXT),
+        createFormItem(FormItemType.RESULT),
     ]
 
     @observable
@@ -193,6 +209,11 @@ export class FormStore {
     }
 
     add (itemType: string) {
+        if (itemType === FormItemType.RESULT && this.items.filter(item => item.itemType === FormItemType.RESULT).length > 0) {
+            message.error('检验结果字段只能有一个')
+            return
+        }
+
         const newItem: FormItem = createFormItem(itemType)
         this.items.push(newItem)
     }

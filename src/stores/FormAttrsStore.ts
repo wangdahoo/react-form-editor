@@ -8,7 +8,7 @@ export class FormAttrsStore {
     formWidthUnit: '%' | 'px' = '%'
 
     @observable
-    labelAlign: 'left' | 'right' | 'top' = 'right'
+    labelAlign: 'left' | 'right' | 'top' = 'left'
 
     @observable
     labelWidth: number = 100
