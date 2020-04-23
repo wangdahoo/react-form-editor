@@ -22,9 +22,7 @@
         "typescript": "^3.8.3"
     },
     "scripts": {
-        "start": "parcel serve -d docs app/index.html",
-        "build-app": "rm -rf docs/** && parcel build -d docs app/index.html --public-url ./",
-        "build": "parcel build src/index.tsx -t node"
+        "start": "parcel serve app/index.html"
     },
     "dependencies": {
         "antd": "^3.26",

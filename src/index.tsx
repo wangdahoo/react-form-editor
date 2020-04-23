@@ -3,6 +3,7 @@ import React from 'react'
 import { DndProvider } from 'react-dnd'
 import Backend from 'react-dnd-html5-backend'
 import { Layout } from 'antd'
+import Toolbar from './components/Toolbar'
 import FieldList from './components/FieldList'
 import AttrsPanel from './components/AttrsPanel'
 import EditableForm from './components/EditableForm'
@@ -15,10 +16,12 @@ const { Header, Content, Sider } = Layout
 
 interface FormEditorProps {
     style?: React.CSSProperties
+    onPreview?: (json: string) => void
+    onSave?: (json: string) => void
 }
 
 export default function FormEditor (props: FormEditorProps) {
-    const { style } = props
+    const { style, onPreview = console.log, onSave = console.log } = props
 
     return (
         <DndProvider backend={Backend}>
@@ -28,7 +31,9 @@ export default function FormEditor (props: FormEditorProps) {
                 </Sider>
                 <Layout className="form-editor-content">
                     <Layout className="form-editor-content-main">
-                        <Header className="form-editor-toolbar">顶部 toolbar</Header>
+                        <Header className="form-editor-toolbar">
+                            <Toolbar formAttrs={formAttrsStore} form={formStore} onPreview={onPreview} onSave={onSave} />
+                        </Header>
                         <Content className="form-editor-editarea">
                             <EditableForm formAttrs={formAttrsStore} form={formStore}/>
                         </Content>

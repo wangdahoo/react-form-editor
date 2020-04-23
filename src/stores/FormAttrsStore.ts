@@ -1,4 +1,4 @@
-import { observable, computed, autorun } from 'mobx'
+import { observable, computed } from 'mobx'
 
 export class FormAttrsStore {
     @observable

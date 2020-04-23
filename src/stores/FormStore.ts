@@ -208,6 +208,10 @@ export class FormStore {
         // autorun(() => console.log('form items: ', this.formItems))
     }
 
+    getItems () {
+        return this.items.slice(0)
+    }
+
     add (itemType: string) {
         if (itemType === FormItemType.RESULT && this.items.filter(item => item.itemType === FormItemType.RESULT).length > 0) {
             message.error('检验结果字段只能有一个')
