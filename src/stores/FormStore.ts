@@ -20,6 +20,8 @@ export type InputItem = {
     labelText: string
     placeholder: string
     defaultValue: string
+    required: boolean
+    re?: RegExp
 }
 
 export type TextareaItem = {
@@ -28,6 +30,8 @@ export type TextareaItem = {
     labelText: string
     placeholder: string
     defaultValue: string
+    required: boolean
+    re?: RegExp
 }
 
 export type CheckboxItem = {
@@ -39,6 +43,7 @@ export type CheckboxItem = {
         text: string
     }[]
     defaultValue: (string|number) []
+    required: boolean
 }
 
 export type RadioItem = {
@@ -51,6 +56,7 @@ export type RadioItem = {
     }[]
     defaultValue: string|number
     buttonStyle: 'outline' | 'solid'
+    required: boolean
 }
 
 export type SelectItem = {
@@ -149,7 +155,8 @@ const createFormItem = (itemType: string): FormItem => {
                     createOption('选项 2')
                 ],
                 buttonStyle: 'solid',
-                defaultValue: ''
+                defaultValue: '',
+                required: true
             }
 
         case FormItemType.CHECKBOX:
@@ -160,7 +167,8 @@ const createFormItem = (itemType: string): FormItem => {
                 options: [
                     createOption('选项 1')
                 ],
-                defaultValue: []
+                defaultValue: [],
+                required: true
             }
 
         case FormItemType.TEXTAREA:
@@ -169,7 +177,8 @@ const createFormItem = (itemType: string): FormItem => {
                 itemType,
                 labelText: '文本域',
                 placeholder: '文本域输入提示',
-                defaultValue: ''
+                defaultValue: '',
+                required: true
             }
 
         default:
@@ -178,7 +187,8 @@ const createFormItem = (itemType: string): FormItem => {
                 itemType: FormItemType.INPUT,
                 labelText: '文本框',
                 placeholder: '文本框输入提示',
-                defaultValue: ''
+                defaultValue: '',
+                required: true
             }
     }
 }
@@ -196,9 +206,11 @@ export class FormStore {
         createFormItem(FormItemType.CHECKBOX),
         createFormItem(FormItemType.RADIO),
         createFormItem(FormItemType.SELECT),
-        // createFormItem(FormItemType.LAYOUT),
         createFormItem(FormItemType.TEXT),
         createFormItem(FormItemType.RESULT),
+
+        // 暂时不支持 layout
+        // createFormItem(FormItemType.LAYOUT),
     ]
 
     @observable
@@ -351,6 +363,16 @@ export class FormStore {
                 ;(item as TextItem).fontSize = fontSize
                 ;(item as TextItem).lineHeight = lineHeight
                 ;(item as TextItem).textAlign = textAlign
+            }
+
+            return item
+        })
+    }
+
+    setRequired (id: string, required: boolean) {
+        this.items = this.items.map(item => {
+            if (item.id === id) {
+                (item as any).required = required
             }
 
             return item

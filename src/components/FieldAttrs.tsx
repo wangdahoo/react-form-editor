@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, List, Button, Select, InputNumber } from 'antd'
+import { Input, List, Button, Select, InputNumber, Radio } from 'antd'
 import { observer } from 'mobx-react'
 import form, { FormStore, FormItemType, FormItem, InputItem, TextareaItem, CheckboxItem, RadioItem, SelectItem, LayoutItem, TextItem } from '../stores/FormStore'
 
@@ -209,12 +209,37 @@ function FieldAttrs (props: FieldAttrsProps) {
         )
     }
 
+    const renderValidationAttrs = (item: InputItem|TextareaItem|CheckboxItem|RadioItem) => {
+        return (
+            <>
+                <div className="attr-item">
+                    <div className="label">是否必填</div>
+
+                    <Radio.Group
+                        value={item.required}
+                        onChange={e => form.setRequired(item.id, e.target.value)}
+                    >
+                        <Radio value={true}>必填</Radio>
+                        <Radio value={false}>选填</Radio>
+                    </Radio.Group>
+                </div>
+            </>
+        )
+    }
+
     const hasLabelText = [
         FormItemType.INPUT,
         FormItemType.TEXTAREA,
         FormItemType.CHECKBOX,
         FormItemType.RADIO,
         FormItemType.SELECT
+    ].indexOf(itemType) > -1
+
+    const hasValidationAttrs = [
+        FormItemType.INPUT,
+        FormItemType.TEXTAREA,
+        FormItemType.CHECKBOX,
+        FormItemType.RADIO
     ].indexOf(itemType) > -1
 
     return (
@@ -251,6 +276,8 @@ function FieldAttrs (props: FieldAttrsProps) {
             {itemType === FormItemType.LAYOUT ? renderLayoutExtraAttrs(form.activeItem as LayoutItem) : null}
 
             {itemType === FormItemType.TEXT ? renderTextExtraAttrs(form.activeItem as TextItem) : null}
+
+            {hasValidationAttrs ? renderValidationAttrs(form.activeItem as any) : null}
         </div>
     )
 }
