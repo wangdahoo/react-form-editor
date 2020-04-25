@@ -3,8 +3,7 @@ import { useDrag, useDrop, DragObjectWithType } from 'react-dnd'
 import ItemTypes from '../ItemTypes'
 import { Input, Radio, Checkbox, Select, Button, Row, Col } from 'antd'
 import formAttrs from '../stores/FormAttrsStore'
-import form, { ResultItem } from '../stores/FormStore'
-import { OutputFormItem, FormItemType, InputItem, TextareaItem, RadioItem, CheckboxItem, SelectItem } from '../stores/FormStore'
+import form, { OutputFormItem, FormItemType, InputItem, TextareaItem, RadioItem, CheckboxItem, SelectItem, ResultItem } from '../stores/FormStore'
 import { observer } from 'mobx-react'
 import classnames from 'classnames'
 
@@ -235,7 +234,7 @@ function EditableField (props: EditableFieldProps) {
             }}
             onMouseDown={() => form.activate(formItem.id)}
         >
-            <div className={classnames('field-editable-label', formAttrs.labelAlign === 'top' ? 'field-editable-label-top' : '')} style={{
+            <div className={classnames('field-editable-label', formAttrs.labelAlign === 'top' ? 'field-standalone' : '')} style={{
                 width: formAttrs.labelWidth,
                 ...(formAttrs.labelAlign !== 'top' ? {
                     textAlign: formAttrs.labelAlign

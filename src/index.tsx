@@ -32,7 +32,7 @@ export default function FormEditor (props: FormEditorProps) {
                 <Layout className="form-editor-content">
                     <Layout className="form-editor-content-main">
                         <Header className="form-editor-toolbar">
-                            <Toolbar formAttrs={formAttrsStore} form={formStore} onPreview={onPreview} onSave={onSave} />
+                            <Toolbar formAttrs={formAttrsStore} form={formStore} onSave={onSave} />
                         </Header>
                         <Content className="form-editor-editarea">
                             <EditableForm formAttrs={formAttrsStore} form={formStore}/>
