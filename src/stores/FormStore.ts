@@ -277,7 +277,24 @@ export class FormStore {
     deleteOption (id: string, optionIndex: number) {
         this.items = this.items.map(item => {
             if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
-                (item as any).options.splice(optionIndex, 1)
+                if ((item as any).options.length > 1) {
+                    (item as any).options.splice(optionIndex, 1)
+
+                    // 删除选项后，重新设置默认值
+                    if (FormItemType.SELECT === item.itemType) {
+                        item.defaultValue = item.options[0].value
+                    }
+
+                    if (FormItemType.CHECKBOX === item.itemType) {
+                        item.defaultValue = []
+                    }
+
+                    if (FormItemType.RADIO === item.itemType) {
+                        item.defaultValue = ''
+                    }
+                } else {
+                    message.error('选项不得少于 1 个')
+                }
             }
 
             return item
