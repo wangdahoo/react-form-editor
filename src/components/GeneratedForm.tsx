@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FormItem, FormItemType, SelectItem, CheckboxItem, RadioItem, TextareaItem, InputItem, TextItem } from '../stores/FormStore'
-import { Radio, Input, Select, Checkbox, Divider, Button } from 'antd'
+import { Radio, Input, Select, Checkbox, Divider, Button, Form } from 'antd'
 import classnames from 'classnames'
 
 interface GeneratedFormProps {
@@ -13,7 +13,8 @@ interface GeneratedFormProps {
             labelWidth: number
             labelWidthUnit: '%' | 'px'
         }
-    }
+    },
+    onSubmit?: (formValue: GeneratedFormValues) => void
 }
 
 type GeneratedFormValues = {
@@ -49,10 +50,77 @@ const createFormValues = (items: FormItem[]): GeneratedFormValues => {
     }
 }
 
+interface ValidationResult {
+    result: boolean
+    errors: { [id: string]: string }
+}
+
+const shouldValidateRequired = (item: FormItem) => [
+    FormItemType.INPUT,
+    FormItemType.TEXTAREA,
+    FormItemType.CHECKBOX,
+    FormItemType.RADIO
+].indexOf(item.itemType) > -1
+
 function GeneratedForm (props: GeneratedFormProps) {
     const { items, attrs } = props.form
     const { formWidth, formWidthUnit, labelAlign, labelWidth } = attrs
     const [formValues, setFormValues] = useState(createFormValues(items))
+    const [validationResult, setValidationResult] = useState({ result: false, errors: {} })
+    const [validateCount, setValidateCount] = useState(0)
+
+    function onSubmit () {
+        console.log('form items =>', items)
+        console.log('form values =>', formValues)
+
+        const newValidationResult = validate(items, formValues)
+        console.log(newValidationResult)
+
+        if (newValidationResult.result) {
+            if (props.onSubmit) props.onSubmit(formValues)
+            setValidationResult({ result: false, errors: {} })
+            setFormValues(createFormValues(items))
+        } else {
+            setValidationResult(newValidationResult)
+        }
+
+        setValidateCount(validateCount + 1)
+    }
+
+    function validate (items: FormItem[], formValues: GeneratedFormValues): ValidationResult {
+        const { values } = formValues
+
+        return items.reduce(({ result, errors }: ValidationResult, item: FormItem) => {
+            // 校验必填项
+            if (shouldValidateRequired(item) && (item as any).required) {
+                const { id, labelText } = item as any
+                const value = values[id]
+
+                if (
+                    // 空字符串
+                    (typeof value === 'string' && value === '') ||
+                    // 空数组
+                    (Object.prototype.toString.call(value) === '[object Array]' && value.length === 0)
+                 ) {
+                    errors[id] = `${labelText}为必填项`
+                    result = false
+                }
+            }
+
+            // 检验结果项为必填
+            if (item.itemType === FormItemType.RESULT && formValues.result === -1) {
+                result === false
+            }
+
+            return {
+                result,
+                errors
+            }
+        }, {
+            result: false,
+            errors: {}
+        })
+    }
 
     const renderFormItem = (formItem: FormItem) => {
         const { itemType } = formItem
@@ -75,6 +143,7 @@ function GeneratedForm (props: GeneratedFormProps) {
                     >
                         <Radio value={1}>合格</Radio>
                         <Radio value={0}>不合格</Radio>
+                        <span className="err-msg">{validateCount > 0 && formValues.result === -1 ? '检验结果为必填项' : ''}</span>
                     </Radio.Group>
 
                     <Input.TextArea
@@ -212,10 +281,6 @@ function GeneratedForm (props: GeneratedFormProps) {
         }
     }
 
-    function onSumbit () {
-        console.log(formValues)
-    }
-
     return (
         <div className="generated-form" style={{
             width: `${formWidth}${formWidthUnit}`
@@ -249,6 +314,8 @@ function GeneratedForm (props: GeneratedFormProps) {
                     FormItemType.SELECT,
                     FormItemType.RESULT
                 ].indexOf(itemType) > -1) {
+                    const errMsg: string = (validationResult.errors as any)[item.id]
+
                     return (
                         <div className="form-item" key={index}>
                             <div className={classnames('form-item-label', labelAlign === 'top' ? 'label-standalone' : '')} style={{
@@ -261,6 +328,9 @@ function GeneratedForm (props: GeneratedFormProps) {
                             </div>
                             <div className='form-item-content'>
                                 {renderFormItem(item)}
+                                <div className="err-msg">
+                                    {errMsg}
+                                </div>
                             </div>
                         </div>
                     )
@@ -272,7 +342,8 @@ function GeneratedForm (props: GeneratedFormProps) {
             <Divider />
 
             <div style={{ paddingLeft: labelWidth }}>
-                <Button type="primary" onClick={onSumbit}>提交</Button>
+                <Button type="primary" onClick={onSubmit} style={{ width: 90, marginRight: 16 }}>提 交</Button>
+                <Button type="default" onClick={() => setFormValues(createFormValues(items))} style={{ width: 90 }}>重 置</Button>
             </div>
         </div>
     )
