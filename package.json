@@ -1,6 +1,6 @@
 {
     "name": "@wangdahoo/react-form-editor",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "main": "dist/index.js",
     "repository": "git@github.com:wangdahoo/react-form-editor.git",
     "author": "wangdahoo <15715705@qq.com>",
