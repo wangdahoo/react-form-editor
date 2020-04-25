@@ -1,14 +1,25 @@
 const typescript = require('rollup-plugin-typescript2')
 const postcss = require('rollup-plugin-postcss')
+const { terser } = require('rollup-plugin-terser')
 const autoprefixer = require('autoprefixer')
 const { resolve } = require('path')
 
 module.exports = {
     input: './src/index.tsx',
     output: {
-        file: 'dist/index.js',
+        dir: 'dist',
         format: 'umd',
-        name: 'ReactFormEditor'
+        name: 'ReactFormEditor',
+        globals: {
+            'react': 'React',
+            'react-dom': 'ReactDOM',
+            'react-dnd': 'ReactDnD',
+            'react-dnd-html5-backend': 'ReactDnDHTML5Backend',
+            'mobx': 'mobx',
+            'mobxReact': 'mobxReact',
+            'shortid': 'shortid',
+            'immutability-helper': 'update'
+        }
     },
     plugins: [
         typescript(),
@@ -19,7 +30,8 @@ module.exports = {
             plugins: [
                 autoprefixer()
             ]
-        })
+        }),
+        terser()
     ],
     external: [
         'antd',
