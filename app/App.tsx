@@ -1,5 +1,8 @@
 import React from 'react'
-import FormEditor from '../src'
+// import FormEditor from '../src'
+
+import  '../dist/index.css'
+import FormEditor from '../dist'
 
 interface Props {
    name: string

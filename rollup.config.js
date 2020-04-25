@@ -6,21 +6,28 @@ const { resolve } = require('path')
 
 module.exports = {
     input: './src/index.tsx',
-    output: {
-        dir: 'dist',
-        format: 'umd',
-        name: 'ReactFormEditor',
-        globals: {
-            'react': 'React',
-            'react-dom': 'ReactDOM',
-            'react-dnd': 'ReactDnD',
-            'react-dnd-html5-backend': 'ReactDnDHTML5Backend',
-            'mobx': 'mobx',
-            'mobxReact': 'mobxReact',
-            'shortid': 'shortid',
-            'immutability-helper': 'update'
+    output: [
+        // {
+        //     dir: 'dist/esm',
+        //     format: 'es'
+        // },
+        {
+            dir: 'dist',
+            // file: 'react-form.editor.umd.js'
+            format: 'umd',
+            name: 'ReactFormEditor',
+            globals: {
+                'react': 'React',
+                'react-dom': 'ReactDOM',
+                'react-dnd': 'ReactDnD',
+                'react-dnd-html5-backend': 'ReactDnDHTML5Backend',
+                'mobx': 'mobx',
+                'mobxReact': 'mobxReact',
+                'shortid': 'shortid',
+                'immutability-helper': 'update'
+            }
         }
-    },
+    ],
     plugins: [
         typescript(),
         postcss({

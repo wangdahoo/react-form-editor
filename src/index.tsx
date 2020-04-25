@@ -10,7 +10,7 @@ import EditableForm from './components/EditableForm'
 import formAttrsStore from './stores/FormAttrsStore'
 import formStore from './stores/FormStore'
 // https://github.com/mobxjs/mobx-react-lite/#observer-batching
-import 'mobx-react-lite/batchingForReactDom'
+// import 'mobx-react-lite/batchingForReactDom'
 
 const { Header, Content, Sider } = Layout
 
