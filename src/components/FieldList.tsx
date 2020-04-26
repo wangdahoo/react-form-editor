@@ -10,16 +10,20 @@ const fields = {
             text: '文本框'
         },
         {
+            name: 'number',
+            text: '数字框'
+        },
+        {
             name: 'textarea',
             text: '文本域'
         },
         {
-            name: 'checkbox',
-            text: '多选框'
-        },
-        {
             name: 'radio',
             text: '单选框'
+        },
+        {
+            name: 'checkbox',
+            text: '多选框'
         },
         {
             name: 'select',

@@ -6,6 +6,7 @@ import { message } from 'antd'
 export enum FormItemType {
     TEXT = 'text',
     INPUT = 'input',
+    NUMBER = 'number',
     TEXTAREA = 'textarea',
     CHECKBOX = 'checkbox',
     RADIO = 'radio',
@@ -22,6 +23,16 @@ export type InputItem = {
     defaultValue: string
     required: boolean
     re?: RegExp
+}
+
+export type NumberItem = {
+    id: string
+    itemType: FormItemType.NUMBER
+    labelText: string
+    defaultValue: number
+    min: number
+    max: number
+    unit: string
 }
 
 export type TextareaItem = {
@@ -95,11 +106,11 @@ export type TextItem = {
     textAlign: 'center'|'left'|'right'
 }
 
-export type FormItem =  InputItem | TextareaItem | CheckboxItem | RadioItem | SelectItem | ResultItem | LayoutItem | TextItem
+export type FormItem =  InputItem | NumberItem | TextareaItem | CheckboxItem | RadioItem | SelectItem | ResultItem | LayoutItem | TextItem
 
 export type OutputFormItem = FormItem & { isActive: boolean }
 
-const createFormItem = (itemType: string): FormItem => {
+export const createFormItem = (itemType: string): FormItem => {
     const id = generate()
 
     switch (itemType) {
@@ -181,6 +192,17 @@ const createFormItem = (itemType: string): FormItem => {
                 required: true
             }
 
+        case FormItemType.NUMBER:
+            return {
+                id,
+                itemType,
+                labelText: '数字框',
+                defaultValue: 1,
+                min: 1,
+                max: 100,
+                unit: ''
+            }
+
         default:
             return {
                 id,
@@ -200,24 +222,18 @@ const createOption = (value: string) => ({
 
 export class FormStore {
     @observable
-    private items: FormItem[] = [
-        createFormItem(FormItemType.INPUT),
-        createFormItem(FormItemType.TEXTAREA),
-        createFormItem(FormItemType.CHECKBOX),
-        createFormItem(FormItemType.RADIO),
-        createFormItem(FormItemType.SELECT),
-        createFormItem(FormItemType.TEXT),
-        createFormItem(FormItemType.RESULT),
-
-        // 暂时不支持 layout
-        // createFormItem(FormItemType.LAYOUT),
-    ]
+    private items: FormItem[] = []
 
     @observable
     private activeId: string = ''
 
     constructor () {
         // autorun(() => console.log('form items: ', this.formItems))
+    }
+
+    setItems (items: FormItem[]) {
+        this.items = items
+        this.activeId = ''
     }
 
     getItems () {

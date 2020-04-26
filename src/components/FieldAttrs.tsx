@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input, List, Button, Select, InputNumber, Radio } from 'antd'
 import { observer } from 'mobx-react'
-import form, { FormStore, FormItemType, FormItem, InputItem, TextareaItem, CheckboxItem, RadioItem, SelectItem, LayoutItem, TextItem } from '../stores/FormStore'
+import form, { FormStore, FormItemType, FormItem, InputItem, TextareaItem, CheckboxItem, RadioItem, SelectItem, LayoutItem, TextItem, NumberItem } from '../stores/FormStore'
 
 interface FieldAttrsProps {
     form: FormStore
@@ -32,6 +32,44 @@ function FieldAttrs (props: FieldAttrsProps) {
                     <Input className="input" value={item.defaultValue} onChange={e => onChangeAttrs({
                         ...item,
                         defaultValue: e.target.value
+                    })} />
+                </div>
+            </>
+        )
+    }
+
+    const renderNumberExtraAttrs = (item: NumberItem) => {
+        return (
+            <>
+                <div className="attr-item">
+                    <div className="label">最小值</div>
+                    <InputNumber className="input" value={item.min} onChange={value => onChangeAttrs({
+                        ...item,
+                        min: Number(value)
+                    })} />
+                </div>
+
+                <div className="attr-item">
+                    <div className="label">最大值</div>
+                    <InputNumber className="input" value={item.max} onChange={value => onChangeAttrs({
+                        ...item,
+                        max: Number(value)
+                    })} />
+                </div>
+
+                <div className="attr-item">
+                    <div className="label">默认值</div>
+                    <InputNumber className="input" value={item.defaultValue} min={item.min} max={item.max} onChange={value => onChangeAttrs({
+                        ...item,
+                        defaultValue: Number(value)
+                    })} />
+                </div>
+
+                <div className="attr-item">
+                    <div className="label">单位</div>
+                    <Input className="input" value={item.unit} onChange={e => onChangeAttrs({
+                        ...item,
+                        unit: e.target.value
                     })} />
                 </div>
             </>
@@ -229,6 +267,7 @@ function FieldAttrs (props: FieldAttrsProps) {
 
     const hasLabelText = [
         FormItemType.INPUT,
+        FormItemType.NUMBER,
         FormItemType.TEXTAREA,
         FormItemType.CHECKBOX,
         FormItemType.RADIO,
@@ -262,6 +301,7 @@ function FieldAttrs (props: FieldAttrsProps) {
             ) : null}
 
             {itemType === FormItemType.INPUT ? renderInputExtraAttrs(form.activeItem as InputItem) : null}
+            {itemType === FormItemType.NUMBER ? renderNumberExtraAttrs(form.activeItem as NumberItem) : null}
             {itemType === FormItemType.TEXTAREA ? renderInputExtraAttrs(form.activeItem as TextareaItem) : null}
 
             {itemType === FormItemType.CHECKBOX ? renderItemOptions(form.activeItem as CheckboxItem) : null}

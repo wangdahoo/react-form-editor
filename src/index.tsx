@@ -1,5 +1,5 @@
 import './index.less'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { DndProvider } from 'react-dnd'
 import Backend from 'react-dnd-html5-backend'
 import { Layout } from 'antd'
@@ -8,7 +8,7 @@ import FieldList from './components/FieldList'
 import AttrsPanel from './components/AttrsPanel'
 import EditableForm from './components/EditableForm'
 import formAttrsStore from './stores/FormAttrsStore'
-import formStore from './stores/FormStore'
+import formStore, { FormItem } from './stores/FormStore'
 // https://github.com/mobxjs/mobx-react-lite/#observer-batching
 // import 'mobx-react-lite/batchingForReactDom'
 
@@ -16,12 +16,16 @@ const { Header, Content, Sider } = Layout
 
 interface FormEditorProps {
     style?: React.CSSProperties
-    onPreview?: (json: string) => void
+    defaultFormItems?: FormItem[]
     onSave?: (json: string) => void
 }
 
 export default function FormEditor (props: FormEditorProps) {
-    const { style, onPreview = console.log, onSave = console.log } = props
+    const { style, defaultFormItems = [], onSave = console.log } = props
+
+    useEffect(() => {
+        formStore.setItems(defaultFormItems)
+    }, [])
 
     return (
         <DndProvider backend={Backend}>

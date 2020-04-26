@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 import { useDrag, useDrop, DragObjectWithType } from 'react-dnd'
 import ItemTypes from '../ItemTypes'
-import { Input, Radio, Checkbox, Select, Button, Row, Col } from 'antd'
+import { Input, InputNumber, Radio, Checkbox, Select, Button, Row, Col } from 'antd'
 import formAttrs from '../stores/FormAttrsStore'
-import form, { OutputFormItem, FormItemType, InputItem, TextareaItem, RadioItem, CheckboxItem, SelectItem, ResultItem } from '../stores/FormStore'
+import form, { OutputFormItem, FormItemType, InputItem, TextareaItem, RadioItem, CheckboxItem, SelectItem, ResultItem, NumberItem } from '../stores/FormStore'
 import { observer } from 'mobx-react'
 import classnames from 'classnames'
 
@@ -83,7 +83,7 @@ function EditableField (props: EditableFieldProps) {
 
             return (
                 <div>
-                    <Radio.Group defaultValue="" style={{
+                    <Radio.Group value="合格" style={{
                         height: 32,
                         lineHeight: '32px',
                         marginBottom: 16
@@ -93,6 +93,7 @@ function EditableField (props: EditableFieldProps) {
                     </Radio.Group>
 
                     <Input.TextArea
+                        value=""
                         placeholder="备注"
                     />
                 </div>
@@ -152,6 +153,24 @@ function EditableField (props: EditableFieldProps) {
                 <Input.TextArea
                     value={textareaItem.defaultValue}
                     placeholder={textareaItem.placeholder}
+                />
+            )
+
+        case FormItemType.NUMBER:
+            const numberItem = formItem as (NumberItem & { isActive: boolean })
+
+            return (
+                <InputNumber
+                    style={{width: '100%'}}
+                    value={numberItem.defaultValue}
+                    formatter={value => {
+                        if (!value) return `${numberItem.min} ${numberItem.unit}`
+                        return `${value} ${numberItem.unit}`
+                    }}
+                    parser={value => {
+                        if (!value) return Number(numberItem.min)
+                        return Number(value.replace(` ${numberItem.unit}`, ''))
+                    }}
                 />
             )
 
