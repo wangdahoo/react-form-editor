@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { FormItem, FormItemType, SelectItem, CheckboxItem, RadioItem, TextareaItem, InputItem, TextItem } from '../stores/FormStore'
-import { Radio, Input, Select, Checkbox, Divider, Button, Form } from 'antd'
+import { FormItem, FormItemType, SelectItem, CheckboxItem, RadioItem, TextareaItem, InputItem, TextItem, NumberItem } from '../stores/FormStore'
+import { Radio, Input, Select, Checkbox, Divider, Button, Form, InputNumber } from 'antd'
 import classnames from 'classnames'
 
 interface GeneratedFormProps {
@@ -19,7 +19,7 @@ interface GeneratedFormProps {
 
 type GeneratedFormValues = {
     values: {
-        [key: string]: string|string[]
+        [key: string]: string|string[]|number
     }
     result: -1|0|1
     comment: string
@@ -100,7 +100,7 @@ function GeneratedForm (props: GeneratedFormProps) {
                     // 空字符串
                     (typeof value === 'string' && value === '') ||
                     // 空数组
-                    (Object.prototype.toString.call(value) === '[object Array]' && value.length === 0)
+                    (Object.prototype.toString.call(value) === '[object Array]' && (value as string[]).length === 0)
                  ) {
                     errors[id] = `${labelText}为必填项`
                     result = false
@@ -258,6 +258,39 @@ function GeneratedForm (props: GeneratedFormProps) {
                 />
             )
 
+        case FormItemType.NUMBER:
+            const numberItem = formItem as NumberItem
+
+            return (
+                <InputNumber
+                    style={{width: '100%'}}
+                    value={formValues.values[numberItem.id] as number}
+                    onChange={value => {
+                        value = value || numberItem.min
+
+                        const values = formValues.values
+
+                        setFormValues({
+                            ...formValues,
+                            values: {
+                                ...values,
+                                [numberItem.id]: value
+                            }
+                        })
+                    }}
+                    min={numberItem.min}
+                    max={numberItem.max}
+                    formatter={value => {
+                        if (!value) return `${numberItem.min} ${numberItem.unit}`
+                        return `${value} ${numberItem.unit}`
+                    }}
+                    parser={value => {
+                        if (!value) return Number(numberItem.min)
+                        return Number(value.replace(` ${numberItem.unit}`, ''))
+                    }}
+                />
+            )
+
         default:
             const inputItem = formItem as InputItem
 
@@ -308,6 +341,7 @@ function GeneratedForm (props: GeneratedFormProps) {
 
                 if ([
                     FormItemType.INPUT,
+                    FormItemType.NUMBER,
                     FormItemType.TEXTAREA,
                     FormItemType.RADIO,
                     FormItemType.CHECKBOX,
