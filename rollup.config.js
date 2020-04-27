@@ -7,13 +7,12 @@ const { resolve } = require('path')
 module.exports = {
     input: './src/index.tsx',
     output: [
-        // {
-        //     dir: 'dist/esm',
-        //     format: 'es'
-        // },
+        {
+            dir: 'dist/esm',
+            format: 'es'
+        },
         {
             dir: 'dist',
-            // file: 'react-form.editor.umd.js'
             format: 'umd',
             name: 'ReactFormEditor',
             globals: {
