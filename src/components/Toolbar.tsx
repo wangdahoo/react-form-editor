@@ -36,6 +36,7 @@ function Toolbar (props: ToolbarProps) {
                 visible={modalVisible}
                 onCancel={() => setModalVisible(false)}
                 footer={null}
+                width={800}
             >
                 {modalVisible ? <GeneratedForm form={JSON.parse(getJson())} /> : null}
             </Modal>
