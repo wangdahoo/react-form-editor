@@ -31,6 +31,12 @@ export default function App (props: Props) {
                     height: '100vh'
                 }}
                 defaultFormItems={items}
+                // defaultFormAttrs={{
+                //     formWidth: 80,
+                //     labelAlign: 'top',
+                //     labelWidth: 200,
+                //     labelWidthUnit: 'px'
+                // }}
             />
         </div>
     )

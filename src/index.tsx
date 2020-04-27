@@ -7,7 +7,7 @@ import Toolbar from './components/Toolbar'
 import FieldList from './components/FieldList'
 import AttrsPanel from './components/AttrsPanel'
 import EditableForm from './components/EditableForm'
-import formAttrsStore from './stores/FormAttrsStore'
+import formAttrsStore, { FormAttrValues } from './stores/FormAttrsStore'
 import formStore, { FormItem } from './stores/FormStore'
 // https://github.com/mobxjs/mobx-react-lite/#observer-batching
 // import 'mobx-react-lite/batchingForReactDom'
@@ -17,14 +17,18 @@ const { Header, Content, Sider } = Layout
 interface FormEditorProps {
     style?: React.CSSProperties
     defaultFormItems?: FormItem[]
+    defaultFormAttrs?: FormAttrValues
     onSave?: (json: string) => void
 }
 
 export default function FormEditor (props: FormEditorProps) {
-    const { style, defaultFormItems = [], onSave = console.log } = props
+    const { style, defaultFormItems = [], defaultFormAttrs, onSave = console.log } = props
 
     useEffect(() => {
         formStore.setItems(defaultFormItems)
+        if (defaultFormAttrs) {
+            formAttrsStore.reset(defaultFormAttrs)
+        }
     }, [])
 
     return (

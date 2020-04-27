@@ -707,6 +707,12 @@ var FormAttrsStore = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    FormAttrsStore.prototype.reset = function (attrs) {
+        this.formWidth = attrs.formWidth || 100;
+        this.labelAlign = attrs.labelAlign || 'left';
+        this.labelWidth = attrs.labelWidth || 100;
+        this.labelWidthUnit = attrs.labelWidthUnit || 'px';
+    };
     __decorate([
         observable
     ], FormAttrsStore.prototype, "formWidth", void 0);
@@ -1037,9 +1043,12 @@ var EditableForm$1 = observer(EditableForm);
 // import 'mobx-react-lite/batchingForReactDom'
 var Header = Layout.Header, Content = Layout.Content, Sider = Layout.Sider;
 function FormEditor(props) {
-    var style = props.style, _a = props.defaultFormItems, defaultFormItems = _a === void 0 ? [] : _a, _b = props.onSave, onSave = _b === void 0 ? console.log : _b;
+    var style = props.style, _a = props.defaultFormItems, defaultFormItems = _a === void 0 ? [] : _a, defaultFormAttrs = props.defaultFormAttrs, _b = props.onSave, onSave = _b === void 0 ? console.log : _b;
     useEffect(function () {
         formStore.setItems(defaultFormItems);
+        if (defaultFormAttrs) {
+            formAttrsStore.reset(defaultFormAttrs);
+        }
     }, []);
     return (React.createElement(DndProvider, { backend: Backend },
         React.createElement(Layout, { className: "form-editor", style: style },
