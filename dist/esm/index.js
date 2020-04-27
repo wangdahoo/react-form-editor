@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import Backend from 'react-dnd-html5-backend';
-import { message, Divider, Button, Input, InputNumber, Radio, Checkbox, Select, Modal, Row, Col, List, Tabs, Layout } from 'antd';
+import { message, Empty, Divider, Button, Input, InputNumber, Radio, Checkbox, Select, Modal, Row, Col, List, Tabs, Layout } from 'antd';
 import { observer } from 'mobx-react';
 import { observable, computed } from 'mobx';
 import { generate } from 'shortid';
@@ -499,6 +499,8 @@ function GeneratedForm(props) {
                     }, placeholder: inputItem_1.placeholder }));
         }
     };
+    if (items.length === 0)
+        return React.createElement(Empty, null);
     return (React.createElement("div", { className: "generated-form", style: {
             width: "" + formWidth + formWidthUnit
         } },

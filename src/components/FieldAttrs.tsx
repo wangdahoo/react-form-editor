@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input, List, Button, Select, InputNumber, Radio } from 'antd'
 import { observer } from 'mobx-react'
-import form, { FormStore, FormItemType, FormItem, InputItem, TextareaItem, CheckboxItem, RadioItem, SelectItem, LayoutItem, TextItem, NumberItem } from '../stores/FormStore'
+import { FormStore, FormItemType, FormItem, InputItem, TextareaItem, CheckboxItem, RadioItem, SelectItem, LayoutItem, TextItem, NumberItem } from '../stores/FormStore'
 
 interface FieldAttrsProps {
     form: FormStore

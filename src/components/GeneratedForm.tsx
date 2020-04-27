@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FormItem, FormItemType, SelectItem, CheckboxItem, RadioItem, TextareaItem, InputItem, TextItem, NumberItem } from '../stores/FormStore'
-import { Radio, Input, Select, Checkbox, Divider, Button, Form, InputNumber } from 'antd'
+import { Radio, Input, Select, Checkbox, Divider, Button, InputNumber, Empty } from 'antd'
 import classnames from 'classnames'
 
 interface GeneratedFormProps {
@@ -313,6 +313,8 @@ function GeneratedForm (props: GeneratedFormProps) {
             )
         }
     }
+
+    if (items.length === 0) return <Empty />
 
     return (
         <div className="generated-form" style={{
