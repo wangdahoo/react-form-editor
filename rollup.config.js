@@ -81,10 +81,7 @@ export default [
             postcss({
                 extensions: ['.less'],
                 minimize: false,
-                extract: false,
-                plugins: [
-                    autoprefixer()
-                ]
+                extract: true
             }),
         ],
         external

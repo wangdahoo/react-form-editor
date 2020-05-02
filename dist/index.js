@@ -1,71 +1,26 @@
-import 'antd/es/layout/style/css';
 import _Layout from 'antd/es/layout';
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import Backend from 'react-dnd-html5-backend';
-import 'antd/es/modal/style/css';
 import _Modal from 'antd/es/modal';
-import 'antd/es/button/style/css';
 import _Button from 'antd/es/button';
 import { observer } from 'mobx-react';
-import 'antd/es/divider/style/css';
 import _Divider from 'antd/es/divider';
-import 'antd/es/empty/style/css';
 import _Empty from 'antd/es/empty';
-import 'antd/es/input-number/style/css';
 import _InputNumber from 'antd/es/input-number';
-import 'antd/es/checkbox/style/css';
 import _Checkbox from 'antd/es/checkbox';
-import 'antd/es/select/style/css';
 import _Select from 'antd/es/select';
-import 'antd/es/input/style/css';
 import _Input from 'antd/es/input';
-import 'antd/es/radio/style/css';
 import _Radio from 'antd/es/radio';
-import 'antd/es/message/style/css';
 import _message from 'antd/es/message';
 import { observable, computed } from 'mobx';
 import { generate } from 'shortid';
 import update from 'immutability-helper';
 import classnames from 'classnames';
-import 'antd/es/row/style/css';
 import _Row from 'antd/es/row';
-import 'antd/es/col/style/css';
 import _Col from 'antd/es/col';
-import 'antd/es/tabs/style/css';
 import _Tabs from 'antd/es/tabs';
-import 'antd/es/list/style/css';
 import _List from 'antd/es/list';
-
-function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
-
-  if (!css || typeof document === 'undefined') { return; }
-
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
-
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var css_248z = ".form-editor * {\n  box-sizing: border-box;\n}\n.form-editor-components > .ant-layout-sider-children {\n  padding: 0 16px;\n}\n.form-editor-components div.label {\n  font-size: 16px;\n  line-height: 44px;\n}\n.form-editor-components .ant-row {\n  margin-bottom: 10px;\n}\n.form-editor-components .ant-row .field {\n  box-sizing: border-box;\n  font-size: 12px;\n  line-height: 30px;\n  height: 30px;\n  width: 100%;\n  text-align: center;\n  border: 1px dashed rgba(0, 0, 0, 0);\n  background-color: #f4f6fc;\n}\n.form-editor-components .ant-row .field:hover {\n  border: 1px dashed #1890ff;\n  color: #1890ff;\n}\n.form-editor-content-main .form-editor-toolbar {\n  background: #fff;\n  height: 44px;\n  line-height: 44px;\n  border-bottom: 1px solid #eee;\n  padding: 0 16px;\n}\n.form-editor-content-main .form-editor-toolbar-content {\n  text-align: right;\n}\n.form-editor-content-main .form-editor-editarea {\n  padding: 10px 10px 0 10px;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form {\n  min-height: 100%;\n  border: 1px dashed #ddd;\n  background-color: #fff;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable {\n  position: relative;\n  display: flex;\n  padding: 16px;\n  margin: 4px;\n  border: 1px dashed #ddd;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-active {\n  border: 1px solid #1890ff;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.label-standalone {\n  flex-direction: column;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.label-standalone .field-editable-label {\n  flex: 1;\n  text-align: left;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-label {\n  font-size: 14px;\n  line-height: 32px;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-label:after {\n  content: '：';\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-content {\n  flex: 1;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-content > .ant-checkbox-group {\n  line-height: 32px;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable .btn-delete {\n  position: absolute;\n  right: 4px;\n  bottom: 4px;\n  z-index: 2;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-layout {\n  display: block;\n  padding: 0;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-layout .ant-row > .ant-col {\n  padding: 10px;\n  border: 1px dashed #ddd;\n  min-height: 64px;\n  box-sizing: border-box;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-text {\n  display: block;\n}\n.form-editor-content-attrs .attrs {\n  padding: 0 16px;\n}\n.form-editor-content-attrs .attrs .attr-item {\n  margin-bottom: 16px;\n}\n.form-editor-content-attrs .attrs .attr-item .label {\n  font-size: 14px;\n  line-height: 21px;\n  height: 30px;\n}\n.form-editor-content-attrs .attrs .attr-item .label::after {\n  content: '：';\n}\n.form-editor-content-attrs .attrs .attr-item .input {\n  display: inline-block;\n  width: 100%;\n}\n.form-editor-content-attrs .attrs .attr-item .input .ant-radio-button-wrapper {\n  width: 80px;\n  padding: 0;\n}\n.form-editor-content-attrs .attrs .attr-item .input .ant-radio-button-wrapper > span:last-child {\n  display: inline-block;\n  width: 80px;\n  text-align: center;\n}\n.form-editor-content-attrs .attrs .attr-item-option {\n  display: flex;\n}\n.form-editor-content-attrs .attrs .attr-item-option .ant-input {\n  flex: 1;\n}\n.form-editor-content-attrs .attrs .attr-item-option .btn-delete-option {\n  margin-left: 10px;\n}\n.generated-form {\n  min-height: 100%;\n  background-color: #fff;\n}\n.generated-form .form-item {\n  display: flex;\n  margin: 0 0 5px 0;\n}\n.generated-form .form-item.label-standalone {\n  flex-direction: column;\n}\n.generated-form .form-item.label-standalone .form-item-label {\n  flex: 1;\n  text-align: left;\n}\n.generated-form .form-item-label {\n  font-size: 14px;\n  line-height: 32px;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.generated-form .form-item-label:after {\n  content: '：';\n}\n.generated-form .form-item-content {\n  flex: 1;\n}\n.generated-form .form-item-content > .ant-checkbox-group {\n  line-height: 32px;\n}\n.generated-form .form-item.form-item-text {\n  display: block;\n}\n.generated-form .form-item .err-msg {\n  padding: 3px 0 0 1px;\n  height: 20px;\n  line-height: 14px;\n  color: #f5222d;\n}\n";
-styleInject(css_248z);
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
