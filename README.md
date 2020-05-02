@@ -13,3 +13,9 @@ import FormEditor from '@wangdahoo/react-form-editor'
 
 <FormEditor onSave={json => console.log(json)} />
 ```
+
+## TODO
+
+- [ ] 升级到 ant design 4
+- [ ] 支持内嵌 layout
+- [ ] 去除自定义业务组件
