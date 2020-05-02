@@ -914,10 +914,10 @@ function GeneratedForm(props) {
     if ([FormItemType.INPUT, FormItemType.NUMBER, FormItemType.TEXTAREA, FormItemType.RADIO, FormItemType.CHECKBOX, FormItemType.SELECT, FormItemType.RESULT].indexOf(itemType) > -1) {
       var errMsg = validationResult.errors[item.id];
       return /*#__PURE__*/React.createElement("div", {
-        className: "form-item",
+        className: classnames('form-item', labelAlign === 'top' ? 'label-standalone' : ''),
         key: index
       }, /*#__PURE__*/React.createElement("div", {
-        className: classnames('form-item-label', labelAlign === 'top' ? 'label-standalone' : ''),
+        className: "form-item-label",
         style: _objectSpread2({
           width: labelWidth
         }, labelAlign !== 'top' ? {

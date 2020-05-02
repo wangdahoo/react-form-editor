@@ -83363,10 +83363,10 @@ function GeneratedForm(props) {
     if ([_FormStore.FormItemType.INPUT, _FormStore.FormItemType.NUMBER, _FormStore.FormItemType.TEXTAREA, _FormStore.FormItemType.RADIO, _FormStore.FormItemType.CHECKBOX, _FormStore.FormItemType.SELECT, _FormStore.FormItemType.RESULT].indexOf(itemType) > -1) {
       var errMsg = validationResult.errors[item.id];
       return _react.default.createElement("div", {
-        className: "form-item",
+        className: (0, _classnames.default)('form-item', labelAlign === 'top' ? 'label-standalone' : ''),
         key: index
       }, _react.default.createElement("div", {
-        className: (0, _classnames.default)('form-item-label', labelAlign === 'top' ? 'label-standalone' : ''),
+        className: 'form-item-label',
         style: __assign({
           width: labelWidth
         }, labelAlign !== 'top' ? {
@@ -92298,7 +92298,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61063" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58437" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

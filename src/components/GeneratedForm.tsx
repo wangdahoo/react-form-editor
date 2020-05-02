@@ -353,8 +353,8 @@ function GeneratedForm (props: GeneratedFormProps) {
                     const errMsg: string = (validationResult.errors as any)[item.id]
 
                     return (
-                        <div className="form-item" key={index}>
-                            <div className={classnames('form-item-label', labelAlign === 'top' ? 'label-standalone' : '')} style={{
+                        <div className={classnames('form-item', labelAlign === 'top' ? 'label-standalone' : '')} key={index}>
+                            <div className='form-item-label' style={{
                                 width: labelWidth,
                                 ...(labelAlign !== 'top' ? {
                                     textAlign: labelAlign
