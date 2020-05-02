@@ -35597,527 +35597,33 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/antd/es/layout/style/index.css":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/antd/es/message/style/index.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/antd/es/layout/style/css.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/antd/es/message/style/css.js":[function(require,module,exports) {
 "use strict";
 
 require("../../style/index.css");
 
 require("./index.css");
-},{"../../style/index.css":"../node_modules/antd/es/style/index.css","./index.css":"../node_modules/antd/es/layout/style/index.css"}],"../node_modules/antd/es/layout/layout.js":[function(require,module,exports) {
+},{"../../style/index.css":"../node_modules/antd/es/style/index.css","./index.css":"../node_modules/antd/es/message/style/index.css"}],"../node_modules/babel-runtime/helpers/objectWithoutProperties.js":[function(require,module,exports) {
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.LayoutContext = void 0;
+exports.__esModule = true;
 
-var React = _interopRequireWildcard(require("react"));
+exports.default = function (obj, keys) {
+  var target = {};
 
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _createReactContext = _interopRequireDefault(require("@ant-design/create-react-context"));
-
-var _configProvider = require("../config-provider");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
+  for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;
+    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+    target[i] = obj[i];
   }
 
-  return _typeof(obj);
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(n);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _createSuper(Derived) {
-  return function () {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (_isNativeReflectConstruct()) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn(this, result);
-  };
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-var __rest = void 0 && (void 0).__rest || function (s, e) {
-  var t = {};
-
-  for (var p in s) {
-    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
-  }
-
-  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
-  }
-  return t;
+  return target;
 };
-
-var LayoutContext = (0, _createReactContext.default)({
-  siderHook: {
-    addSider: function addSider() {
-      return null;
-    },
-    removeSider: function removeSider() {
-      return null;
-    }
-  }
-});
-exports.LayoutContext = LayoutContext;
-
-function generator(_ref) {
-  var suffixCls = _ref.suffixCls,
-      tagName = _ref.tagName,
-      displayName = _ref.displayName;
-  return function (BasicComponent) {
-    var _a;
-
-    return _a = /*#__PURE__*/function (_React$Component) {
-      _inherits(Adapter, _React$Component);
-
-      var _super = _createSuper(Adapter);
-
-      function Adapter() {
-        var _this;
-
-        _classCallCheck(this, Adapter);
-
-        _this = _super.apply(this, arguments);
-
-        _this.renderComponent = function (_ref2) {
-          var getPrefixCls = _ref2.getPrefixCls;
-          var customizePrefixCls = _this.props.prefixCls;
-          var prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
-          return /*#__PURE__*/React.createElement(BasicComponent, _extends({
-            prefixCls: prefixCls,
-            tagName: tagName
-          }, _this.props));
-        };
-
-        return _this;
-      }
-
-      _createClass(Adapter, [{
-        key: "render",
-        value: function render() {
-          return /*#__PURE__*/React.createElement(_configProvider.ConfigConsumer, null, this.renderComponent);
-        }
-      }]);
-
-      return Adapter;
-    }(React.Component), _a.displayName = displayName, _a;
-  };
-}
-
-var Basic = function Basic(props) {
-  var prefixCls = props.prefixCls,
-      className = props.className,
-      children = props.children,
-      tagName = props.tagName,
-      others = __rest(props, ["prefixCls", "className", "children", "tagName"]);
-
-  var classString = (0, _classnames.default)(className, prefixCls);
-  return React.createElement(tagName, _extends({
-    className: classString
-  }, others), children);
-};
-
-var BasicLayout = /*#__PURE__*/function (_React$Component2) {
-  _inherits(BasicLayout, _React$Component2);
-
-  var _super2 = _createSuper(BasicLayout);
-
-  function BasicLayout() {
-    var _this2;
-
-    _classCallCheck(this, BasicLayout);
-
-    _this2 = _super2.apply(this, arguments);
-    _this2.state = {
-      siders: []
-    };
-    return _this2;
-  }
-
-  _createClass(BasicLayout, [{
-    key: "getSiderHook",
-    value: function getSiderHook() {
-      var _this3 = this;
-
-      return {
-        addSider: function addSider(id) {
-          _this3.setState(function (state) {
-            return {
-              siders: [].concat(_toConsumableArray(state.siders), [id])
-            };
-          });
-        },
-        removeSider: function removeSider(id) {
-          _this3.setState(function (state) {
-            return {
-              siders: state.siders.filter(function (currentId) {
-                return currentId !== id;
-              })
-            };
-          });
-        }
-      };
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _a = this.props,
-          prefixCls = _a.prefixCls,
-          className = _a.className,
-          children = _a.children,
-          hasSider = _a.hasSider,
-          Tag = _a.tagName,
-          others = __rest(_a, ["prefixCls", "className", "children", "hasSider", "tagName"]);
-
-      var classString = (0, _classnames.default)(className, prefixCls, _defineProperty({}, "".concat(prefixCls, "-has-sider"), typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0));
-      return /*#__PURE__*/React.createElement(LayoutContext.Provider, {
-        value: {
-          siderHook: this.getSiderHook()
-        }
-      }, /*#__PURE__*/React.createElement(Tag, _extends({
-        className: classString
-      }, others), children));
-    }
-  }]);
-
-  return BasicLayout;
-}(React.Component);
-
-var Layout = generator({
-  suffixCls: 'layout',
-  tagName: 'section',
-  displayName: 'Layout'
-})(BasicLayout);
-var Header = generator({
-  suffixCls: 'layout-header',
-  tagName: 'header',
-  displayName: 'Header'
-})(Basic);
-var Footer = generator({
-  suffixCls: 'layout-footer',
-  tagName: 'footer',
-  displayName: 'Footer'
-})(Basic);
-var Content = generator({
-  suffixCls: 'layout-content',
-  tagName: 'main',
-  displayName: 'Content'
-})(Basic);
-Layout.Header = Header;
-Layout.Footer = Footer;
-Layout.Content = Content;
-var _default = Layout;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","@ant-design/create-react-context":"../node_modules/@ant-design/create-react-context/lib/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js"}],"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.polyfill = polyfill;
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-function componentWillMount() {
-  // Call this.constructor.gDSFP to support sub-classes.
-  var state = this.constructor.getDerivedStateFromProps(this.props, this.state);
-
-  if (state !== null && state !== undefined) {
-    this.setState(state);
-  }
-}
-
-function componentWillReceiveProps(nextProps) {
-  // Call this.constructor.gDSFP to support sub-classes.
-  // Use the setState() updater to ensure state isn't stale in certain edge cases.
-  function updater(prevState) {
-    var state = this.constructor.getDerivedStateFromProps(nextProps, prevState);
-    return state !== null && state !== undefined ? state : null;
-  } // Binding "this" is important for shallow renderer support.
-
-
-  this.setState(updater.bind(this));
-}
-
-function componentWillUpdate(nextProps, nextState) {
-  try {
-    var prevProps = this.props;
-    var prevState = this.state;
-    this.props = nextProps;
-    this.state = nextState;
-    this.__reactInternalSnapshotFlag = true;
-    this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(prevProps, prevState);
-  } finally {
-    this.props = prevProps;
-    this.state = prevState;
-  }
-} // React may warn about cWM/cWRP/cWU methods being deprecated.
-// Add a flag to suppress these warnings for this special case.
-
-
-componentWillMount.__suppressDeprecationWarning = true;
-componentWillReceiveProps.__suppressDeprecationWarning = true;
-componentWillUpdate.__suppressDeprecationWarning = true;
-
-function polyfill(Component) {
-  var prototype = Component.prototype;
-
-  if (!prototype || !prototype.isReactComponent) {
-    throw new Error('Can only polyfill class components');
-  }
-
-  if (typeof Component.getDerivedStateFromProps !== 'function' && typeof prototype.getSnapshotBeforeUpdate !== 'function') {
-    return Component;
-  } // If new component APIs are defined, "unsafe" lifecycles won't be called.
-  // Error if any of these lifecycles are present,
-  // Because they would work differently between older and newer (16.3+) versions of React.
-
-
-  var foundWillMountName = null;
-  var foundWillReceivePropsName = null;
-  var foundWillUpdateName = null;
-
-  if (typeof prototype.componentWillMount === 'function') {
-    foundWillMountName = 'componentWillMount';
-  } else if (typeof prototype.UNSAFE_componentWillMount === 'function') {
-    foundWillMountName = 'UNSAFE_componentWillMount';
-  }
-
-  if (typeof prototype.componentWillReceiveProps === 'function') {
-    foundWillReceivePropsName = 'componentWillReceiveProps';
-  } else if (typeof prototype.UNSAFE_componentWillReceiveProps === 'function') {
-    foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
-  }
-
-  if (typeof prototype.componentWillUpdate === 'function') {
-    foundWillUpdateName = 'componentWillUpdate';
-  } else if (typeof prototype.UNSAFE_componentWillUpdate === 'function') {
-    foundWillUpdateName = 'UNSAFE_componentWillUpdate';
-  }
-
-  if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
-    var componentName = Component.displayName || Component.name;
-    var newApiName = typeof Component.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
-    throw Error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + componentName + ' uses ' + newApiName + ' but also contains the following legacy lifecycles:' + (foundWillMountName !== null ? '\n  ' + foundWillMountName : '') + (foundWillReceivePropsName !== null ? '\n  ' + foundWillReceivePropsName : '') + (foundWillUpdateName !== null ? '\n  ' + foundWillUpdateName : '') + '\n\nThe above lifecycles should be removed. Learn more about this warning here:\n' + 'https://fb.me/react-async-component-lifecycle-hooks');
-  } // React <= 16.2 does not support static getDerivedStateFromProps.
-  // As a workaround, use cWM and cWRP to invoke the new static lifecycle.
-  // Newer versions of React will ignore these lifecycles if gDSFP exists.
-
-
-  if (typeof Component.getDerivedStateFromProps === 'function') {
-    prototype.componentWillMount = componentWillMount;
-    prototype.componentWillReceiveProps = componentWillReceiveProps;
-  } // React <= 16.2 does not support getSnapshotBeforeUpdate.
-  // As a workaround, use cWU to invoke the new lifecycle.
-  // Newer versions of React will ignore that lifecycle if gSBU exists.
-
-
-  if (typeof prototype.getSnapshotBeforeUpdate === 'function') {
-    if (typeof prototype.componentDidUpdate !== 'function') {
-      throw new Error('Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype');
-    }
-
-    prototype.componentWillUpdate = componentWillUpdate;
-    var componentDidUpdate = prototype.componentDidUpdate;
-
-    prototype.componentDidUpdate = function componentDidUpdatePolyfill(prevProps, prevState, maybeSnapshot) {
-      // 16.3+ will not execute our will-update method;
-      // It will pass a snapshot value to did-update though.
-      // Older versions will require our polyfilled will-update value.
-      // We need to handle both cases, but can't just check for the presence of "maybeSnapshot",
-      // Because for <= 15.x versions this might be a "prevContext" object.
-      // We also can't just check "__reactInternalSnapshot",
-      // Because get-snapshot might return a falsy value.
-      // So check for the explicit __reactInternalSnapshotFlag flag to determine behavior.
-      var snapshot = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : maybeSnapshot;
-      componentDidUpdate.call(this, prevProps, prevState, snapshot);
-    };
-  }
-
-  return Component;
-}
 },{}],"../node_modules/core-js/library/modules/_global.js":[function(require,module,exports) {
 
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -36323,7 +35829,46 @@ $export.U = 64;  // safe
 $export.R = 128; // real proto method for `library`
 module.exports = $export;
 
-},{"./_global":"../node_modules/core-js/library/modules/_global.js","./_core":"../node_modules/core-js/library/modules/_core.js","./_ctx":"../node_modules/core-js/library/modules/_ctx.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_has":"../node_modules/core-js/library/modules/_has.js"}],"../node_modules/core-js/library/modules/_cof.js":[function(require,module,exports) {
+},{"./_global":"../node_modules/core-js/library/modules/_global.js","./_core":"../node_modules/core-js/library/modules/_core.js","./_ctx":"../node_modules/core-js/library/modules/_ctx.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_has":"../node_modules/core-js/library/modules/_has.js"}],"../node_modules/core-js/library/modules/es6.object.define-property.js":[function(require,module,exports) {
+var $export = require('./_export');
+// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+$export($export.S + $export.F * !require('./_descriptors'), 'Object', { defineProperty: require('./_object-dp').f });
+
+},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js"}],"../node_modules/core-js/library/fn/object/define-property.js":[function(require,module,exports) {
+require('../../modules/es6.object.define-property');
+var $Object = require('../../modules/_core').Object;
+module.exports = function defineProperty(it, key, desc) {
+  return $Object.defineProperty(it, key, desc);
+};
+
+},{"../../modules/es6.object.define-property":"../node_modules/core-js/library/modules/es6.object.define-property.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/define-property.js":[function(require,module,exports) {
+module.exports = { "default": require("core-js/library/fn/object/define-property"), __esModule: true };
+},{"core-js/library/fn/object/define-property":"../node_modules/core-js/library/fn/object/define-property.js"}],"../node_modules/babel-runtime/helpers/defineProperty.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var _defineProperty = require("../core-js/object/define-property");
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (obj, key, value) {
+  if (key in obj) {
+    (0, _defineProperty2.default)(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+};
+},{"../core-js/object/define-property":"../node_modules/babel-runtime/core-js/object/define-property.js"}],"../node_modules/core-js/library/modules/_cof.js":[function(require,module,exports) {
 var toString = {}.toString;
 
 module.exports = function (it) {
@@ -36558,7 +36103,1950 @@ exports.default = _assign2.default || function (target) {
 
   return target;
 };
-},{"../core-js/object/assign":"../node_modules/babel-runtime/core-js/object/assign.js"}],"../node_modules/omit.js/es/index.js":[function(require,module,exports) {
+},{"../core-js/object/assign":"../node_modules/babel-runtime/core-js/object/assign.js"}],"../node_modules/babel-runtime/helpers/classCallCheck.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+exports.default = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+},{}],"../node_modules/babel-runtime/helpers/createClass.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var _defineProperty = require("../core-js/object/define-property");
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+},{"../core-js/object/define-property":"../node_modules/babel-runtime/core-js/object/define-property.js"}],"../node_modules/core-js/library/modules/_string-at.js":[function(require,module,exports) {
+var toInteger = require('./_to-integer');
+var defined = require('./_defined');
+// true  -> String#at
+// false -> String#codePointAt
+module.exports = function (TO_STRING) {
+  return function (that, pos) {
+    var s = String(defined(that));
+    var i = toInteger(pos);
+    var l = s.length;
+    var a, b;
+    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
+    a = s.charCodeAt(i);
+    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
+      ? TO_STRING ? s.charAt(i) : a
+      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
+  };
+};
+
+},{"./_to-integer":"../node_modules/core-js/library/modules/_to-integer.js","./_defined":"../node_modules/core-js/library/modules/_defined.js"}],"../node_modules/core-js/library/modules/_redefine.js":[function(require,module,exports) {
+module.exports = require('./_hide');
+
+},{"./_hide":"../node_modules/core-js/library/modules/_hide.js"}],"../node_modules/core-js/library/modules/_iterators.js":[function(require,module,exports) {
+module.exports = {};
+
+},{}],"../node_modules/core-js/library/modules/_object-dps.js":[function(require,module,exports) {
+var dP = require('./_object-dp');
+var anObject = require('./_an-object');
+var getKeys = require('./_object-keys');
+
+module.exports = require('./_descriptors') ? Object.defineProperties : function defineProperties(O, Properties) {
+  anObject(O);
+  var keys = getKeys(Properties);
+  var length = keys.length;
+  var i = 0;
+  var P;
+  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
+  return O;
+};
+
+},{"./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js"}],"../node_modules/core-js/library/modules/_html.js":[function(require,module,exports) {
+var document = require('./_global').document;
+module.exports = document && document.documentElement;
+
+},{"./_global":"../node_modules/core-js/library/modules/_global.js"}],"../node_modules/core-js/library/modules/_object-create.js":[function(require,module,exports) {
+// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+var anObject = require('./_an-object');
+var dPs = require('./_object-dps');
+var enumBugKeys = require('./_enum-bug-keys');
+var IE_PROTO = require('./_shared-key')('IE_PROTO');
+var Empty = function () { /* empty */ };
+var PROTOTYPE = 'prototype';
+
+// Create object with fake `null` prototype: use iframe Object with cleared prototype
+var createDict = function () {
+  // Thrash, waste and sodomy: IE GC bug
+  var iframe = require('./_dom-create')('iframe');
+  var i = enumBugKeys.length;
+  var lt = '<';
+  var gt = '>';
+  var iframeDocument;
+  iframe.style.display = 'none';
+  require('./_html').appendChild(iframe);
+  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
+  // createDict = iframe.contentWindow.Object;
+  // html.removeChild(iframe);
+  iframeDocument = iframe.contentWindow.document;
+  iframeDocument.open();
+  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
+  iframeDocument.close();
+  createDict = iframeDocument.F;
+  while (i--) delete createDict[PROTOTYPE][enumBugKeys[i]];
+  return createDict();
+};
+
+module.exports = Object.create || function create(O, Properties) {
+  var result;
+  if (O !== null) {
+    Empty[PROTOTYPE] = anObject(O);
+    result = new Empty();
+    Empty[PROTOTYPE] = null;
+    // add "__proto__" for Object.getPrototypeOf polyfill
+    result[IE_PROTO] = O;
+  } else result = createDict();
+  return Properties === undefined ? result : dPs(result, Properties);
+};
+
+},{"./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_object-dps":"../node_modules/core-js/library/modules/_object-dps.js","./_enum-bug-keys":"../node_modules/core-js/library/modules/_enum-bug-keys.js","./_shared-key":"../node_modules/core-js/library/modules/_shared-key.js","./_dom-create":"../node_modules/core-js/library/modules/_dom-create.js","./_html":"../node_modules/core-js/library/modules/_html.js"}],"../node_modules/core-js/library/modules/_wks.js":[function(require,module,exports) {
+var store = require('./_shared')('wks');
+var uid = require('./_uid');
+var Symbol = require('./_global').Symbol;
+var USE_SYMBOL = typeof Symbol == 'function';
+
+var $exports = module.exports = function (name) {
+  return store[name] || (store[name] =
+    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
+};
+
+$exports.store = store;
+
+},{"./_shared":"../node_modules/core-js/library/modules/_shared.js","./_uid":"../node_modules/core-js/library/modules/_uid.js","./_global":"../node_modules/core-js/library/modules/_global.js"}],"../node_modules/core-js/library/modules/_set-to-string-tag.js":[function(require,module,exports) {
+var def = require('./_object-dp').f;
+var has = require('./_has');
+var TAG = require('./_wks')('toStringTag');
+
+module.exports = function (it, tag, stat) {
+  if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
+};
+
+},{"./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_iter-create.js":[function(require,module,exports) {
+'use strict';
+var create = require('./_object-create');
+var descriptor = require('./_property-desc');
+var setToStringTag = require('./_set-to-string-tag');
+var IteratorPrototype = {};
+
+// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
+require('./_hide')(IteratorPrototype, require('./_wks')('iterator'), function () { return this; });
+
+module.exports = function (Constructor, NAME, next) {
+  Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
+  setToStringTag(Constructor, NAME + ' Iterator');
+};
+
+},{"./_object-create":"../node_modules/core-js/library/modules/_object-create.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_object-gpo.js":[function(require,module,exports) {
+// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
+var has = require('./_has');
+var toObject = require('./_to-object');
+var IE_PROTO = require('./_shared-key')('IE_PROTO');
+var ObjectProto = Object.prototype;
+
+module.exports = Object.getPrototypeOf || function (O) {
+  O = toObject(O);
+  if (has(O, IE_PROTO)) return O[IE_PROTO];
+  if (typeof O.constructor == 'function' && O instanceof O.constructor) {
+    return O.constructor.prototype;
+  } return O instanceof Object ? ObjectProto : null;
+};
+
+},{"./_has":"../node_modules/core-js/library/modules/_has.js","./_to-object":"../node_modules/core-js/library/modules/_to-object.js","./_shared-key":"../node_modules/core-js/library/modules/_shared-key.js"}],"../node_modules/core-js/library/modules/_iter-define.js":[function(require,module,exports) {
+'use strict';
+var LIBRARY = require('./_library');
+var $export = require('./_export');
+var redefine = require('./_redefine');
+var hide = require('./_hide');
+var Iterators = require('./_iterators');
+var $iterCreate = require('./_iter-create');
+var setToStringTag = require('./_set-to-string-tag');
+var getPrototypeOf = require('./_object-gpo');
+var ITERATOR = require('./_wks')('iterator');
+var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
+var FF_ITERATOR = '@@iterator';
+var KEYS = 'keys';
+var VALUES = 'values';
+
+var returnThis = function () { return this; };
+
+module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED) {
+  $iterCreate(Constructor, NAME, next);
+  var getMethod = function (kind) {
+    if (!BUGGY && kind in proto) return proto[kind];
+    switch (kind) {
+      case KEYS: return function keys() { return new Constructor(this, kind); };
+      case VALUES: return function values() { return new Constructor(this, kind); };
+    } return function entries() { return new Constructor(this, kind); };
+  };
+  var TAG = NAME + ' Iterator';
+  var DEF_VALUES = DEFAULT == VALUES;
+  var VALUES_BUG = false;
+  var proto = Base.prototype;
+  var $native = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT];
+  var $default = $native || getMethod(DEFAULT);
+  var $entries = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined;
+  var $anyNative = NAME == 'Array' ? proto.entries || $native : $native;
+  var methods, key, IteratorPrototype;
+  // Fix native
+  if ($anyNative) {
+    IteratorPrototype = getPrototypeOf($anyNative.call(new Base()));
+    if (IteratorPrototype !== Object.prototype && IteratorPrototype.next) {
+      // Set @@toStringTag to native iterators
+      setToStringTag(IteratorPrototype, TAG, true);
+      // fix for some old engines
+      if (!LIBRARY && typeof IteratorPrototype[ITERATOR] != 'function') hide(IteratorPrototype, ITERATOR, returnThis);
+    }
+  }
+  // fix Array#{values, @@iterator}.name in V8 / FF
+  if (DEF_VALUES && $native && $native.name !== VALUES) {
+    VALUES_BUG = true;
+    $default = function values() { return $native.call(this); };
+  }
+  // Define iterator
+  if ((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])) {
+    hide(proto, ITERATOR, $default);
+  }
+  // Plug for library
+  Iterators[NAME] = $default;
+  Iterators[TAG] = returnThis;
+  if (DEFAULT) {
+    methods = {
+      values: DEF_VALUES ? $default : getMethod(VALUES),
+      keys: IS_SET ? $default : getMethod(KEYS),
+      entries: $entries
+    };
+    if (FORCED) for (key in methods) {
+      if (!(key in proto)) redefine(proto, key, methods[key]);
+    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
+  }
+  return methods;
+};
+
+},{"./_library":"../node_modules/core-js/library/modules/_library.js","./_export":"../node_modules/core-js/library/modules/_export.js","./_redefine":"../node_modules/core-js/library/modules/_redefine.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_iter-create":"../node_modules/core-js/library/modules/_iter-create.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_object-gpo":"../node_modules/core-js/library/modules/_object-gpo.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/es6.string.iterator.js":[function(require,module,exports) {
+'use strict';
+var $at = require('./_string-at')(true);
+
+// 21.1.3.27 String.prototype[@@iterator]()
+require('./_iter-define')(String, 'String', function (iterated) {
+  this._t = String(iterated); // target
+  this._i = 0;                // next index
+// 21.1.5.2.1 %StringIteratorPrototype%.next()
+}, function () {
+  var O = this._t;
+  var index = this._i;
+  var point;
+  if (index >= O.length) return { value: undefined, done: true };
+  point = $at(O, index);
+  this._i += point.length;
+  return { value: point, done: false };
+});
+
+},{"./_string-at":"../node_modules/core-js/library/modules/_string-at.js","./_iter-define":"../node_modules/core-js/library/modules/_iter-define.js"}],"../node_modules/core-js/library/modules/_add-to-unscopables.js":[function(require,module,exports) {
+module.exports = function () { /* empty */ };
+
+},{}],"../node_modules/core-js/library/modules/_iter-step.js":[function(require,module,exports) {
+module.exports = function (done, value) {
+  return { value: value, done: !!done };
+};
+
+},{}],"../node_modules/core-js/library/modules/es6.array.iterator.js":[function(require,module,exports) {
+'use strict';
+var addToUnscopables = require('./_add-to-unscopables');
+var step = require('./_iter-step');
+var Iterators = require('./_iterators');
+var toIObject = require('./_to-iobject');
+
+// 22.1.3.4 Array.prototype.entries()
+// 22.1.3.13 Array.prototype.keys()
+// 22.1.3.29 Array.prototype.values()
+// 22.1.3.30 Array.prototype[@@iterator]()
+module.exports = require('./_iter-define')(Array, 'Array', function (iterated, kind) {
+  this._t = toIObject(iterated); // target
+  this._i = 0;                   // next index
+  this._k = kind;                // kind
+// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
+}, function () {
+  var O = this._t;
+  var kind = this._k;
+  var index = this._i++;
+  if (!O || index >= O.length) {
+    this._t = undefined;
+    return step(1);
+  }
+  if (kind == 'keys') return step(0, index);
+  if (kind == 'values') return step(0, O[index]);
+  return step(0, [index, O[index]]);
+}, 'values');
+
+// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
+Iterators.Arguments = Iterators.Array;
+
+addToUnscopables('keys');
+addToUnscopables('values');
+addToUnscopables('entries');
+
+},{"./_add-to-unscopables":"../node_modules/core-js/library/modules/_add-to-unscopables.js","./_iter-step":"../node_modules/core-js/library/modules/_iter-step.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_iter-define":"../node_modules/core-js/library/modules/_iter-define.js"}],"../node_modules/core-js/library/modules/web.dom.iterable.js":[function(require,module,exports) {
+
+require('./es6.array.iterator');
+var global = require('./_global');
+var hide = require('./_hide');
+var Iterators = require('./_iterators');
+var TO_STRING_TAG = require('./_wks')('toStringTag');
+
+var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
+  'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
+  'MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,' +
+  'SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,' +
+  'TextTrackList,TouchList').split(',');
+
+for (var i = 0; i < DOMIterables.length; i++) {
+  var NAME = DOMIterables[i];
+  var Collection = global[NAME];
+  var proto = Collection && Collection.prototype;
+  if (proto && !proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
+  Iterators[NAME] = Iterators.Array;
+}
+
+},{"./es6.array.iterator":"../node_modules/core-js/library/modules/es6.array.iterator.js","./_global":"../node_modules/core-js/library/modules/_global.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_wks-ext.js":[function(require,module,exports) {
+exports.f = require('./_wks');
+
+},{"./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/fn/symbol/iterator.js":[function(require,module,exports) {
+require('../../modules/es6.string.iterator');
+require('../../modules/web.dom.iterable');
+module.exports = require('../../modules/_wks-ext').f('iterator');
+
+},{"../../modules/es6.string.iterator":"../node_modules/core-js/library/modules/es6.string.iterator.js","../../modules/web.dom.iterable":"../node_modules/core-js/library/modules/web.dom.iterable.js","../../modules/_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js"}],"../node_modules/babel-runtime/core-js/symbol/iterator.js":[function(require,module,exports) {
+module.exports = { "default": require("core-js/library/fn/symbol/iterator"), __esModule: true };
+},{"core-js/library/fn/symbol/iterator":"../node_modules/core-js/library/fn/symbol/iterator.js"}],"../node_modules/core-js/library/modules/_meta.js":[function(require,module,exports) {
+var META = require('./_uid')('meta');
+var isObject = require('./_is-object');
+var has = require('./_has');
+var setDesc = require('./_object-dp').f;
+var id = 0;
+var isExtensible = Object.isExtensible || function () {
+  return true;
+};
+var FREEZE = !require('./_fails')(function () {
+  return isExtensible(Object.preventExtensions({}));
+});
+var setMeta = function (it) {
+  setDesc(it, META, { value: {
+    i: 'O' + ++id, // object ID
+    w: {}          // weak collections IDs
+  } });
+};
+var fastKey = function (it, create) {
+  // return primitive with prefix
+  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
+  if (!has(it, META)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return 'F';
+    // not necessary to add metadata
+    if (!create) return 'E';
+    // add missing metadata
+    setMeta(it);
+  // return object ID
+  } return it[META].i;
+};
+var getWeak = function (it, create) {
+  if (!has(it, META)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return true;
+    // not necessary to add metadata
+    if (!create) return false;
+    // add missing metadata
+    setMeta(it);
+  // return hash weak collections IDs
+  } return it[META].w;
+};
+// add metadata on freeze-family methods calling
+var onFreeze = function (it) {
+  if (FREEZE && meta.NEED && isExtensible(it) && !has(it, META)) setMeta(it);
+  return it;
+};
+var meta = module.exports = {
+  KEY: META,
+  NEED: false,
+  fastKey: fastKey,
+  getWeak: getWeak,
+  onFreeze: onFreeze
+};
+
+},{"./_uid":"../node_modules/core-js/library/modules/_uid.js","./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_fails":"../node_modules/core-js/library/modules/_fails.js"}],"../node_modules/core-js/library/modules/_wks-define.js":[function(require,module,exports) {
+
+var global = require('./_global');
+var core = require('./_core');
+var LIBRARY = require('./_library');
+var wksExt = require('./_wks-ext');
+var defineProperty = require('./_object-dp').f;
+module.exports = function (name) {
+  var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
+  if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
+};
+
+},{"./_global":"../node_modules/core-js/library/modules/_global.js","./_core":"../node_modules/core-js/library/modules/_core.js","./_library":"../node_modules/core-js/library/modules/_library.js","./_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js"}],"../node_modules/core-js/library/modules/_enum-keys.js":[function(require,module,exports) {
+// all enumerable object keys, includes symbols
+var getKeys = require('./_object-keys');
+var gOPS = require('./_object-gops');
+var pIE = require('./_object-pie');
+module.exports = function (it) {
+  var result = getKeys(it);
+  var getSymbols = gOPS.f;
+  if (getSymbols) {
+    var symbols = getSymbols(it);
+    var isEnum = pIE.f;
+    var i = 0;
+    var key;
+    while (symbols.length > i) if (isEnum.call(it, key = symbols[i++])) result.push(key);
+  } return result;
+};
+
+},{"./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_object-gops":"../node_modules/core-js/library/modules/_object-gops.js","./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js"}],"../node_modules/core-js/library/modules/_is-array.js":[function(require,module,exports) {
+// 7.2.2 IsArray(argument)
+var cof = require('./_cof');
+module.exports = Array.isArray || function isArray(arg) {
+  return cof(arg) == 'Array';
+};
+
+},{"./_cof":"../node_modules/core-js/library/modules/_cof.js"}],"../node_modules/core-js/library/modules/_object-gopn.js":[function(require,module,exports) {
+// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
+var $keys = require('./_object-keys-internal');
+var hiddenKeys = require('./_enum-bug-keys').concat('length', 'prototype');
+
+exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
+  return $keys(O, hiddenKeys);
+};
+
+},{"./_object-keys-internal":"../node_modules/core-js/library/modules/_object-keys-internal.js","./_enum-bug-keys":"../node_modules/core-js/library/modules/_enum-bug-keys.js"}],"../node_modules/core-js/library/modules/_object-gopn-ext.js":[function(require,module,exports) {
+// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
+var toIObject = require('./_to-iobject');
+var gOPN = require('./_object-gopn').f;
+var toString = {}.toString;
+
+var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
+  ? Object.getOwnPropertyNames(window) : [];
+
+var getWindowNames = function (it) {
+  try {
+    return gOPN(it);
+  } catch (e) {
+    return windowNames.slice();
+  }
+};
+
+module.exports.f = function getOwnPropertyNames(it) {
+  return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
+};
+
+},{"./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_object-gopn":"../node_modules/core-js/library/modules/_object-gopn.js"}],"../node_modules/core-js/library/modules/_object-gopd.js":[function(require,module,exports) {
+var pIE = require('./_object-pie');
+var createDesc = require('./_property-desc');
+var toIObject = require('./_to-iobject');
+var toPrimitive = require('./_to-primitive');
+var has = require('./_has');
+var IE8_DOM_DEFINE = require('./_ie8-dom-define');
+var gOPD = Object.getOwnPropertyDescriptor;
+
+exports.f = require('./_descriptors') ? gOPD : function getOwnPropertyDescriptor(O, P) {
+  O = toIObject(O);
+  P = toPrimitive(P, true);
+  if (IE8_DOM_DEFINE) try {
+    return gOPD(O, P);
+  } catch (e) { /* empty */ }
+  if (has(O, P)) return createDesc(!pIE.f.call(O, P), O[P]);
+};
+
+},{"./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_to-primitive":"../node_modules/core-js/library/modules/_to-primitive.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_ie8-dom-define":"../node_modules/core-js/library/modules/_ie8-dom-define.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js"}],"../node_modules/core-js/library/modules/es6.symbol.js":[function(require,module,exports) {
+
+'use strict';
+// ECMAScript 6 symbols shim
+var global = require('./_global');
+var has = require('./_has');
+var DESCRIPTORS = require('./_descriptors');
+var $export = require('./_export');
+var redefine = require('./_redefine');
+var META = require('./_meta').KEY;
+var $fails = require('./_fails');
+var shared = require('./_shared');
+var setToStringTag = require('./_set-to-string-tag');
+var uid = require('./_uid');
+var wks = require('./_wks');
+var wksExt = require('./_wks-ext');
+var wksDefine = require('./_wks-define');
+var enumKeys = require('./_enum-keys');
+var isArray = require('./_is-array');
+var anObject = require('./_an-object');
+var isObject = require('./_is-object');
+var toObject = require('./_to-object');
+var toIObject = require('./_to-iobject');
+var toPrimitive = require('./_to-primitive');
+var createDesc = require('./_property-desc');
+var _create = require('./_object-create');
+var gOPNExt = require('./_object-gopn-ext');
+var $GOPD = require('./_object-gopd');
+var $GOPS = require('./_object-gops');
+var $DP = require('./_object-dp');
+var $keys = require('./_object-keys');
+var gOPD = $GOPD.f;
+var dP = $DP.f;
+var gOPN = gOPNExt.f;
+var $Symbol = global.Symbol;
+var $JSON = global.JSON;
+var _stringify = $JSON && $JSON.stringify;
+var PROTOTYPE = 'prototype';
+var HIDDEN = wks('_hidden');
+var TO_PRIMITIVE = wks('toPrimitive');
+var isEnum = {}.propertyIsEnumerable;
+var SymbolRegistry = shared('symbol-registry');
+var AllSymbols = shared('symbols');
+var OPSymbols = shared('op-symbols');
+var ObjectProto = Object[PROTOTYPE];
+var USE_NATIVE = typeof $Symbol == 'function' && !!$GOPS.f;
+var QObject = global.QObject;
+// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
+var setter = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
+
+// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
+var setSymbolDesc = DESCRIPTORS && $fails(function () {
+  return _create(dP({}, 'a', {
+    get: function () { return dP(this, 'a', { value: 7 }).a; }
+  })).a != 7;
+}) ? function (it, key, D) {
+  var protoDesc = gOPD(ObjectProto, key);
+  if (protoDesc) delete ObjectProto[key];
+  dP(it, key, D);
+  if (protoDesc && it !== ObjectProto) dP(ObjectProto, key, protoDesc);
+} : dP;
+
+var wrap = function (tag) {
+  var sym = AllSymbols[tag] = _create($Symbol[PROTOTYPE]);
+  sym._k = tag;
+  return sym;
+};
+
+var isSymbol = USE_NATIVE && typeof $Symbol.iterator == 'symbol' ? function (it) {
+  return typeof it == 'symbol';
+} : function (it) {
+  return it instanceof $Symbol;
+};
+
+var $defineProperty = function defineProperty(it, key, D) {
+  if (it === ObjectProto) $defineProperty(OPSymbols, key, D);
+  anObject(it);
+  key = toPrimitive(key, true);
+  anObject(D);
+  if (has(AllSymbols, key)) {
+    if (!D.enumerable) {
+      if (!has(it, HIDDEN)) dP(it, HIDDEN, createDesc(1, {}));
+      it[HIDDEN][key] = true;
+    } else {
+      if (has(it, HIDDEN) && it[HIDDEN][key]) it[HIDDEN][key] = false;
+      D = _create(D, { enumerable: createDesc(0, false) });
+    } return setSymbolDesc(it, key, D);
+  } return dP(it, key, D);
+};
+var $defineProperties = function defineProperties(it, P) {
+  anObject(it);
+  var keys = enumKeys(P = toIObject(P));
+  var i = 0;
+  var l = keys.length;
+  var key;
+  while (l > i) $defineProperty(it, key = keys[i++], P[key]);
+  return it;
+};
+var $create = function create(it, P) {
+  return P === undefined ? _create(it) : $defineProperties(_create(it), P);
+};
+var $propertyIsEnumerable = function propertyIsEnumerable(key) {
+  var E = isEnum.call(this, key = toPrimitive(key, true));
+  if (this === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return false;
+  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key] ? E : true;
+};
+var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(it, key) {
+  it = toIObject(it);
+  key = toPrimitive(key, true);
+  if (it === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return;
+  var D = gOPD(it, key);
+  if (D && has(AllSymbols, key) && !(has(it, HIDDEN) && it[HIDDEN][key])) D.enumerable = true;
+  return D;
+};
+var $getOwnPropertyNames = function getOwnPropertyNames(it) {
+  var names = gOPN(toIObject(it));
+  var result = [];
+  var i = 0;
+  var key;
+  while (names.length > i) {
+    if (!has(AllSymbols, key = names[i++]) && key != HIDDEN && key != META) result.push(key);
+  } return result;
+};
+var $getOwnPropertySymbols = function getOwnPropertySymbols(it) {
+  var IS_OP = it === ObjectProto;
+  var names = gOPN(IS_OP ? OPSymbols : toIObject(it));
+  var result = [];
+  var i = 0;
+  var key;
+  while (names.length > i) {
+    if (has(AllSymbols, key = names[i++]) && (IS_OP ? has(ObjectProto, key) : true)) result.push(AllSymbols[key]);
+  } return result;
+};
+
+// 19.4.1.1 Symbol([description])
+if (!USE_NATIVE) {
+  $Symbol = function Symbol() {
+    if (this instanceof $Symbol) throw TypeError('Symbol is not a constructor!');
+    var tag = uid(arguments.length > 0 ? arguments[0] : undefined);
+    var $set = function (value) {
+      if (this === ObjectProto) $set.call(OPSymbols, value);
+      if (has(this, HIDDEN) && has(this[HIDDEN], tag)) this[HIDDEN][tag] = false;
+      setSymbolDesc(this, tag, createDesc(1, value));
+    };
+    if (DESCRIPTORS && setter) setSymbolDesc(ObjectProto, tag, { configurable: true, set: $set });
+    return wrap(tag);
+  };
+  redefine($Symbol[PROTOTYPE], 'toString', function toString() {
+    return this._k;
+  });
+
+  $GOPD.f = $getOwnPropertyDescriptor;
+  $DP.f = $defineProperty;
+  require('./_object-gopn').f = gOPNExt.f = $getOwnPropertyNames;
+  require('./_object-pie').f = $propertyIsEnumerable;
+  $GOPS.f = $getOwnPropertySymbols;
+
+  if (DESCRIPTORS && !require('./_library')) {
+    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
+  }
+
+  wksExt.f = function (name) {
+    return wrap(wks(name));
+  };
+}
+
+$export($export.G + $export.W + $export.F * !USE_NATIVE, { Symbol: $Symbol });
+
+for (var es6Symbols = (
+  // 19.4.2.2, 19.4.2.3, 19.4.2.4, 19.4.2.6, 19.4.2.8, 19.4.2.9, 19.4.2.10, 19.4.2.11, 19.4.2.12, 19.4.2.13, 19.4.2.14
+  'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'
+).split(','), j = 0; es6Symbols.length > j;)wks(es6Symbols[j++]);
+
+for (var wellKnownSymbols = $keys(wks.store), k = 0; wellKnownSymbols.length > k;) wksDefine(wellKnownSymbols[k++]);
+
+$export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
+  // 19.4.2.1 Symbol.for(key)
+  'for': function (key) {
+    return has(SymbolRegistry, key += '')
+      ? SymbolRegistry[key]
+      : SymbolRegistry[key] = $Symbol(key);
+  },
+  // 19.4.2.5 Symbol.keyFor(sym)
+  keyFor: function keyFor(sym) {
+    if (!isSymbol(sym)) throw TypeError(sym + ' is not a symbol!');
+    for (var key in SymbolRegistry) if (SymbolRegistry[key] === sym) return key;
+  },
+  useSetter: function () { setter = true; },
+  useSimple: function () { setter = false; }
+});
+
+$export($export.S + $export.F * !USE_NATIVE, 'Object', {
+  // 19.1.2.2 Object.create(O [, Properties])
+  create: $create,
+  // 19.1.2.4 Object.defineProperty(O, P, Attributes)
+  defineProperty: $defineProperty,
+  // 19.1.2.3 Object.defineProperties(O, Properties)
+  defineProperties: $defineProperties,
+  // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
+  getOwnPropertyDescriptor: $getOwnPropertyDescriptor,
+  // 19.1.2.7 Object.getOwnPropertyNames(O)
+  getOwnPropertyNames: $getOwnPropertyNames,
+  // 19.1.2.8 Object.getOwnPropertySymbols(O)
+  getOwnPropertySymbols: $getOwnPropertySymbols
+});
+
+// Chrome 38 and 39 `Object.getOwnPropertySymbols` fails on primitives
+// https://bugs.chromium.org/p/v8/issues/detail?id=3443
+var FAILS_ON_PRIMITIVES = $fails(function () { $GOPS.f(1); });
+
+$export($export.S + $export.F * FAILS_ON_PRIMITIVES, 'Object', {
+  getOwnPropertySymbols: function getOwnPropertySymbols(it) {
+    return $GOPS.f(toObject(it));
+  }
+});
+
+// 24.3.2 JSON.stringify(value [, replacer [, space]])
+$JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
+  var S = $Symbol();
+  // MS Edge converts symbol values to JSON as {}
+  // WebKit converts symbol values to JSON as null
+  // V8 throws on boxed symbols
+  return _stringify([S]) != '[null]' || _stringify({ a: S }) != '{}' || _stringify(Object(S)) != '{}';
+})), 'JSON', {
+  stringify: function stringify(it) {
+    var args = [it];
+    var i = 1;
+    var replacer, $replacer;
+    while (arguments.length > i) args.push(arguments[i++]);
+    $replacer = replacer = args[1];
+    if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
+    if (!isArray(replacer)) replacer = function (key, value) {
+      if (typeof $replacer == 'function') value = $replacer.call(this, key, value);
+      if (!isSymbol(value)) return value;
+    };
+    args[1] = replacer;
+    return _stringify.apply($JSON, args);
+  }
+});
+
+// 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
+$Symbol[PROTOTYPE][TO_PRIMITIVE] || require('./_hide')($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
+// 19.4.3.5 Symbol.prototype[@@toStringTag]
+setToStringTag($Symbol, 'Symbol');
+// 20.2.1.9 Math[@@toStringTag]
+setToStringTag(Math, 'Math', true);
+// 24.3.3 JSON[@@toStringTag]
+setToStringTag(global.JSON, 'JSON', true);
+
+},{"./_global":"../node_modules/core-js/library/modules/_global.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js","./_export":"../node_modules/core-js/library/modules/_export.js","./_redefine":"../node_modules/core-js/library/modules/_redefine.js","./_meta":"../node_modules/core-js/library/modules/_meta.js","./_fails":"../node_modules/core-js/library/modules/_fails.js","./_shared":"../node_modules/core-js/library/modules/_shared.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_uid":"../node_modules/core-js/library/modules/_uid.js","./_wks":"../node_modules/core-js/library/modules/_wks.js","./_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js","./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js","./_enum-keys":"../node_modules/core-js/library/modules/_enum-keys.js","./_is-array":"../node_modules/core-js/library/modules/_is-array.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_to-object":"../node_modules/core-js/library/modules/_to-object.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_to-primitive":"../node_modules/core-js/library/modules/_to-primitive.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_object-create":"../node_modules/core-js/library/modules/_object-create.js","./_object-gopn-ext":"../node_modules/core-js/library/modules/_object-gopn-ext.js","./_object-gopd":"../node_modules/core-js/library/modules/_object-gopd.js","./_object-gops":"../node_modules/core-js/library/modules/_object-gops.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_object-gopn":"../node_modules/core-js/library/modules/_object-gopn.js","./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js","./_library":"../node_modules/core-js/library/modules/_library.js","./_hide":"../node_modules/core-js/library/modules/_hide.js"}],"../node_modules/core-js/library/modules/es6.object.to-string.js":[function(require,module,exports) {
+
+},{}],"../node_modules/core-js/library/modules/es7.symbol.async-iterator.js":[function(require,module,exports) {
+require('./_wks-define')('asyncIterator');
+
+},{"./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js"}],"../node_modules/core-js/library/modules/es7.symbol.observable.js":[function(require,module,exports) {
+require('./_wks-define')('observable');
+
+},{"./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js"}],"../node_modules/core-js/library/fn/symbol/index.js":[function(require,module,exports) {
+require('../../modules/es6.symbol');
+require('../../modules/es6.object.to-string');
+require('../../modules/es7.symbol.async-iterator');
+require('../../modules/es7.symbol.observable');
+module.exports = require('../../modules/_core').Symbol;
+
+},{"../../modules/es6.symbol":"../node_modules/core-js/library/modules/es6.symbol.js","../../modules/es6.object.to-string":"../node_modules/core-js/library/modules/es6.object.to-string.js","../../modules/es7.symbol.async-iterator":"../node_modules/core-js/library/modules/es7.symbol.async-iterator.js","../../modules/es7.symbol.observable":"../node_modules/core-js/library/modules/es7.symbol.observable.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/symbol.js":[function(require,module,exports) {
+module.exports = { "default": require("core-js/library/fn/symbol"), __esModule: true };
+},{"core-js/library/fn/symbol":"../node_modules/core-js/library/fn/symbol/index.js"}],"../node_modules/babel-runtime/helpers/typeof.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var _iterator = require("../core-js/symbol/iterator");
+
+var _iterator2 = _interopRequireDefault(_iterator);
+
+var _symbol = require("../core-js/symbol");
+
+var _symbol2 = _interopRequireDefault(_symbol);
+
+var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
+} : function (obj) {
+  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
+};
+},{"../core-js/symbol/iterator":"../node_modules/babel-runtime/core-js/symbol/iterator.js","../core-js/symbol":"../node_modules/babel-runtime/core-js/symbol.js"}],"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var _typeof2 = require("../helpers/typeof");
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && ((typeof call === "undefined" ? "undefined" : (0, _typeof3.default)(call)) === "object" || typeof call === "function") ? call : self;
+};
+},{"../helpers/typeof":"../node_modules/babel-runtime/helpers/typeof.js"}],"../node_modules/core-js/library/modules/_set-proto.js":[function(require,module,exports) {
+// Works with __proto__ only. Old v8 can't work with null proto objects.
+/* eslint-disable no-proto */
+var isObject = require('./_is-object');
+var anObject = require('./_an-object');
+var check = function (O, proto) {
+  anObject(O);
+  if (!isObject(proto) && proto !== null) throw TypeError(proto + ": can't set as prototype!");
+};
+module.exports = {
+  set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
+    function (test, buggy, set) {
+      try {
+        set = require('./_ctx')(Function.call, require('./_object-gopd').f(Object.prototype, '__proto__').set, 2);
+        set(test, []);
+        buggy = !(test instanceof Array);
+      } catch (e) { buggy = true; }
+      return function setPrototypeOf(O, proto) {
+        check(O, proto);
+        if (buggy) O.__proto__ = proto;
+        else set(O, proto);
+        return O;
+      };
+    }({}, false) : undefined),
+  check: check
+};
+
+},{"./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_ctx":"../node_modules/core-js/library/modules/_ctx.js","./_object-gopd":"../node_modules/core-js/library/modules/_object-gopd.js"}],"../node_modules/core-js/library/modules/es6.object.set-prototype-of.js":[function(require,module,exports) {
+// 19.1.3.19 Object.setPrototypeOf(O, proto)
+var $export = require('./_export');
+$export($export.S, 'Object', { setPrototypeOf: require('./_set-proto').set });
+
+},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_set-proto":"../node_modules/core-js/library/modules/_set-proto.js"}],"../node_modules/core-js/library/fn/object/set-prototype-of.js":[function(require,module,exports) {
+require('../../modules/es6.object.set-prototype-of');
+module.exports = require('../../modules/_core').Object.setPrototypeOf;
+
+},{"../../modules/es6.object.set-prototype-of":"../node_modules/core-js/library/modules/es6.object.set-prototype-of.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/set-prototype-of.js":[function(require,module,exports) {
+module.exports = { "default": require("core-js/library/fn/object/set-prototype-of"), __esModule: true };
+},{"core-js/library/fn/object/set-prototype-of":"../node_modules/core-js/library/fn/object/set-prototype-of.js"}],"../node_modules/core-js/library/modules/es6.object.create.js":[function(require,module,exports) {
+var $export = require('./_export');
+// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+$export($export.S, 'Object', { create: require('./_object-create') });
+
+},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_object-create":"../node_modules/core-js/library/modules/_object-create.js"}],"../node_modules/core-js/library/fn/object/create.js":[function(require,module,exports) {
+require('../../modules/es6.object.create');
+var $Object = require('../../modules/_core').Object;
+module.exports = function create(P, D) {
+  return $Object.create(P, D);
+};
+
+},{"../../modules/es6.object.create":"../node_modules/core-js/library/modules/es6.object.create.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/create.js":[function(require,module,exports) {
+module.exports = { "default": require("core-js/library/fn/object/create"), __esModule: true };
+},{"core-js/library/fn/object/create":"../node_modules/core-js/library/fn/object/create.js"}],"../node_modules/babel-runtime/helpers/inherits.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var _setPrototypeOf = require("../core-js/object/set-prototype-of");
+
+var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
+
+var _create = require("../core-js/object/create");
+
+var _create2 = _interopRequireDefault(_create);
+
+var _typeof2 = require("../helpers/typeof");
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : (0, _typeof3.default)(superClass)));
+  }
+
+  subClass.prototype = (0, _create2.default)(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf2.default ? (0, _setPrototypeOf2.default)(subClass, superClass) : subClass.__proto__ = superClass;
+};
+},{"../core-js/object/set-prototype-of":"../node_modules/babel-runtime/core-js/object/set-prototype-of.js","../core-js/object/create":"../node_modules/babel-runtime/core-js/object/create.js","../helpers/typeof":"../node_modules/babel-runtime/helpers/typeof.js"}],"../node_modules/rc-util/es/unsafeLifecyclesPolyfill.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var unsafeLifecyclesPolyfill = function unsafeLifecyclesPolyfill(Component) {
+  var prototype = Component.prototype;
+
+  if (!prototype || !prototype.isReactComponent) {
+    throw new Error('Can only polyfill class components');
+  } // only handle componentWillReceiveProps
+
+
+  if (typeof prototype.componentWillReceiveProps !== 'function') {
+    return Component;
+  } // In React 16.9, React.Profiler was introduced together with UNSAFE_componentWillReceiveProps
+  // https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#performance-measurements-with-reactprofiler
+
+
+  if (!_react.default.Profiler) {
+    return Component;
+  } // Here polyfill get started
+
+
+  prototype.UNSAFE_componentWillReceiveProps = prototype.componentWillReceiveProps;
+  delete prototype.componentWillReceiveProps;
+  return Component;
+};
+
+var _default = unsafeLifecyclesPolyfill;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../node_modules/rc-animate/es/ChildrenUtils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.toArrayChildren = toArrayChildren;
+exports.findChildInChildrenByKey = findChildInChildrenByKey;
+exports.findShownChildInChildrenByKey = findShownChildInChildrenByKey;
+exports.findHiddenChildInChildrenByKey = findHiddenChildInChildrenByKey;
+exports.isSameChildren = isSameChildren;
+exports.mergeChildren = mergeChildren;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function toArrayChildren(children) {
+  var ret = [];
+
+  _react.default.Children.forEach(children, function (child) {
+    ret.push(child);
+  });
+
+  return ret;
+}
+
+function findChildInChildrenByKey(children, key) {
+  var ret = null;
+
+  if (children) {
+    children.forEach(function (child) {
+      if (ret) {
+        return;
+      }
+
+      if (child && child.key === key) {
+        ret = child;
+      }
+    });
+  }
+
+  return ret;
+}
+
+function findShownChildInChildrenByKey(children, key, showProp) {
+  var ret = null;
+
+  if (children) {
+    children.forEach(function (child) {
+      if (child && child.key === key && child.props[showProp]) {
+        if (ret) {
+          throw new Error('two child with same key for <rc-animate> children');
+        }
+
+        ret = child;
+      }
+    });
+  }
+
+  return ret;
+}
+
+function findHiddenChildInChildrenByKey(children, key, showProp) {
+  var found = 0;
+
+  if (children) {
+    children.forEach(function (child) {
+      if (found) {
+        return;
+      }
+
+      found = child && child.key === key && !child.props[showProp];
+    });
+  }
+
+  return found;
+}
+
+function isSameChildren(c1, c2, showProp) {
+  var same = c1.length === c2.length;
+
+  if (same) {
+    c1.forEach(function (child, index) {
+      var child2 = c2[index];
+
+      if (child && child2) {
+        if (child && !child2 || !child && child2) {
+          same = false;
+        } else if (child.key !== child2.key) {
+          same = false;
+        } else if (showProp && child.props[showProp] !== child2.props[showProp]) {
+          same = false;
+        }
+      }
+    });
+  }
+
+  return same;
+}
+
+function mergeChildren(prev, next) {
+  var ret = []; // For each key of `next`, the list of keys to insert before that key in
+  // the combined list
+
+  var nextChildrenPending = {};
+  var pendingChildren = [];
+  prev.forEach(function (child) {
+    if (child && findChildInChildrenByKey(next, child.key)) {
+      if (pendingChildren.length) {
+        nextChildrenPending[child.key] = pendingChildren;
+        pendingChildren = [];
+      }
+    } else {
+      pendingChildren.push(child);
+    }
+  });
+  next.forEach(function (child) {
+    if (child && Object.prototype.hasOwnProperty.call(nextChildrenPending, child.key)) {
+      ret = ret.concat(nextChildrenPending[child.key]);
+    }
+
+    ret.push(child);
+  });
+  ret = ret.concat(pendingChildren);
+  return ret;
+}
+},{"react":"../node_modules/react/index.js"}],"../node_modules/process/browser.js":[function(require,module,exports) {
+
+// shim for using process in browser
+var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+  throw new Error('setTimeout has not been defined');
+}
+
+function defaultClearTimeout() {
+  throw new Error('clearTimeout has not been defined');
+}
+
+(function () {
+  try {
+    if (typeof setTimeout === 'function') {
+      cachedSetTimeout = setTimeout;
+    } else {
+      cachedSetTimeout = defaultSetTimout;
+    }
+  } catch (e) {
+    cachedSetTimeout = defaultSetTimout;
+  }
+
+  try {
+    if (typeof clearTimeout === 'function') {
+      cachedClearTimeout = clearTimeout;
+    } else {
+      cachedClearTimeout = defaultClearTimeout;
+    }
+  } catch (e) {
+    cachedClearTimeout = defaultClearTimeout;
+  }
+})();
+
+function runTimeout(fun) {
+  if (cachedSetTimeout === setTimeout) {
+    //normal enviroments in sane situations
+    return setTimeout(fun, 0);
+  } // if setTimeout wasn't available but was latter defined
+
+
+  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+    cachedSetTimeout = setTimeout;
+    return setTimeout(fun, 0);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedSetTimeout(fun, 0);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+      return cachedSetTimeout.call(null, fun, 0);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+      return cachedSetTimeout.call(this, fun, 0);
+    }
+  }
+}
+
+function runClearTimeout(marker) {
+  if (cachedClearTimeout === clearTimeout) {
+    //normal enviroments in sane situations
+    return clearTimeout(marker);
+  } // if clearTimeout wasn't available but was latter defined
+
+
+  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+    cachedClearTimeout = clearTimeout;
+    return clearTimeout(marker);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedClearTimeout(marker);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+      return cachedClearTimeout.call(null, marker);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+      return cachedClearTimeout.call(this, marker);
+    }
+  }
+}
+
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+  if (!draining || !currentQueue) {
+    return;
+  }
+
+  draining = false;
+
+  if (currentQueue.length) {
+    queue = currentQueue.concat(queue);
+  } else {
+    queueIndex = -1;
+  }
+
+  if (queue.length) {
+    drainQueue();
+  }
+}
+
+function drainQueue() {
+  if (draining) {
+    return;
+  }
+
+  var timeout = runTimeout(cleanUpNextTick);
+  draining = true;
+  var len = queue.length;
+
+  while (len) {
+    currentQueue = queue;
+    queue = [];
+
+    while (++queueIndex < len) {
+      if (currentQueue) {
+        currentQueue[queueIndex].run();
+      }
+    }
+
+    queueIndex = -1;
+    len = queue.length;
+  }
+
+  currentQueue = null;
+  draining = false;
+  runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+  var args = new Array(arguments.length - 1);
+
+  if (arguments.length > 1) {
+    for (var i = 1; i < arguments.length; i++) {
+      args[i - 1] = arguments[i];
+    }
+  }
+
+  queue.push(new Item(fun, args));
+
+  if (queue.length === 1 && !draining) {
+    runTimeout(drainQueue);
+  }
+}; // v8 likes predictible objects
+
+
+function Item(fun, array) {
+  this.fun = fun;
+  this.array = array;
+}
+
+Item.prototype.run = function () {
+  this.fun.apply(null, this.array);
+};
+
+process.title = 'browser';
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) {
+  return [];
+};
+
+process.binding = function (name) {
+  throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () {
+  return '/';
+};
+
+process.chdir = function (dir) {
+  throw new Error('process.chdir is not supported');
+};
+
+process.umask = function () {
+  return 0;
+};
+},{}],"../node_modules/css-animation/es/Event.js":[function(require,module,exports) {
+var process = require("process");
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var START_EVENT_NAME_MAP = {
+  transitionstart: {
+    transition: 'transitionstart',
+    WebkitTransition: 'webkitTransitionStart',
+    MozTransition: 'mozTransitionStart',
+    OTransition: 'oTransitionStart',
+    msTransition: 'MSTransitionStart'
+  },
+  animationstart: {
+    animation: 'animationstart',
+    WebkitAnimation: 'webkitAnimationStart',
+    MozAnimation: 'mozAnimationStart',
+    OAnimation: 'oAnimationStart',
+    msAnimation: 'MSAnimationStart'
+  }
+};
+var END_EVENT_NAME_MAP = {
+  transitionend: {
+    transition: 'transitionend',
+    WebkitTransition: 'webkitTransitionEnd',
+    MozTransition: 'mozTransitionEnd',
+    OTransition: 'oTransitionEnd',
+    msTransition: 'MSTransitionEnd'
+  },
+  animationend: {
+    animation: 'animationend',
+    WebkitAnimation: 'webkitAnimationEnd',
+    MozAnimation: 'mozAnimationEnd',
+    OAnimation: 'oAnimationEnd',
+    msAnimation: 'MSAnimationEnd'
+  }
+};
+var startEvents = [];
+var endEvents = [];
+
+function detectEvents() {
+  var testEl = document.createElement('div');
+  var style = testEl.style;
+
+  if (!('AnimationEvent' in window)) {
+    delete START_EVENT_NAME_MAP.animationstart.animation;
+    delete END_EVENT_NAME_MAP.animationend.animation;
+  }
+
+  if (!('TransitionEvent' in window)) {
+    delete START_EVENT_NAME_MAP.transitionstart.transition;
+    delete END_EVENT_NAME_MAP.transitionend.transition;
+  }
+
+  function process(EVENT_NAME_MAP, events) {
+    for (var baseEventName in EVENT_NAME_MAP) {
+      if (EVENT_NAME_MAP.hasOwnProperty(baseEventName)) {
+        var baseEvents = EVENT_NAME_MAP[baseEventName];
+
+        for (var styleName in baseEvents) {
+          if (styleName in style) {
+            events.push(baseEvents[styleName]);
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  process(START_EVENT_NAME_MAP, startEvents);
+  process(END_EVENT_NAME_MAP, endEvents);
+}
+
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+  detectEvents();
+}
+
+function addEventListener(node, eventName, eventListener) {
+  node.addEventListener(eventName, eventListener, false);
+}
+
+function removeEventListener(node, eventName, eventListener) {
+  node.removeEventListener(eventName, eventListener, false);
+}
+
+var TransitionEvents = {
+  // Start events
+  startEvents: startEvents,
+  addStartEventListener: function addStartEventListener(node, eventListener) {
+    if (startEvents.length === 0) {
+      window.setTimeout(eventListener, 0);
+      return;
+    }
+
+    startEvents.forEach(function (startEvent) {
+      addEventListener(node, startEvent, eventListener);
+    });
+  },
+  removeStartEventListener: function removeStartEventListener(node, eventListener) {
+    if (startEvents.length === 0) {
+      return;
+    }
+
+    startEvents.forEach(function (startEvent) {
+      removeEventListener(node, startEvent, eventListener);
+    });
+  },
+  // End events
+  endEvents: endEvents,
+  addEndEventListener: function addEndEventListener(node, eventListener) {
+    if (endEvents.length === 0) {
+      window.setTimeout(eventListener, 0);
+      return;
+    }
+
+    endEvents.forEach(function (endEvent) {
+      addEventListener(node, endEvent, eventListener);
+    });
+  },
+  removeEndEventListener: function removeEndEventListener(node, eventListener) {
+    if (endEvents.length === 0) {
+      return;
+    }
+
+    endEvents.forEach(function (endEvent) {
+      removeEventListener(node, endEvent, eventListener);
+    });
+  }
+};
+var _default = TransitionEvents;
+exports.default = _default;
+},{"process":"../node_modules/process/browser.js"}],"../node_modules/component-indexof/index.js":[function(require,module,exports) {
+module.exports = function(arr, obj){
+  if (arr.indexOf) return arr.indexOf(obj);
+  for (var i = 0; i < arr.length; ++i) {
+    if (arr[i] === obj) return i;
+  }
+  return -1;
+};
+},{}],"../node_modules/component-classes/index.js":[function(require,module,exports) {
+/**
+ * Module dependencies.
+ */
+
+try {
+  var index = require('indexof');
+} catch (err) {
+  var index = require('component-indexof');
+}
+
+/**
+ * Whitespace regexp.
+ */
+
+var re = /\s+/;
+
+/**
+ * toString reference.
+ */
+
+var toString = Object.prototype.toString;
+
+/**
+ * Wrap `el` in a `ClassList`.
+ *
+ * @param {Element} el
+ * @return {ClassList}
+ * @api public
+ */
+
+module.exports = function(el){
+  return new ClassList(el);
+};
+
+/**
+ * Initialize a new ClassList for `el`.
+ *
+ * @param {Element} el
+ * @api private
+ */
+
+function ClassList(el) {
+  if (!el || !el.nodeType) {
+    throw new Error('A DOM element reference is required');
+  }
+  this.el = el;
+  this.list = el.classList;
+}
+
+/**
+ * Add class `name` if not already present.
+ *
+ * @param {String} name
+ * @return {ClassList}
+ * @api public
+ */
+
+ClassList.prototype.add = function(name){
+  // classList
+  if (this.list) {
+    this.list.add(name);
+    return this;
+  }
+
+  // fallback
+  var arr = this.array();
+  var i = index(arr, name);
+  if (!~i) arr.push(name);
+  this.el.className = arr.join(' ');
+  return this;
+};
+
+/**
+ * Remove class `name` when present, or
+ * pass a regular expression to remove
+ * any which match.
+ *
+ * @param {String|RegExp} name
+ * @return {ClassList}
+ * @api public
+ */
+
+ClassList.prototype.remove = function(name){
+  if ('[object RegExp]' == toString.call(name)) {
+    return this.removeMatching(name);
+  }
+
+  // classList
+  if (this.list) {
+    this.list.remove(name);
+    return this;
+  }
+
+  // fallback
+  var arr = this.array();
+  var i = index(arr, name);
+  if (~i) arr.splice(i, 1);
+  this.el.className = arr.join(' ');
+  return this;
+};
+
+/**
+ * Remove all classes matching `re`.
+ *
+ * @param {RegExp} re
+ * @return {ClassList}
+ * @api private
+ */
+
+ClassList.prototype.removeMatching = function(re){
+  var arr = this.array();
+  for (var i = 0; i < arr.length; i++) {
+    if (re.test(arr[i])) {
+      this.remove(arr[i]);
+    }
+  }
+  return this;
+};
+
+/**
+ * Toggle class `name`, can force state via `force`.
+ *
+ * For browsers that support classList, but do not support `force` yet,
+ * the mistake will be detected and corrected.
+ *
+ * @param {String} name
+ * @param {Boolean} force
+ * @return {ClassList}
+ * @api public
+ */
+
+ClassList.prototype.toggle = function(name, force){
+  // classList
+  if (this.list) {
+    if ("undefined" !== typeof force) {
+      if (force !== this.list.toggle(name, force)) {
+        this.list.toggle(name); // toggle again to correct
+      }
+    } else {
+      this.list.toggle(name);
+    }
+    return this;
+  }
+
+  // fallback
+  if ("undefined" !== typeof force) {
+    if (!force) {
+      this.remove(name);
+    } else {
+      this.add(name);
+    }
+  } else {
+    if (this.has(name)) {
+      this.remove(name);
+    } else {
+      this.add(name);
+    }
+  }
+
+  return this;
+};
+
+/**
+ * Return an array of classes.
+ *
+ * @return {Array}
+ * @api public
+ */
+
+ClassList.prototype.array = function(){
+  var className = this.el.getAttribute('class') || '';
+  var str = className.replace(/^\s+|\s+$/g, '');
+  var arr = str.split(re);
+  if ('' === arr[0]) arr.shift();
+  return arr;
+};
+
+/**
+ * Check if class `name` is present.
+ *
+ * @param {String} name
+ * @return {ClassList}
+ * @api public
+ */
+
+ClassList.prototype.has =
+ClassList.prototype.contains = function(name){
+  return this.list
+    ? this.list.contains(name)
+    : !! ~index(this.array(), name);
+};
+
+},{"indexof":"../node_modules/component-indexof/index.js","component-indexof":"../node_modules/component-indexof/index.js"}],"../node_modules/css-animation/es/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.isCssAnimationSupported = void 0;
+
+var _typeof2 = _interopRequireDefault(require("babel-runtime/helpers/typeof"));
+
+var _Event = _interopRequireDefault(require("./Event"));
+
+var _componentClasses = _interopRequireDefault(require("component-classes"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var isCssAnimationSupported = _Event.default.endEvents.length !== 0;
+exports.isCssAnimationSupported = isCssAnimationSupported;
+var capitalPrefixes = ['Webkit', 'Moz', 'O', // ms is special .... !
+'ms'];
+var prefixes = ['-webkit-', '-moz-', '-o-', 'ms-', ''];
+
+function getStyleProperty(node, name) {
+  // old ff need null, https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
+  var style = window.getComputedStyle(node, null);
+  var ret = '';
+
+  for (var i = 0; i < prefixes.length; i++) {
+    ret = style.getPropertyValue(prefixes[i] + name);
+
+    if (ret) {
+      break;
+    }
+  }
+
+  return ret;
+}
+
+function fixBrowserByTimeout(node) {
+  if (isCssAnimationSupported) {
+    var transitionDelay = parseFloat(getStyleProperty(node, 'transition-delay')) || 0;
+    var transitionDuration = parseFloat(getStyleProperty(node, 'transition-duration')) || 0;
+    var animationDelay = parseFloat(getStyleProperty(node, 'animation-delay')) || 0;
+    var animationDuration = parseFloat(getStyleProperty(node, 'animation-duration')) || 0;
+    var time = Math.max(transitionDuration + transitionDelay, animationDuration + animationDelay); // sometimes, browser bug
+
+    node.rcEndAnimTimeout = setTimeout(function () {
+      node.rcEndAnimTimeout = null;
+
+      if (node.rcEndListener) {
+        node.rcEndListener();
+      }
+    }, time * 1000 + 200);
+  }
+}
+
+function clearBrowserBugTimeout(node) {
+  if (node.rcEndAnimTimeout) {
+    clearTimeout(node.rcEndAnimTimeout);
+    node.rcEndAnimTimeout = null;
+  }
+}
+
+var cssAnimation = function cssAnimation(node, transitionName, endCallback) {
+  var nameIsObj = (typeof transitionName === 'undefined' ? 'undefined' : (0, _typeof2.default)(transitionName)) === 'object';
+  var className = nameIsObj ? transitionName.name : transitionName;
+  var activeClassName = nameIsObj ? transitionName.active : transitionName + '-active';
+  var end = endCallback;
+  var start = void 0;
+  var active = void 0;
+  var nodeClasses = (0, _componentClasses.default)(node);
+
+  if (endCallback && Object.prototype.toString.call(endCallback) === '[object Object]') {
+    end = endCallback.end;
+    start = endCallback.start;
+    active = endCallback.active;
+  }
+
+  if (node.rcEndListener) {
+    node.rcEndListener();
+  }
+
+  node.rcEndListener = function (e) {
+    if (e && e.target !== node) {
+      return;
+    }
+
+    if (node.rcAnimTimeout) {
+      clearTimeout(node.rcAnimTimeout);
+      node.rcAnimTimeout = null;
+    }
+
+    clearBrowserBugTimeout(node);
+    nodeClasses.remove(className);
+    nodeClasses.remove(activeClassName);
+
+    _Event.default.removeEndEventListener(node, node.rcEndListener);
+
+    node.rcEndListener = null; // Usually this optional end is used for informing an owner of
+    // a leave animation and telling it to remove the child.
+
+    if (end) {
+      end();
+    }
+  };
+
+  _Event.default.addEndEventListener(node, node.rcEndListener);
+
+  if (start) {
+    start();
+  }
+
+  nodeClasses.add(className);
+  node.rcAnimTimeout = setTimeout(function () {
+    node.rcAnimTimeout = null;
+    nodeClasses.add(activeClassName);
+
+    if (active) {
+      setTimeout(active, 0);
+    }
+
+    fixBrowserByTimeout(node); // 30ms for firefox
+  }, 30);
+  return {
+    stop: function stop() {
+      if (node.rcEndListener) {
+        node.rcEndListener();
+      }
+    }
+  };
+};
+
+cssAnimation.style = function (node, style, callback) {
+  if (node.rcEndListener) {
+    node.rcEndListener();
+  }
+
+  node.rcEndListener = function (e) {
+    if (e && e.target !== node) {
+      return;
+    }
+
+    if (node.rcAnimTimeout) {
+      clearTimeout(node.rcAnimTimeout);
+      node.rcAnimTimeout = null;
+    }
+
+    clearBrowserBugTimeout(node);
+
+    _Event.default.removeEndEventListener(node, node.rcEndListener);
+
+    node.rcEndListener = null; // Usually this optional callback is used for informing an owner of
+    // a leave animation and telling it to remove the child.
+
+    if (callback) {
+      callback();
+    }
+  };
+
+  _Event.default.addEndEventListener(node, node.rcEndListener);
+
+  node.rcAnimTimeout = setTimeout(function () {
+    for (var s in style) {
+      if (style.hasOwnProperty(s)) {
+        node.style[s] = style[s];
+      }
+    }
+
+    node.rcAnimTimeout = null;
+    fixBrowserByTimeout(node);
+  }, 0);
+};
+
+cssAnimation.setTransition = function (node, p, value) {
+  var property = p;
+  var v = value;
+
+  if (value === undefined) {
+    v = property;
+    property = '';
+  }
+
+  property = property || '';
+  capitalPrefixes.forEach(function (prefix) {
+    node.style[prefix + 'Transition' + property] = v;
+  });
+};
+
+cssAnimation.isCssAnimationSupported = isCssAnimationSupported;
+var _default = cssAnimation;
+exports.default = _default;
+},{"babel-runtime/helpers/typeof":"../node_modules/babel-runtime/helpers/typeof.js","./Event":"../node_modules/css-animation/es/Event.js","component-classes":"../node_modules/component-classes/index.js"}],"../node_modules/rc-animate/es/util/animate.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var util = {
+  isAppearSupported: function isAppearSupported(props) {
+    return props.transitionName && props.transitionAppear || props.animation.appear;
+  },
+  isEnterSupported: function isEnterSupported(props) {
+    return props.transitionName && props.transitionEnter || props.animation.enter;
+  },
+  isLeaveSupported: function isLeaveSupported(props) {
+    return props.transitionName && props.transitionLeave || props.animation.leave;
+  },
+  allowAppearCallback: function allowAppearCallback(props) {
+    return props.transitionAppear || props.animation.appear;
+  },
+  allowEnterCallback: function allowEnterCallback(props) {
+    return props.transitionEnter || props.animation.enter;
+  },
+  allowLeaveCallback: function allowLeaveCallback(props) {
+    return props.transitionLeave || props.animation.leave;
+  }
+};
+var _default = util;
+exports.default = _default;
+},{}],"../node_modules/rc-animate/es/AnimateChild.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _cssAnimation = _interopRequireWildcard(require("css-animation"));
+
+var _animate = _interopRequireDefault(require("./util/animate"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var transitionMap = {
+  enter: 'transitionEnter',
+  appear: 'transitionAppear',
+  leave: 'transitionLeave'
+};
+
+var AnimateChild = function (_React$Component) {
+  (0, _inherits2.default)(AnimateChild, _React$Component);
+
+  function AnimateChild() {
+    (0, _classCallCheck2.default)(this, AnimateChild);
+    return (0, _possibleConstructorReturn2.default)(this, (AnimateChild.__proto__ || Object.getPrototypeOf(AnimateChild)).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(AnimateChild, [{
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.stop();
+    }
+  }, {
+    key: 'componentWillEnter',
+    value: function componentWillEnter(done) {
+      if (_animate.default.isEnterSupported(this.props)) {
+        this.transition('enter', done);
+      } else {
+        done();
+      }
+    }
+  }, {
+    key: 'componentWillAppear',
+    value: function componentWillAppear(done) {
+      if (_animate.default.isAppearSupported(this.props)) {
+        this.transition('appear', done);
+      } else {
+        done();
+      }
+    }
+  }, {
+    key: 'componentWillLeave',
+    value: function componentWillLeave(done) {
+      if (_animate.default.isLeaveSupported(this.props)) {
+        this.transition('leave', done);
+      } else {
+        // always sync, do not interupt with react component life cycle
+        // update hidden -> animate hidden ->
+        // didUpdate -> animate leave -> unmount (if animate is none)
+        done();
+      }
+    }
+  }, {
+    key: 'transition',
+    value: function transition(animationType, finishCallback) {
+      var _this2 = this;
+
+      var node = _reactDom.default.findDOMNode(this);
+
+      var props = this.props;
+      var transitionName = props.transitionName;
+      var nameIsObj = typeof transitionName === 'object';
+      this.stop();
+
+      var end = function end() {
+        _this2.stopper = null;
+        finishCallback();
+      };
+
+      if ((_cssAnimation.isCssAnimationSupported || !props.animation[animationType]) && transitionName && props[transitionMap[animationType]]) {
+        var name = nameIsObj ? transitionName[animationType] : transitionName + '-' + animationType;
+        var activeName = name + '-active';
+
+        if (nameIsObj && transitionName[animationType + 'Active']) {
+          activeName = transitionName[animationType + 'Active'];
+        }
+
+        this.stopper = (0, _cssAnimation.default)(node, {
+          name: name,
+          active: activeName
+        }, end);
+      } else {
+        this.stopper = props.animation[animationType](node, end);
+      }
+    }
+  }, {
+    key: 'stop',
+    value: function stop() {
+      var stopper = this.stopper;
+
+      if (stopper) {
+        this.stopper = null;
+        stopper.stop();
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return this.props.children;
+    }
+  }]);
+  return AnimateChild;
+}(_react.default.Component);
+
+AnimateChild.propTypes = {
+  children: _propTypes.default.any,
+  animation: _propTypes.default.any,
+  transitionName: _propTypes.default.any
+};
+var _default = AnimateChild;
+exports.default = _default;
+},{"babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","prop-types":"../node_modules/prop-types/index.js","css-animation":"../node_modules/css-animation/es/index.js","./util/animate":"../node_modules/rc-animate/es/util/animate.js"}],"../node_modules/rc-animate/es/Animate.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36568,22 +38056,784 @@ exports.default = void 0;
 
 var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
 
+var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _unsafeLifecyclesPolyfill = _interopRequireDefault(require("rc-util/es/unsafeLifecyclesPolyfill"));
+
+var _ChildrenUtils = require("./ChildrenUtils");
+
+var _AnimateChild = _interopRequireDefault(require("./AnimateChild"));
+
+var _animate = _interopRequireDefault(require("./util/animate"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function omit(obj, fields) {
-  var shallowCopy = (0, _extends2.default)({}, obj);
+var defaultKey = 'rc_animate_' + Date.now();
 
-  for (var i = 0; i < fields.length; i++) {
-    var key = fields[i];
-    delete shallowCopy[key];
+function getChildrenFromProps(props) {
+  var children = props.children;
+
+  if (_react.default.isValidElement(children)) {
+    if (!children.key) {
+      return _react.default.cloneElement(children, {
+        key: defaultKey
+      });
+    }
   }
 
-  return shallowCopy;
+  return children;
 }
 
-var _default = omit;
+function noop() {}
+
+var Animate = function (_React$Component) {
+  (0, _inherits2.default)(Animate, _React$Component); // eslint-disable-line
+
+  function Animate(props) {
+    (0, _classCallCheck2.default)(this, Animate);
+
+    var _this = (0, _possibleConstructorReturn2.default)(this, (Animate.__proto__ || Object.getPrototypeOf(Animate)).call(this, props));
+
+    _initialiseProps.call(_this);
+
+    _this.currentlyAnimatingKeys = {};
+    _this.keysToEnter = [];
+    _this.keysToLeave = [];
+    _this.state = {
+      children: (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(props))
+    };
+    _this.childrenRefs = {};
+    return _this;
+  }
+
+  (0, _createClass2.default)(Animate, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var showProp = this.props.showProp;
+      var children = this.state.children;
+
+      if (showProp) {
+        children = children.filter(function (child) {
+          return !!child.props[showProp];
+        });
+      }
+
+      children.forEach(function (child) {
+        if (child) {
+          _this2.performAppear(child.key);
+        }
+      });
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var _this3 = this;
+
+      this.nextProps = nextProps;
+      var nextChildren = (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(nextProps));
+      var props = this.props; // exclusive needs immediate response
+
+      if (props.exclusive) {
+        Object.keys(this.currentlyAnimatingKeys).forEach(function (key) {
+          _this3.stop(key);
+        });
+      }
+
+      var showProp = props.showProp;
+      var currentlyAnimatingKeys = this.currentlyAnimatingKeys; // last props children if exclusive
+
+      var currentChildren = props.exclusive ? (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(props)) : this.state.children; // in case destroy in showProp mode
+
+      var newChildren = [];
+
+      if (showProp) {
+        currentChildren.forEach(function (currentChild) {
+          var nextChild = currentChild && (0, _ChildrenUtils.findChildInChildrenByKey)(nextChildren, currentChild.key);
+          var newChild = void 0;
+
+          if ((!nextChild || !nextChild.props[showProp]) && currentChild.props[showProp]) {
+            newChild = _react.default.cloneElement(nextChild || currentChild, (0, _defineProperty2.default)({}, showProp, true));
+          } else {
+            newChild = nextChild;
+          }
+
+          if (newChild) {
+            newChildren.push(newChild);
+          }
+        });
+        nextChildren.forEach(function (nextChild) {
+          if (!nextChild || !(0, _ChildrenUtils.findChildInChildrenByKey)(currentChildren, nextChild.key)) {
+            newChildren.push(nextChild);
+          }
+        });
+      } else {
+        newChildren = (0, _ChildrenUtils.mergeChildren)(currentChildren, nextChildren);
+      } // need render to avoid update
+
+
+      this.setState({
+        children: newChildren
+      });
+      nextChildren.forEach(function (child) {
+        var key = child && child.key;
+
+        if (child && currentlyAnimatingKeys[key]) {
+          return;
+        }
+
+        var hasPrev = child && (0, _ChildrenUtils.findChildInChildrenByKey)(currentChildren, key);
+
+        if (showProp) {
+          var showInNext = child.props[showProp];
+
+          if (hasPrev) {
+            var showInNow = (0, _ChildrenUtils.findShownChildInChildrenByKey)(currentChildren, key, showProp);
+
+            if (!showInNow && showInNext) {
+              _this3.keysToEnter.push(key);
+            }
+          } else if (showInNext) {
+            _this3.keysToEnter.push(key);
+          }
+        } else if (!hasPrev) {
+          _this3.keysToEnter.push(key);
+        }
+      });
+      currentChildren.forEach(function (child) {
+        var key = child && child.key;
+
+        if (child && currentlyAnimatingKeys[key]) {
+          return;
+        }
+
+        var hasNext = child && (0, _ChildrenUtils.findChildInChildrenByKey)(nextChildren, key);
+
+        if (showProp) {
+          var showInNow = child.props[showProp];
+
+          if (hasNext) {
+            var showInNext = (0, _ChildrenUtils.findShownChildInChildrenByKey)(nextChildren, key, showProp);
+
+            if (!showInNext && showInNow) {
+              _this3.keysToLeave.push(key);
+            }
+          } else if (showInNow) {
+            _this3.keysToLeave.push(key);
+          }
+        } else if (!hasNext) {
+          _this3.keysToLeave.push(key);
+        }
+      });
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      var keysToEnter = this.keysToEnter;
+      this.keysToEnter = [];
+      keysToEnter.forEach(this.performEnter);
+      var keysToLeave = this.keysToLeave;
+      this.keysToLeave = [];
+      keysToLeave.forEach(this.performLeave);
+    }
+  }, {
+    key: 'isValidChildByKey',
+    value: function isValidChildByKey(currentChildren, key) {
+      var showProp = this.props.showProp;
+
+      if (showProp) {
+        return (0, _ChildrenUtils.findShownChildInChildrenByKey)(currentChildren, key, showProp);
+      }
+
+      return (0, _ChildrenUtils.findChildInChildrenByKey)(currentChildren, key);
+    }
+  }, {
+    key: 'stop',
+    value: function stop(key) {
+      delete this.currentlyAnimatingKeys[key];
+      var component = this.childrenRefs[key];
+
+      if (component) {
+        component.stop();
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this4 = this;
+
+      var props = this.props;
+      this.nextProps = props;
+      var stateChildren = this.state.children;
+      var children = null;
+
+      if (stateChildren) {
+        children = stateChildren.map(function (child) {
+          if (child === null || child === undefined) {
+            return child;
+          }
+
+          if (!child.key) {
+            throw new Error('must set key for <rc-animate> children');
+          }
+
+          return _react.default.createElement(_AnimateChild.default, {
+            key: child.key,
+            ref: function ref(node) {
+              _this4.childrenRefs[child.key] = node;
+            },
+            animation: props.animation,
+            transitionName: props.transitionName,
+            transitionEnter: props.transitionEnter,
+            transitionAppear: props.transitionAppear,
+            transitionLeave: props.transitionLeave
+          }, child);
+        });
+      }
+
+      var Component = props.component;
+
+      if (Component) {
+        var passedProps = props;
+
+        if (typeof Component === 'string') {
+          passedProps = (0, _extends2.default)({
+            className: props.className,
+            style: props.style
+          }, props.componentProps);
+        }
+
+        return _react.default.createElement(Component, passedProps, children);
+      }
+
+      return children[0] || null;
+    }
+  }]);
+  return Animate;
+}(_react.default.Component);
+
+Animate.isAnimate = true;
+Animate.propTypes = {
+  className: _propTypes.default.string,
+  style: _propTypes.default.object,
+  component: _propTypes.default.any,
+  componentProps: _propTypes.default.object,
+  animation: _propTypes.default.object,
+  transitionName: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
+  transitionEnter: _propTypes.default.bool,
+  transitionAppear: _propTypes.default.bool,
+  exclusive: _propTypes.default.bool,
+  transitionLeave: _propTypes.default.bool,
+  onEnd: _propTypes.default.func,
+  onEnter: _propTypes.default.func,
+  onLeave: _propTypes.default.func,
+  onAppear: _propTypes.default.func,
+  showProp: _propTypes.default.string,
+  children: _propTypes.default.node
+};
+Animate.defaultProps = {
+  animation: {},
+  component: 'span',
+  componentProps: {},
+  transitionEnter: true,
+  transitionLeave: true,
+  transitionAppear: false,
+  onEnd: noop,
+  onEnter: noop,
+  onLeave: noop,
+  onAppear: noop
+};
+
+var _initialiseProps = function _initialiseProps() {
+  var _this5 = this;
+
+  this.performEnter = function (key) {
+    // may already remove by exclusive
+    if (_this5.childrenRefs[key]) {
+      _this5.currentlyAnimatingKeys[key] = true;
+
+      _this5.childrenRefs[key].componentWillEnter(_this5.handleDoneAdding.bind(_this5, key, 'enter'));
+    }
+  };
+
+  this.performAppear = function (key) {
+    if (_this5.childrenRefs[key]) {
+      _this5.currentlyAnimatingKeys[key] = true;
+
+      _this5.childrenRefs[key].componentWillAppear(_this5.handleDoneAdding.bind(_this5, key, 'appear'));
+    }
+  };
+
+  this.handleDoneAdding = function (key, type) {
+    var props = _this5.props;
+    delete _this5.currentlyAnimatingKeys[key]; // if update on exclusive mode, skip check
+
+    if (props.exclusive && props !== _this5.nextProps) {
+      return;
+    }
+
+    var currentChildren = (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(props));
+
+    if (!_this5.isValidChildByKey(currentChildren, key)) {
+      // exclusive will not need this
+      _this5.performLeave(key);
+    } else if (type === 'appear') {
+      if (_animate.default.allowAppearCallback(props)) {
+        props.onAppear(key);
+        props.onEnd(key, true);
+      }
+    } else if (_animate.default.allowEnterCallback(props)) {
+      props.onEnter(key);
+      props.onEnd(key, true);
+    }
+  };
+
+  this.performLeave = function (key) {
+    // may already remove by exclusive
+    if (_this5.childrenRefs[key]) {
+      _this5.currentlyAnimatingKeys[key] = true;
+
+      _this5.childrenRefs[key].componentWillLeave(_this5.handleDoneLeaving.bind(_this5, key));
+    }
+  };
+
+  this.handleDoneLeaving = function (key) {
+    var props = _this5.props;
+    delete _this5.currentlyAnimatingKeys[key]; // if update on exclusive mode, skip check
+
+    if (props.exclusive && props !== _this5.nextProps) {
+      return;
+    }
+
+    var currentChildren = (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(props)); // in case state change is too fast
+
+    if (_this5.isValidChildByKey(currentChildren, key)) {
+      _this5.performEnter(key);
+    } else {
+      var end = function end() {
+        if (_animate.default.allowLeaveCallback(props)) {
+          props.onLeave(key);
+          props.onEnd(key, false);
+        }
+      };
+
+      if (!(0, _ChildrenUtils.isSameChildren)(_this5.state.children, currentChildren, props.showProp)) {
+        _this5.setState({
+          children: currentChildren
+        }, end);
+      } else {
+        end();
+      }
+    }
+  };
+};
+
+var _default = (0, _unsafeLifecyclesPolyfill.default)(Animate);
+
 exports.default = _default;
-},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js"}],"../node_modules/@ant-design/icons/lib/dist.js":[function(require,module,exports) {
+},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","rc-util/es/unsafeLifecyclesPolyfill":"../node_modules/rc-util/es/unsafeLifecyclesPolyfill.js","./ChildrenUtils":"../node_modules/rc-animate/es/ChildrenUtils.js","./AnimateChild":"../node_modules/rc-animate/es/AnimateChild.js","./util/animate":"../node_modules/rc-animate/es/util/animate.js"}],"../node_modules/rc-util/es/createChainedFunction.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createChainedFunction;
+
+/**
+ * Safe chained function
+ *
+ * Will only create a new function if needed,
+ * otherwise will pass back existing functions or null.
+ *
+ * @returns {function|null}
+ */
+function createChainedFunction() {
+  var args = [].slice.call(arguments, 0);
+
+  if (args.length === 1) {
+    return args[0];
+  }
+
+  return function chainedFunction() {
+    for (var i = 0; i < args.length; i++) {
+      if (args[i] && args[i].apply) {
+        args[i].apply(this, arguments);
+      }
+    }
+  };
+}
+},{}],"../node_modules/rc-notification/es/Notice.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Notice = function (_Component) {
+  (0, _inherits2.default)(Notice, _Component);
+
+  function Notice() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck2.default)(this, Notice);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn2.default)(this, (_ref = Notice.__proto__ || Object.getPrototypeOf(Notice)).call.apply(_ref, [this].concat(args))), _this), _this.close = function (e) {
+      if (e) {
+        e.stopPropagation();
+      }
+
+      _this.clearCloseTimer();
+
+      _this.props.onClose();
+    }, _this.startCloseTimer = function () {
+      if (_this.props.duration) {
+        _this.closeTimer = setTimeout(function () {
+          _this.close();
+        }, _this.props.duration * 1000);
+      }
+    }, _this.clearCloseTimer = function () {
+      if (_this.closeTimer) {
+        clearTimeout(_this.closeTimer);
+        _this.closeTimer = null;
+      }
+    }, _temp), (0, _possibleConstructorReturn2.default)(_this, _ret);
+  }
+
+  (0, _createClass2.default)(Notice, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.startCloseTimer();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.duration !== prevProps.duration || this.props.update) {
+        this.restartCloseTimer();
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.clearCloseTimer();
+    }
+  }, {
+    key: 'restartCloseTimer',
+    value: function restartCloseTimer() {
+      this.clearCloseTimer();
+      this.startCloseTimer();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _className;
+
+      var props = this.props;
+      var componentClass = props.prefixCls + '-notice';
+      var className = (_className = {}, (0, _defineProperty2.default)(_className, '' + componentClass, 1), (0, _defineProperty2.default)(_className, componentClass + '-closable', props.closable), (0, _defineProperty2.default)(_className, props.className, !!props.className), _className);
+      return _react.default.createElement('div', {
+        className: (0, _classnames.default)(className),
+        style: props.style,
+        onMouseEnter: this.clearCloseTimer,
+        onMouseLeave: this.startCloseTimer,
+        onClick: props.onClick
+      }, _react.default.createElement('div', {
+        className: componentClass + '-content'
+      }, props.children), props.closable ? _react.default.createElement('a', {
+        tabIndex: '0',
+        onClick: this.close,
+        className: componentClass + '-close'
+      }, props.closeIcon || _react.default.createElement('span', {
+        className: componentClass + '-close-x'
+      })) : null);
+    }
+  }]);
+  return Notice;
+}(_react.Component);
+
+Notice.propTypes = {
+  duration: _propTypes.default.number,
+  onClose: _propTypes.default.func,
+  children: _propTypes.default.any,
+  update: _propTypes.default.bool,
+  closeIcon: _propTypes.default.node
+};
+Notice.defaultProps = {
+  onEnd: function onEnd() {},
+  onClose: function onClose() {},
+  duration: 1.5,
+  style: {
+    right: '50%'
+  }
+};
+var _default = Notice;
+exports.default = _default;
+},{"babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","prop-types":"../node_modules/prop-types/index.js"}],"../node_modules/rc-notification/es/Notification.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
+
+var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
+
+var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+var _rcAnimate = _interopRequireDefault(require("rc-animate"));
+
+var _createChainedFunction = _interopRequireDefault(require("rc-util/es/createChainedFunction"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _Notice = _interopRequireDefault(require("./Notice"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var seed = 0;
+var now = Date.now();
+
+function getUuid() {
+  return 'rcNotification_' + now + '_' + seed++;
+}
+
+var Notification = function (_Component) {
+  (0, _inherits2.default)(Notification, _Component);
+
+  function Notification() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck2.default)(this, Notification);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn2.default)(this, (_ref = Notification.__proto__ || Object.getPrototypeOf(Notification)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      notices: []
+    }, _this.add = function (notice) {
+      var key = notice.key = notice.key || getUuid();
+      var maxCount = _this.props.maxCount;
+
+      _this.setState(function (previousState) {
+        var notices = previousState.notices;
+        var noticeIndex = notices.map(function (v) {
+          return v.key;
+        }).indexOf(key);
+        var updatedNotices = notices.concat();
+
+        if (noticeIndex !== -1) {
+          updatedNotices.splice(noticeIndex, 1, notice);
+        } else {
+          if (maxCount && notices.length >= maxCount) {
+            notice.updateKey = updatedNotices[0].updateKey || updatedNotices[0].key;
+            updatedNotices.shift();
+          }
+
+          updatedNotices.push(notice);
+        }
+
+        return {
+          notices: updatedNotices
+        };
+      });
+    }, _this.remove = function (key) {
+      _this.setState(function (previousState) {
+        return {
+          notices: previousState.notices.filter(function (notice) {
+            return notice.key !== key;
+          })
+        };
+      });
+    }, _temp), (0, _possibleConstructorReturn2.default)(_this, _ret);
+  }
+
+  (0, _createClass2.default)(Notification, [{
+    key: 'getTransitionName',
+    value: function getTransitionName() {
+      var props = this.props;
+      var transitionName = props.transitionName;
+
+      if (!transitionName && props.animation) {
+        transitionName = props.prefixCls + '-' + props.animation;
+      }
+
+      return transitionName;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this,
+          _className;
+
+      var props = this.props;
+      var notices = this.state.notices;
+      var noticeNodes = notices.map(function (notice, index) {
+        var update = Boolean(index === notices.length - 1 && notice.updateKey);
+        var key = notice.updateKey ? notice.updateKey : notice.key;
+        var onClose = (0, _createChainedFunction.default)(_this2.remove.bind(_this2, notice.key), notice.onClose);
+        return _react.default.createElement(_Notice.default, (0, _extends2.default)({
+          prefixCls: props.prefixCls
+        }, notice, {
+          key: key,
+          update: update,
+          onClose: onClose,
+          onClick: notice.onClick,
+          closeIcon: props.closeIcon
+        }), notice.content);
+      });
+      var className = (_className = {}, (0, _defineProperty2.default)(_className, props.prefixCls, 1), (0, _defineProperty2.default)(_className, props.className, !!props.className), _className);
+      return _react.default.createElement('div', {
+        className: (0, _classnames.default)(className),
+        style: props.style
+      }, _react.default.createElement(_rcAnimate.default, {
+        transitionName: this.getTransitionName()
+      }, noticeNodes));
+    }
+  }]);
+  return Notification;
+}(_react.Component);
+
+Notification.propTypes = {
+  prefixCls: _propTypes.default.string,
+  transitionName: _propTypes.default.string,
+  animation: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
+  style: _propTypes.default.object,
+  maxCount: _propTypes.default.number,
+  closeIcon: _propTypes.default.node
+};
+Notification.defaultProps = {
+  prefixCls: 'rc-notification',
+  animation: 'fade',
+  style: {
+    top: 65,
+    left: '50%'
+  }
+};
+
+Notification.newInstance = function newNotificationInstance(properties, callback) {
+  var _ref2 = properties || {},
+      getContainer = _ref2.getContainer,
+      props = (0, _objectWithoutProperties2.default)(_ref2, ['getContainer']);
+
+  var div = document.createElement('div');
+
+  if (getContainer) {
+    var root = getContainer();
+    root.appendChild(div);
+  } else {
+    document.body.appendChild(div);
+  }
+
+  var called = false;
+
+  function ref(notification) {
+    if (called) {
+      return;
+    }
+
+    called = true;
+    callback({
+      notice: function notice(noticeProps) {
+        notification.add(noticeProps);
+      },
+      removeNotice: function removeNotice(key) {
+        notification.remove(key);
+      },
+      component: notification,
+      destroy: function destroy() {
+        _reactDom.default.unmountComponentAtNode(div);
+
+        div.parentNode.removeChild(div);
+      }
+    });
+  }
+
+  _reactDom.default.render(_react.default.createElement(Notification, (0, _extends2.default)({}, props, {
+    ref: ref
+  })), div);
+};
+
+var _default = Notification;
+exports.default = _default;
+},{"babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-dom":"../node_modules/react-dom/index.js","rc-animate":"../node_modules/rc-animate/es/Animate.js","rc-util/es/createChainedFunction":"../node_modules/rc-util/es/createChainedFunction.js","classnames":"../node_modules/classnames/index.js","./Notice":"../node_modules/rc-notification/es/Notice.js"}],"../node_modules/rc-notification/es/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Notification = _interopRequireDefault(require("./Notification"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = _Notification.default;
+exports.default = _default;
+},{"./Notification":"../node_modules/rc-notification/es/Notification.js"}],"../node_modules/@ant-design/icons/lib/dist.js":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var normalViewBox = '0 0 1024 1024';
@@ -38860,936 +41110,7 @@ exports.CanlendarTwoTone = getIcon('canlendar', twotone, function (primaryColor,
     ]);
 });
 
-},{}],"../node_modules/core-js/library/modules/es6.object.define-property.js":[function(require,module,exports) {
-var $export = require('./_export');
-// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-$export($export.S + $export.F * !require('./_descriptors'), 'Object', { defineProperty: require('./_object-dp').f });
-
-},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js"}],"../node_modules/core-js/library/fn/object/define-property.js":[function(require,module,exports) {
-require('../../modules/es6.object.define-property');
-var $Object = require('../../modules/_core').Object;
-module.exports = function defineProperty(it, key, desc) {
-  return $Object.defineProperty(it, key, desc);
-};
-
-},{"../../modules/es6.object.define-property":"../node_modules/core-js/library/modules/es6.object.define-property.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/define-property.js":[function(require,module,exports) {
-module.exports = { "default": require("core-js/library/fn/object/define-property"), __esModule: true };
-},{"core-js/library/fn/object/define-property":"../node_modules/core-js/library/fn/object/define-property.js"}],"../node_modules/babel-runtime/helpers/defineProperty.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-var _defineProperty = require("../core-js/object/define-property");
-
-var _defineProperty2 = _interopRequireDefault(_defineProperty);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (obj, key, value) {
-  if (key in obj) {
-    (0, _defineProperty2.default)(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-};
-},{"../core-js/object/define-property":"../node_modules/babel-runtime/core-js/object/define-property.js"}],"../node_modules/babel-runtime/helpers/objectWithoutProperties.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-exports.default = function (obj, keys) {
-  var target = {};
-
-  for (var i in obj) {
-    if (keys.indexOf(i) >= 0) continue;
-    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
-    target[i] = obj[i];
-  }
-
-  return target;
-};
-},{}],"../node_modules/babel-runtime/helpers/classCallCheck.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-exports.default = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-},{}],"../node_modules/babel-runtime/helpers/createClass.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-var _defineProperty = require("../core-js/object/define-property");
-
-var _defineProperty2 = _interopRequireDefault(_defineProperty);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-},{"../core-js/object/define-property":"../node_modules/babel-runtime/core-js/object/define-property.js"}],"../node_modules/core-js/library/modules/_string-at.js":[function(require,module,exports) {
-var toInteger = require('./_to-integer');
-var defined = require('./_defined');
-// true  -> String#at
-// false -> String#codePointAt
-module.exports = function (TO_STRING) {
-  return function (that, pos) {
-    var s = String(defined(that));
-    var i = toInteger(pos);
-    var l = s.length;
-    var a, b;
-    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
-    a = s.charCodeAt(i);
-    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
-      ? TO_STRING ? s.charAt(i) : a
-      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
-  };
-};
-
-},{"./_to-integer":"../node_modules/core-js/library/modules/_to-integer.js","./_defined":"../node_modules/core-js/library/modules/_defined.js"}],"../node_modules/core-js/library/modules/_redefine.js":[function(require,module,exports) {
-module.exports = require('./_hide');
-
-},{"./_hide":"../node_modules/core-js/library/modules/_hide.js"}],"../node_modules/core-js/library/modules/_iterators.js":[function(require,module,exports) {
-module.exports = {};
-
-},{}],"../node_modules/core-js/library/modules/_object-dps.js":[function(require,module,exports) {
-var dP = require('./_object-dp');
-var anObject = require('./_an-object');
-var getKeys = require('./_object-keys');
-
-module.exports = require('./_descriptors') ? Object.defineProperties : function defineProperties(O, Properties) {
-  anObject(O);
-  var keys = getKeys(Properties);
-  var length = keys.length;
-  var i = 0;
-  var P;
-  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
-  return O;
-};
-
-},{"./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js"}],"../node_modules/core-js/library/modules/_html.js":[function(require,module,exports) {
-var document = require('./_global').document;
-module.exports = document && document.documentElement;
-
-},{"./_global":"../node_modules/core-js/library/modules/_global.js"}],"../node_modules/core-js/library/modules/_object-create.js":[function(require,module,exports) {
-// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-var anObject = require('./_an-object');
-var dPs = require('./_object-dps');
-var enumBugKeys = require('./_enum-bug-keys');
-var IE_PROTO = require('./_shared-key')('IE_PROTO');
-var Empty = function () { /* empty */ };
-var PROTOTYPE = 'prototype';
-
-// Create object with fake `null` prototype: use iframe Object with cleared prototype
-var createDict = function () {
-  // Thrash, waste and sodomy: IE GC bug
-  var iframe = require('./_dom-create')('iframe');
-  var i = enumBugKeys.length;
-  var lt = '<';
-  var gt = '>';
-  var iframeDocument;
-  iframe.style.display = 'none';
-  require('./_html').appendChild(iframe);
-  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
-  // createDict = iframe.contentWindow.Object;
-  // html.removeChild(iframe);
-  iframeDocument = iframe.contentWindow.document;
-  iframeDocument.open();
-  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
-  iframeDocument.close();
-  createDict = iframeDocument.F;
-  while (i--) delete createDict[PROTOTYPE][enumBugKeys[i]];
-  return createDict();
-};
-
-module.exports = Object.create || function create(O, Properties) {
-  var result;
-  if (O !== null) {
-    Empty[PROTOTYPE] = anObject(O);
-    result = new Empty();
-    Empty[PROTOTYPE] = null;
-    // add "__proto__" for Object.getPrototypeOf polyfill
-    result[IE_PROTO] = O;
-  } else result = createDict();
-  return Properties === undefined ? result : dPs(result, Properties);
-};
-
-},{"./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_object-dps":"../node_modules/core-js/library/modules/_object-dps.js","./_enum-bug-keys":"../node_modules/core-js/library/modules/_enum-bug-keys.js","./_shared-key":"../node_modules/core-js/library/modules/_shared-key.js","./_dom-create":"../node_modules/core-js/library/modules/_dom-create.js","./_html":"../node_modules/core-js/library/modules/_html.js"}],"../node_modules/core-js/library/modules/_wks.js":[function(require,module,exports) {
-var store = require('./_shared')('wks');
-var uid = require('./_uid');
-var Symbol = require('./_global').Symbol;
-var USE_SYMBOL = typeof Symbol == 'function';
-
-var $exports = module.exports = function (name) {
-  return store[name] || (store[name] =
-    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
-};
-
-$exports.store = store;
-
-},{"./_shared":"../node_modules/core-js/library/modules/_shared.js","./_uid":"../node_modules/core-js/library/modules/_uid.js","./_global":"../node_modules/core-js/library/modules/_global.js"}],"../node_modules/core-js/library/modules/_set-to-string-tag.js":[function(require,module,exports) {
-var def = require('./_object-dp').f;
-var has = require('./_has');
-var TAG = require('./_wks')('toStringTag');
-
-module.exports = function (it, tag, stat) {
-  if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
-};
-
-},{"./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_iter-create.js":[function(require,module,exports) {
-'use strict';
-var create = require('./_object-create');
-var descriptor = require('./_property-desc');
-var setToStringTag = require('./_set-to-string-tag');
-var IteratorPrototype = {};
-
-// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-require('./_hide')(IteratorPrototype, require('./_wks')('iterator'), function () { return this; });
-
-module.exports = function (Constructor, NAME, next) {
-  Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
-  setToStringTag(Constructor, NAME + ' Iterator');
-};
-
-},{"./_object-create":"../node_modules/core-js/library/modules/_object-create.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_object-gpo.js":[function(require,module,exports) {
-// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-var has = require('./_has');
-var toObject = require('./_to-object');
-var IE_PROTO = require('./_shared-key')('IE_PROTO');
-var ObjectProto = Object.prototype;
-
-module.exports = Object.getPrototypeOf || function (O) {
-  O = toObject(O);
-  if (has(O, IE_PROTO)) return O[IE_PROTO];
-  if (typeof O.constructor == 'function' && O instanceof O.constructor) {
-    return O.constructor.prototype;
-  } return O instanceof Object ? ObjectProto : null;
-};
-
-},{"./_has":"../node_modules/core-js/library/modules/_has.js","./_to-object":"../node_modules/core-js/library/modules/_to-object.js","./_shared-key":"../node_modules/core-js/library/modules/_shared-key.js"}],"../node_modules/core-js/library/modules/_iter-define.js":[function(require,module,exports) {
-'use strict';
-var LIBRARY = require('./_library');
-var $export = require('./_export');
-var redefine = require('./_redefine');
-var hide = require('./_hide');
-var Iterators = require('./_iterators');
-var $iterCreate = require('./_iter-create');
-var setToStringTag = require('./_set-to-string-tag');
-var getPrototypeOf = require('./_object-gpo');
-var ITERATOR = require('./_wks')('iterator');
-var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
-var FF_ITERATOR = '@@iterator';
-var KEYS = 'keys';
-var VALUES = 'values';
-
-var returnThis = function () { return this; };
-
-module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED) {
-  $iterCreate(Constructor, NAME, next);
-  var getMethod = function (kind) {
-    if (!BUGGY && kind in proto) return proto[kind];
-    switch (kind) {
-      case KEYS: return function keys() { return new Constructor(this, kind); };
-      case VALUES: return function values() { return new Constructor(this, kind); };
-    } return function entries() { return new Constructor(this, kind); };
-  };
-  var TAG = NAME + ' Iterator';
-  var DEF_VALUES = DEFAULT == VALUES;
-  var VALUES_BUG = false;
-  var proto = Base.prototype;
-  var $native = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT];
-  var $default = $native || getMethod(DEFAULT);
-  var $entries = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined;
-  var $anyNative = NAME == 'Array' ? proto.entries || $native : $native;
-  var methods, key, IteratorPrototype;
-  // Fix native
-  if ($anyNative) {
-    IteratorPrototype = getPrototypeOf($anyNative.call(new Base()));
-    if (IteratorPrototype !== Object.prototype && IteratorPrototype.next) {
-      // Set @@toStringTag to native iterators
-      setToStringTag(IteratorPrototype, TAG, true);
-      // fix for some old engines
-      if (!LIBRARY && typeof IteratorPrototype[ITERATOR] != 'function') hide(IteratorPrototype, ITERATOR, returnThis);
-    }
-  }
-  // fix Array#{values, @@iterator}.name in V8 / FF
-  if (DEF_VALUES && $native && $native.name !== VALUES) {
-    VALUES_BUG = true;
-    $default = function values() { return $native.call(this); };
-  }
-  // Define iterator
-  if ((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])) {
-    hide(proto, ITERATOR, $default);
-  }
-  // Plug for library
-  Iterators[NAME] = $default;
-  Iterators[TAG] = returnThis;
-  if (DEFAULT) {
-    methods = {
-      values: DEF_VALUES ? $default : getMethod(VALUES),
-      keys: IS_SET ? $default : getMethod(KEYS),
-      entries: $entries
-    };
-    if (FORCED) for (key in methods) {
-      if (!(key in proto)) redefine(proto, key, methods[key]);
-    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
-  }
-  return methods;
-};
-
-},{"./_library":"../node_modules/core-js/library/modules/_library.js","./_export":"../node_modules/core-js/library/modules/_export.js","./_redefine":"../node_modules/core-js/library/modules/_redefine.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_iter-create":"../node_modules/core-js/library/modules/_iter-create.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_object-gpo":"../node_modules/core-js/library/modules/_object-gpo.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/es6.string.iterator.js":[function(require,module,exports) {
-'use strict';
-var $at = require('./_string-at')(true);
-
-// 21.1.3.27 String.prototype[@@iterator]()
-require('./_iter-define')(String, 'String', function (iterated) {
-  this._t = String(iterated); // target
-  this._i = 0;                // next index
-// 21.1.5.2.1 %StringIteratorPrototype%.next()
-}, function () {
-  var O = this._t;
-  var index = this._i;
-  var point;
-  if (index >= O.length) return { value: undefined, done: true };
-  point = $at(O, index);
-  this._i += point.length;
-  return { value: point, done: false };
-});
-
-},{"./_string-at":"../node_modules/core-js/library/modules/_string-at.js","./_iter-define":"../node_modules/core-js/library/modules/_iter-define.js"}],"../node_modules/core-js/library/modules/_add-to-unscopables.js":[function(require,module,exports) {
-module.exports = function () { /* empty */ };
-
-},{}],"../node_modules/core-js/library/modules/_iter-step.js":[function(require,module,exports) {
-module.exports = function (done, value) {
-  return { value: value, done: !!done };
-};
-
-},{}],"../node_modules/core-js/library/modules/es6.array.iterator.js":[function(require,module,exports) {
-'use strict';
-var addToUnscopables = require('./_add-to-unscopables');
-var step = require('./_iter-step');
-var Iterators = require('./_iterators');
-var toIObject = require('./_to-iobject');
-
-// 22.1.3.4 Array.prototype.entries()
-// 22.1.3.13 Array.prototype.keys()
-// 22.1.3.29 Array.prototype.values()
-// 22.1.3.30 Array.prototype[@@iterator]()
-module.exports = require('./_iter-define')(Array, 'Array', function (iterated, kind) {
-  this._t = toIObject(iterated); // target
-  this._i = 0;                   // next index
-  this._k = kind;                // kind
-// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
-}, function () {
-  var O = this._t;
-  var kind = this._k;
-  var index = this._i++;
-  if (!O || index >= O.length) {
-    this._t = undefined;
-    return step(1);
-  }
-  if (kind == 'keys') return step(0, index);
-  if (kind == 'values') return step(0, O[index]);
-  return step(0, [index, O[index]]);
-}, 'values');
-
-// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
-Iterators.Arguments = Iterators.Array;
-
-addToUnscopables('keys');
-addToUnscopables('values');
-addToUnscopables('entries');
-
-},{"./_add-to-unscopables":"../node_modules/core-js/library/modules/_add-to-unscopables.js","./_iter-step":"../node_modules/core-js/library/modules/_iter-step.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_iter-define":"../node_modules/core-js/library/modules/_iter-define.js"}],"../node_modules/core-js/library/modules/web.dom.iterable.js":[function(require,module,exports) {
-
-require('./es6.array.iterator');
-var global = require('./_global');
-var hide = require('./_hide');
-var Iterators = require('./_iterators');
-var TO_STRING_TAG = require('./_wks')('toStringTag');
-
-var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
-  'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
-  'MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,' +
-  'SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,' +
-  'TextTrackList,TouchList').split(',');
-
-for (var i = 0; i < DOMIterables.length; i++) {
-  var NAME = DOMIterables[i];
-  var Collection = global[NAME];
-  var proto = Collection && Collection.prototype;
-  if (proto && !proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
-  Iterators[NAME] = Iterators.Array;
-}
-
-},{"./es6.array.iterator":"../node_modules/core-js/library/modules/es6.array.iterator.js","./_global":"../node_modules/core-js/library/modules/_global.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_wks-ext.js":[function(require,module,exports) {
-exports.f = require('./_wks');
-
-},{"./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/fn/symbol/iterator.js":[function(require,module,exports) {
-require('../../modules/es6.string.iterator');
-require('../../modules/web.dom.iterable');
-module.exports = require('../../modules/_wks-ext').f('iterator');
-
-},{"../../modules/es6.string.iterator":"../node_modules/core-js/library/modules/es6.string.iterator.js","../../modules/web.dom.iterable":"../node_modules/core-js/library/modules/web.dom.iterable.js","../../modules/_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js"}],"../node_modules/babel-runtime/core-js/symbol/iterator.js":[function(require,module,exports) {
-module.exports = { "default": require("core-js/library/fn/symbol/iterator"), __esModule: true };
-},{"core-js/library/fn/symbol/iterator":"../node_modules/core-js/library/fn/symbol/iterator.js"}],"../node_modules/core-js/library/modules/_meta.js":[function(require,module,exports) {
-var META = require('./_uid')('meta');
-var isObject = require('./_is-object');
-var has = require('./_has');
-var setDesc = require('./_object-dp').f;
-var id = 0;
-var isExtensible = Object.isExtensible || function () {
-  return true;
-};
-var FREEZE = !require('./_fails')(function () {
-  return isExtensible(Object.preventExtensions({}));
-});
-var setMeta = function (it) {
-  setDesc(it, META, { value: {
-    i: 'O' + ++id, // object ID
-    w: {}          // weak collections IDs
-  } });
-};
-var fastKey = function (it, create) {
-  // return primitive with prefix
-  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
-  if (!has(it, META)) {
-    // can't set metadata to uncaught frozen object
-    if (!isExtensible(it)) return 'F';
-    // not necessary to add metadata
-    if (!create) return 'E';
-    // add missing metadata
-    setMeta(it);
-  // return object ID
-  } return it[META].i;
-};
-var getWeak = function (it, create) {
-  if (!has(it, META)) {
-    // can't set metadata to uncaught frozen object
-    if (!isExtensible(it)) return true;
-    // not necessary to add metadata
-    if (!create) return false;
-    // add missing metadata
-    setMeta(it);
-  // return hash weak collections IDs
-  } return it[META].w;
-};
-// add metadata on freeze-family methods calling
-var onFreeze = function (it) {
-  if (FREEZE && meta.NEED && isExtensible(it) && !has(it, META)) setMeta(it);
-  return it;
-};
-var meta = module.exports = {
-  KEY: META,
-  NEED: false,
-  fastKey: fastKey,
-  getWeak: getWeak,
-  onFreeze: onFreeze
-};
-
-},{"./_uid":"../node_modules/core-js/library/modules/_uid.js","./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_fails":"../node_modules/core-js/library/modules/_fails.js"}],"../node_modules/core-js/library/modules/_wks-define.js":[function(require,module,exports) {
-
-var global = require('./_global');
-var core = require('./_core');
-var LIBRARY = require('./_library');
-var wksExt = require('./_wks-ext');
-var defineProperty = require('./_object-dp').f;
-module.exports = function (name) {
-  var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
-  if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
-};
-
-},{"./_global":"../node_modules/core-js/library/modules/_global.js","./_core":"../node_modules/core-js/library/modules/_core.js","./_library":"../node_modules/core-js/library/modules/_library.js","./_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js"}],"../node_modules/core-js/library/modules/_enum-keys.js":[function(require,module,exports) {
-// all enumerable object keys, includes symbols
-var getKeys = require('./_object-keys');
-var gOPS = require('./_object-gops');
-var pIE = require('./_object-pie');
-module.exports = function (it) {
-  var result = getKeys(it);
-  var getSymbols = gOPS.f;
-  if (getSymbols) {
-    var symbols = getSymbols(it);
-    var isEnum = pIE.f;
-    var i = 0;
-    var key;
-    while (symbols.length > i) if (isEnum.call(it, key = symbols[i++])) result.push(key);
-  } return result;
-};
-
-},{"./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_object-gops":"../node_modules/core-js/library/modules/_object-gops.js","./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js"}],"../node_modules/core-js/library/modules/_is-array.js":[function(require,module,exports) {
-// 7.2.2 IsArray(argument)
-var cof = require('./_cof');
-module.exports = Array.isArray || function isArray(arg) {
-  return cof(arg) == 'Array';
-};
-
-},{"./_cof":"../node_modules/core-js/library/modules/_cof.js"}],"../node_modules/core-js/library/modules/_object-gopn.js":[function(require,module,exports) {
-// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-var $keys = require('./_object-keys-internal');
-var hiddenKeys = require('./_enum-bug-keys').concat('length', 'prototype');
-
-exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
-  return $keys(O, hiddenKeys);
-};
-
-},{"./_object-keys-internal":"../node_modules/core-js/library/modules/_object-keys-internal.js","./_enum-bug-keys":"../node_modules/core-js/library/modules/_enum-bug-keys.js"}],"../node_modules/core-js/library/modules/_object-gopn-ext.js":[function(require,module,exports) {
-// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-var toIObject = require('./_to-iobject');
-var gOPN = require('./_object-gopn').f;
-var toString = {}.toString;
-
-var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
-  ? Object.getOwnPropertyNames(window) : [];
-
-var getWindowNames = function (it) {
-  try {
-    return gOPN(it);
-  } catch (e) {
-    return windowNames.slice();
-  }
-};
-
-module.exports.f = function getOwnPropertyNames(it) {
-  return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
-};
-
-},{"./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_object-gopn":"../node_modules/core-js/library/modules/_object-gopn.js"}],"../node_modules/core-js/library/modules/_object-gopd.js":[function(require,module,exports) {
-var pIE = require('./_object-pie');
-var createDesc = require('./_property-desc');
-var toIObject = require('./_to-iobject');
-var toPrimitive = require('./_to-primitive');
-var has = require('./_has');
-var IE8_DOM_DEFINE = require('./_ie8-dom-define');
-var gOPD = Object.getOwnPropertyDescriptor;
-
-exports.f = require('./_descriptors') ? gOPD : function getOwnPropertyDescriptor(O, P) {
-  O = toIObject(O);
-  P = toPrimitive(P, true);
-  if (IE8_DOM_DEFINE) try {
-    return gOPD(O, P);
-  } catch (e) { /* empty */ }
-  if (has(O, P)) return createDesc(!pIE.f.call(O, P), O[P]);
-};
-
-},{"./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_to-primitive":"../node_modules/core-js/library/modules/_to-primitive.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_ie8-dom-define":"../node_modules/core-js/library/modules/_ie8-dom-define.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js"}],"../node_modules/core-js/library/modules/es6.symbol.js":[function(require,module,exports) {
-
-'use strict';
-// ECMAScript 6 symbols shim
-var global = require('./_global');
-var has = require('./_has');
-var DESCRIPTORS = require('./_descriptors');
-var $export = require('./_export');
-var redefine = require('./_redefine');
-var META = require('./_meta').KEY;
-var $fails = require('./_fails');
-var shared = require('./_shared');
-var setToStringTag = require('./_set-to-string-tag');
-var uid = require('./_uid');
-var wks = require('./_wks');
-var wksExt = require('./_wks-ext');
-var wksDefine = require('./_wks-define');
-var enumKeys = require('./_enum-keys');
-var isArray = require('./_is-array');
-var anObject = require('./_an-object');
-var isObject = require('./_is-object');
-var toObject = require('./_to-object');
-var toIObject = require('./_to-iobject');
-var toPrimitive = require('./_to-primitive');
-var createDesc = require('./_property-desc');
-var _create = require('./_object-create');
-var gOPNExt = require('./_object-gopn-ext');
-var $GOPD = require('./_object-gopd');
-var $GOPS = require('./_object-gops');
-var $DP = require('./_object-dp');
-var $keys = require('./_object-keys');
-var gOPD = $GOPD.f;
-var dP = $DP.f;
-var gOPN = gOPNExt.f;
-var $Symbol = global.Symbol;
-var $JSON = global.JSON;
-var _stringify = $JSON && $JSON.stringify;
-var PROTOTYPE = 'prototype';
-var HIDDEN = wks('_hidden');
-var TO_PRIMITIVE = wks('toPrimitive');
-var isEnum = {}.propertyIsEnumerable;
-var SymbolRegistry = shared('symbol-registry');
-var AllSymbols = shared('symbols');
-var OPSymbols = shared('op-symbols');
-var ObjectProto = Object[PROTOTYPE];
-var USE_NATIVE = typeof $Symbol == 'function' && !!$GOPS.f;
-var QObject = global.QObject;
-// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
-var setter = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
-
-// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
-var setSymbolDesc = DESCRIPTORS && $fails(function () {
-  return _create(dP({}, 'a', {
-    get: function () { return dP(this, 'a', { value: 7 }).a; }
-  })).a != 7;
-}) ? function (it, key, D) {
-  var protoDesc = gOPD(ObjectProto, key);
-  if (protoDesc) delete ObjectProto[key];
-  dP(it, key, D);
-  if (protoDesc && it !== ObjectProto) dP(ObjectProto, key, protoDesc);
-} : dP;
-
-var wrap = function (tag) {
-  var sym = AllSymbols[tag] = _create($Symbol[PROTOTYPE]);
-  sym._k = tag;
-  return sym;
-};
-
-var isSymbol = USE_NATIVE && typeof $Symbol.iterator == 'symbol' ? function (it) {
-  return typeof it == 'symbol';
-} : function (it) {
-  return it instanceof $Symbol;
-};
-
-var $defineProperty = function defineProperty(it, key, D) {
-  if (it === ObjectProto) $defineProperty(OPSymbols, key, D);
-  anObject(it);
-  key = toPrimitive(key, true);
-  anObject(D);
-  if (has(AllSymbols, key)) {
-    if (!D.enumerable) {
-      if (!has(it, HIDDEN)) dP(it, HIDDEN, createDesc(1, {}));
-      it[HIDDEN][key] = true;
-    } else {
-      if (has(it, HIDDEN) && it[HIDDEN][key]) it[HIDDEN][key] = false;
-      D = _create(D, { enumerable: createDesc(0, false) });
-    } return setSymbolDesc(it, key, D);
-  } return dP(it, key, D);
-};
-var $defineProperties = function defineProperties(it, P) {
-  anObject(it);
-  var keys = enumKeys(P = toIObject(P));
-  var i = 0;
-  var l = keys.length;
-  var key;
-  while (l > i) $defineProperty(it, key = keys[i++], P[key]);
-  return it;
-};
-var $create = function create(it, P) {
-  return P === undefined ? _create(it) : $defineProperties(_create(it), P);
-};
-var $propertyIsEnumerable = function propertyIsEnumerable(key) {
-  var E = isEnum.call(this, key = toPrimitive(key, true));
-  if (this === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return false;
-  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key] ? E : true;
-};
-var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(it, key) {
-  it = toIObject(it);
-  key = toPrimitive(key, true);
-  if (it === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return;
-  var D = gOPD(it, key);
-  if (D && has(AllSymbols, key) && !(has(it, HIDDEN) && it[HIDDEN][key])) D.enumerable = true;
-  return D;
-};
-var $getOwnPropertyNames = function getOwnPropertyNames(it) {
-  var names = gOPN(toIObject(it));
-  var result = [];
-  var i = 0;
-  var key;
-  while (names.length > i) {
-    if (!has(AllSymbols, key = names[i++]) && key != HIDDEN && key != META) result.push(key);
-  } return result;
-};
-var $getOwnPropertySymbols = function getOwnPropertySymbols(it) {
-  var IS_OP = it === ObjectProto;
-  var names = gOPN(IS_OP ? OPSymbols : toIObject(it));
-  var result = [];
-  var i = 0;
-  var key;
-  while (names.length > i) {
-    if (has(AllSymbols, key = names[i++]) && (IS_OP ? has(ObjectProto, key) : true)) result.push(AllSymbols[key]);
-  } return result;
-};
-
-// 19.4.1.1 Symbol([description])
-if (!USE_NATIVE) {
-  $Symbol = function Symbol() {
-    if (this instanceof $Symbol) throw TypeError('Symbol is not a constructor!');
-    var tag = uid(arguments.length > 0 ? arguments[0] : undefined);
-    var $set = function (value) {
-      if (this === ObjectProto) $set.call(OPSymbols, value);
-      if (has(this, HIDDEN) && has(this[HIDDEN], tag)) this[HIDDEN][tag] = false;
-      setSymbolDesc(this, tag, createDesc(1, value));
-    };
-    if (DESCRIPTORS && setter) setSymbolDesc(ObjectProto, tag, { configurable: true, set: $set });
-    return wrap(tag);
-  };
-  redefine($Symbol[PROTOTYPE], 'toString', function toString() {
-    return this._k;
-  });
-
-  $GOPD.f = $getOwnPropertyDescriptor;
-  $DP.f = $defineProperty;
-  require('./_object-gopn').f = gOPNExt.f = $getOwnPropertyNames;
-  require('./_object-pie').f = $propertyIsEnumerable;
-  $GOPS.f = $getOwnPropertySymbols;
-
-  if (DESCRIPTORS && !require('./_library')) {
-    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
-  }
-
-  wksExt.f = function (name) {
-    return wrap(wks(name));
-  };
-}
-
-$export($export.G + $export.W + $export.F * !USE_NATIVE, { Symbol: $Symbol });
-
-for (var es6Symbols = (
-  // 19.4.2.2, 19.4.2.3, 19.4.2.4, 19.4.2.6, 19.4.2.8, 19.4.2.9, 19.4.2.10, 19.4.2.11, 19.4.2.12, 19.4.2.13, 19.4.2.14
-  'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'
-).split(','), j = 0; es6Symbols.length > j;)wks(es6Symbols[j++]);
-
-for (var wellKnownSymbols = $keys(wks.store), k = 0; wellKnownSymbols.length > k;) wksDefine(wellKnownSymbols[k++]);
-
-$export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
-  // 19.4.2.1 Symbol.for(key)
-  'for': function (key) {
-    return has(SymbolRegistry, key += '')
-      ? SymbolRegistry[key]
-      : SymbolRegistry[key] = $Symbol(key);
-  },
-  // 19.4.2.5 Symbol.keyFor(sym)
-  keyFor: function keyFor(sym) {
-    if (!isSymbol(sym)) throw TypeError(sym + ' is not a symbol!');
-    for (var key in SymbolRegistry) if (SymbolRegistry[key] === sym) return key;
-  },
-  useSetter: function () { setter = true; },
-  useSimple: function () { setter = false; }
-});
-
-$export($export.S + $export.F * !USE_NATIVE, 'Object', {
-  // 19.1.2.2 Object.create(O [, Properties])
-  create: $create,
-  // 19.1.2.4 Object.defineProperty(O, P, Attributes)
-  defineProperty: $defineProperty,
-  // 19.1.2.3 Object.defineProperties(O, Properties)
-  defineProperties: $defineProperties,
-  // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
-  getOwnPropertyDescriptor: $getOwnPropertyDescriptor,
-  // 19.1.2.7 Object.getOwnPropertyNames(O)
-  getOwnPropertyNames: $getOwnPropertyNames,
-  // 19.1.2.8 Object.getOwnPropertySymbols(O)
-  getOwnPropertySymbols: $getOwnPropertySymbols
-});
-
-// Chrome 38 and 39 `Object.getOwnPropertySymbols` fails on primitives
-// https://bugs.chromium.org/p/v8/issues/detail?id=3443
-var FAILS_ON_PRIMITIVES = $fails(function () { $GOPS.f(1); });
-
-$export($export.S + $export.F * FAILS_ON_PRIMITIVES, 'Object', {
-  getOwnPropertySymbols: function getOwnPropertySymbols(it) {
-    return $GOPS.f(toObject(it));
-  }
-});
-
-// 24.3.2 JSON.stringify(value [, replacer [, space]])
-$JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
-  var S = $Symbol();
-  // MS Edge converts symbol values to JSON as {}
-  // WebKit converts symbol values to JSON as null
-  // V8 throws on boxed symbols
-  return _stringify([S]) != '[null]' || _stringify({ a: S }) != '{}' || _stringify(Object(S)) != '{}';
-})), 'JSON', {
-  stringify: function stringify(it) {
-    var args = [it];
-    var i = 1;
-    var replacer, $replacer;
-    while (arguments.length > i) args.push(arguments[i++]);
-    $replacer = replacer = args[1];
-    if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
-    if (!isArray(replacer)) replacer = function (key, value) {
-      if (typeof $replacer == 'function') value = $replacer.call(this, key, value);
-      if (!isSymbol(value)) return value;
-    };
-    args[1] = replacer;
-    return _stringify.apply($JSON, args);
-  }
-});
-
-// 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
-$Symbol[PROTOTYPE][TO_PRIMITIVE] || require('./_hide')($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
-// 19.4.3.5 Symbol.prototype[@@toStringTag]
-setToStringTag($Symbol, 'Symbol');
-// 20.2.1.9 Math[@@toStringTag]
-setToStringTag(Math, 'Math', true);
-// 24.3.3 JSON[@@toStringTag]
-setToStringTag(global.JSON, 'JSON', true);
-
-},{"./_global":"../node_modules/core-js/library/modules/_global.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js","./_export":"../node_modules/core-js/library/modules/_export.js","./_redefine":"../node_modules/core-js/library/modules/_redefine.js","./_meta":"../node_modules/core-js/library/modules/_meta.js","./_fails":"../node_modules/core-js/library/modules/_fails.js","./_shared":"../node_modules/core-js/library/modules/_shared.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_uid":"../node_modules/core-js/library/modules/_uid.js","./_wks":"../node_modules/core-js/library/modules/_wks.js","./_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js","./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js","./_enum-keys":"../node_modules/core-js/library/modules/_enum-keys.js","./_is-array":"../node_modules/core-js/library/modules/_is-array.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_to-object":"../node_modules/core-js/library/modules/_to-object.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_to-primitive":"../node_modules/core-js/library/modules/_to-primitive.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_object-create":"../node_modules/core-js/library/modules/_object-create.js","./_object-gopn-ext":"../node_modules/core-js/library/modules/_object-gopn-ext.js","./_object-gopd":"../node_modules/core-js/library/modules/_object-gopd.js","./_object-gops":"../node_modules/core-js/library/modules/_object-gops.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_object-gopn":"../node_modules/core-js/library/modules/_object-gopn.js","./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js","./_library":"../node_modules/core-js/library/modules/_library.js","./_hide":"../node_modules/core-js/library/modules/_hide.js"}],"../node_modules/core-js/library/modules/es6.object.to-string.js":[function(require,module,exports) {
-
-},{}],"../node_modules/core-js/library/modules/es7.symbol.async-iterator.js":[function(require,module,exports) {
-require('./_wks-define')('asyncIterator');
-
-},{"./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js"}],"../node_modules/core-js/library/modules/es7.symbol.observable.js":[function(require,module,exports) {
-require('./_wks-define')('observable');
-
-},{"./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js"}],"../node_modules/core-js/library/fn/symbol/index.js":[function(require,module,exports) {
-require('../../modules/es6.symbol');
-require('../../modules/es6.object.to-string');
-require('../../modules/es7.symbol.async-iterator');
-require('../../modules/es7.symbol.observable');
-module.exports = require('../../modules/_core').Symbol;
-
-},{"../../modules/es6.symbol":"../node_modules/core-js/library/modules/es6.symbol.js","../../modules/es6.object.to-string":"../node_modules/core-js/library/modules/es6.object.to-string.js","../../modules/es7.symbol.async-iterator":"../node_modules/core-js/library/modules/es7.symbol.async-iterator.js","../../modules/es7.symbol.observable":"../node_modules/core-js/library/modules/es7.symbol.observable.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/symbol.js":[function(require,module,exports) {
-module.exports = { "default": require("core-js/library/fn/symbol"), __esModule: true };
-},{"core-js/library/fn/symbol":"../node_modules/core-js/library/fn/symbol/index.js"}],"../node_modules/babel-runtime/helpers/typeof.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-var _iterator = require("../core-js/symbol/iterator");
-
-var _iterator2 = _interopRequireDefault(_iterator);
-
-var _symbol = require("../core-js/symbol");
-
-var _symbol2 = _interopRequireDefault(_symbol);
-
-var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
-} : function (obj) {
-  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
-};
-},{"../core-js/symbol/iterator":"../node_modules/babel-runtime/core-js/symbol/iterator.js","../core-js/symbol":"../node_modules/babel-runtime/core-js/symbol.js"}],"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-var _typeof2 = require("../helpers/typeof");
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return call && ((typeof call === "undefined" ? "undefined" : (0, _typeof3.default)(call)) === "object" || typeof call === "function") ? call : self;
-};
-},{"../helpers/typeof":"../node_modules/babel-runtime/helpers/typeof.js"}],"../node_modules/core-js/library/modules/_set-proto.js":[function(require,module,exports) {
-// Works with __proto__ only. Old v8 can't work with null proto objects.
-/* eslint-disable no-proto */
-var isObject = require('./_is-object');
-var anObject = require('./_an-object');
-var check = function (O, proto) {
-  anObject(O);
-  if (!isObject(proto) && proto !== null) throw TypeError(proto + ": can't set as prototype!");
-};
-module.exports = {
-  set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
-    function (test, buggy, set) {
-      try {
-        set = require('./_ctx')(Function.call, require('./_object-gopd').f(Object.prototype, '__proto__').set, 2);
-        set(test, []);
-        buggy = !(test instanceof Array);
-      } catch (e) { buggy = true; }
-      return function setPrototypeOf(O, proto) {
-        check(O, proto);
-        if (buggy) O.__proto__ = proto;
-        else set(O, proto);
-        return O;
-      };
-    }({}, false) : undefined),
-  check: check
-};
-
-},{"./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_ctx":"../node_modules/core-js/library/modules/_ctx.js","./_object-gopd":"../node_modules/core-js/library/modules/_object-gopd.js"}],"../node_modules/core-js/library/modules/es6.object.set-prototype-of.js":[function(require,module,exports) {
-// 19.1.3.19 Object.setPrototypeOf(O, proto)
-var $export = require('./_export');
-$export($export.S, 'Object', { setPrototypeOf: require('./_set-proto').set });
-
-},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_set-proto":"../node_modules/core-js/library/modules/_set-proto.js"}],"../node_modules/core-js/library/fn/object/set-prototype-of.js":[function(require,module,exports) {
-require('../../modules/es6.object.set-prototype-of');
-module.exports = require('../../modules/_core').Object.setPrototypeOf;
-
-},{"../../modules/es6.object.set-prototype-of":"../node_modules/core-js/library/modules/es6.object.set-prototype-of.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/set-prototype-of.js":[function(require,module,exports) {
-module.exports = { "default": require("core-js/library/fn/object/set-prototype-of"), __esModule: true };
-},{"core-js/library/fn/object/set-prototype-of":"../node_modules/core-js/library/fn/object/set-prototype-of.js"}],"../node_modules/core-js/library/modules/es6.object.create.js":[function(require,module,exports) {
-var $export = require('./_export');
-// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-$export($export.S, 'Object', { create: require('./_object-create') });
-
-},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_object-create":"../node_modules/core-js/library/modules/_object-create.js"}],"../node_modules/core-js/library/fn/object/create.js":[function(require,module,exports) {
-require('../../modules/es6.object.create');
-var $Object = require('../../modules/_core').Object;
-module.exports = function create(P, D) {
-  return $Object.create(P, D);
-};
-
-},{"../../modules/es6.object.create":"../node_modules/core-js/library/modules/es6.object.create.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/create.js":[function(require,module,exports) {
-module.exports = { "default": require("core-js/library/fn/object/create"), __esModule: true };
-},{"core-js/library/fn/object/create":"../node_modules/core-js/library/fn/object/create.js"}],"../node_modules/babel-runtime/helpers/inherits.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-var _setPrototypeOf = require("../core-js/object/set-prototype-of");
-
-var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
-
-var _create = require("../core-js/object/create");
-
-var _create2 = _interopRequireDefault(_create);
-
-var _typeof2 = require("../helpers/typeof");
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : (0, _typeof3.default)(superClass)));
-  }
-
-  subClass.prototype = (0, _create2.default)(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf2.default ? (0, _setPrototypeOf2.default)(subClass, superClass) : subClass.__proto__ = superClass;
-};
-},{"../core-js/object/set-prototype-of":"../node_modules/babel-runtime/core-js/object/set-prototype-of.js","../core-js/object/create":"../node_modules/babel-runtime/core-js/object/create.js","../helpers/typeof":"../node_modules/babel-runtime/helpers/typeof.js"}],"../node_modules/tinycolor2/tinycolor.js":[function(require,module,exports) {
+},{}],"../node_modules/tinycolor2/tinycolor.js":[function(require,module,exports) {
 var define;
 // TinyColor v1.4.1
 // https://github.com/bgrins/TinyColor
@@ -41135,216 +42456,7 @@ exports.magenta = magenta;
 var grey = presetPalettes.grey;
 exports.grey = grey;
 
-},{"./generate":"../node_modules/@ant-design/colors/lib/generate.js"}],"../node_modules/process/browser.js":[function(require,module,exports) {
-
-// shim for using process in browser
-var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-  throw new Error('setTimeout has not been defined');
-}
-
-function defaultClearTimeout() {
-  throw new Error('clearTimeout has not been defined');
-}
-
-(function () {
-  try {
-    if (typeof setTimeout === 'function') {
-      cachedSetTimeout = setTimeout;
-    } else {
-      cachedSetTimeout = defaultSetTimout;
-    }
-  } catch (e) {
-    cachedSetTimeout = defaultSetTimout;
-  }
-
-  try {
-    if (typeof clearTimeout === 'function') {
-      cachedClearTimeout = clearTimeout;
-    } else {
-      cachedClearTimeout = defaultClearTimeout;
-    }
-  } catch (e) {
-    cachedClearTimeout = defaultClearTimeout;
-  }
-})();
-
-function runTimeout(fun) {
-  if (cachedSetTimeout === setTimeout) {
-    //normal enviroments in sane situations
-    return setTimeout(fun, 0);
-  } // if setTimeout wasn't available but was latter defined
-
-
-  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-    cachedSetTimeout = setTimeout;
-    return setTimeout(fun, 0);
-  }
-
-  try {
-    // when when somebody has screwed with setTimeout but no I.E. maddness
-    return cachedSetTimeout(fun, 0);
-  } catch (e) {
-    try {
-      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-      return cachedSetTimeout.call(null, fun, 0);
-    } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-      return cachedSetTimeout.call(this, fun, 0);
-    }
-  }
-}
-
-function runClearTimeout(marker) {
-  if (cachedClearTimeout === clearTimeout) {
-    //normal enviroments in sane situations
-    return clearTimeout(marker);
-  } // if clearTimeout wasn't available but was latter defined
-
-
-  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-    cachedClearTimeout = clearTimeout;
-    return clearTimeout(marker);
-  }
-
-  try {
-    // when when somebody has screwed with setTimeout but no I.E. maddness
-    return cachedClearTimeout(marker);
-  } catch (e) {
-    try {
-      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-      return cachedClearTimeout.call(null, marker);
-    } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-      return cachedClearTimeout.call(this, marker);
-    }
-  }
-}
-
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-  if (!draining || !currentQueue) {
-    return;
-  }
-
-  draining = false;
-
-  if (currentQueue.length) {
-    queue = currentQueue.concat(queue);
-  } else {
-    queueIndex = -1;
-  }
-
-  if (queue.length) {
-    drainQueue();
-  }
-}
-
-function drainQueue() {
-  if (draining) {
-    return;
-  }
-
-  var timeout = runTimeout(cleanUpNextTick);
-  draining = true;
-  var len = queue.length;
-
-  while (len) {
-    currentQueue = queue;
-    queue = [];
-
-    while (++queueIndex < len) {
-      if (currentQueue) {
-        currentQueue[queueIndex].run();
-      }
-    }
-
-    queueIndex = -1;
-    len = queue.length;
-  }
-
-  currentQueue = null;
-  draining = false;
-  runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-  var args = new Array(arguments.length - 1);
-
-  if (arguments.length > 1) {
-    for (var i = 1; i < arguments.length; i++) {
-      args[i - 1] = arguments[i];
-    }
-  }
-
-  queue.push(new Item(fun, args));
-
-  if (queue.length === 1 && !draining) {
-    runTimeout(drainQueue);
-  }
-}; // v8 likes predictible objects
-
-
-function Item(fun, array) {
-  this.fun = fun;
-  this.array = array;
-}
-
-Item.prototype.run = function () {
-  this.fun.apply(null, this.array);
-};
-
-process.title = 'browser';
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) {
-  return [];
-};
-
-process.binding = function (name) {
-  throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () {
-  return '/';
-};
-
-process.chdir = function (dir) {
-  throw new Error('process.chdir is not supported');
-};
-
-process.umask = function () {
-  return 0;
-};
-},{}],"../node_modules/@ant-design/icons-react/es/utils.js":[function(require,module,exports) {
+},{"./generate":"../node_modules/@ant-design/colors/lib/generate.js"}],"../node_modules/@ant-design/icons-react/es/utils.js":[function(require,module,exports) {
 var process = require("process");
 "use strict";
 
@@ -42087,7 +43199,6992 @@ Icon.getTwoToneColor = _twoTonePrimaryColor.getTwoToneColor;
 Icon.setTwoToneColor = _twoTonePrimaryColor.setTwoToneColor;
 var _default = Icon;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","@ant-design/icons/lib/dist":"../node_modules/@ant-design/icons/lib/dist.js","@ant-design/icons-react":"../node_modules/@ant-design/icons-react/es/index.js","./IconFont":"../node_modules/antd/es/icon/IconFont.js","./utils":"../node_modules/antd/es/icon/utils.js","../_util/warning":"../node_modules/antd/es/_util/warning.js","../locale-provider/LocaleReceiver":"../node_modules/antd/es/locale-provider/LocaleReceiver.js","./twoTonePrimaryColor":"../node_modules/antd/es/icon/twoTonePrimaryColor.js"}],"../node_modules/antd/es/_util/isNumeric.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","@ant-design/icons/lib/dist":"../node_modules/@ant-design/icons/lib/dist.js","@ant-design/icons-react":"../node_modules/@ant-design/icons-react/es/index.js","./IconFont":"../node_modules/antd/es/icon/IconFont.js","./utils":"../node_modules/antd/es/icon/utils.js","../_util/warning":"../node_modules/antd/es/_util/warning.js","../locale-provider/LocaleReceiver":"../node_modules/antd/es/locale-provider/LocaleReceiver.js","./twoTonePrimaryColor":"../node_modules/antd/es/icon/twoTonePrimaryColor.js"}],"../node_modules/antd/es/message/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _rcNotification = _interopRequireDefault(require("rc-notification"));
+
+var _icon = _interopRequireDefault(require("../icon"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var defaultDuration = 3;
+var defaultTop;
+var messageInstance;
+var key = 1;
+var prefixCls = 'ant-message';
+var transitionName = 'move-up';
+var getContainer;
+var maxCount;
+
+function getMessageInstance(callback) {
+  if (messageInstance) {
+    callback(messageInstance);
+    return;
+  }
+
+  _rcNotification.default.newInstance({
+    prefixCls: prefixCls,
+    transitionName: transitionName,
+    style: {
+      top: defaultTop
+    },
+    getContainer: getContainer,
+    maxCount: maxCount
+  }, function (instance) {
+    if (messageInstance) {
+      callback(messageInstance);
+      return;
+    }
+
+    messageInstance = instance;
+    callback(instance);
+  });
+}
+
+function notice(args) {
+  var duration = args.duration !== undefined ? args.duration : defaultDuration;
+  var iconType = {
+    info: 'info-circle',
+    success: 'check-circle',
+    error: 'close-circle',
+    warning: 'exclamation-circle',
+    loading: 'loading'
+  }[args.type];
+  var target = args.key || key++;
+  var closePromise = new Promise(function (resolve) {
+    var callback = function callback() {
+      if (typeof args.onClose === 'function') {
+        args.onClose();
+      }
+
+      return resolve(true);
+    };
+
+    getMessageInstance(function (instance) {
+      var iconNode = /*#__PURE__*/React.createElement(_icon.default, {
+        type: iconType,
+        theme: iconType === 'loading' ? 'outlined' : 'filled'
+      });
+      var switchIconNode = iconType ? iconNode : '';
+      instance.notice({
+        key: target,
+        duration: duration,
+        style: {},
+        content: /*#__PURE__*/React.createElement("div", {
+          className: "".concat(prefixCls, "-custom-content").concat(args.type ? " ".concat(prefixCls, "-").concat(args.type) : '')
+        }, args.icon ? args.icon : switchIconNode, /*#__PURE__*/React.createElement("span", null, args.content)),
+        onClose: callback
+      });
+    });
+  });
+
+  var result = function result() {
+    if (messageInstance) {
+      messageInstance.removeNotice(target);
+    }
+  };
+
+  result.then = function (filled, rejected) {
+    return closePromise.then(filled, rejected);
+  };
+
+  result.promise = closePromise;
+  return result;
+}
+
+function isArgsProps(content) {
+  return Object.prototype.toString.call(content) === '[object Object]' && !!content.content;
+}
+
+var api = {
+  open: notice,
+  config: function config(options) {
+    if (options.top !== undefined) {
+      defaultTop = options.top;
+      messageInstance = null; // delete messageInstance for new defaultTop
+    }
+
+    if (options.duration !== undefined) {
+      defaultDuration = options.duration;
+    }
+
+    if (options.prefixCls !== undefined) {
+      prefixCls = options.prefixCls;
+    }
+
+    if (options.getContainer !== undefined) {
+      getContainer = options.getContainer;
+    }
+
+    if (options.transitionName !== undefined) {
+      transitionName = options.transitionName;
+      messageInstance = null; // delete messageInstance for new transitionName
+    }
+
+    if (options.maxCount !== undefined) {
+      maxCount = options.maxCount;
+      messageInstance = null;
+    }
+  },
+  destroy: function destroy() {
+    if (messageInstance) {
+      messageInstance.destroy();
+      messageInstance = null;
+    }
+  }
+};
+['success', 'info', 'warning', 'error', 'loading'].forEach(function (type) {
+  api[type] = function (content, duration, onClose) {
+    if (isArgsProps(content)) {
+      return api.open(_extends(_extends({}, content), {
+        type: type
+      }));
+    }
+
+    if (typeof duration === 'function') {
+      onClose = duration;
+      duration = undefined;
+    }
+
+    return api.open({
+      content: content,
+      duration: duration,
+      type: type,
+      onClose: onClose
+    });
+  };
+});
+api.warn = api.warning;
+var _default = api;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","rc-notification":"../node_modules/rc-notification/es/index.js","../icon":"../node_modules/antd/es/icon/index.js"}],"../node_modules/mobx/lib/mobx.module.js":[function(require,module,exports) {
+var process = require("process");
+var global = arguments[3];
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FlowCancellationError = FlowCancellationError;
+exports._allowStateChanges = allowStateChanges;
+exports._allowStateChangesInsideComputed = allowStateChangesInsideComputed;
+exports._allowStateReadsEnd = allowStateReadsEnd;
+exports._allowStateReadsStart = allowStateReadsStart;
+exports._endAction = _endAction;
+exports._getAdministration = getAdministration;
+exports._getGlobalState = getGlobalState;
+exports._interceptReads = interceptReads;
+exports._isComputingDerivation = isComputingDerivation;
+exports._resetGlobalState = resetGlobalState;
+exports._startAction = _startAction;
+exports.autorun = autorun;
+exports.configure = configure;
+exports.createAtom = createAtom;
+exports.decorate = decorate;
+exports.entries = entries;
+exports.extendObservable = extendObservable;
+exports.flow = flow;
+exports.get = get;
+exports.getAtom = getAtom;
+exports.getDebugName = getDebugName;
+exports.getDependencyTree = getDependencyTree;
+exports.getObserverTree = getObserverTree;
+exports.has = has;
+exports.intercept = intercept;
+exports.isAction = isAction;
+exports.isArrayLike = isArrayLike;
+exports.isComputed = isComputed;
+exports.isComputedProp = isComputedProp;
+exports.isFlowCancellationError = isFlowCancellationError;
+exports.isObservable = isObservable;
+exports.isObservableArray = isObservableArray;
+exports.isObservableObject = isObservableObject;
+exports.isObservableProp = isObservableProp;
+exports.keys = keys;
+exports.observe = observe;
+exports.onBecomeObserved = onBecomeObserved;
+exports.onBecomeUnobserved = onBecomeUnobserved;
+exports.onReactionError = onReactionError;
+exports.reaction = reaction;
+exports.remove = remove;
+exports.runInAction = runInAction;
+exports.set = set;
+exports.spy = spy;
+exports.toJS = toJS;
+exports.trace = trace;
+exports.transaction = transaction;
+exports.untracked = untracked;
+exports.values = values;
+exports.when = when;
+exports.observable = exports.isObservableSet = exports.isObservableMap = exports.isBoxedObservable = exports.computed = exports.comparer = exports.action = exports.Reaction = exports.ObservableSet = exports.ObservableMap = exports.IDerivationState = exports.$mobx = void 0;
+
+/** MobX - (c) Michel Weststrate 2015 - 2020 - MIT Licensed */
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+
+/* global Reflect, Promise */
+var extendStatics = function (d, b) {
+  extendStatics = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (d, b) {
+    d.__proto__ = b;
+  } || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+  };
+
+  return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+  extendStatics(d, b);
+
+  function __() {
+    this.constructor = d;
+  }
+
+  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function () {
+  __assign = Object.assign || function __assign(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+function __values(o) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator],
+      i = 0;
+  if (m) return m.call(o);
+  return {
+    next: function () {
+      if (o && i >= o.length) o = void 0;
+      return {
+        value: o && o[i++],
+        done: !o
+      };
+    }
+  };
+}
+
+function __read(o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o),
+      r,
+      ar = [],
+      e;
+
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+  } catch (error) {
+    e = {
+      error: error
+    };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"])) m.call(i);
+    } finally {
+      if (e) throw e.error;
+    }
+  }
+
+  return ar;
+}
+
+function __spread() {
+  for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
+
+  return ar;
+}
+
+var OBFUSCATED_ERROR = "An invariant failed, however the error is obfuscated because this is a production build.";
+var EMPTY_ARRAY = [];
+Object.freeze(EMPTY_ARRAY);
+var EMPTY_OBJECT = {};
+Object.freeze(EMPTY_OBJECT);
+
+function getNextId() {
+  return ++globalState.mobxGuid;
+}
+
+function fail(message) {
+  invariant(false, message);
+  throw "X"; // unreachable
+}
+
+function invariant(check, message) {
+  if (!check) throw new Error("[mobx] " + (message || OBFUSCATED_ERROR));
+}
+/**
+ * Prints a deprecation message, but only one time.
+ * Returns false if the deprecated message was already printed before
+ */
+
+
+var deprecatedMessages = [];
+
+function deprecated(msg, thing) {
+  if ("development" === "production") return false;
+
+  if (thing) {
+    return deprecated("'" + msg + "', use '" + thing + "' instead.");
+  }
+
+  if (deprecatedMessages.indexOf(msg) !== -1) return false;
+  deprecatedMessages.push(msg);
+  console.error("[mobx] Deprecated: " + msg);
+  return true;
+}
+/**
+ * Makes sure that the provided function is invoked at most once.
+ */
+
+
+function once(func) {
+  var invoked = false;
+  return function () {
+    if (invoked) return;
+    invoked = true;
+    return func.apply(this, arguments);
+  };
+}
+
+var noop = function () {};
+
+function unique(list) {
+  var res = [];
+  list.forEach(function (item) {
+    if (res.indexOf(item) === -1) res.push(item);
+  });
+  return res;
+}
+
+function isObject(value) {
+  return value !== null && typeof value === "object";
+}
+
+function isPlainObject(value) {
+  if (value === null || typeof value !== "object") return false;
+  var proto = Object.getPrototypeOf(value);
+  return proto === Object.prototype || proto === null;
+}
+
+function addHiddenProp(object, propName, value) {
+  Object.defineProperty(object, propName, {
+    enumerable: false,
+    writable: true,
+    configurable: true,
+    value: value
+  });
+}
+
+function addHiddenFinalProp(object, propName, value) {
+  Object.defineProperty(object, propName, {
+    enumerable: false,
+    writable: false,
+    configurable: true,
+    value: value
+  });
+}
+
+function isPropertyConfigurable(object, prop) {
+  var descriptor = Object.getOwnPropertyDescriptor(object, prop);
+  return !descriptor || descriptor.configurable !== false && descriptor.writable !== false;
+}
+
+function assertPropertyConfigurable(object, prop) {
+  if ("development" !== "production" && !isPropertyConfigurable(object, prop)) fail("Cannot make property '" + prop.toString() + "' observable, it is not configurable and writable in the target object");
+}
+
+function createInstanceofPredicate(name, clazz) {
+  var propName = "isMobX" + name;
+  clazz.prototype[propName] = true;
+  return function (x) {
+    return isObject(x) && x[propName] === true;
+  };
+}
+/**
+ * Returns whether the argument is an array, disregarding observability.
+ */
+
+
+function isArrayLike(x) {
+  return Array.isArray(x) || isObservableArray(x);
+}
+
+function isES6Map(thing) {
+  return thing instanceof Map;
+}
+
+function isES6Set(thing) {
+  return thing instanceof Set;
+}
+/**
+ * Returns the following: own keys, prototype keys & own symbol keys, if they are enumerable.
+ */
+
+
+function getPlainObjectKeys(object) {
+  var enumerables = new Set();
+
+  for (var key in object) enumerables.add(key); // *all* enumerables
+
+
+  Object.getOwnPropertySymbols(object).forEach(function (k) {
+    if (Object.getOwnPropertyDescriptor(object, k).enumerable) enumerables.add(k);
+  }); // *own* symbols
+  // Note: this implementation is missing enumerable, inherited, symbolic property names! That would however pretty expensive to add,
+  // as there is no efficient iterator that returns *all* properties
+
+  return Array.from(enumerables);
+}
+
+function stringifyKey(key) {
+  if (key && key.toString) return key.toString();else return new String(key).toString();
+}
+
+function getMapLikeKeys(map) {
+  if (isPlainObject(map)) return Object.keys(map);
+  if (Array.isArray(map)) return map.map(function (_a) {
+    var _b = __read(_a, 1),
+        key = _b[0];
+
+    return key;
+  });
+  if (isES6Map(map) || isObservableMap(map)) return Array.from(map.keys());
+  return fail("Cannot get keys from '" + map + "'");
+}
+
+function toPrimitive(value) {
+  return value === null ? null : typeof value === "object" ? "" + value : value;
+}
+
+var $mobx = Symbol("mobx administration");
+exports.$mobx = $mobx;
+
+var Atom =
+/** @class */
+function () {
+  /**
+   * Create a new atom. For debugging purposes it is recommended to give it a name.
+   * The onBecomeObserved and onBecomeUnobserved callbacks can be used for resource management.
+   */
+  function Atom(name) {
+    if (name === void 0) {
+      name = "Atom@" + getNextId();
+    }
+
+    this.name = name;
+    this.isPendingUnobservation = false; // for effective unobserving. BaseAtom has true, for extra optimization, so its onBecomeUnobserved never gets called, because it's not needed
+
+    this.isBeingObserved = false;
+    this.observers = new Set();
+    this.diffValue = 0;
+    this.lastAccessedBy = 0;
+    this.lowestObserverState = IDerivationState.NOT_TRACKING;
+  }
+
+  Atom.prototype.onBecomeObserved = function () {
+    if (this.onBecomeObservedListeners) {
+      this.onBecomeObservedListeners.forEach(function (listener) {
+        return listener();
+      });
+    }
+  };
+
+  Atom.prototype.onBecomeUnobserved = function () {
+    if (this.onBecomeUnobservedListeners) {
+      this.onBecomeUnobservedListeners.forEach(function (listener) {
+        return listener();
+      });
+    }
+  };
+  /**
+   * Invoke this method to notify mobx that your atom has been used somehow.
+   * Returns true if there is currently a reactive context.
+   */
+
+
+  Atom.prototype.reportObserved = function () {
+    return reportObserved(this);
+  };
+  /**
+   * Invoke this method _after_ this method has changed to signal mobx that all its observers should invalidate.
+   */
+
+
+  Atom.prototype.reportChanged = function () {
+    startBatch();
+    propagateChanged(this);
+    endBatch();
+  };
+
+  Atom.prototype.toString = function () {
+    return this.name;
+  };
+
+  return Atom;
+}();
+
+var isAtom = createInstanceofPredicate("Atom", Atom);
+
+function createAtom(name, onBecomeObservedHandler, onBecomeUnobservedHandler) {
+  if (onBecomeObservedHandler === void 0) {
+    onBecomeObservedHandler = noop;
+  }
+
+  if (onBecomeUnobservedHandler === void 0) {
+    onBecomeUnobservedHandler = noop;
+  }
+
+  var atom = new Atom(name); // default `noop` listener will not initialize the hook Set
+
+  if (onBecomeObservedHandler !== noop) {
+    onBecomeObserved(atom, onBecomeObservedHandler);
+  }
+
+  if (onBecomeUnobservedHandler !== noop) {
+    onBecomeUnobserved(atom, onBecomeUnobservedHandler);
+  }
+
+  return atom;
+}
+
+function identityComparer(a, b) {
+  return a === b;
+}
+
+function structuralComparer(a, b) {
+  return deepEqual(a, b);
+}
+
+function shallowComparer(a, b) {
+  return deepEqual(a, b, 1);
+}
+
+function defaultComparer(a, b) {
+  return Object.is(a, b);
+}
+
+var comparer = {
+  identity: identityComparer,
+  structural: structuralComparer,
+  default: defaultComparer,
+  shallow: shallowComparer
+};
+exports.comparer = comparer;
+var mobxDidRunLazyInitializersSymbol = Symbol("mobx did run lazy initializers");
+var mobxPendingDecorators = Symbol("mobx pending decorators");
+var enumerableDescriptorCache = {};
+var nonEnumerableDescriptorCache = {};
+
+function createPropertyInitializerDescriptor(prop, enumerable) {
+  var cache = enumerable ? enumerableDescriptorCache : nonEnumerableDescriptorCache;
+  return cache[prop] || (cache[prop] = {
+    configurable: true,
+    enumerable: enumerable,
+    get: function () {
+      initializeInstance(this);
+      return this[prop];
+    },
+    set: function (value) {
+      initializeInstance(this);
+      this[prop] = value;
+    }
+  });
+}
+
+function initializeInstance(target) {
+  var e_1, _a;
+
+  if (target[mobxDidRunLazyInitializersSymbol] === true) return;
+  var decorators = target[mobxPendingDecorators];
+
+  if (decorators) {
+    addHiddenProp(target, mobxDidRunLazyInitializersSymbol, true); // Build property key array from both strings and symbols
+
+    var keys = __spread(Object.getOwnPropertySymbols(decorators), Object.keys(decorators));
+
+    try {
+      for (var keys_1 = __values(keys), keys_1_1 = keys_1.next(); !keys_1_1.done; keys_1_1 = keys_1.next()) {
+        var key = keys_1_1.value;
+        var d = decorators[key];
+        d.propertyCreator(target, d.prop, d.descriptor, d.decoratorTarget, d.decoratorArguments);
+      }
+    } catch (e_1_1) {
+      e_1 = {
+        error: e_1_1
+      };
+    } finally {
+      try {
+        if (keys_1_1 && !keys_1_1.done && (_a = keys_1.return)) _a.call(keys_1);
+      } finally {
+        if (e_1) throw e_1.error;
+      }
+    }
+  }
+}
+
+function createPropDecorator(propertyInitiallyEnumerable, propertyCreator) {
+  return function decoratorFactory() {
+    var decoratorArguments;
+
+    var decorator = function decorate(target, prop, descriptor, applyImmediately // This is a special parameter to signal the direct application of a decorator, allow extendObservable to skip the entire type decoration part,
+    // as the instance to apply the decorator to equals the target
+    ) {
+      if (applyImmediately === true) {
+        propertyCreator(target, prop, descriptor, target, decoratorArguments);
+        return null;
+      }
+
+      if ("development" !== "production" && !quacksLikeADecorator(arguments)) fail("This function is a decorator, but it wasn't invoked like a decorator");
+
+      if (!Object.prototype.hasOwnProperty.call(target, mobxPendingDecorators)) {
+        var inheritedDecorators = target[mobxPendingDecorators];
+        addHiddenProp(target, mobxPendingDecorators, __assign({}, inheritedDecorators));
+      }
+
+      target[mobxPendingDecorators][prop] = {
+        prop: prop,
+        propertyCreator: propertyCreator,
+        descriptor: descriptor,
+        decoratorTarget: target,
+        decoratorArguments: decoratorArguments
+      };
+      return createPropertyInitializerDescriptor(prop, propertyInitiallyEnumerable);
+    };
+
+    if (quacksLikeADecorator(arguments)) {
+      // @decorator
+      decoratorArguments = EMPTY_ARRAY;
+      return decorator.apply(null, arguments);
+    } else {
+      // @decorator(args)
+      decoratorArguments = Array.prototype.slice.call(arguments);
+      return decorator;
+    }
+  };
+}
+
+function quacksLikeADecorator(args) {
+  return (args.length === 2 || args.length === 3) && (typeof args[1] === "string" || typeof args[1] === "symbol") || args.length === 4 && args[3] === true;
+}
+
+function deepEnhancer(v, _, name) {
+  // it is an observable already, done
+  if (isObservable(v)) return v; // something that can be converted and mutated?
+
+  if (Array.isArray(v)) return observable.array(v, {
+    name: name
+  });
+  if (isPlainObject(v)) return observable.object(v, undefined, {
+    name: name
+  });
+  if (isES6Map(v)) return observable.map(v, {
+    name: name
+  });
+  if (isES6Set(v)) return observable.set(v, {
+    name: name
+  });
+  return v;
+}
+
+function shallowEnhancer(v, _, name) {
+  if (v === undefined || v === null) return v;
+  if (isObservableObject(v) || isObservableArray(v) || isObservableMap(v) || isObservableSet(v)) return v;
+  if (Array.isArray(v)) return observable.array(v, {
+    name: name,
+    deep: false
+  });
+  if (isPlainObject(v)) return observable.object(v, undefined, {
+    name: name,
+    deep: false
+  });
+  if (isES6Map(v)) return observable.map(v, {
+    name: name,
+    deep: false
+  });
+  if (isES6Set(v)) return observable.set(v, {
+    name: name,
+    deep: false
+  });
+  return fail("development" !== "production" && "The shallow modifier / decorator can only used in combination with arrays, objects, maps and sets");
+}
+
+function referenceEnhancer(newValue) {
+  // never turn into an observable
+  return newValue;
+}
+
+function refStructEnhancer(v, oldValue, name) {
+  if ("development" !== "production" && isObservable(v)) throw "observable.struct should not be used with observable values";
+  if (deepEqual(v, oldValue)) return oldValue;
+  return v;
+}
+
+function createDecoratorForEnhancer(enhancer) {
+  invariant(enhancer);
+  var decorator = createPropDecorator(true, function (target, propertyName, descriptor, _decoratorTarget, decoratorArgs) {
+    if ("development" !== "production") {
+      invariant(!descriptor || !descriptor.get, "@observable cannot be used on getter (property \"" + stringifyKey(propertyName) + "\"), use @computed instead.");
+    }
+
+    var initialValue = descriptor ? descriptor.initializer ? descriptor.initializer.call(target) : descriptor.value : undefined;
+    asObservableObject(target).addObservableProp(propertyName, initialValue, enhancer);
+  });
+  var res = // Extra process checks, as this happens during module initialization
+  typeof process !== "undefined" && process.env && "development" !== "production" ? function observableDecorator() {
+    // This wrapper function is just to detect illegal decorator invocations, deprecate in a next version
+    // and simply return the created prop decorator
+    if (arguments.length < 2) return fail("Incorrect decorator invocation. @observable decorator doesn't expect any arguments");
+    return decorator.apply(null, arguments);
+  } : decorator;
+  res.enhancer = enhancer;
+  return res;
+} // Predefined bags of create observable options, to avoid allocating temporarily option objects
+// in the majority of cases
+
+
+var defaultCreateObservableOptions = {
+  deep: true,
+  name: undefined,
+  defaultDecorator: undefined,
+  proxy: true
+};
+Object.freeze(defaultCreateObservableOptions);
+
+function assertValidOption(key) {
+  if (!/^(deep|name|equals|defaultDecorator|proxy)$/.test(key)) fail("invalid option for (extend)observable: " + key);
+}
+
+function asCreateObservableOptions(thing) {
+  if (thing === null || thing === undefined) return defaultCreateObservableOptions;
+  if (typeof thing === "string") return {
+    name: thing,
+    deep: true,
+    proxy: true
+  };
+
+  if ("development" !== "production") {
+    if (typeof thing !== "object") return fail("expected options object");
+    Object.keys(thing).forEach(assertValidOption);
+  }
+
+  return thing;
+}
+
+var deepDecorator = createDecoratorForEnhancer(deepEnhancer);
+var shallowDecorator = createDecoratorForEnhancer(shallowEnhancer);
+var refDecorator = createDecoratorForEnhancer(referenceEnhancer);
+var refStructDecorator = createDecoratorForEnhancer(refStructEnhancer);
+
+function getEnhancerFromOptions(options) {
+  return options.defaultDecorator ? options.defaultDecorator.enhancer : options.deep === false ? referenceEnhancer : deepEnhancer;
+}
+/**
+ * Turns an object, array or function into a reactive structure.
+ * @param v the value which should become observable.
+ */
+
+
+function createObservable(v, arg2, arg3) {
+  // @observable someProp;
+  if (typeof arguments[1] === "string" || typeof arguments[1] === "symbol") {
+    return deepDecorator.apply(null, arguments);
+  } // it is an observable already, done
+
+
+  if (isObservable(v)) return v; // something that can be converted and mutated?
+
+  var res = isPlainObject(v) ? observable.object(v, arg2, arg3) : Array.isArray(v) ? observable.array(v, arg2) : isES6Map(v) ? observable.map(v, arg2) : isES6Set(v) ? observable.set(v, arg2) : v; // this value could be converted to a new observable data structure, return it
+
+  if (res !== v) return res; // otherwise, just box it
+
+  fail("development" !== "production" && "The provided value could not be converted into an observable. If you want just create an observable reference to the object use 'observable.box(value)'");
+}
+
+var observableFactories = {
+  box: function (value, options) {
+    if (arguments.length > 2) incorrectlyUsedAsDecorator("box");
+    var o = asCreateObservableOptions(options);
+    return new ObservableValue(value, getEnhancerFromOptions(o), o.name, true, o.equals);
+  },
+  array: function (initialValues, options) {
+    if (arguments.length > 2) incorrectlyUsedAsDecorator("array");
+    var o = asCreateObservableOptions(options);
+    return createObservableArray(initialValues, getEnhancerFromOptions(o), o.name);
+  },
+  map: function (initialValues, options) {
+    if (arguments.length > 2) incorrectlyUsedAsDecorator("map");
+    var o = asCreateObservableOptions(options);
+    return new ObservableMap(initialValues, getEnhancerFromOptions(o), o.name);
+  },
+  set: function (initialValues, options) {
+    if (arguments.length > 2) incorrectlyUsedAsDecorator("set");
+    var o = asCreateObservableOptions(options);
+    return new ObservableSet(initialValues, getEnhancerFromOptions(o), o.name);
+  },
+  object: function (props, decorators, options) {
+    if (typeof arguments[1] === "string") incorrectlyUsedAsDecorator("object");
+    var o = asCreateObservableOptions(options);
+
+    if (o.proxy === false) {
+      return extendObservable({}, props, decorators, o);
+    } else {
+      var defaultDecorator = getDefaultDecoratorFromObjectOptions(o);
+      var base = extendObservable({}, undefined, undefined, o);
+      var proxy = createDynamicObservableObject(base);
+      extendObservableObjectWithProperties(proxy, props, decorators, defaultDecorator);
+      return proxy;
+    }
+  },
+  ref: refDecorator,
+  shallow: shallowDecorator,
+  deep: deepDecorator,
+  struct: refStructDecorator
+};
+var observable = createObservable; // weird trick to keep our typings nicely with our funcs, and still extend the observable function
+
+exports.observable = observable;
+Object.keys(observableFactories).forEach(function (name) {
+  return observable[name] = observableFactories[name];
+});
+
+function incorrectlyUsedAsDecorator(methodName) {
+  fail( // process.env.NODE_ENV !== "production" &&
+  "Expected one or two arguments to observable." + methodName + ". Did you accidentally try to use observable." + methodName + " as decorator?");
+}
+
+var computedDecorator = createPropDecorator(false, function (instance, propertyName, descriptor, decoratorTarget, decoratorArgs) {
+  var get = descriptor.get,
+      set = descriptor.set; // initialValue is the descriptor for get / set props
+  // Optimization: faster on decorator target or instance? Assuming target
+  // Optimization: find out if declaring on instance isn't just faster. (also makes the property descriptor simpler). But, more memory usage..
+  // Forcing instance now, fixes hot reloadig issues on React Native:
+
+  var options = decoratorArgs[0] || {};
+  asObservableObject(instance).addComputedProp(instance, propertyName, __assign({
+    get: get,
+    set: set,
+    context: instance
+  }, options));
+});
+var computedStructDecorator = computedDecorator({
+  equals: comparer.structural
+});
+/**
+ * Decorator for class properties: @computed get value() { return expr; }.
+ * For legacy purposes also invokable as ES5 observable created: `computed(() => expr)`;
+ */
+
+var computed = function computed(arg1, arg2, arg3) {
+  if (typeof arg2 === "string") {
+    // @computed
+    return computedDecorator.apply(null, arguments);
+  }
+
+  if (arg1 !== null && typeof arg1 === "object" && arguments.length === 1) {
+    // @computed({ options })
+    return computedDecorator.apply(null, arguments);
+  } // computed(expr, options?)
+
+
+  if ("development" !== "production") {
+    invariant(typeof arg1 === "function", "First argument to `computed` should be an expression.");
+    invariant(arguments.length < 3, "Computed takes one or two arguments if used as function");
+  }
+
+  var opts = typeof arg2 === "object" ? arg2 : {};
+  opts.get = arg1;
+  opts.set = typeof arg2 === "function" ? arg2 : opts.set;
+  opts.name = opts.name || arg1.name || "";
+  /* for generated name */
+
+  return new ComputedValue(opts);
+};
+
+exports.computed = computed;
+computed.struct = computedStructDecorator;
+var IDerivationState;
+exports.IDerivationState = IDerivationState;
+
+(function (IDerivationState) {
+  // before being run or (outside batch and not being observed)
+  // at this point derivation is not holding any data about dependency tree
+  IDerivationState[IDerivationState["NOT_TRACKING"] = -1] = "NOT_TRACKING"; // no shallow dependency changed since last computation
+  // won't recalculate derivation
+  // this is what makes mobx fast
+
+  IDerivationState[IDerivationState["UP_TO_DATE"] = 0] = "UP_TO_DATE"; // some deep dependency changed, but don't know if shallow dependency changed
+  // will require to check first if UP_TO_DATE or POSSIBLY_STALE
+  // currently only ComputedValue will propagate POSSIBLY_STALE
+  //
+  // having this state is second big optimization:
+  // don't have to recompute on every dependency change, but only when it's needed
+
+  IDerivationState[IDerivationState["POSSIBLY_STALE"] = 1] = "POSSIBLY_STALE"; // A shallow dependency has changed since last computation and the derivation
+  // will need to recompute when it's needed next.
+
+  IDerivationState[IDerivationState["STALE"] = 2] = "STALE";
+})(IDerivationState || (exports.IDerivationState = IDerivationState = {}));
+
+var TraceMode;
+
+(function (TraceMode) {
+  TraceMode[TraceMode["NONE"] = 0] = "NONE";
+  TraceMode[TraceMode["LOG"] = 1] = "LOG";
+  TraceMode[TraceMode["BREAK"] = 2] = "BREAK";
+})(TraceMode || (TraceMode = {}));
+
+var CaughtException =
+/** @class */
+function () {
+  function CaughtException(cause) {
+    this.cause = cause; // Empty
+  }
+
+  return CaughtException;
+}();
+
+function isCaughtException(e) {
+  return e instanceof CaughtException;
+}
+/**
+ * Finds out whether any dependency of the derivation has actually changed.
+ * If dependenciesState is 1 then it will recalculate dependencies,
+ * if any dependency changed it will propagate it by changing dependenciesState to 2.
+ *
+ * By iterating over the dependencies in the same order that they were reported and
+ * stopping on the first change, all the recalculations are only called for ComputedValues
+ * that will be tracked by derivation. That is because we assume that if the first x
+ * dependencies of the derivation doesn't change then the derivation should run the same way
+ * up until accessing x-th dependency.
+ */
+
+
+function shouldCompute(derivation) {
+  switch (derivation.dependenciesState) {
+    case IDerivationState.UP_TO_DATE:
+      return false;
+
+    case IDerivationState.NOT_TRACKING:
+    case IDerivationState.STALE:
+      return true;
+
+    case IDerivationState.POSSIBLY_STALE:
+      {
+        // state propagation can occur outside of action/reactive context #2195
+        var prevAllowStateReads = allowStateReadsStart(true);
+        var prevUntracked = untrackedStart(); // no need for those computeds to be reported, they will be picked up in trackDerivedFunction.
+
+        var obs = derivation.observing,
+            l = obs.length;
+
+        for (var i = 0; i < l; i++) {
+          var obj = obs[i];
+
+          if (isComputedValue(obj)) {
+            if (globalState.disableErrorBoundaries) {
+              obj.get();
+            } else {
+              try {
+                obj.get();
+              } catch (e) {
+                // we are not interested in the value *or* exception at this moment, but if there is one, notify all
+                untrackedEnd(prevUntracked);
+                allowStateReadsEnd(prevAllowStateReads);
+                return true;
+              }
+            } // if ComputedValue `obj` actually changed it will be computed and propagated to its observers.
+            // and `derivation` is an observer of `obj`
+            // invariantShouldCompute(derivation)
+
+
+            if (derivation.dependenciesState === IDerivationState.STALE) {
+              untrackedEnd(prevUntracked);
+              allowStateReadsEnd(prevAllowStateReads);
+              return true;
+            }
+          }
+        }
+
+        changeDependenciesStateTo0(derivation);
+        untrackedEnd(prevUntracked);
+        allowStateReadsEnd(prevAllowStateReads);
+        return false;
+      }
+  }
+} // function invariantShouldCompute(derivation: IDerivation) {
+//     const newDepState = (derivation as any).dependenciesState
+//     if (
+//         process.env.NODE_ENV === "production" &&
+//         (newDepState === IDerivationState.POSSIBLY_STALE ||
+//             newDepState === IDerivationState.NOT_TRACKING)
+//     )
+//         fail("Illegal dependency state")
+// }
+
+
+function isComputingDerivation() {
+  return globalState.trackingDerivation !== null; // filter out actions inside computations
+}
+
+function checkIfStateModificationsAreAllowed(atom) {
+  var hasObservers = atom.observers.size > 0; // Should never be possible to change an observed observable from inside computed, see #798
+
+  if (globalState.computationDepth > 0 && hasObservers) fail("development" !== "production" && "Computed values are not allowed to cause side effects by changing observables that are already being observed. Tried to modify: " + atom.name); // Should not be possible to change observed state outside strict mode, except during initialization, see #563
+
+  if (!globalState.allowStateChanges && (hasObservers || globalState.enforceActions === "strict")) fail("development" !== "production" && (globalState.enforceActions ? "Since strict-mode is enabled, changing observed observable values outside actions is not allowed. Please wrap the code in an `action` if this change is intended. Tried to modify: " : "Side effects like changing state are not allowed at this point. Are you trying to modify state from, for example, the render function of a React component? Tried to modify: ") + atom.name);
+}
+
+function checkIfStateReadsAreAllowed(observable) {
+  if ("development" !== "production" && !globalState.allowStateReads && globalState.observableRequiresReaction) {
+    console.warn("[mobx] Observable " + observable.name + " being read outside a reactive context");
+  }
+}
+/**
+ * Executes the provided function `f` and tracks which observables are being accessed.
+ * The tracking information is stored on the `derivation` object and the derivation is registered
+ * as observer of any of the accessed observables.
+ */
+
+
+function trackDerivedFunction(derivation, f, context) {
+  var prevAllowStateReads = allowStateReadsStart(true); // pre allocate array allocation + room for variation in deps
+  // array will be trimmed by bindDependencies
+
+  changeDependenciesStateTo0(derivation);
+  derivation.newObserving = new Array(derivation.observing.length + 100);
+  derivation.unboundDepsCount = 0;
+  derivation.runId = ++globalState.runId;
+  var prevTracking = globalState.trackingDerivation;
+  globalState.trackingDerivation = derivation;
+  var result;
+
+  if (globalState.disableErrorBoundaries === true) {
+    result = f.call(context);
+  } else {
+    try {
+      result = f.call(context);
+    } catch (e) {
+      result = new CaughtException(e);
+    }
+  }
+
+  globalState.trackingDerivation = prevTracking;
+  bindDependencies(derivation);
+  warnAboutDerivationWithoutDependencies(derivation);
+  allowStateReadsEnd(prevAllowStateReads);
+  return result;
+}
+
+function warnAboutDerivationWithoutDependencies(derivation) {
+  if ("development" === "production") return;
+  if (derivation.observing.length !== 0) return;
+
+  if (globalState.reactionRequiresObservable || derivation.requiresObservable) {
+    console.warn("[mobx] Derivation " + derivation.name + " is created/updated without reading any observable value");
+  }
+}
+/**
+ * diffs newObserving with observing.
+ * update observing to be newObserving with unique observables
+ * notify observers that become observed/unobserved
+ */
+
+
+function bindDependencies(derivation) {
+  // invariant(derivation.dependenciesState !== IDerivationState.NOT_TRACKING, "INTERNAL ERROR bindDependencies expects derivation.dependenciesState !== -1");
+  var prevObserving = derivation.observing;
+  var observing = derivation.observing = derivation.newObserving;
+  var lowestNewObservingDerivationState = IDerivationState.UP_TO_DATE; // Go through all new observables and check diffValue: (this list can contain duplicates):
+  //   0: first occurrence, change to 1 and keep it
+  //   1: extra occurrence, drop it
+
+  var i0 = 0,
+      l = derivation.unboundDepsCount;
+
+  for (var i = 0; i < l; i++) {
+    var dep = observing[i];
+
+    if (dep.diffValue === 0) {
+      dep.diffValue = 1;
+      if (i0 !== i) observing[i0] = dep;
+      i0++;
+    } // Upcast is 'safe' here, because if dep is IObservable, `dependenciesState` will be undefined,
+    // not hitting the condition
+
+
+    if (dep.dependenciesState > lowestNewObservingDerivationState) {
+      lowestNewObservingDerivationState = dep.dependenciesState;
+    }
+  }
+
+  observing.length = i0;
+  derivation.newObserving = null; // newObserving shouldn't be needed outside tracking (statement moved down to work around FF bug, see #614)
+  // Go through all old observables and check diffValue: (it is unique after last bindDependencies)
+  //   0: it's not in new observables, unobserve it
+  //   1: it keeps being observed, don't want to notify it. change to 0
+
+  l = prevObserving.length;
+
+  while (l--) {
+    var dep = prevObserving[l];
+
+    if (dep.diffValue === 0) {
+      removeObserver(dep, derivation);
+    }
+
+    dep.diffValue = 0;
+  } // Go through all new observables and check diffValue: (now it should be unique)
+  //   0: it was set to 0 in last loop. don't need to do anything.
+  //   1: it wasn't observed, let's observe it. set back to 0
+
+
+  while (i0--) {
+    var dep = observing[i0];
+
+    if (dep.diffValue === 1) {
+      dep.diffValue = 0;
+      addObserver(dep, derivation);
+    }
+  } // Some new observed derivations may become stale during this derivation computation
+  // so they have had no chance to propagate staleness (#916)
+
+
+  if (lowestNewObservingDerivationState !== IDerivationState.UP_TO_DATE) {
+    derivation.dependenciesState = lowestNewObservingDerivationState;
+    derivation.onBecomeStale();
+  }
+}
+
+function clearObserving(derivation) {
+  // invariant(globalState.inBatch > 0, "INTERNAL ERROR clearObserving should be called only inside batch");
+  var obs = derivation.observing;
+  derivation.observing = [];
+  var i = obs.length;
+
+  while (i--) removeObserver(obs[i], derivation);
+
+  derivation.dependenciesState = IDerivationState.NOT_TRACKING;
+}
+
+function untracked(action) {
+  var prev = untrackedStart();
+
+  try {
+    return action();
+  } finally {
+    untrackedEnd(prev);
+  }
+}
+
+function untrackedStart() {
+  var prev = globalState.trackingDerivation;
+  globalState.trackingDerivation = null;
+  return prev;
+}
+
+function untrackedEnd(prev) {
+  globalState.trackingDerivation = prev;
+}
+
+function allowStateReadsStart(allowStateReads) {
+  var prev = globalState.allowStateReads;
+  globalState.allowStateReads = allowStateReads;
+  return prev;
+}
+
+function allowStateReadsEnd(prev) {
+  globalState.allowStateReads = prev;
+}
+/**
+ * needed to keep `lowestObserverState` correct. when changing from (2 or 1) to 0
+ *
+ */
+
+
+function changeDependenciesStateTo0(derivation) {
+  if (derivation.dependenciesState === IDerivationState.UP_TO_DATE) return;
+  derivation.dependenciesState = IDerivationState.UP_TO_DATE;
+  var obs = derivation.observing;
+  var i = obs.length;
+
+  while (i--) obs[i].lowestObserverState = IDerivationState.UP_TO_DATE;
+} // we don't use globalState for these in order to avoid possible issues with multiple
+// mobx versions
+
+
+var currentActionId = 0;
+var nextActionId = 1;
+var functionNameDescriptor = Object.getOwnPropertyDescriptor(function () {}, "name");
+var isFunctionNameConfigurable = functionNameDescriptor && functionNameDescriptor.configurable;
+
+function createAction(actionName, fn, ref) {
+  if ("development" !== "production") {
+    invariant(typeof fn === "function", "`action` can only be invoked on functions");
+    if (typeof actionName !== "string" || !actionName) fail("actions should have valid names, got: '" + actionName + "'");
+  }
+
+  var res = function () {
+    return executeAction(actionName, fn, ref || this, arguments);
+  };
+
+  res.isMobxAction = true;
+
+  if ("development" !== "production") {
+    if (isFunctionNameConfigurable) {
+      Object.defineProperty(res, "name", {
+        value: actionName
+      });
+    }
+  }
+
+  return res;
+}
+
+function executeAction(actionName, fn, scope, args) {
+  var runInfo = _startAction(actionName, scope, args);
+
+  try {
+    return fn.apply(scope, args);
+  } catch (err) {
+    runInfo.error = err;
+    throw err;
+  } finally {
+    _endAction(runInfo);
+  }
+}
+
+function _startAction(actionName, scope, args) {
+  var notifySpy = isSpyEnabled() && !!actionName;
+  var startTime = 0;
+
+  if (notifySpy && "development" !== "production") {
+    startTime = Date.now();
+    var l = args && args.length || 0;
+    var flattendArgs = new Array(l);
+    if (l > 0) for (var i = 0; i < l; i++) flattendArgs[i] = args[i];
+    spyReportStart({
+      type: "action",
+      name: actionName,
+      object: scope,
+      arguments: flattendArgs
+    });
+  }
+
+  var prevDerivation = untrackedStart();
+  startBatch();
+  var prevAllowStateChanges = allowStateChangesStart(true);
+  var prevAllowStateReads = allowStateReadsStart(true);
+  var runInfo = {
+    prevDerivation: prevDerivation,
+    prevAllowStateChanges: prevAllowStateChanges,
+    prevAllowStateReads: prevAllowStateReads,
+    notifySpy: notifySpy,
+    startTime: startTime,
+    actionId: nextActionId++,
+    parentActionId: currentActionId
+  };
+  currentActionId = runInfo.actionId;
+  return runInfo;
+}
+
+function _endAction(runInfo) {
+  if (currentActionId !== runInfo.actionId) {
+    fail("invalid action stack. did you forget to finish an action?");
+  }
+
+  currentActionId = runInfo.parentActionId;
+
+  if (runInfo.error !== undefined) {
+    globalState.suppressReactionErrors = true;
+  }
+
+  allowStateChangesEnd(runInfo.prevAllowStateChanges);
+  allowStateReadsEnd(runInfo.prevAllowStateReads);
+  endBatch();
+  untrackedEnd(runInfo.prevDerivation);
+
+  if (runInfo.notifySpy && "development" !== "production") {
+    spyReportEnd({
+      time: Date.now() - runInfo.startTime
+    });
+  }
+
+  globalState.suppressReactionErrors = false;
+}
+
+function allowStateChanges(allowStateChanges, func) {
+  var prev = allowStateChangesStart(allowStateChanges);
+  var res;
+
+  try {
+    res = func();
+  } finally {
+    allowStateChangesEnd(prev);
+  }
+
+  return res;
+}
+
+function allowStateChangesStart(allowStateChanges) {
+  var prev = globalState.allowStateChanges;
+  globalState.allowStateChanges = allowStateChanges;
+  return prev;
+}
+
+function allowStateChangesEnd(prev) {
+  globalState.allowStateChanges = prev;
+}
+
+function allowStateChangesInsideComputed(func) {
+  var prev = globalState.computationDepth;
+  globalState.computationDepth = 0;
+  var res;
+
+  try {
+    res = func();
+  } finally {
+    globalState.computationDepth = prev;
+  }
+
+  return res;
+}
+
+var ObservableValue =
+/** @class */
+function (_super) {
+  __extends(ObservableValue, _super);
+
+  function ObservableValue(value, enhancer, name, notifySpy, equals) {
+    if (name === void 0) {
+      name = "ObservableValue@" + getNextId();
+    }
+
+    if (notifySpy === void 0) {
+      notifySpy = true;
+    }
+
+    if (equals === void 0) {
+      equals = comparer.default;
+    }
+
+    var _this = _super.call(this, name) || this;
+
+    _this.enhancer = enhancer;
+    _this.name = name;
+    _this.equals = equals;
+    _this.hasUnreportedChange = false;
+    _this.value = enhancer(value, undefined, name);
+
+    if (notifySpy && isSpyEnabled() && "development" !== "production") {
+      // only notify spy if this is a stand-alone observable
+      spyReport({
+        type: "create",
+        name: _this.name,
+        newValue: "" + _this.value
+      });
+    }
+
+    return _this;
+  }
+
+  ObservableValue.prototype.dehanceValue = function (value) {
+    if (this.dehancer !== undefined) return this.dehancer(value);
+    return value;
+  };
+
+  ObservableValue.prototype.set = function (newValue) {
+    var oldValue = this.value;
+    newValue = this.prepareNewValue(newValue);
+
+    if (newValue !== globalState.UNCHANGED) {
+      var notifySpy = isSpyEnabled();
+
+      if (notifySpy && "development" !== "production") {
+        spyReportStart({
+          type: "update",
+          name: this.name,
+          newValue: newValue,
+          oldValue: oldValue
+        });
+      }
+
+      this.setNewValue(newValue);
+      if (notifySpy && "development" !== "production") spyReportEnd();
+    }
+  };
+
+  ObservableValue.prototype.prepareNewValue = function (newValue) {
+    checkIfStateModificationsAreAllowed(this);
+
+    if (hasInterceptors(this)) {
+      var change = interceptChange(this, {
+        object: this,
+        type: "update",
+        newValue: newValue
+      });
+      if (!change) return globalState.UNCHANGED;
+      newValue = change.newValue;
+    } // apply modifier
+
+
+    newValue = this.enhancer(newValue, this.value, this.name);
+    return this.equals(this.value, newValue) ? globalState.UNCHANGED : newValue;
+  };
+
+  ObservableValue.prototype.setNewValue = function (newValue) {
+    var oldValue = this.value;
+    this.value = newValue;
+    this.reportChanged();
+
+    if (hasListeners(this)) {
+      notifyListeners(this, {
+        type: "update",
+        object: this,
+        newValue: newValue,
+        oldValue: oldValue
+      });
+    }
+  };
+
+  ObservableValue.prototype.get = function () {
+    this.reportObserved();
+    return this.dehanceValue(this.value);
+  };
+
+  ObservableValue.prototype.intercept = function (handler) {
+    return registerInterceptor(this, handler);
+  };
+
+  ObservableValue.prototype.observe = function (listener, fireImmediately) {
+    if (fireImmediately) listener({
+      object: this,
+      type: "update",
+      newValue: this.value,
+      oldValue: undefined
+    });
+    return registerListener(this, listener);
+  };
+
+  ObservableValue.prototype.toJSON = function () {
+    return this.get();
+  };
+
+  ObservableValue.prototype.toString = function () {
+    return this.name + "[" + this.value + "]";
+  };
+
+  ObservableValue.prototype.valueOf = function () {
+    return toPrimitive(this.get());
+  };
+
+  ObservableValue.prototype[Symbol.toPrimitive] = function () {
+    return this.valueOf();
+  };
+
+  return ObservableValue;
+}(Atom);
+
+var isObservableValue = createInstanceofPredicate("ObservableValue", ObservableValue);
+/**
+ * A node in the state dependency root that observes other nodes, and can be observed itself.
+ *
+ * ComputedValue will remember the result of the computation for the duration of the batch, or
+ * while being observed.
+ *
+ * During this time it will recompute only when one of its direct dependencies changed,
+ * but only when it is being accessed with `ComputedValue.get()`.
+ *
+ * Implementation description:
+ * 1. First time it's being accessed it will compute and remember result
+ *    give back remembered result until 2. happens
+ * 2. First time any deep dependency change, propagate POSSIBLY_STALE to all observers, wait for 3.
+ * 3. When it's being accessed, recompute if any shallow dependency changed.
+ *    if result changed: propagate STALE to all observers, that were POSSIBLY_STALE from the last step.
+ *    go to step 2. either way
+ *
+ * If at any point it's outside batch and it isn't observed: reset everything and go to 1.
+ */
+
+exports.isBoxedObservable = isObservableValue;
+
+var ComputedValue =
+/** @class */
+function () {
+  /**
+   * Create a new computed value based on a function expression.
+   *
+   * The `name` property is for debug purposes only.
+   *
+   * The `equals` property specifies the comparer function to use to determine if a newly produced
+   * value differs from the previous value. Two comparers are provided in the library; `defaultComparer`
+   * compares based on identity comparison (===), and `structualComparer` deeply compares the structure.
+   * Structural comparison can be convenient if you always produce a new aggregated object and
+   * don't want to notify observers if it is structurally the same.
+   * This is useful for working with vectors, mouse coordinates etc.
+   */
+  function ComputedValue(options) {
+    this.dependenciesState = IDerivationState.NOT_TRACKING;
+    this.observing = []; // nodes we are looking at. Our value depends on these nodes
+
+    this.newObserving = null; // during tracking it's an array with new observed observers
+
+    this.isBeingObserved = false;
+    this.isPendingUnobservation = false;
+    this.observers = new Set();
+    this.diffValue = 0;
+    this.runId = 0;
+    this.lastAccessedBy = 0;
+    this.lowestObserverState = IDerivationState.UP_TO_DATE;
+    this.unboundDepsCount = 0;
+    this.__mapid = "#" + getNextId();
+    this.value = new CaughtException(null);
+    this.isComputing = false; // to check for cycles
+
+    this.isRunningSetter = false;
+    this.isTracing = TraceMode.NONE;
+    invariant(options.get, "missing option for computed: get");
+    this.derivation = options.get;
+    this.name = options.name || "ComputedValue@" + getNextId();
+    if (options.set) this.setter = createAction(this.name + "-setter", options.set);
+    this.equals = options.equals || (options.compareStructural || options.struct ? comparer.structural : comparer.default);
+    this.scope = options.context;
+    this.requiresReaction = !!options.requiresReaction;
+    this.keepAlive = !!options.keepAlive;
+  }
+
+  ComputedValue.prototype.onBecomeStale = function () {
+    propagateMaybeChanged(this);
+  };
+
+  ComputedValue.prototype.onBecomeObserved = function () {
+    if (this.onBecomeObservedListeners) {
+      this.onBecomeObservedListeners.forEach(function (listener) {
+        return listener();
+      });
+    }
+  };
+
+  ComputedValue.prototype.onBecomeUnobserved = function () {
+    if (this.onBecomeUnobservedListeners) {
+      this.onBecomeUnobservedListeners.forEach(function (listener) {
+        return listener();
+      });
+    }
+  };
+  /**
+   * Returns the current value of this computed value.
+   * Will evaluate its computation first if needed.
+   */
+
+
+  ComputedValue.prototype.get = function () {
+    if (this.isComputing) fail("Cycle detected in computation " + this.name + ": " + this.derivation);
+
+    if (globalState.inBatch === 0 && this.observers.size === 0 && !this.keepAlive) {
+      if (shouldCompute(this)) {
+        this.warnAboutUntrackedRead();
+        startBatch(); // See perf test 'computed memoization'
+
+        this.value = this.computeValue(false);
+        endBatch();
+      }
+    } else {
+      reportObserved(this);
+      if (shouldCompute(this)) if (this.trackAndCompute()) propagateChangeConfirmed(this);
+    }
+
+    var result = this.value;
+    if (isCaughtException(result)) throw result.cause;
+    return result;
+  };
+
+  ComputedValue.prototype.peek = function () {
+    var res = this.computeValue(false);
+    if (isCaughtException(res)) throw res.cause;
+    return res;
+  };
+
+  ComputedValue.prototype.set = function (value) {
+    if (this.setter) {
+      invariant(!this.isRunningSetter, "The setter of computed value '" + this.name + "' is trying to update itself. Did you intend to update an _observable_ value, instead of the computed property?");
+      this.isRunningSetter = true;
+
+      try {
+        this.setter.call(this.scope, value);
+      } finally {
+        this.isRunningSetter = false;
+      }
+    } else invariant(false, "development" !== "production" && "[ComputedValue '" + this.name + "'] It is not possible to assign a new value to a computed value.");
+  };
+
+  ComputedValue.prototype.trackAndCompute = function () {
+    if (isSpyEnabled() && "development" !== "production") {
+      spyReport({
+        object: this.scope,
+        type: "compute",
+        name: this.name
+      });
+    }
+
+    var oldValue = this.value;
+    var wasSuspended =
+    /* see #1208 */
+    this.dependenciesState === IDerivationState.NOT_TRACKING;
+    var newValue = this.computeValue(true);
+    var changed = wasSuspended || isCaughtException(oldValue) || isCaughtException(newValue) || !this.equals(oldValue, newValue);
+
+    if (changed) {
+      this.value = newValue;
+    }
+
+    return changed;
+  };
+
+  ComputedValue.prototype.computeValue = function (track) {
+    this.isComputing = true;
+    globalState.computationDepth++;
+    var res;
+
+    if (track) {
+      res = trackDerivedFunction(this, this.derivation, this.scope);
+    } else {
+      if (globalState.disableErrorBoundaries === true) {
+        res = this.derivation.call(this.scope);
+      } else {
+        try {
+          res = this.derivation.call(this.scope);
+        } catch (e) {
+          res = new CaughtException(e);
+        }
+      }
+    }
+
+    globalState.computationDepth--;
+    this.isComputing = false;
+    return res;
+  };
+
+  ComputedValue.prototype.suspend = function () {
+    if (!this.keepAlive) {
+      clearObserving(this);
+      this.value = undefined; // don't hold on to computed value!
+    }
+  };
+
+  ComputedValue.prototype.observe = function (listener, fireImmediately) {
+    var _this = this;
+
+    var firstTime = true;
+    var prevValue = undefined;
+    return autorun(function () {
+      var newValue = _this.get();
+
+      if (!firstTime || fireImmediately) {
+        var prevU = untrackedStart();
+        listener({
+          type: "update",
+          object: _this,
+          newValue: newValue,
+          oldValue: prevValue
+        });
+        untrackedEnd(prevU);
+      }
+
+      firstTime = false;
+      prevValue = newValue;
+    });
+  };
+
+  ComputedValue.prototype.warnAboutUntrackedRead = function () {
+    if ("development" === "production") return;
+
+    if (this.requiresReaction === true) {
+      fail("[mobx] Computed value " + this.name + " is read outside a reactive context");
+    }
+
+    if (this.isTracing !== TraceMode.NONE) {
+      console.log("[mobx.trace] '" + this.name + "' is being read outside a reactive context. Doing a full recompute");
+    }
+
+    if (globalState.computedRequiresReaction) {
+      console.warn("[mobx] Computed value " + this.name + " is being read outside a reactive context. Doing a full recompute");
+    }
+  };
+
+  ComputedValue.prototype.toJSON = function () {
+    return this.get();
+  };
+
+  ComputedValue.prototype.toString = function () {
+    return this.name + "[" + this.derivation.toString() + "]";
+  };
+
+  ComputedValue.prototype.valueOf = function () {
+    return toPrimitive(this.get());
+  };
+
+  ComputedValue.prototype[Symbol.toPrimitive] = function () {
+    return this.valueOf();
+  };
+
+  return ComputedValue;
+}();
+
+var isComputedValue = createInstanceofPredicate("ComputedValue", ComputedValue);
+/**
+ * These values will persist if global state is reset
+ */
+
+var persistentKeys = ["mobxGuid", "spyListeners", "enforceActions", "computedRequiresReaction", "reactionRequiresObservable", "observableRequiresReaction", "allowStateReads", "disableErrorBoundaries", "runId", "UNCHANGED"];
+
+var MobXGlobals =
+/** @class */
+function () {
+  function MobXGlobals() {
+    /**
+     * MobXGlobals version.
+     * MobX compatiblity with other versions loaded in memory as long as this version matches.
+     * It indicates that the global state still stores similar information
+     *
+     * N.B: this version is unrelated to the package version of MobX, and is only the version of the
+     * internal state storage of MobX, and can be the same across many different package versions
+     */
+    this.version = 5;
+    /**
+     * globally unique token to signal unchanged
+     */
+
+    this.UNCHANGED = {};
+    /**
+     * Currently running derivation
+     */
+
+    this.trackingDerivation = null;
+    /**
+     * Are we running a computation currently? (not a reaction)
+     */
+
+    this.computationDepth = 0;
+    /**
+     * Each time a derivation is tracked, it is assigned a unique run-id
+     */
+
+    this.runId = 0;
+    /**
+     * 'guid' for general purpose. Will be persisted amongst resets.
+     */
+
+    this.mobxGuid = 0;
+    /**
+     * Are we in a batch block? (and how many of them)
+     */
+
+    this.inBatch = 0;
+    /**
+     * Observables that don't have observers anymore, and are about to be
+     * suspended, unless somebody else accesses it in the same batch
+     *
+     * @type {IObservable[]}
+     */
+
+    this.pendingUnobservations = [];
+    /**
+     * List of scheduled, not yet executed, reactions.
+     */
+
+    this.pendingReactions = [];
+    /**
+     * Are we currently processing reactions?
+     */
+
+    this.isRunningReactions = false;
+    /**
+     * Is it allowed to change observables at this point?
+     * In general, MobX doesn't allow that when running computations and React.render.
+     * To ensure that those functions stay pure.
+     */
+
+    this.allowStateChanges = true;
+    /**
+     * Is it allowed to read observables at this point?
+     * Used to hold the state needed for `observableRequiresReaction`
+     */
+
+    this.allowStateReads = true;
+    /**
+     * If strict mode is enabled, state changes are by default not allowed
+     */
+
+    this.enforceActions = false;
+    /**
+     * Spy callbacks
+     */
+
+    this.spyListeners = [];
+    /**
+     * Globally attached error handlers that react specifically to errors in reactions
+     */
+
+    this.globalReactionErrorHandlers = [];
+    /**
+     * Warn if computed values are accessed outside a reactive context
+     */
+
+    this.computedRequiresReaction = false;
+    /**
+     * (Experimental)
+     * Warn if you try to create to derivation / reactive context without accessing any observable.
+     */
+
+    this.reactionRequiresObservable = false;
+    /**
+     * (Experimental)
+     * Warn if observables are accessed outside a reactive context
+     */
+
+    this.observableRequiresReaction = false;
+    /**
+     * Allows overwriting of computed properties, useful in tests but not prod as it can cause
+     * memory leaks. See https://github.com/mobxjs/mobx/issues/1867
+     */
+
+    this.computedConfigurable = false;
+    /*
+     * Don't catch and rethrow exceptions. This is useful for inspecting the state of
+     * the stack when an exception occurs while debugging.
+     */
+
+    this.disableErrorBoundaries = false;
+    /*
+     * If true, we are already handling an exception in an action. Any errors in reactions should be suppressed, as
+     * they are not the cause, see: https://github.com/mobxjs/mobx/issues/1836
+     */
+
+    this.suppressReactionErrors = false;
+  }
+
+  return MobXGlobals;
+}();
+
+var mockGlobal = {};
+
+function getGlobal() {
+  if (typeof window !== "undefined") {
+    return window;
+  }
+
+  if (typeof global !== "undefined") {
+    return global;
+  }
+
+  if (typeof self !== "undefined") {
+    return self;
+  }
+
+  return mockGlobal;
+}
+
+var canMergeGlobalState = true;
+var isolateCalled = false;
+
+var globalState = function () {
+  var global = getGlobal();
+  if (global.__mobxInstanceCount > 0 && !global.__mobxGlobals) canMergeGlobalState = false;
+  if (global.__mobxGlobals && global.__mobxGlobals.version !== new MobXGlobals().version) canMergeGlobalState = false;
+
+  if (!canMergeGlobalState) {
+    setTimeout(function () {
+      if (!isolateCalled) {
+        fail("There are multiple, different versions of MobX active. Make sure MobX is loaded only once or use `configure({ isolateGlobalState: true })`");
+      }
+    }, 1);
+    return new MobXGlobals();
+  } else if (global.__mobxGlobals) {
+    global.__mobxInstanceCount += 1;
+    if (!global.__mobxGlobals.UNCHANGED) global.__mobxGlobals.UNCHANGED = {}; // make merge backward compatible
+
+    return global.__mobxGlobals;
+  } else {
+    global.__mobxInstanceCount = 1;
+    return global.__mobxGlobals = new MobXGlobals();
+  }
+}();
+
+function isolateGlobalState() {
+  if (globalState.pendingReactions.length || globalState.inBatch || globalState.isRunningReactions) fail("isolateGlobalState should be called before MobX is running any reactions");
+  isolateCalled = true;
+
+  if (canMergeGlobalState) {
+    if (--getGlobal().__mobxInstanceCount === 0) getGlobal().__mobxGlobals = undefined;
+    globalState = new MobXGlobals();
+  }
+}
+
+function getGlobalState() {
+  return globalState;
+}
+/**
+ * For testing purposes only; this will break the internal state of existing observables,
+ * but can be used to get back at a stable state after throwing errors
+ */
+
+
+function resetGlobalState() {
+  var defaultGlobals = new MobXGlobals();
+
+  for (var key in defaultGlobals) if (persistentKeys.indexOf(key) === -1) globalState[key] = defaultGlobals[key];
+
+  globalState.allowStateChanges = !globalState.enforceActions;
+}
+
+function hasObservers(observable) {
+  return observable.observers && observable.observers.size > 0;
+}
+
+function getObservers(observable) {
+  return observable.observers;
+} // function invariantObservers(observable: IObservable) {
+//     const list = observable.observers
+//     const map = observable.observersIndexes
+//     const l = list.length
+//     for (let i = 0; i < l; i++) {
+//         const id = list[i].__mapid
+//         if (i) {
+//             invariant(map[id] === i, "INTERNAL ERROR maps derivation.__mapid to index in list") // for performance
+//         } else {
+//             invariant(!(id in map), "INTERNAL ERROR observer on index 0 shouldn't be held in map.") // for performance
+//         }
+//     }
+//     invariant(
+//         list.length === 0 || Object.keys(map).length === list.length - 1,
+//         "INTERNAL ERROR there is no junk in map"
+//     )
+// }
+
+
+function addObserver(observable, node) {
+  // invariant(node.dependenciesState !== -1, "INTERNAL ERROR, can add only dependenciesState !== -1");
+  // invariant(observable._observers.indexOf(node) === -1, "INTERNAL ERROR add already added node");
+  // invariantObservers(observable);
+  observable.observers.add(node);
+  if (observable.lowestObserverState > node.dependenciesState) observable.lowestObserverState = node.dependenciesState; // invariantObservers(observable);
+  // invariant(observable._observers.indexOf(node) !== -1, "INTERNAL ERROR didn't add node");
+}
+
+function removeObserver(observable, node) {
+  // invariant(globalState.inBatch > 0, "INTERNAL ERROR, remove should be called only inside batch");
+  // invariant(observable._observers.indexOf(node) !== -1, "INTERNAL ERROR remove already removed node");
+  // invariantObservers(observable);
+  observable.observers.delete(node);
+
+  if (observable.observers.size === 0) {
+    // deleting last observer
+    queueForUnobservation(observable);
+  } // invariantObservers(observable);
+  // invariant(observable._observers.indexOf(node) === -1, "INTERNAL ERROR remove already removed node2");
+
+}
+
+function queueForUnobservation(observable) {
+  if (observable.isPendingUnobservation === false) {
+    // invariant(observable._observers.length === 0, "INTERNAL ERROR, should only queue for unobservation unobserved observables");
+    observable.isPendingUnobservation = true;
+    globalState.pendingUnobservations.push(observable);
+  }
+}
+/**
+ * Batch starts a transaction, at least for purposes of memoizing ComputedValues when nothing else does.
+ * During a batch `onBecomeUnobserved` will be called at most once per observable.
+ * Avoids unnecessary recalculations.
+ */
+
+
+function startBatch() {
+  globalState.inBatch++;
+}
+
+function endBatch() {
+  if (--globalState.inBatch === 0) {
+    runReactions(); // the batch is actually about to finish, all unobserving should happen here.
+
+    var list = globalState.pendingUnobservations;
+
+    for (var i = 0; i < list.length; i++) {
+      var observable = list[i];
+      observable.isPendingUnobservation = false;
+
+      if (observable.observers.size === 0) {
+        if (observable.isBeingObserved) {
+          // if this observable had reactive observers, trigger the hooks
+          observable.isBeingObserved = false;
+          observable.onBecomeUnobserved();
+        }
+
+        if (observable instanceof ComputedValue) {
+          // computed values are automatically teared down when the last observer leaves
+          // this process happens recursively, this computed might be the last observabe of another, etc..
+          observable.suspend();
+        }
+      }
+    }
+
+    globalState.pendingUnobservations = [];
+  }
+}
+
+function reportObserved(observable) {
+  checkIfStateReadsAreAllowed(observable);
+  var derivation = globalState.trackingDerivation;
+
+  if (derivation !== null) {
+    /**
+     * Simple optimization, give each derivation run an unique id (runId)
+     * Check if last time this observable was accessed the same runId is used
+     * if this is the case, the relation is already known
+     */
+    if (derivation.runId !== observable.lastAccessedBy) {
+      observable.lastAccessedBy = derivation.runId; // Tried storing newObserving, or observing, or both as Set, but performance didn't come close...
+
+      derivation.newObserving[derivation.unboundDepsCount++] = observable;
+
+      if (!observable.isBeingObserved) {
+        observable.isBeingObserved = true;
+        observable.onBecomeObserved();
+      }
+    }
+
+    return true;
+  } else if (observable.observers.size === 0 && globalState.inBatch > 0) {
+    queueForUnobservation(observable);
+  }
+
+  return false;
+} // function invariantLOS(observable: IObservable, msg: string) {
+//     // it's expensive so better not run it in produciton. but temporarily helpful for testing
+//     const min = getObservers(observable).reduce((a, b) => Math.min(a, b.dependenciesState), 2)
+//     if (min >= observable.lowestObserverState) return // <- the only assumption about `lowestObserverState`
+//     throw new Error(
+//         "lowestObserverState is wrong for " +
+//             msg +
+//             " because " +
+//             min +
+//             " < " +
+//             observable.lowestObserverState
+//     )
+// }
+
+/**
+ * NOTE: current propagation mechanism will in case of self reruning autoruns behave unexpectedly
+ * It will propagate changes to observers from previous run
+ * It's hard or maybe impossible (with reasonable perf) to get it right with current approach
+ * Hopefully self reruning autoruns aren't a feature people should depend on
+ * Also most basic use cases should be ok
+ */
+// Called by Atom when its value changes
+
+
+function propagateChanged(observable) {
+  // invariantLOS(observable, "changed start");
+  if (observable.lowestObserverState === IDerivationState.STALE) return;
+  observable.lowestObserverState = IDerivationState.STALE; // Ideally we use for..of here, but the downcompiled version is really slow...
+
+  observable.observers.forEach(function (d) {
+    if (d.dependenciesState === IDerivationState.UP_TO_DATE) {
+      if (d.isTracing !== TraceMode.NONE) {
+        logTraceInfo(d, observable);
+      }
+
+      d.onBecomeStale();
+    }
+
+    d.dependenciesState = IDerivationState.STALE;
+  }); // invariantLOS(observable, "changed end");
+} // Called by ComputedValue when it recalculate and its value changed
+
+
+function propagateChangeConfirmed(observable) {
+  // invariantLOS(observable, "confirmed start");
+  if (observable.lowestObserverState === IDerivationState.STALE) return;
+  observable.lowestObserverState = IDerivationState.STALE;
+  observable.observers.forEach(function (d) {
+    if (d.dependenciesState === IDerivationState.POSSIBLY_STALE) d.dependenciesState = IDerivationState.STALE;else if (d.dependenciesState === IDerivationState.UP_TO_DATE // this happens during computing of `d`, just keep lowestObserverState up to date.
+    ) observable.lowestObserverState = IDerivationState.UP_TO_DATE;
+  }); // invariantLOS(observable, "confirmed end");
+} // Used by computed when its dependency changed, but we don't wan't to immediately recompute.
+
+
+function propagateMaybeChanged(observable) {
+  // invariantLOS(observable, "maybe start");
+  if (observable.lowestObserverState !== IDerivationState.UP_TO_DATE) return;
+  observable.lowestObserverState = IDerivationState.POSSIBLY_STALE;
+  observable.observers.forEach(function (d) {
+    if (d.dependenciesState === IDerivationState.UP_TO_DATE) {
+      d.dependenciesState = IDerivationState.POSSIBLY_STALE;
+
+      if (d.isTracing !== TraceMode.NONE) {
+        logTraceInfo(d, observable);
+      }
+
+      d.onBecomeStale();
+    }
+  }); // invariantLOS(observable, "maybe end");
+}
+
+function logTraceInfo(derivation, observable) {
+  console.log("[mobx.trace] '" + derivation.name + "' is invalidated due to a change in: '" + observable.name + "'");
+
+  if (derivation.isTracing === TraceMode.BREAK) {
+    var lines = [];
+    printDepTree(getDependencyTree(derivation), lines, 1); // prettier-ignore
+
+    new Function("debugger;\n/*\nTracing '" + derivation.name + "'\n\nYou are entering this break point because derivation '" + derivation.name + "' is being traced and '" + observable.name + "' is now forcing it to update.\nJust follow the stacktrace you should now see in the devtools to see precisely what piece of your code is causing this update\nThe stackframe you are looking for is at least ~6-8 stack-frames up.\n\n" + (derivation instanceof ComputedValue ? derivation.derivation.toString().replace(/[*]\//g, "/") : "") + "\n\nThe dependencies for this derivation are:\n\n" + lines.join("\n") + "\n*/\n    ")();
+  }
+}
+
+function printDepTree(tree, lines, depth) {
+  if (lines.length >= 1000) {
+    lines.push("(and many more)");
+    return;
+  }
+
+  lines.push("" + new Array(depth).join("\t") + tree.name); // MWE: not the fastest, but the easiest way :)
+
+  if (tree.dependencies) tree.dependencies.forEach(function (child) {
+    return printDepTree(child, lines, depth + 1);
+  });
+}
+
+var Reaction =
+/** @class */
+function () {
+  function Reaction(name, onInvalidate, errorHandler, requiresObservable) {
+    if (name === void 0) {
+      name = "Reaction@" + getNextId();
+    }
+
+    if (requiresObservable === void 0) {
+      requiresObservable = false;
+    }
+
+    this.name = name;
+    this.onInvalidate = onInvalidate;
+    this.errorHandler = errorHandler;
+    this.requiresObservable = requiresObservable;
+    this.observing = []; // nodes we are looking at. Our value depends on these nodes
+
+    this.newObserving = [];
+    this.dependenciesState = IDerivationState.NOT_TRACKING;
+    this.diffValue = 0;
+    this.runId = 0;
+    this.unboundDepsCount = 0;
+    this.__mapid = "#" + getNextId();
+    this.isDisposed = false;
+    this._isScheduled = false;
+    this._isTrackPending = false;
+    this._isRunning = false;
+    this.isTracing = TraceMode.NONE;
+  }
+
+  Reaction.prototype.onBecomeStale = function () {
+    this.schedule();
+  };
+
+  Reaction.prototype.schedule = function () {
+    if (!this._isScheduled) {
+      this._isScheduled = true;
+      globalState.pendingReactions.push(this);
+      runReactions();
+    }
+  };
+
+  Reaction.prototype.isScheduled = function () {
+    return this._isScheduled;
+  };
+  /**
+   * internal, use schedule() if you intend to kick off a reaction
+   */
+
+
+  Reaction.prototype.runReaction = function () {
+    if (!this.isDisposed) {
+      startBatch();
+      this._isScheduled = false;
+
+      if (shouldCompute(this)) {
+        this._isTrackPending = true;
+
+        try {
+          this.onInvalidate();
+
+          if (this._isTrackPending && isSpyEnabled() && "development" !== "production") {
+            // onInvalidate didn't trigger track right away..
+            spyReport({
+              name: this.name,
+              type: "scheduled-reaction"
+            });
+          }
+        } catch (e) {
+          this.reportExceptionInDerivation(e);
+        }
+      }
+
+      endBatch();
+    }
+  };
+
+  Reaction.prototype.track = function (fn) {
+    if (this.isDisposed) {
+      return; // console.warn("Reaction already disposed") // Note: Not a warning / error in mobx 4 either
+    }
+
+    startBatch();
+    var notify = isSpyEnabled();
+    var startTime;
+
+    if (notify && "development" !== "production") {
+      startTime = Date.now();
+      spyReportStart({
+        name: this.name,
+        type: "reaction"
+      });
+    }
+
+    this._isRunning = true;
+    var result = trackDerivedFunction(this, fn, undefined);
+    this._isRunning = false;
+    this._isTrackPending = false;
+
+    if (this.isDisposed) {
+      // disposed during last run. Clean up everything that was bound after the dispose call.
+      clearObserving(this);
+    }
+
+    if (isCaughtException(result)) this.reportExceptionInDerivation(result.cause);
+
+    if (notify && "development" !== "production") {
+      spyReportEnd({
+        time: Date.now() - startTime
+      });
+    }
+
+    endBatch();
+  };
+
+  Reaction.prototype.reportExceptionInDerivation = function (error) {
+    var _this = this;
+
+    if (this.errorHandler) {
+      this.errorHandler(error, this);
+      return;
+    }
+
+    if (globalState.disableErrorBoundaries) throw error;
+    var message = "[mobx] Encountered an uncaught exception that was thrown by a reaction or observer component, in: '" + this + "'";
+
+    if (globalState.suppressReactionErrors) {
+      console.warn("[mobx] (error in reaction '" + this.name + "' suppressed, fix error of causing action below)"); // prettier-ignore
+    } else {
+      console.error(message, error);
+      /** If debugging brought you here, please, read the above message :-). Tnx! */
+    }
+
+    if (isSpyEnabled()) {
+      spyReport({
+        type: "error",
+        name: this.name,
+        message: message,
+        error: "" + error
+      });
+    }
+
+    globalState.globalReactionErrorHandlers.forEach(function (f) {
+      return f(error, _this);
+    });
+  };
+
+  Reaction.prototype.dispose = function () {
+    if (!this.isDisposed) {
+      this.isDisposed = true;
+
+      if (!this._isRunning) {
+        // if disposed while running, clean up later. Maybe not optimal, but rare case
+        startBatch();
+        clearObserving(this);
+        endBatch();
+      }
+    }
+  };
+
+  Reaction.prototype.getDisposer = function () {
+    var r = this.dispose.bind(this);
+    r[$mobx] = this;
+    return r;
+  };
+
+  Reaction.prototype.toString = function () {
+    return "Reaction[" + this.name + "]";
+  };
+
+  Reaction.prototype.trace = function (enterBreakPoint) {
+    if (enterBreakPoint === void 0) {
+      enterBreakPoint = false;
+    }
+
+    trace(this, enterBreakPoint);
+  };
+
+  return Reaction;
+}();
+
+exports.Reaction = Reaction;
+
+function onReactionError(handler) {
+  globalState.globalReactionErrorHandlers.push(handler);
+  return function () {
+    var idx = globalState.globalReactionErrorHandlers.indexOf(handler);
+    if (idx >= 0) globalState.globalReactionErrorHandlers.splice(idx, 1);
+  };
+}
+/**
+ * Magic number alert!
+ * Defines within how many times a reaction is allowed to re-trigger itself
+ * until it is assumed that this is gonna be a never ending loop...
+ */
+
+
+var MAX_REACTION_ITERATIONS = 100;
+
+var reactionScheduler = function (f) {
+  return f();
+};
+
+function runReactions() {
+  // Trampolining, if runReactions are already running, new reactions will be picked up
+  if (globalState.inBatch > 0 || globalState.isRunningReactions) return;
+  reactionScheduler(runReactionsHelper);
+}
+
+function runReactionsHelper() {
+  globalState.isRunningReactions = true;
+  var allReactions = globalState.pendingReactions;
+  var iterations = 0; // While running reactions, new reactions might be triggered.
+  // Hence we work with two variables and check whether
+  // we converge to no remaining reactions after a while.
+
+  while (allReactions.length > 0) {
+    if (++iterations === MAX_REACTION_ITERATIONS) {
+      console.error("Reaction doesn't converge to a stable state after " + MAX_REACTION_ITERATIONS + " iterations." + (" Probably there is a cycle in the reactive function: " + allReactions[0]));
+      allReactions.splice(0); // clear reactions
+    }
+
+    var remainingReactions = allReactions.splice(0);
+
+    for (var i = 0, l = remainingReactions.length; i < l; i++) remainingReactions[i].runReaction();
+  }
+
+  globalState.isRunningReactions = false;
+}
+
+var isReaction = createInstanceofPredicate("Reaction", Reaction);
+
+function setReactionScheduler(fn) {
+  var baseScheduler = reactionScheduler;
+
+  reactionScheduler = function (f) {
+    return fn(function () {
+      return baseScheduler(f);
+    });
+  };
+}
+
+function isSpyEnabled() {
+  return "development" !== "production" && !!globalState.spyListeners.length;
+}
+
+function spyReport(event) {
+  if ("development" === "production") return; // dead code elimination can do the rest
+
+  if (!globalState.spyListeners.length) return;
+  var listeners = globalState.spyListeners;
+
+  for (var i = 0, l = listeners.length; i < l; i++) listeners[i](event);
+}
+
+function spyReportStart(event) {
+  if ("development" === "production") return;
+
+  var change = __assign(__assign({}, event), {
+    spyReportStart: true
+  });
+
+  spyReport(change);
+}
+
+var END_EVENT = {
+  spyReportEnd: true
+};
+
+function spyReportEnd(change) {
+  if ("development" === "production") return;
+  if (change) spyReport(__assign(__assign({}, change), {
+    spyReportEnd: true
+  }));else spyReport(END_EVENT);
+}
+
+function spy(listener) {
+  if ("development" === "production") {
+    console.warn("[mobx.spy] Is a no-op in production builds");
+    return function () {};
+  } else {
+    globalState.spyListeners.push(listener);
+    return once(function () {
+      globalState.spyListeners = globalState.spyListeners.filter(function (l) {
+        return l !== listener;
+      });
+    });
+  }
+}
+
+function dontReassignFields() {
+  fail("development" !== "production" && "@action fields are not reassignable");
+}
+
+function namedActionDecorator(name) {
+  return function (target, prop, descriptor) {
+    if (descriptor) {
+      if ("development" !== "production" && descriptor.get !== undefined) {
+        return fail("@action cannot be used with getters");
+      } // babel / typescript
+      // @action method() { }
+
+
+      if (descriptor.value) {
+        // typescript
+        return {
+          value: createAction(name, descriptor.value),
+          enumerable: false,
+          configurable: true,
+          writable: true // for typescript, this must be writable, otherwise it cannot inherit :/ (see inheritable actions test)
+
+        };
+      } // babel only: @action method = () => {}
+
+
+      var initializer_1 = descriptor.initializer;
+      return {
+        enumerable: false,
+        configurable: true,
+        writable: true,
+        initializer: function () {
+          // N.B: we can't immediately invoke initializer; this would be wrong
+          return createAction(name, initializer_1.call(this));
+        }
+      };
+    } // bound instance methods
+
+
+    return actionFieldDecorator(name).apply(this, arguments);
+  };
+}
+
+function actionFieldDecorator(name) {
+  // Simple property that writes on first invocation to the current instance
+  return function (target, prop, descriptor) {
+    Object.defineProperty(target, prop, {
+      configurable: true,
+      enumerable: false,
+      get: function () {
+        return undefined;
+      },
+      set: function (value) {
+        addHiddenProp(this, prop, action(name, value));
+      }
+    });
+  };
+}
+
+function boundActionDecorator(target, propertyName, descriptor, applyToInstance) {
+  if (applyToInstance === true) {
+    defineBoundAction(target, propertyName, descriptor.value);
+    return null;
+  }
+
+  if (descriptor) {
+    // if (descriptor.value)
+    // Typescript / Babel: @action.bound method() { }
+    // also: babel @action.bound method = () => {}
+    return {
+      configurable: true,
+      enumerable: false,
+      get: function () {
+        defineBoundAction(this, propertyName, descriptor.value || descriptor.initializer.call(this));
+        return this[propertyName];
+      },
+      set: dontReassignFields
+    };
+  } // field decorator Typescript @action.bound method = () => {}
+
+
+  return {
+    enumerable: false,
+    configurable: true,
+    set: function (v) {
+      defineBoundAction(this, propertyName, v);
+    },
+    get: function () {
+      return undefined;
+    }
+  };
+}
+
+var action = function action(arg1, arg2, arg3, arg4) {
+  // action(fn() {})
+  if (arguments.length === 1 && typeof arg1 === "function") return createAction(arg1.name || "<unnamed action>", arg1); // action("name", fn() {})
+
+  if (arguments.length === 2 && typeof arg2 === "function") return createAction(arg1, arg2); // @action("name") fn() {}
+
+  if (arguments.length === 1 && typeof arg1 === "string") return namedActionDecorator(arg1); // @action fn() {}
+
+  if (arg4 === true) {
+    // apply to instance immediately
+    addHiddenProp(arg1, arg2, createAction(arg1.name || arg2, arg3.value, this));
+  } else {
+    return namedActionDecorator(arg2).apply(null, arguments);
+  }
+};
+
+exports.action = action;
+action.bound = boundActionDecorator;
+
+function runInAction(arg1, arg2) {
+  var actionName = typeof arg1 === "string" ? arg1 : arg1.name || "<unnamed action>";
+  var fn = typeof arg1 === "function" ? arg1 : arg2;
+
+  if ("development" !== "production") {
+    invariant(typeof fn === "function" && fn.length === 0, "`runInAction` expects a function without arguments");
+    if (typeof actionName !== "string" || !actionName) fail("actions should have valid names, got: '" + actionName + "'");
+  }
+
+  return executeAction(actionName, fn, this, undefined);
+}
+
+function isAction(thing) {
+  return typeof thing === "function" && thing.isMobxAction === true;
+}
+
+function defineBoundAction(target, propertyName, fn) {
+  addHiddenProp(target, propertyName, createAction(propertyName, fn.bind(target)));
+}
+/**
+ * Creates a named reactive view and keeps it alive, so that the view is always
+ * updated if one of the dependencies changes, even when the view is not further used by something else.
+ * @param view The reactive view
+ * @returns disposer function, which can be used to stop the view from being updated in the future.
+ */
+
+
+function autorun(view, opts) {
+  if (opts === void 0) {
+    opts = EMPTY_OBJECT;
+  }
+
+  if ("development" !== "production") {
+    invariant(typeof view === "function", "Autorun expects a function as first argument");
+    invariant(isAction(view) === false, "Autorun does not accept actions since actions are untrackable");
+  }
+
+  var name = opts && opts.name || view.name || "Autorun@" + getNextId();
+  var runSync = !opts.scheduler && !opts.delay;
+  var reaction;
+
+  if (runSync) {
+    // normal autorun
+    reaction = new Reaction(name, function () {
+      this.track(reactionRunner);
+    }, opts.onError, opts.requiresObservable);
+  } else {
+    var scheduler_1 = createSchedulerFromOptions(opts); // debounced autorun
+
+    var isScheduled_1 = false;
+    reaction = new Reaction(name, function () {
+      if (!isScheduled_1) {
+        isScheduled_1 = true;
+        scheduler_1(function () {
+          isScheduled_1 = false;
+          if (!reaction.isDisposed) reaction.track(reactionRunner);
+        });
+      }
+    }, opts.onError, opts.requiresObservable);
+  }
+
+  function reactionRunner() {
+    view(reaction);
+  }
+
+  reaction.schedule();
+  return reaction.getDisposer();
+}
+
+var run = function (f) {
+  return f();
+};
+
+function createSchedulerFromOptions(opts) {
+  return opts.scheduler ? opts.scheduler : opts.delay ? function (f) {
+    return setTimeout(f, opts.delay);
+  } : run;
+}
+
+function reaction(expression, effect, opts) {
+  if (opts === void 0) {
+    opts = EMPTY_OBJECT;
+  }
+
+  if ("development" !== "production") {
+    invariant(typeof expression === "function", "First argument to reaction should be a function");
+    invariant(typeof opts === "object", "Third argument of reactions should be an object");
+  }
+
+  var name = opts.name || "Reaction@" + getNextId();
+  var effectAction = action(name, opts.onError ? wrapErrorHandler(opts.onError, effect) : effect);
+  var runSync = !opts.scheduler && !opts.delay;
+  var scheduler = createSchedulerFromOptions(opts);
+  var firstTime = true;
+  var isScheduled = false;
+  var value;
+  var equals = opts.compareStructural ? comparer.structural : opts.equals || comparer.default;
+  var r = new Reaction(name, function () {
+    if (firstTime || runSync) {
+      reactionRunner();
+    } else if (!isScheduled) {
+      isScheduled = true;
+      scheduler(reactionRunner);
+    }
+  }, opts.onError, opts.requiresObservable);
+
+  function reactionRunner() {
+    isScheduled = false; // Q: move into reaction runner?
+
+    if (r.isDisposed) return;
+    var changed = false;
+    r.track(function () {
+      var nextValue = expression(r);
+      changed = firstTime || !equals(value, nextValue);
+      value = nextValue;
+    });
+    if (firstTime && opts.fireImmediately) effectAction(value, r);
+    if (!firstTime && changed === true) effectAction(value, r);
+    if (firstTime) firstTime = false;
+  }
+
+  r.schedule();
+  return r.getDisposer();
+}
+
+function wrapErrorHandler(errorHandler, baseFn) {
+  return function () {
+    try {
+      return baseFn.apply(this, arguments);
+    } catch (e) {
+      errorHandler.call(this, e);
+    }
+  };
+}
+
+function onBecomeObserved(thing, arg2, arg3) {
+  return interceptHook("onBecomeObserved", thing, arg2, arg3);
+}
+
+function onBecomeUnobserved(thing, arg2, arg3) {
+  return interceptHook("onBecomeUnobserved", thing, arg2, arg3);
+}
+
+function interceptHook(hook, thing, arg2, arg3) {
+  var atom = typeof arg3 === "function" ? getAtom(thing, arg2) : getAtom(thing);
+  var cb = typeof arg3 === "function" ? arg3 : arg2;
+  var listenersKey = hook + "Listeners";
+
+  if (atom[listenersKey]) {
+    atom[listenersKey].add(cb);
+  } else {
+    atom[listenersKey] = new Set([cb]);
+  }
+
+  var orig = atom[hook];
+  if (typeof orig !== "function") return fail("development" !== "production" && "Not an atom that can be (un)observed");
+  return function () {
+    var hookListeners = atom[listenersKey];
+
+    if (hookListeners) {
+      hookListeners.delete(cb);
+
+      if (hookListeners.size === 0) {
+        delete atom[listenersKey];
+      }
+    }
+  };
+}
+
+function configure(options) {
+  var enforceActions = options.enforceActions,
+      computedRequiresReaction = options.computedRequiresReaction,
+      computedConfigurable = options.computedConfigurable,
+      disableErrorBoundaries = options.disableErrorBoundaries,
+      reactionScheduler = options.reactionScheduler,
+      reactionRequiresObservable = options.reactionRequiresObservable,
+      observableRequiresReaction = options.observableRequiresReaction;
+
+  if (options.isolateGlobalState === true) {
+    isolateGlobalState();
+  }
+
+  if (enforceActions !== undefined) {
+    if (typeof enforceActions === "boolean" || enforceActions === "strict") deprecated("Deprecated value for 'enforceActions', use 'false' => '\"never\"', 'true' => '\"observed\"', '\"strict\"' => \"'always'\" instead");
+    var ea = void 0;
+
+    switch (enforceActions) {
+      case true:
+      case "observed":
+        ea = true;
+        break;
+
+      case false:
+      case "never":
+        ea = false;
+        break;
+
+      case "strict":
+      case "always":
+        ea = "strict";
+        break;
+
+      default:
+        fail("Invalid value for 'enforceActions': '" + enforceActions + "', expected 'never', 'always' or 'observed'");
+    }
+
+    globalState.enforceActions = ea;
+    globalState.allowStateChanges = ea === true || ea === "strict" ? false : true;
+  }
+
+  if (computedRequiresReaction !== undefined) {
+    globalState.computedRequiresReaction = !!computedRequiresReaction;
+  }
+
+  if (reactionRequiresObservable !== undefined) {
+    globalState.reactionRequiresObservable = !!reactionRequiresObservable;
+  }
+
+  if (observableRequiresReaction !== undefined) {
+    globalState.observableRequiresReaction = !!observableRequiresReaction;
+    globalState.allowStateReads = !globalState.observableRequiresReaction;
+  }
+
+  if (computedConfigurable !== undefined) {
+    globalState.computedConfigurable = !!computedConfigurable;
+  }
+
+  if (disableErrorBoundaries !== undefined) {
+    if (disableErrorBoundaries === true) console.warn("WARNING: Debug feature only. MobX will NOT recover from errors when `disableErrorBoundaries` is enabled.");
+    globalState.disableErrorBoundaries = !!disableErrorBoundaries;
+  }
+
+  if (reactionScheduler) {
+    setReactionScheduler(reactionScheduler);
+  }
+}
+
+function decorate(thing, decorators) {
+  "development" !== "production" && invariant(isPlainObject(decorators), "Decorators should be a key value map");
+  var target = typeof thing === "function" ? thing.prototype : thing;
+
+  var _loop_1 = function (prop) {
+    var propertyDecorators = decorators[prop];
+
+    if (!Array.isArray(propertyDecorators)) {
+      propertyDecorators = [propertyDecorators];
+    }
+
+    "development" !== "production" && invariant(propertyDecorators.every(function (decorator) {
+      return typeof decorator === "function";
+    }), "Decorate: expected a decorator function or array of decorator functions for '" + prop + "'");
+    var descriptor = Object.getOwnPropertyDescriptor(target, prop);
+    var newDescriptor = propertyDecorators.reduce(function (accDescriptor, decorator) {
+      return decorator(target, prop, accDescriptor);
+    }, descriptor);
+    if (newDescriptor) Object.defineProperty(target, prop, newDescriptor);
+  };
+
+  for (var prop in decorators) {
+    _loop_1(prop);
+  }
+
+  return thing;
+}
+
+function extendObservable(target, properties, decorators, options) {
+  if ("development" !== "production") {
+    invariant(arguments.length >= 2 && arguments.length <= 4, "'extendObservable' expected 2-4 arguments");
+    invariant(typeof target === "object", "'extendObservable' expects an object as first argument");
+    invariant(!isObservableMap(target), "'extendObservable' should not be used on maps, use map.merge instead");
+  }
+
+  options = asCreateObservableOptions(options);
+  var defaultDecorator = getDefaultDecoratorFromObjectOptions(options);
+  initializeInstance(target); // Fixes #1740
+
+  asObservableObject(target, options.name, defaultDecorator.enhancer); // make sure object is observable, even without initial props
+
+  if (properties) extendObservableObjectWithProperties(target, properties, decorators, defaultDecorator);
+  return target;
+}
+
+function getDefaultDecoratorFromObjectOptions(options) {
+  return options.defaultDecorator || (options.deep === false ? refDecorator : deepDecorator);
+}
+
+function extendObservableObjectWithProperties(target, properties, decorators, defaultDecorator) {
+  var e_1, _a, e_2, _b;
+
+  if ("development" !== "production") {
+    invariant(!isObservable(properties), "Extending an object with another observable (object) is not supported. Please construct an explicit propertymap, using `toJS` if need. See issue #540");
+
+    if (decorators) {
+      var keys = getPlainObjectKeys(decorators);
+
+      try {
+        for (var keys_1 = __values(keys), keys_1_1 = keys_1.next(); !keys_1_1.done; keys_1_1 = keys_1.next()) {
+          var key = keys_1_1.value;
+          if (!(key in properties)) fail("Trying to declare a decorator for unspecified property '" + stringifyKey(key) + "'");
+        }
+      } catch (e_1_1) {
+        e_1 = {
+          error: e_1_1
+        };
+      } finally {
+        try {
+          if (keys_1_1 && !keys_1_1.done && (_a = keys_1.return)) _a.call(keys_1);
+        } finally {
+          if (e_1) throw e_1.error;
+        }
+      }
+    }
+  }
+
+  startBatch();
+
+  try {
+    var keys = getPlainObjectKeys(properties);
+
+    try {
+      for (var keys_2 = __values(keys), keys_2_1 = keys_2.next(); !keys_2_1.done; keys_2_1 = keys_2.next()) {
+        var key = keys_2_1.value;
+        var descriptor = Object.getOwnPropertyDescriptor(properties, key);
+
+        if ("development" !== "production") {
+          if (!isPlainObject(properties)) fail("'extendObservabe' only accepts plain objects as second argument");
+          if (isComputed(descriptor.value)) fail("Passing a 'computed' as initial property value is no longer supported by extendObservable. Use a getter or decorator instead");
+        }
+
+        var decorator = decorators && key in decorators ? decorators[key] : descriptor.get ? computedDecorator : defaultDecorator;
+        if ("development" !== "production" && typeof decorator !== "function") fail("Not a valid decorator for '" + stringifyKey(key) + "', got: " + decorator);
+        var resultDescriptor = decorator(target, key, descriptor, true);
+        if (resultDescriptor // otherwise, assume already applied, due to `applyToInstance`
+        ) Object.defineProperty(target, key, resultDescriptor);
+      }
+    } catch (e_2_1) {
+      e_2 = {
+        error: e_2_1
+      };
+    } finally {
+      try {
+        if (keys_2_1 && !keys_2_1.done && (_b = keys_2.return)) _b.call(keys_2);
+      } finally {
+        if (e_2) throw e_2.error;
+      }
+    }
+  } finally {
+    endBatch();
+  }
+}
+
+function getDependencyTree(thing, property) {
+  return nodeToDependencyTree(getAtom(thing, property));
+}
+
+function nodeToDependencyTree(node) {
+  var result = {
+    name: node.name
+  };
+  if (node.observing && node.observing.length > 0) result.dependencies = unique(node.observing).map(nodeToDependencyTree);
+  return result;
+}
+
+function getObserverTree(thing, property) {
+  return nodeToObserverTree(getAtom(thing, property));
+}
+
+function nodeToObserverTree(node) {
+  var result = {
+    name: node.name
+  };
+  if (hasObservers(node)) result.observers = Array.from(getObservers(node)).map(nodeToObserverTree);
+  return result;
+}
+
+var generatorId = 0;
+
+function FlowCancellationError() {
+  this.message = "FLOW_CANCELLED";
+}
+
+FlowCancellationError.prototype = Object.create(Error.prototype);
+
+function isFlowCancellationError(error) {
+  return error instanceof FlowCancellationError;
+}
+
+function flow(generator) {
+  if (arguments.length !== 1) fail(!!"development" && "Flow expects 1 argument and cannot be used as decorator");
+  var name = generator.name || "<unnamed flow>"; // Implementation based on https://github.com/tj/co/blob/master/index.js
+
+  return function () {
+    var ctx = this;
+    var args = arguments;
+    var runId = ++generatorId;
+    var gen = action(name + " - runid: " + runId + " - init", generator).apply(ctx, args);
+    var rejector;
+    var pendingPromise = undefined;
+    var promise = new Promise(function (resolve, reject) {
+      var stepId = 0;
+      rejector = reject;
+
+      function onFulfilled(res) {
+        pendingPromise = undefined;
+        var ret;
+
+        try {
+          ret = action(name + " - runid: " + runId + " - yield " + stepId++, gen.next).call(gen, res);
+        } catch (e) {
+          return reject(e);
+        }
+
+        next(ret);
+      }
+
+      function onRejected(err) {
+        pendingPromise = undefined;
+        var ret;
+
+        try {
+          ret = action(name + " - runid: " + runId + " - yield " + stepId++, gen.throw).call(gen, err);
+        } catch (e) {
+          return reject(e);
+        }
+
+        next(ret);
+      }
+
+      function next(ret) {
+        if (ret && typeof ret.then === "function") {
+          // an async iterator
+          ret.then(next, reject);
+          return;
+        }
+
+        if (ret.done) return resolve(ret.value);
+        pendingPromise = Promise.resolve(ret.value);
+        return pendingPromise.then(onFulfilled, onRejected);
+      }
+
+      onFulfilled(undefined); // kick off the process
+    });
+    promise.cancel = action(name + " - runid: " + runId + " - cancel", function () {
+      try {
+        if (pendingPromise) cancelPromise(pendingPromise); // Finally block can return (or yield) stuff..
+
+        var res = gen.return(undefined); // eat anything that promise would do, it's cancelled!
+
+        var yieldedPromise = Promise.resolve(res.value);
+        yieldedPromise.then(noop, noop);
+        cancelPromise(yieldedPromise); // maybe it can be cancelled :)
+        // reject our original promise
+
+        rejector(new FlowCancellationError());
+      } catch (e) {
+        rejector(e); // there could be a throwing finally block
+      }
+    });
+    return promise;
+  };
+}
+
+function cancelPromise(promise) {
+  if (typeof promise.cancel === "function") promise.cancel();
+}
+
+function interceptReads(thing, propOrHandler, handler) {
+  var target;
+
+  if (isObservableMap(thing) || isObservableArray(thing) || isObservableValue(thing)) {
+    target = getAdministration(thing);
+  } else if (isObservableObject(thing)) {
+    if (typeof propOrHandler !== "string") return fail("development" !== "production" && "InterceptReads can only be used with a specific property, not with an object in general");
+    target = getAdministration(thing, propOrHandler);
+  } else {
+    return fail("development" !== "production" && "Expected observable map, object or array as first array");
+  }
+
+  if (target.dehancer !== undefined) return fail("development" !== "production" && "An intercept reader was already established");
+  target.dehancer = typeof propOrHandler === "function" ? propOrHandler : handler;
+  return function () {
+    target.dehancer = undefined;
+  };
+}
+
+function intercept(thing, propOrHandler, handler) {
+  if (typeof handler === "function") return interceptProperty(thing, propOrHandler, handler);else return interceptInterceptable(thing, propOrHandler);
+}
+
+function interceptInterceptable(thing, handler) {
+  return getAdministration(thing).intercept(handler);
+}
+
+function interceptProperty(thing, property, handler) {
+  return getAdministration(thing, property).intercept(handler);
+}
+
+function _isComputed(value, property) {
+  if (value === null || value === undefined) return false;
+
+  if (property !== undefined) {
+    if (isObservableObject(value) === false) return false;
+    if (!value[$mobx].values.has(property)) return false;
+    var atom = getAtom(value, property);
+    return isComputedValue(atom);
+  }
+
+  return isComputedValue(value);
+}
+
+function isComputed(value) {
+  if (arguments.length > 1) return fail("development" !== "production" && "isComputed expects only 1 argument. Use isObservableProp to inspect the observability of a property");
+  return _isComputed(value);
+}
+
+function isComputedProp(value, propName) {
+  if (typeof propName !== "string") return fail("development" !== "production" && "isComputed expected a property name as second argument");
+  return _isComputed(value, propName);
+}
+
+function _isObservable(value, property) {
+  if (value === null || value === undefined) return false;
+
+  if (property !== undefined) {
+    if ("development" !== "production" && (isObservableMap(value) || isObservableArray(value))) return fail("isObservable(object, propertyName) is not supported for arrays and maps. Use map.has or array.length instead.");
+
+    if (isObservableObject(value)) {
+      return value[$mobx].values.has(property);
+    }
+
+    return false;
+  } // For first check, see #701
+
+
+  return isObservableObject(value) || !!value[$mobx] || isAtom(value) || isReaction(value) || isComputedValue(value);
+}
+
+function isObservable(value) {
+  if (arguments.length !== 1) fail("development" !== "production" && "isObservable expects only 1 argument. Use isObservableProp to inspect the observability of a property");
+  return _isObservable(value);
+}
+
+function isObservableProp(value, propName) {
+  if (typeof propName !== "string") return fail("development" !== "production" && "expected a property name as second argument");
+  return _isObservable(value, propName);
+}
+
+function keys(obj) {
+  if (isObservableObject(obj)) {
+    return obj[$mobx].getKeys();
+  }
+
+  if (isObservableMap(obj)) {
+    return Array.from(obj.keys());
+  }
+
+  if (isObservableSet(obj)) {
+    return Array.from(obj.keys());
+  }
+
+  if (isObservableArray(obj)) {
+    return obj.map(function (_, index) {
+      return index;
+    });
+  }
+
+  return fail("development" !== "production" && "'keys()' can only be used on observable objects, arrays, sets and maps");
+}
+
+function values(obj) {
+  if (isObservableObject(obj)) {
+    return keys(obj).map(function (key) {
+      return obj[key];
+    });
+  }
+
+  if (isObservableMap(obj)) {
+    return keys(obj).map(function (key) {
+      return obj.get(key);
+    });
+  }
+
+  if (isObservableSet(obj)) {
+    return Array.from(obj.values());
+  }
+
+  if (isObservableArray(obj)) {
+    return obj.slice();
+  }
+
+  return fail("development" !== "production" && "'values()' can only be used on observable objects, arrays, sets and maps");
+}
+
+function entries(obj) {
+  if (isObservableObject(obj)) {
+    return keys(obj).map(function (key) {
+      return [key, obj[key]];
+    });
+  }
+
+  if (isObservableMap(obj)) {
+    return keys(obj).map(function (key) {
+      return [key, obj.get(key)];
+    });
+  }
+
+  if (isObservableSet(obj)) {
+    return Array.from(obj.entries());
+  }
+
+  if (isObservableArray(obj)) {
+    return obj.map(function (key, index) {
+      return [index, key];
+    });
+  }
+
+  return fail("development" !== "production" && "'entries()' can only be used on observable objects, arrays and maps");
+}
+
+function set(obj, key, value) {
+  if (arguments.length === 2 && !isObservableSet(obj)) {
+    startBatch();
+    var values_1 = key;
+
+    try {
+      for (var key_1 in values_1) set(obj, key_1, values_1[key_1]);
+    } finally {
+      endBatch();
+    }
+
+    return;
+  }
+
+  if (isObservableObject(obj)) {
+    var adm = obj[$mobx];
+    var existingObservable = adm.values.get(key);
+
+    if (existingObservable) {
+      adm.write(key, value);
+    } else {
+      adm.addObservableProp(key, value, adm.defaultEnhancer);
+    }
+  } else if (isObservableMap(obj)) {
+    obj.set(key, value);
+  } else if (isObservableSet(obj)) {
+    obj.add(key);
+  } else if (isObservableArray(obj)) {
+    if (typeof key !== "number") key = parseInt(key, 10);
+    invariant(key >= 0, "Not a valid index: '" + key + "'");
+    startBatch();
+    if (key >= obj.length) obj.length = key + 1;
+    obj[key] = value;
+    endBatch();
+  } else {
+    return fail("development" !== "production" && "'set()' can only be used on observable objects, arrays and maps");
+  }
+}
+
+function remove(obj, key) {
+  if (isObservableObject(obj)) {
+    obj[$mobx].remove(key);
+  } else if (isObservableMap(obj)) {
+    obj.delete(key);
+  } else if (isObservableSet(obj)) {
+    obj.delete(key);
+  } else if (isObservableArray(obj)) {
+    if (typeof key !== "number") key = parseInt(key, 10);
+    invariant(key >= 0, "Not a valid index: '" + key + "'");
+    obj.splice(key, 1);
+  } else {
+    return fail("development" !== "production" && "'remove()' can only be used on observable objects, arrays and maps");
+  }
+}
+
+function has(obj, key) {
+  if (isObservableObject(obj)) {
+    // return keys(obj).indexOf(key) >= 0
+    var adm = getAdministration(obj);
+    return adm.has(key);
+  } else if (isObservableMap(obj)) {
+    return obj.has(key);
+  } else if (isObservableSet(obj)) {
+    return obj.has(key);
+  } else if (isObservableArray(obj)) {
+    return key >= 0 && key < obj.length;
+  } else {
+    return fail("development" !== "production" && "'has()' can only be used on observable objects, arrays and maps");
+  }
+}
+
+function get(obj, key) {
+  if (!has(obj, key)) return undefined;
+
+  if (isObservableObject(obj)) {
+    return obj[key];
+  } else if (isObservableMap(obj)) {
+    return obj.get(key);
+  } else if (isObservableArray(obj)) {
+    return obj[key];
+  } else {
+    return fail("development" !== "production" && "'get()' can only be used on observable objects, arrays and maps");
+  }
+}
+
+function observe(thing, propOrCb, cbOrFire, fireImmediately) {
+  if (typeof cbOrFire === "function") return observeObservableProperty(thing, propOrCb, cbOrFire, fireImmediately);else return observeObservable(thing, propOrCb, cbOrFire);
+}
+
+function observeObservable(thing, listener, fireImmediately) {
+  return getAdministration(thing).observe(listener, fireImmediately);
+}
+
+function observeObservableProperty(thing, property, listener, fireImmediately) {
+  return getAdministration(thing, property).observe(listener, fireImmediately);
+}
+
+var defaultOptions = {
+  detectCycles: true,
+  exportMapsAsObjects: true,
+  recurseEverything: false
+};
+
+function cache(map, key, value, options) {
+  if (options.detectCycles) map.set(key, value);
+  return value;
+}
+
+function toJSHelper(source, options, __alreadySeen) {
+  if (!options.recurseEverything && !isObservable(source)) return source;
+  if (typeof source !== "object") return source; // Directly return null if source is null
+
+  if (source === null) return null; // Directly return the Date object itself if contained in the observable
+
+  if (source instanceof Date) return source;
+  if (isObservableValue(source)) return toJSHelper(source.get(), options, __alreadySeen); // make sure we track the keys of the object
+
+  if (isObservable(source)) keys(source);
+  var detectCycles = options.detectCycles === true;
+
+  if (detectCycles && source !== null && __alreadySeen.has(source)) {
+    return __alreadySeen.get(source);
+  }
+
+  if (isObservableArray(source) || Array.isArray(source)) {
+    var res_1 = cache(__alreadySeen, source, [], options);
+    var toAdd = source.map(function (value) {
+      return toJSHelper(value, options, __alreadySeen);
+    });
+    res_1.length = toAdd.length;
+
+    for (var i = 0, l = toAdd.length; i < l; i++) res_1[i] = toAdd[i];
+
+    return res_1;
+  }
+
+  if (isObservableSet(source) || Object.getPrototypeOf(source) === Set.prototype) {
+    if (options.exportMapsAsObjects === false) {
+      var res_2 = cache(__alreadySeen, source, new Set(), options);
+      source.forEach(function (value) {
+        res_2.add(toJSHelper(value, options, __alreadySeen));
+      });
+      return res_2;
+    } else {
+      var res_3 = cache(__alreadySeen, source, [], options);
+      source.forEach(function (value) {
+        res_3.push(toJSHelper(value, options, __alreadySeen));
+      });
+      return res_3;
+    }
+  }
+
+  if (isObservableMap(source) || Object.getPrototypeOf(source) === Map.prototype) {
+    if (options.exportMapsAsObjects === false) {
+      var res_4 = cache(__alreadySeen, source, new Map(), options);
+      source.forEach(function (value, key) {
+        res_4.set(key, toJSHelper(value, options, __alreadySeen));
+      });
+      return res_4;
+    } else {
+      var res_5 = cache(__alreadySeen, source, {}, options);
+      source.forEach(function (value, key) {
+        res_5[key] = toJSHelper(value, options, __alreadySeen);
+      });
+      return res_5;
+    }
+  } // Fallback to the situation that source is an ObservableObject or a plain object
+
+
+  var res = cache(__alreadySeen, source, {}, options);
+  getPlainObjectKeys(source).forEach(function (key) {
+    res[key] = toJSHelper(source[key], options, __alreadySeen);
+  });
+  return res;
+}
+
+function toJS(source, options) {
+  // backward compatibility
+  if (typeof options === "boolean") options = {
+    detectCycles: options
+  };
+  if (!options) options = defaultOptions;
+  options.detectCycles = options.detectCycles === undefined ? options.recurseEverything === true : options.detectCycles === true;
+
+  var __alreadySeen;
+
+  if (options.detectCycles) __alreadySeen = new Map();
+  return toJSHelper(source, options, __alreadySeen);
+}
+
+function trace() {
+  var args = [];
+
+  for (var _i = 0; _i < arguments.length; _i++) {
+    args[_i] = arguments[_i];
+  }
+
+  var enterBreakPoint = false;
+  if (typeof args[args.length - 1] === "boolean") enterBreakPoint = args.pop();
+  var derivation = getAtomFromArgs(args);
+
+  if (!derivation) {
+    return fail("development" !== "production" && "'trace(break?)' can only be used inside a tracked computed value or a Reaction. Consider passing in the computed value or reaction explicitly");
+  }
+
+  if (derivation.isTracing === TraceMode.NONE) {
+    console.log("[mobx.trace] '" + derivation.name + "' tracing enabled");
+  }
+
+  derivation.isTracing = enterBreakPoint ? TraceMode.BREAK : TraceMode.LOG;
+}
+
+function getAtomFromArgs(args) {
+  switch (args.length) {
+    case 0:
+      return globalState.trackingDerivation;
+
+    case 1:
+      return getAtom(args[0]);
+
+    case 2:
+      return getAtom(args[0], args[1]);
+  }
+}
+/**
+ * During a transaction no views are updated until the end of the transaction.
+ * The transaction will be run synchronously nonetheless.
+ *
+ * @param action a function that updates some reactive state
+ * @returns any value that was returned by the 'action' parameter.
+ */
+
+
+function transaction(action, thisArg) {
+  if (thisArg === void 0) {
+    thisArg = undefined;
+  }
+
+  startBatch();
+
+  try {
+    return action.apply(thisArg);
+  } finally {
+    endBatch();
+  }
+}
+
+function when(predicate, arg1, arg2) {
+  if (arguments.length === 1 || arg1 && typeof arg1 === "object") return whenPromise(predicate, arg1);
+  return _when(predicate, arg1, arg2 || {});
+}
+
+function _when(predicate, effect, opts) {
+  var timeoutHandle;
+
+  if (typeof opts.timeout === "number") {
+    timeoutHandle = setTimeout(function () {
+      if (!disposer[$mobx].isDisposed) {
+        disposer();
+        var error = new Error("WHEN_TIMEOUT");
+        if (opts.onError) opts.onError(error);else throw error;
+      }
+    }, opts.timeout);
+  }
+
+  opts.name = opts.name || "When@" + getNextId();
+  var effectAction = createAction(opts.name + "-effect", effect);
+  var disposer = autorun(function (r) {
+    if (predicate()) {
+      r.dispose();
+      if (timeoutHandle) clearTimeout(timeoutHandle);
+      effectAction();
+    }
+  }, opts);
+  return disposer;
+}
+
+function whenPromise(predicate, opts) {
+  if ("development" !== "production" && opts && opts.onError) return fail("the options 'onError' and 'promise' cannot be combined");
+  var cancel;
+  var res = new Promise(function (resolve, reject) {
+    var disposer = _when(predicate, resolve, __assign(__assign({}, opts), {
+      onError: reject
+    }));
+
+    cancel = function () {
+      disposer();
+      reject("WHEN_CANCELLED");
+    };
+  });
+  res.cancel = cancel;
+  return res;
+}
+
+function getAdm(target) {
+  return target[$mobx];
+}
+
+function isPropertyKey(val) {
+  return typeof val === "string" || typeof val === "number" || typeof val === "symbol";
+} // Optimization: we don't need the intermediate objects and could have a completely custom administration for DynamicObjects,
+// and skip either the internal values map, or the base object with its property descriptors!
+
+
+var objectProxyTraps = {
+  has: function (target, name) {
+    if (name === $mobx || name === "constructor" || name === mobxDidRunLazyInitializersSymbol) return true;
+    var adm = getAdm(target); // MWE: should `in` operator be reactive? If not, below code path will be faster / more memory efficient
+    // TODO: check performance stats!
+    // if (adm.values.get(name as string)) return true
+
+    if (isPropertyKey(name)) return adm.has(name);
+    return name in target;
+  },
+  get: function (target, name) {
+    if (name === $mobx || name === "constructor" || name === mobxDidRunLazyInitializersSymbol) return target[name];
+    var adm = getAdm(target);
+    var observable = adm.values.get(name);
+
+    if (observable instanceof Atom) {
+      var result = observable.get();
+
+      if (result === undefined) {
+        // This fixes #1796, because deleting a prop that has an
+        // undefined value won't retrigger a observer (no visible effect),
+        // the autorun wouldn't subscribe to future key changes (see also next comment)
+        adm.has(name);
+      }
+
+      return result;
+    } // make sure we start listening to future keys
+    // note that we only do this here for optimization
+
+
+    if (isPropertyKey(name)) adm.has(name);
+    return target[name];
+  },
+  set: function (target, name, value) {
+    if (!isPropertyKey(name)) return false;
+    set(target, name, value);
+    return true;
+  },
+  deleteProperty: function (target, name) {
+    if (!isPropertyKey(name)) return false;
+    var adm = getAdm(target);
+    adm.remove(name);
+    return true;
+  },
+  ownKeys: function (target) {
+    var adm = getAdm(target);
+    adm.keysAtom.reportObserved();
+    return Reflect.ownKeys(target);
+  },
+  preventExtensions: function (target) {
+    fail("Dynamic observable objects cannot be frozen");
+    return false;
+  }
+};
+
+function createDynamicObservableObject(base) {
+  var proxy = new Proxy(base, objectProxyTraps);
+  base[$mobx].proxy = proxy;
+  return proxy;
+}
+
+function hasInterceptors(interceptable) {
+  return interceptable.interceptors !== undefined && interceptable.interceptors.length > 0;
+}
+
+function registerInterceptor(interceptable, handler) {
+  var interceptors = interceptable.interceptors || (interceptable.interceptors = []);
+  interceptors.push(handler);
+  return once(function () {
+    var idx = interceptors.indexOf(handler);
+    if (idx !== -1) interceptors.splice(idx, 1);
+  });
+}
+
+function interceptChange(interceptable, change) {
+  var prevU = untrackedStart();
+
+  try {
+    // Interceptor can modify the array, copy it to avoid concurrent modification, see #1950
+    var interceptors = __spread(interceptable.interceptors || []);
+
+    for (var i = 0, l = interceptors.length; i < l; i++) {
+      change = interceptors[i](change);
+      invariant(!change || change.type, "Intercept handlers should return nothing or a change object");
+      if (!change) break;
+    }
+
+    return change;
+  } finally {
+    untrackedEnd(prevU);
+  }
+}
+
+function hasListeners(listenable) {
+  return listenable.changeListeners !== undefined && listenable.changeListeners.length > 0;
+}
+
+function registerListener(listenable, handler) {
+  var listeners = listenable.changeListeners || (listenable.changeListeners = []);
+  listeners.push(handler);
+  return once(function () {
+    var idx = listeners.indexOf(handler);
+    if (idx !== -1) listeners.splice(idx, 1);
+  });
+}
+
+function notifyListeners(listenable, change) {
+  var prevU = untrackedStart();
+  var listeners = listenable.changeListeners;
+  if (!listeners) return;
+  listeners = listeners.slice();
+
+  for (var i = 0, l = listeners.length; i < l; i++) {
+    listeners[i](change);
+  }
+
+  untrackedEnd(prevU);
+}
+
+var MAX_SPLICE_SIZE = 10000; // See e.g. https://github.com/mobxjs/mobx/issues/859
+
+var arrayTraps = {
+  get: function (target, name) {
+    if (name === $mobx) return target[$mobx];
+    if (name === "length") return target[$mobx].getArrayLength();
+
+    if (typeof name === "number") {
+      return arrayExtensions.get.call(target, name);
+    }
+
+    if (typeof name === "string" && !isNaN(name)) {
+      return arrayExtensions.get.call(target, parseInt(name));
+    }
+
+    if (arrayExtensions.hasOwnProperty(name)) {
+      return arrayExtensions[name];
+    }
+
+    return target[name];
+  },
+  set: function (target, name, value) {
+    if (name === "length") {
+      target[$mobx].setArrayLength(value);
+    }
+
+    if (typeof name === "number") {
+      arrayExtensions.set.call(target, name, value);
+    }
+
+    if (typeof name === "symbol" || isNaN(name)) {
+      target[name] = value;
+    } else {
+      // numeric string
+      arrayExtensions.set.call(target, parseInt(name), value);
+    }
+
+    return true;
+  },
+  preventExtensions: function (target) {
+    fail("Observable arrays cannot be frozen");
+    return false;
+  }
+};
+
+function createObservableArray(initialValues, enhancer, name, owned) {
+  if (name === void 0) {
+    name = "ObservableArray@" + getNextId();
+  }
+
+  if (owned === void 0) {
+    owned = false;
+  }
+
+  var adm = new ObservableArrayAdministration(name, enhancer, owned);
+  addHiddenFinalProp(adm.values, $mobx, adm);
+  var proxy = new Proxy(adm.values, arrayTraps);
+  adm.proxy = proxy;
+
+  if (initialValues && initialValues.length) {
+    var prev = allowStateChangesStart(true);
+    adm.spliceWithArray(0, 0, initialValues);
+    allowStateChangesEnd(prev);
+  }
+
+  return proxy;
+}
+
+var ObservableArrayAdministration =
+/** @class */
+function () {
+  function ObservableArrayAdministration(name, enhancer, owned) {
+    this.owned = owned;
+    this.values = [];
+    this.proxy = undefined;
+    this.lastKnownLength = 0;
+    this.atom = new Atom(name || "ObservableArray@" + getNextId());
+
+    this.enhancer = function (newV, oldV) {
+      return enhancer(newV, oldV, name + "[..]");
+    };
+  }
+
+  ObservableArrayAdministration.prototype.dehanceValue = function (value) {
+    if (this.dehancer !== undefined) return this.dehancer(value);
+    return value;
+  };
+
+  ObservableArrayAdministration.prototype.dehanceValues = function (values) {
+    if (this.dehancer !== undefined && values.length > 0) return values.map(this.dehancer);
+    return values;
+  };
+
+  ObservableArrayAdministration.prototype.intercept = function (handler) {
+    return registerInterceptor(this, handler);
+  };
+
+  ObservableArrayAdministration.prototype.observe = function (listener, fireImmediately) {
+    if (fireImmediately === void 0) {
+      fireImmediately = false;
+    }
+
+    if (fireImmediately) {
+      listener({
+        object: this.proxy,
+        type: "splice",
+        index: 0,
+        added: this.values.slice(),
+        addedCount: this.values.length,
+        removed: [],
+        removedCount: 0
+      });
+    }
+
+    return registerListener(this, listener);
+  };
+
+  ObservableArrayAdministration.prototype.getArrayLength = function () {
+    this.atom.reportObserved();
+    return this.values.length;
+  };
+
+  ObservableArrayAdministration.prototype.setArrayLength = function (newLength) {
+    if (typeof newLength !== "number" || newLength < 0) throw new Error("[mobx.array] Out of range: " + newLength);
+    var currentLength = this.values.length;
+    if (newLength === currentLength) return;else if (newLength > currentLength) {
+      var newItems = new Array(newLength - currentLength);
+
+      for (var i = 0; i < newLength - currentLength; i++) newItems[i] = undefined; // No Array.fill everywhere...
+
+
+      this.spliceWithArray(currentLength, 0, newItems);
+    } else this.spliceWithArray(newLength, currentLength - newLength);
+  };
+
+  ObservableArrayAdministration.prototype.updateArrayLength = function (oldLength, delta) {
+    if (oldLength !== this.lastKnownLength) throw new Error("[mobx] Modification exception: the internal structure of an observable array was changed.");
+    this.lastKnownLength += delta;
+  };
+
+  ObservableArrayAdministration.prototype.spliceWithArray = function (index, deleteCount, newItems) {
+    var _this = this;
+
+    checkIfStateModificationsAreAllowed(this.atom);
+    var length = this.values.length;
+    if (index === undefined) index = 0;else if (index > length) index = length;else if (index < 0) index = Math.max(0, length + index);
+    if (arguments.length === 1) deleteCount = length - index;else if (deleteCount === undefined || deleteCount === null) deleteCount = 0;else deleteCount = Math.max(0, Math.min(deleteCount, length - index));
+    if (newItems === undefined) newItems = EMPTY_ARRAY;
+
+    if (hasInterceptors(this)) {
+      var change = interceptChange(this, {
+        object: this.proxy,
+        type: "splice",
+        index: index,
+        removedCount: deleteCount,
+        added: newItems
+      });
+      if (!change) return EMPTY_ARRAY;
+      deleteCount = change.removedCount;
+      newItems = change.added;
+    }
+
+    newItems = newItems.length === 0 ? newItems : newItems.map(function (v) {
+      return _this.enhancer(v, undefined);
+    });
+
+    if ("development" !== "production") {
+      var lengthDelta = newItems.length - deleteCount;
+      this.updateArrayLength(length, lengthDelta); // checks if internal array wasn't modified
+    }
+
+    var res = this.spliceItemsIntoValues(index, deleteCount, newItems);
+    if (deleteCount !== 0 || newItems.length !== 0) this.notifyArraySplice(index, newItems, res);
+    return this.dehanceValues(res);
+  };
+
+  ObservableArrayAdministration.prototype.spliceItemsIntoValues = function (index, deleteCount, newItems) {
+    var _a;
+
+    if (newItems.length < MAX_SPLICE_SIZE) {
+      return (_a = this.values).splice.apply(_a, __spread([index, deleteCount], newItems));
+    } else {
+      var res = this.values.slice(index, index + deleteCount);
+      this.values = this.values.slice(0, index).concat(newItems, this.values.slice(index + deleteCount));
+      return res;
+    }
+  };
+
+  ObservableArrayAdministration.prototype.notifyArrayChildUpdate = function (index, newValue, oldValue) {
+    var notifySpy = !this.owned && isSpyEnabled();
+    var notify = hasListeners(this);
+    var change = notify || notifySpy ? {
+      object: this.proxy,
+      type: "update",
+      index: index,
+      newValue: newValue,
+      oldValue: oldValue
+    } : null; // The reason why this is on right hand side here (and not above), is this way the uglifier will drop it, but it won't
+    // cause any runtime overhead in development mode without NODE_ENV set, unless spying is enabled
+
+    if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
+      name: this.atom.name
+    }));
+    this.atom.reportChanged();
+    if (notify) notifyListeners(this, change);
+    if (notifySpy && "development" !== "production") spyReportEnd();
+  };
+
+  ObservableArrayAdministration.prototype.notifyArraySplice = function (index, added, removed) {
+    var notifySpy = !this.owned && isSpyEnabled();
+    var notify = hasListeners(this);
+    var change = notify || notifySpy ? {
+      object: this.proxy,
+      type: "splice",
+      index: index,
+      removed: removed,
+      added: added,
+      removedCount: removed.length,
+      addedCount: added.length
+    } : null;
+    if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
+      name: this.atom.name
+    }));
+    this.atom.reportChanged(); // conform: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/observe
+
+    if (notify) notifyListeners(this, change);
+    if (notifySpy && "development" !== "production") spyReportEnd();
+  };
+
+  return ObservableArrayAdministration;
+}();
+
+var arrayExtensions = {
+  intercept: function (handler) {
+    return this[$mobx].intercept(handler);
+  },
+  observe: function (listener, fireImmediately) {
+    if (fireImmediately === void 0) {
+      fireImmediately = false;
+    }
+
+    var adm = this[$mobx];
+    return adm.observe(listener, fireImmediately);
+  },
+  clear: function () {
+    return this.splice(0);
+  },
+  replace: function (newItems) {
+    var adm = this[$mobx];
+    return adm.spliceWithArray(0, adm.values.length, newItems);
+  },
+
+  /**
+   * Converts this array back to a (shallow) javascript structure.
+   * For a deep clone use mobx.toJS
+   */
+  toJS: function () {
+    return this.slice();
+  },
+  toJSON: function () {
+    // Used by JSON.stringify
+    return this.toJS();
+  },
+
+  /*
+   * functions that do alter the internal structure of the array, (based on lib.es6.d.ts)
+   * since these functions alter the inner structure of the array, the have side effects.
+   * Because the have side effects, they should not be used in computed function,
+   * and for that reason the do not call dependencyState.notifyObserved
+   */
+  splice: function (index, deleteCount) {
+    var newItems = [];
+
+    for (var _i = 2; _i < arguments.length; _i++) {
+      newItems[_i - 2] = arguments[_i];
+    }
+
+    var adm = this[$mobx];
+
+    switch (arguments.length) {
+      case 0:
+        return [];
+
+      case 1:
+        return adm.spliceWithArray(index);
+
+      case 2:
+        return adm.spliceWithArray(index, deleteCount);
+    }
+
+    return adm.spliceWithArray(index, deleteCount, newItems);
+  },
+  spliceWithArray: function (index, deleteCount, newItems) {
+    var adm = this[$mobx];
+    return adm.spliceWithArray(index, deleteCount, newItems);
+  },
+  push: function () {
+    var items = [];
+
+    for (var _i = 0; _i < arguments.length; _i++) {
+      items[_i] = arguments[_i];
+    }
+
+    var adm = this[$mobx];
+    adm.spliceWithArray(adm.values.length, 0, items);
+    return adm.values.length;
+  },
+  pop: function () {
+    return this.splice(Math.max(this[$mobx].values.length - 1, 0), 1)[0];
+  },
+  shift: function () {
+    return this.splice(0, 1)[0];
+  },
+  unshift: function () {
+    var items = [];
+
+    for (var _i = 0; _i < arguments.length; _i++) {
+      items[_i] = arguments[_i];
+    }
+
+    var adm = this[$mobx];
+    adm.spliceWithArray(0, 0, items);
+    return adm.values.length;
+  },
+  reverse: function () {
+    // reverse by default mutates in place before returning the result
+    // which makes it both a 'derivation' and a 'mutation'.
+    // so we deviate from the default and just make it an dervitation
+    if ("development" !== "production") {
+      console.warn("[mobx] `observableArray.reverse()` will not update the array in place. Use `observableArray.slice().reverse()` to suppress this warning and perform the operation on a copy, or `observableArray.replace(observableArray.slice().reverse())` to reverse & update in place");
+    }
+
+    var clone = this.slice();
+    return clone.reverse.apply(clone, arguments);
+  },
+  sort: function (compareFn) {
+    // sort by default mutates in place before returning the result
+    // which goes against all good practices. Let's not change the array in place!
+    if ("development" !== "production") {
+      console.warn("[mobx] `observableArray.sort()` will not update the array in place. Use `observableArray.slice().sort()` to suppress this warning and perform the operation on a copy, or `observableArray.replace(observableArray.slice().sort())` to sort & update in place");
+    }
+
+    var clone = this.slice();
+    return clone.sort.apply(clone, arguments);
+  },
+  remove: function (value) {
+    var adm = this[$mobx];
+    var idx = adm.dehanceValues(adm.values).indexOf(value);
+
+    if (idx > -1) {
+      this.splice(idx, 1);
+      return true;
+    }
+
+    return false;
+  },
+  get: function (index) {
+    var adm = this[$mobx];
+
+    if (adm) {
+      if (index < adm.values.length) {
+        adm.atom.reportObserved();
+        return adm.dehanceValue(adm.values[index]);
+      }
+
+      console.warn("[mobx.array] Attempt to read an array index (" + index + ") that is out of bounds (" + adm.values.length + "). Please check length first. Out of bound indices will not be tracked by MobX");
+    }
+
+    return undefined;
+  },
+  set: function (index, newValue) {
+    var adm = this[$mobx];
+    var values = adm.values;
+
+    if (index < values.length) {
+      // update at index in range
+      checkIfStateModificationsAreAllowed(adm.atom);
+      var oldValue = values[index];
+
+      if (hasInterceptors(adm)) {
+        var change = interceptChange(adm, {
+          type: "update",
+          object: adm.proxy,
+          index: index,
+          newValue: newValue
+        });
+        if (!change) return;
+        newValue = change.newValue;
+      }
+
+      newValue = adm.enhancer(newValue, oldValue);
+      var changed = newValue !== oldValue;
+
+      if (changed) {
+        values[index] = newValue;
+        adm.notifyArrayChildUpdate(index, newValue, oldValue);
+      }
+    } else if (index === values.length) {
+      // add a new item
+      adm.spliceWithArray(index, 0, [newValue]);
+    } else {
+      // out of bounds
+      throw new Error("[mobx.array] Index out of bounds, " + index + " is larger than " + values.length);
+    }
+  }
+};
+["concat", "every", "filter", "forEach", "indexOf", "join", "lastIndexOf", "map", "reduce", "reduceRight", "slice", "some", "toString", "toLocaleString"].forEach(function (funcName) {
+  arrayExtensions[funcName] = function () {
+    var adm = this[$mobx];
+    adm.atom.reportObserved();
+    var res = adm.dehanceValues(adm.values);
+    return res[funcName].apply(res, arguments);
+  };
+});
+var isObservableArrayAdministration = createInstanceofPredicate("ObservableArrayAdministration", ObservableArrayAdministration);
+
+function isObservableArray(thing) {
+  return isObject(thing) && isObservableArrayAdministration(thing[$mobx]);
+}
+
+var _a;
+
+var ObservableMapMarker = {}; // just extend Map? See also https://gist.github.com/nestharus/13b4d74f2ef4a2f4357dbd3fc23c1e54
+// But: https://github.com/mobxjs/mobx/issues/1556
+
+var ObservableMap =
+/** @class */
+function () {
+  function ObservableMap(initialData, enhancer, name) {
+    if (enhancer === void 0) {
+      enhancer = deepEnhancer;
+    }
+
+    if (name === void 0) {
+      name = "ObservableMap@" + getNextId();
+    }
+
+    this.enhancer = enhancer;
+    this.name = name;
+    this[_a] = ObservableMapMarker;
+    this._keysAtom = createAtom(this.name + ".keys()");
+    this[Symbol.toStringTag] = "Map";
+
+    if (typeof Map !== "function") {
+      throw new Error("mobx.map requires Map polyfill for the current browser. Check babel-polyfill or core-js/es6/map.js");
+    }
+
+    this._data = new Map();
+    this._hasMap = new Map();
+    this.merge(initialData);
+  }
+
+  ObservableMap.prototype._has = function (key) {
+    return this._data.has(key);
+  };
+
+  ObservableMap.prototype.has = function (key) {
+    var _this = this;
+
+    if (!globalState.trackingDerivation) return this._has(key);
+
+    var entry = this._hasMap.get(key);
+
+    if (!entry) {
+      // todo: replace with atom (breaking change)
+      var newEntry = entry = new ObservableValue(this._has(key), referenceEnhancer, this.name + "." + stringifyKey(key) + "?", false);
+
+      this._hasMap.set(key, newEntry);
+
+      onBecomeUnobserved(newEntry, function () {
+        return _this._hasMap.delete(key);
+      });
+    }
+
+    return entry.get();
+  };
+
+  ObservableMap.prototype.set = function (key, value) {
+    var hasKey = this._has(key);
+
+    if (hasInterceptors(this)) {
+      var change = interceptChange(this, {
+        type: hasKey ? "update" : "add",
+        object: this,
+        newValue: value,
+        name: key
+      });
+      if (!change) return this;
+      value = change.newValue;
+    }
+
+    if (hasKey) {
+      this._updateValue(key, value);
+    } else {
+      this._addValue(key, value);
+    }
+
+    return this;
+  };
+
+  ObservableMap.prototype.delete = function (key) {
+    var _this = this;
+
+    if (hasInterceptors(this)) {
+      var change = interceptChange(this, {
+        type: "delete",
+        object: this,
+        name: key
+      });
+      if (!change) return false;
+    }
+
+    if (this._has(key)) {
+      var notifySpy = isSpyEnabled();
+      var notify = hasListeners(this);
+      var change = notify || notifySpy ? {
+        type: "delete",
+        object: this,
+        oldValue: this._data.get(key).value,
+        name: key
+      } : null;
+      if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
+        name: this.name,
+        key: key
+      }));
+      transaction(function () {
+        _this._keysAtom.reportChanged();
+
+        _this._updateHasMapEntry(key, false);
+
+        var observable = _this._data.get(key);
+
+        observable.setNewValue(undefined);
+
+        _this._data.delete(key);
+      });
+      if (notify) notifyListeners(this, change);
+      if (notifySpy && "development" !== "production") spyReportEnd();
+      return true;
+    }
+
+    return false;
+  };
+
+  ObservableMap.prototype._updateHasMapEntry = function (key, value) {
+    var entry = this._hasMap.get(key);
+
+    if (entry) {
+      entry.setNewValue(value);
+    }
+  };
+
+  ObservableMap.prototype._updateValue = function (key, newValue) {
+    var observable = this._data.get(key);
+
+    newValue = observable.prepareNewValue(newValue);
+
+    if (newValue !== globalState.UNCHANGED) {
+      var notifySpy = isSpyEnabled();
+      var notify = hasListeners(this);
+      var change = notify || notifySpy ? {
+        type: "update",
+        object: this,
+        oldValue: observable.value,
+        name: key,
+        newValue: newValue
+      } : null;
+      if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
+        name: this.name,
+        key: key
+      }));
+      observable.setNewValue(newValue);
+      if (notify) notifyListeners(this, change);
+      if (notifySpy && "development" !== "production") spyReportEnd();
+    }
+  };
+
+  ObservableMap.prototype._addValue = function (key, newValue) {
+    var _this = this;
+
+    checkIfStateModificationsAreAllowed(this._keysAtom);
+    transaction(function () {
+      var observable = new ObservableValue(newValue, _this.enhancer, _this.name + "." + stringifyKey(key), false);
+
+      _this._data.set(key, observable);
+
+      newValue = observable.value; // value might have been changed
+
+      _this._updateHasMapEntry(key, true);
+
+      _this._keysAtom.reportChanged();
+    });
+    var notifySpy = isSpyEnabled();
+    var notify = hasListeners(this);
+    var change = notify || notifySpy ? {
+      type: "add",
+      object: this,
+      name: key,
+      newValue: newValue
+    } : null;
+    if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
+      name: this.name,
+      key: key
+    }));
+    if (notify) notifyListeners(this, change);
+    if (notifySpy && "development" !== "production") spyReportEnd();
+  };
+
+  ObservableMap.prototype.get = function (key) {
+    if (this.has(key)) return this.dehanceValue(this._data.get(key).get());
+    return this.dehanceValue(undefined);
+  };
+
+  ObservableMap.prototype.dehanceValue = function (value) {
+    if (this.dehancer !== undefined) {
+      return this.dehancer(value);
+    }
+
+    return value;
+  };
+
+  ObservableMap.prototype.keys = function () {
+    this._keysAtom.reportObserved();
+
+    return this._data.keys();
+  };
+
+  ObservableMap.prototype.values = function () {
+    var self = this;
+    var nextIndex = 0;
+    var keys = Array.from(this.keys());
+    return makeIterable({
+      next: function () {
+        return nextIndex < keys.length ? {
+          value: self.get(keys[nextIndex++]),
+          done: false
+        } : {
+          done: true
+        };
+      }
+    });
+  };
+
+  ObservableMap.prototype.entries = function () {
+    var self = this;
+    var nextIndex = 0;
+    var keys = Array.from(this.keys());
+    return makeIterable({
+      next: function () {
+        if (nextIndex < keys.length) {
+          var key = keys[nextIndex++];
+          return {
+            value: [key, self.get(key)],
+            done: false
+          };
+        }
+
+        return {
+          done: true
+        };
+      }
+    });
+  };
+
+  ObservableMap.prototype[(_a = $mobx, Symbol.iterator)] = function () {
+    return this.entries();
+  };
+
+  ObservableMap.prototype.forEach = function (callback, thisArg) {
+    var e_1, _b;
+
+    try {
+      for (var _c = __values(this), _d = _c.next(); !_d.done; _d = _c.next()) {
+        var _e = __read(_d.value, 2),
+            key = _e[0],
+            value = _e[1];
+
+        callback.call(thisArg, value, key, this);
+      }
+    } catch (e_1_1) {
+      e_1 = {
+        error: e_1_1
+      };
+    } finally {
+      try {
+        if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
+      } finally {
+        if (e_1) throw e_1.error;
+      }
+    }
+  };
+  /** Merge another object into this object, returns this. */
+
+
+  ObservableMap.prototype.merge = function (other) {
+    var _this = this;
+
+    if (isObservableMap(other)) {
+      other = other.toJS();
+    }
+
+    transaction(function () {
+      if (isPlainObject(other)) getPlainObjectKeys(other).forEach(function (key) {
+        return _this.set(key, other[key]);
+      });else if (Array.isArray(other)) other.forEach(function (_b) {
+        var _c = __read(_b, 2),
+            key = _c[0],
+            value = _c[1];
+
+        return _this.set(key, value);
+      });else if (isES6Map(other)) {
+        if (other.constructor !== Map) fail("Cannot initialize from classes that inherit from Map: " + other.constructor.name); // prettier-ignore
+
+        other.forEach(function (value, key) {
+          return _this.set(key, value);
+        });
+      } else if (other !== null && other !== undefined) fail("Cannot initialize map from " + other);
+    });
+    return this;
+  };
+
+  ObservableMap.prototype.clear = function () {
+    var _this = this;
+
+    transaction(function () {
+      untracked(function () {
+        var e_2, _b;
+
+        try {
+          for (var _c = __values(_this.keys()), _d = _c.next(); !_d.done; _d = _c.next()) {
+            var key = _d.value;
+
+            _this.delete(key);
+          }
+        } catch (e_2_1) {
+          e_2 = {
+            error: e_2_1
+          };
+        } finally {
+          try {
+            if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
+          } finally {
+            if (e_2) throw e_2.error;
+          }
+        }
+      });
+    });
+  };
+
+  ObservableMap.prototype.replace = function (values) {
+    var _this = this;
+
+    transaction(function () {
+      // grab all the keys that are present in the new map but not present in the current map
+      // and delete them from the map, then merge the new map
+      // this will cause reactions only on changed values
+      var newKeys = getMapLikeKeys(values);
+      var oldKeys = Array.from(_this.keys());
+      var missingKeys = oldKeys.filter(function (k) {
+        return newKeys.indexOf(k) === -1;
+      });
+      missingKeys.forEach(function (k) {
+        return _this.delete(k);
+      });
+
+      _this.merge(values);
+    });
+    return this;
+  };
+
+  Object.defineProperty(ObservableMap.prototype, "size", {
+    get: function () {
+      this._keysAtom.reportObserved();
+
+      return this._data.size;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  /**
+   * Returns a plain object that represents this map.
+   * Note that all the keys being stringified.
+   * If there are duplicating keys after converting them to strings, behaviour is undetermined.
+   */
+
+  ObservableMap.prototype.toPOJO = function () {
+    var e_3, _b;
+
+    var res = {};
+
+    try {
+      for (var _c = __values(this), _d = _c.next(); !_d.done; _d = _c.next()) {
+        var _e = __read(_d.value, 2),
+            key = _e[0],
+            value = _e[1]; // We lie about symbol key types due to https://github.com/Microsoft/TypeScript/issues/1863
+
+
+        res[typeof key === "symbol" ? key : stringifyKey(key)] = value;
+      }
+    } catch (e_3_1) {
+      e_3 = {
+        error: e_3_1
+      };
+    } finally {
+      try {
+        if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
+      } finally {
+        if (e_3) throw e_3.error;
+      }
+    }
+
+    return res;
+  };
+  /**
+   * Returns a shallow non observable object clone of this map.
+   * Note that the values migth still be observable. For a deep clone use mobx.toJS.
+   */
+
+
+  ObservableMap.prototype.toJS = function () {
+    return new Map(this);
+  };
+
+  ObservableMap.prototype.toJSON = function () {
+    // Used by JSON.stringify
+    return this.toPOJO();
+  };
+
+  ObservableMap.prototype.toString = function () {
+    var _this = this;
+
+    return this.name + "[{ " + Array.from(this.keys()).map(function (key) {
+      return stringifyKey(key) + ": " + ("" + _this.get(key));
+    }).join(", ") + " }]";
+  };
+  /**
+   * Observes this object. Triggers for the events 'add', 'update' and 'delete'.
+   * See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/observe
+   * for callback details
+   */
+
+
+  ObservableMap.prototype.observe = function (listener, fireImmediately) {
+    "development" !== "production" && invariant(fireImmediately !== true, "`observe` doesn't support fireImmediately=true in combination with maps.");
+    return registerListener(this, listener);
+  };
+
+  ObservableMap.prototype.intercept = function (handler) {
+    return registerInterceptor(this, handler);
+  };
+
+  return ObservableMap;
+}();
+/* 'var' fixes small-build issue */
+
+
+exports.ObservableMap = ObservableMap;
+var isObservableMap = createInstanceofPredicate("ObservableMap", ObservableMap);
+exports.isObservableMap = isObservableMap;
+
+var _a$1;
+
+var ObservableSetMarker = {};
+
+var ObservableSet =
+/** @class */
+function () {
+  function ObservableSet(initialData, enhancer, name) {
+    if (enhancer === void 0) {
+      enhancer = deepEnhancer;
+    }
+
+    if (name === void 0) {
+      name = "ObservableSet@" + getNextId();
+    }
+
+    this.name = name;
+    this[_a$1] = ObservableSetMarker;
+    this._data = new Set();
+    this._atom = createAtom(this.name);
+    this[Symbol.toStringTag] = "Set";
+
+    if (typeof Set !== "function") {
+      throw new Error("mobx.set requires Set polyfill for the current browser. Check babel-polyfill or core-js/es6/set.js");
+    }
+
+    this.enhancer = function (newV, oldV) {
+      return enhancer(newV, oldV, name);
+    };
+
+    if (initialData) {
+      this.replace(initialData);
+    }
+  }
+
+  ObservableSet.prototype.dehanceValue = function (value) {
+    if (this.dehancer !== undefined) {
+      return this.dehancer(value);
+    }
+
+    return value;
+  };
+
+  ObservableSet.prototype.clear = function () {
+    var _this = this;
+
+    transaction(function () {
+      untracked(function () {
+        var e_1, _b;
+
+        try {
+          for (var _c = __values(_this._data.values()), _d = _c.next(); !_d.done; _d = _c.next()) {
+            var value = _d.value;
+
+            _this.delete(value);
+          }
+        } catch (e_1_1) {
+          e_1 = {
+            error: e_1_1
+          };
+        } finally {
+          try {
+            if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
+          } finally {
+            if (e_1) throw e_1.error;
+          }
+        }
+      });
+    });
+  };
+
+  ObservableSet.prototype.forEach = function (callbackFn, thisArg) {
+    var e_2, _b;
+
+    try {
+      for (var _c = __values(this), _d = _c.next(); !_d.done; _d = _c.next()) {
+        var value = _d.value;
+        callbackFn.call(thisArg, value, value, this);
+      }
+    } catch (e_2_1) {
+      e_2 = {
+        error: e_2_1
+      };
+    } finally {
+      try {
+        if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
+      } finally {
+        if (e_2) throw e_2.error;
+      }
+    }
+  };
+
+  Object.defineProperty(ObservableSet.prototype, "size", {
+    get: function () {
+      this._atom.reportObserved();
+
+      return this._data.size;
+    },
+    enumerable: true,
+    configurable: true
+  });
+
+  ObservableSet.prototype.add = function (value) {
+    var _this = this;
+
+    checkIfStateModificationsAreAllowed(this._atom);
+
+    if (hasInterceptors(this)) {
+      var change = interceptChange(this, {
+        type: "add",
+        object: this,
+        newValue: value
+      });
+      if (!change) return this; // TODO: ideally, value = change.value would be done here, so that values can be
+      // changed by interceptor. Same applies for other Set and Map api's.
+    }
+
+    if (!this.has(value)) {
+      transaction(function () {
+        _this._data.add(_this.enhancer(value, undefined));
+
+        _this._atom.reportChanged();
+      });
+      var notifySpy = isSpyEnabled();
+      var notify = hasListeners(this);
+      var change = notify || notifySpy ? {
+        type: "add",
+        object: this,
+        newValue: value
+      } : null;
+      if (notifySpy && "development" !== "production") spyReportStart(change);
+      if (notify) notifyListeners(this, change);
+      if (notifySpy && "development" !== "production") spyReportEnd();
+    }
+
+    return this;
+  };
+
+  ObservableSet.prototype.delete = function (value) {
+    var _this = this;
+
+    if (hasInterceptors(this)) {
+      var change = interceptChange(this, {
+        type: "delete",
+        object: this,
+        oldValue: value
+      });
+      if (!change) return false;
+    }
+
+    if (this.has(value)) {
+      var notifySpy = isSpyEnabled();
+      var notify = hasListeners(this);
+      var change = notify || notifySpy ? {
+        type: "delete",
+        object: this,
+        oldValue: value
+      } : null;
+      if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
+        name: this.name
+      }));
+      transaction(function () {
+        _this._atom.reportChanged();
+
+        _this._data.delete(value);
+      });
+      if (notify) notifyListeners(this, change);
+      if (notifySpy && "development" !== "production") spyReportEnd();
+      return true;
+    }
+
+    return false;
+  };
+
+  ObservableSet.prototype.has = function (value) {
+    this._atom.reportObserved();
+
+    return this._data.has(this.dehanceValue(value));
+  };
+
+  ObservableSet.prototype.entries = function () {
+    var nextIndex = 0;
+    var keys = Array.from(this.keys());
+    var values = Array.from(this.values());
+    return makeIterable({
+      next: function () {
+        var index = nextIndex;
+        nextIndex += 1;
+        return index < values.length ? {
+          value: [keys[index], values[index]],
+          done: false
+        } : {
+          done: true
+        };
+      }
+    });
+  };
+
+  ObservableSet.prototype.keys = function () {
+    return this.values();
+  };
+
+  ObservableSet.prototype.values = function () {
+    this._atom.reportObserved();
+
+    var self = this;
+    var nextIndex = 0;
+    var observableValues = Array.from(this._data.values());
+    return makeIterable({
+      next: function () {
+        return nextIndex < observableValues.length ? {
+          value: self.dehanceValue(observableValues[nextIndex++]),
+          done: false
+        } : {
+          done: true
+        };
+      }
+    });
+  };
+
+  ObservableSet.prototype.replace = function (other) {
+    var _this = this;
+
+    if (isObservableSet(other)) {
+      other = other.toJS();
+    }
+
+    transaction(function () {
+      if (Array.isArray(other)) {
+        _this.clear();
+
+        other.forEach(function (value) {
+          return _this.add(value);
+        });
+      } else if (isES6Set(other)) {
+        _this.clear();
+
+        other.forEach(function (value) {
+          return _this.add(value);
+        });
+      } else if (other !== null && other !== undefined) {
+        fail("Cannot initialize set from " + other);
+      }
+    });
+    return this;
+  };
+
+  ObservableSet.prototype.observe = function (listener, fireImmediately) {
+    // TODO 'fireImmediately' can be true?
+    "development" !== "production" && invariant(fireImmediately !== true, "`observe` doesn't support fireImmediately=true in combination with sets.");
+    return registerListener(this, listener);
+  };
+
+  ObservableSet.prototype.intercept = function (handler) {
+    return registerInterceptor(this, handler);
+  };
+
+  ObservableSet.prototype.toJS = function () {
+    return new Set(this);
+  };
+
+  ObservableSet.prototype.toString = function () {
+    return this.name + "[ " + Array.from(this).join(", ") + " ]";
+  };
+
+  ObservableSet.prototype[(_a$1 = $mobx, Symbol.iterator)] = function () {
+    return this.values();
+  };
+
+  return ObservableSet;
+}();
+
+exports.ObservableSet = ObservableSet;
+var isObservableSet = createInstanceofPredicate("ObservableSet", ObservableSet);
+exports.isObservableSet = isObservableSet;
+
+var ObservableObjectAdministration =
+/** @class */
+function () {
+  function ObservableObjectAdministration(target, values, name, defaultEnhancer) {
+    if (values === void 0) {
+      values = new Map();
+    }
+
+    this.target = target;
+    this.values = values;
+    this.name = name;
+    this.defaultEnhancer = defaultEnhancer;
+    this.keysAtom = new Atom(name + ".keys");
+  }
+
+  ObservableObjectAdministration.prototype.read = function (key) {
+    return this.values.get(key).get();
+  };
+
+  ObservableObjectAdministration.prototype.write = function (key, newValue) {
+    var instance = this.target;
+    var observable = this.values.get(key);
+
+    if (observable instanceof ComputedValue) {
+      observable.set(newValue);
+      return;
+    } // intercept
+
+
+    if (hasInterceptors(this)) {
+      var change = interceptChange(this, {
+        type: "update",
+        object: this.proxy || instance,
+        name: key,
+        newValue: newValue
+      });
+      if (!change) return;
+      newValue = change.newValue;
+    }
+
+    newValue = observable.prepareNewValue(newValue); // notify spy & observers
+
+    if (newValue !== globalState.UNCHANGED) {
+      var notify = hasListeners(this);
+      var notifySpy = isSpyEnabled();
+      var change = notify || notifySpy ? {
+        type: "update",
+        object: this.proxy || instance,
+        oldValue: observable.value,
+        name: key,
+        newValue: newValue
+      } : null;
+      if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
+        name: this.name,
+        key: key
+      }));
+      observable.setNewValue(newValue);
+      if (notify) notifyListeners(this, change);
+      if (notifySpy && "development" !== "production") spyReportEnd();
+    }
+  };
+
+  ObservableObjectAdministration.prototype.has = function (key) {
+    var map = this.pendingKeys || (this.pendingKeys = new Map());
+    var entry = map.get(key);
+    if (entry) return entry.get();else {
+      var exists = !!this.values.get(key); // Possible optimization: Don't have a separate map for non existing keys,
+      // but store them in the values map instead, using a special symbol to denote "not existing"
+
+      entry = new ObservableValue(exists, referenceEnhancer, this.name + "." + stringifyKey(key) + "?", false);
+      map.set(key, entry);
+      return entry.get(); // read to subscribe
+    }
+  };
+
+  ObservableObjectAdministration.prototype.addObservableProp = function (propName, newValue, enhancer) {
+    if (enhancer === void 0) {
+      enhancer = this.defaultEnhancer;
+    }
+
+    var target = this.target;
+    assertPropertyConfigurable(target, propName);
+
+    if (hasInterceptors(this)) {
+      var change = interceptChange(this, {
+        object: this.proxy || target,
+        name: propName,
+        type: "add",
+        newValue: newValue
+      });
+      if (!change) return;
+      newValue = change.newValue;
+    }
+
+    var observable = new ObservableValue(newValue, enhancer, this.name + "." + stringifyKey(propName), false);
+    this.values.set(propName, observable);
+    newValue = observable.value; // observableValue might have changed it
+
+    Object.defineProperty(target, propName, generateObservablePropConfig(propName));
+    this.notifyPropertyAddition(propName, newValue);
+  };
+
+  ObservableObjectAdministration.prototype.addComputedProp = function (propertyOwner, // where is the property declared?
+  propName, options) {
+    var target = this.target;
+    options.name = options.name || this.name + "." + stringifyKey(propName);
+    this.values.set(propName, new ComputedValue(options));
+    if (propertyOwner === target || isPropertyConfigurable(propertyOwner, propName)) Object.defineProperty(propertyOwner, propName, generateComputedPropConfig(propName));
+  };
+
+  ObservableObjectAdministration.prototype.remove = function (key) {
+    if (!this.values.has(key)) return;
+    var target = this.target;
+
+    if (hasInterceptors(this)) {
+      var change = interceptChange(this, {
+        object: this.proxy || target,
+        name: key,
+        type: "remove"
+      });
+      if (!change) return;
+    }
+
+    try {
+      startBatch();
+      var notify = hasListeners(this);
+      var notifySpy = isSpyEnabled();
+      var oldObservable = this.values.get(key);
+      var oldValue = oldObservable && oldObservable.get();
+      oldObservable && oldObservable.set(undefined); // notify key and keyset listeners
+
+      this.keysAtom.reportChanged();
+      this.values.delete(key);
+
+      if (this.pendingKeys) {
+        var entry = this.pendingKeys.get(key);
+        if (entry) entry.set(false);
+      } // delete the prop
+
+
+      delete this.target[key];
+      var change = notify || notifySpy ? {
+        type: "remove",
+        object: this.proxy || target,
+        oldValue: oldValue,
+        name: key
+      } : null;
+      if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
+        name: this.name,
+        key: key
+      }));
+      if (notify) notifyListeners(this, change);
+      if (notifySpy && "development" !== "production") spyReportEnd();
+    } finally {
+      endBatch();
+    }
+  };
+
+  ObservableObjectAdministration.prototype.illegalAccess = function (owner, propName) {
+    /**
+     * This happens if a property is accessed through the prototype chain, but the property was
+     * declared directly as own property on the prototype.
+     *
+     * E.g.:
+     * class A {
+     * }
+     * extendObservable(A.prototype, { x: 1 })
+     *
+     * classB extens A {
+     * }
+     * console.log(new B().x)
+     *
+     * It is unclear whether the property should be considered 'static' or inherited.
+     * Either use `console.log(A.x)`
+     * or: decorate(A, { x: observable })
+     *
+     * When using decorate, the property will always be redeclared as own property on the actual instance
+     */
+    console.warn("Property '" + propName + "' of '" + owner + "' was accessed through the prototype chain. Use 'decorate' instead to declare the prop or access it statically through it's owner");
+  };
+  /**
+   * Observes this object. Triggers for the events 'add', 'update' and 'delete'.
+   * See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/observe
+   * for callback details
+   */
+
+
+  ObservableObjectAdministration.prototype.observe = function (callback, fireImmediately) {
+    "development" !== "production" && invariant(fireImmediately !== true, "`observe` doesn't support the fire immediately property for observable objects.");
+    return registerListener(this, callback);
+  };
+
+  ObservableObjectAdministration.prototype.intercept = function (handler) {
+    return registerInterceptor(this, handler);
+  };
+
+  ObservableObjectAdministration.prototype.notifyPropertyAddition = function (key, newValue) {
+    var notify = hasListeners(this);
+    var notifySpy = isSpyEnabled();
+    var change = notify || notifySpy ? {
+      type: "add",
+      object: this.proxy || this.target,
+      name: key,
+      newValue: newValue
+    } : null;
+    if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
+      name: this.name,
+      key: key
+    }));
+    if (notify) notifyListeners(this, change);
+    if (notifySpy && "development" !== "production") spyReportEnd();
+
+    if (this.pendingKeys) {
+      var entry = this.pendingKeys.get(key);
+      if (entry) entry.set(true);
+    }
+
+    this.keysAtom.reportChanged();
+  };
+
+  ObservableObjectAdministration.prototype.getKeys = function () {
+    var e_1, _a;
+
+    this.keysAtom.reportObserved(); // return Reflect.ownKeys(this.values) as any
+
+    var res = [];
+
+    try {
+      for (var _b = __values(this.values), _c = _b.next(); !_c.done; _c = _b.next()) {
+        var _d = __read(_c.value, 2),
+            key = _d[0],
+            value = _d[1];
+
+        if (value instanceof ObservableValue) res.push(key);
+      }
+    } catch (e_1_1) {
+      e_1 = {
+        error: e_1_1
+      };
+    } finally {
+      try {
+        if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+      } finally {
+        if (e_1) throw e_1.error;
+      }
+    }
+
+    return res;
+  };
+
+  return ObservableObjectAdministration;
+}();
+
+function asObservableObject(target, name, defaultEnhancer) {
+  if (name === void 0) {
+    name = "";
+  }
+
+  if (defaultEnhancer === void 0) {
+    defaultEnhancer = deepEnhancer;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(target, $mobx)) return target[$mobx];
+  "development" !== "production" && invariant(Object.isExtensible(target), "Cannot make the designated object observable; it is not extensible");
+  if (!isPlainObject(target)) name = (target.constructor.name || "ObservableObject") + "@" + getNextId();
+  if (!name) name = "ObservableObject@" + getNextId();
+  var adm = new ObservableObjectAdministration(target, new Map(), stringifyKey(name), defaultEnhancer);
+  addHiddenProp(target, $mobx, adm);
+  return adm;
+}
+
+var observablePropertyConfigs = Object.create(null);
+var computedPropertyConfigs = Object.create(null);
+
+function generateObservablePropConfig(propName) {
+  return observablePropertyConfigs[propName] || (observablePropertyConfigs[propName] = {
+    configurable: true,
+    enumerable: true,
+    get: function () {
+      return this[$mobx].read(propName);
+    },
+    set: function (v) {
+      this[$mobx].write(propName, v);
+    }
+  });
+}
+
+function getAdministrationForComputedPropOwner(owner) {
+  var adm = owner[$mobx];
+
+  if (!adm) {
+    // because computed props are declared on proty,
+    // the current instance might not have been initialized yet
+    initializeInstance(owner);
+    return owner[$mobx];
+  }
+
+  return adm;
+}
+
+function generateComputedPropConfig(propName) {
+  return computedPropertyConfigs[propName] || (computedPropertyConfigs[propName] = {
+    configurable: globalState.computedConfigurable,
+    enumerable: false,
+    get: function () {
+      return getAdministrationForComputedPropOwner(this).read(propName);
+    },
+    set: function (v) {
+      getAdministrationForComputedPropOwner(this).write(propName, v);
+    }
+  });
+}
+
+var isObservableObjectAdministration = createInstanceofPredicate("ObservableObjectAdministration", ObservableObjectAdministration);
+
+function isObservableObject(thing) {
+  if (isObject(thing)) {
+    // Initializers run lazily when transpiling to babel, so make sure they are run...
+    initializeInstance(thing);
+    return isObservableObjectAdministration(thing[$mobx]);
+  }
+
+  return false;
+}
+
+function getAtom(thing, property) {
+  if (typeof thing === "object" && thing !== null) {
+    if (isObservableArray(thing)) {
+      if (property !== undefined) fail("development" !== "production" && "It is not possible to get index atoms from arrays");
+      return thing[$mobx].atom;
+    }
+
+    if (isObservableSet(thing)) {
+      return thing[$mobx];
+    }
+
+    if (isObservableMap(thing)) {
+      var anyThing = thing;
+      if (property === undefined) return anyThing._keysAtom;
+
+      var observable = anyThing._data.get(property) || anyThing._hasMap.get(property);
+
+      if (!observable) fail("development" !== "production" && "the entry '" + property + "' does not exist in the observable map '" + getDebugName(thing) + "'");
+      return observable;
+    } // Initializers run lazily when transpiling to babel, so make sure they are run...
+
+
+    initializeInstance(thing);
+    if (property && !thing[$mobx]) thing[property]; // See #1072
+
+    if (isObservableObject(thing)) {
+      if (!property) return fail("development" !== "production" && "please specify a property");
+      var observable = thing[$mobx].values.get(property);
+      if (!observable) fail("development" !== "production" && "no observable property '" + property + "' found on the observable object '" + getDebugName(thing) + "'");
+      return observable;
+    }
+
+    if (isAtom(thing) || isComputedValue(thing) || isReaction(thing)) {
+      return thing;
+    }
+  } else if (typeof thing === "function") {
+    if (isReaction(thing[$mobx])) {
+      // disposer function
+      return thing[$mobx];
+    }
+  }
+
+  return fail("development" !== "production" && "Cannot obtain atom from " + thing);
+}
+
+function getAdministration(thing, property) {
+  if (!thing) fail("Expecting some object");
+  if (property !== undefined) return getAdministration(getAtom(thing, property));
+  if (isAtom(thing) || isComputedValue(thing) || isReaction(thing)) return thing;
+  if (isObservableMap(thing) || isObservableSet(thing)) return thing; // Initializers run lazily when transpiling to babel, so make sure they are run...
+
+  initializeInstance(thing);
+  if (thing[$mobx]) return thing[$mobx];
+  fail("development" !== "production" && "Cannot obtain administration from " + thing);
+}
+
+function getDebugName(thing, property) {
+  var named;
+  if (property !== undefined) named = getAtom(thing, property);else if (isObservableObject(thing) || isObservableMap(thing) || isObservableSet(thing)) named = getAdministration(thing);else named = getAtom(thing); // valid for arrays as well
+
+  return named.name;
+}
+
+var toString = Object.prototype.toString;
+
+function deepEqual(a, b, depth) {
+  if (depth === void 0) {
+    depth = -1;
+  }
+
+  return eq(a, b, depth);
+} // Copied from https://github.com/jashkenas/underscore/blob/5c237a7c682fb68fd5378203f0bf22dce1624854/underscore.js#L1186-L1289
+// Internal recursive comparison function for `isEqual`.
+
+
+function eq(a, b, depth, aStack, bStack) {
+  // Identical objects are equal. `0 === -0`, but they aren't identical.
+  // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
+  if (a === b) return a !== 0 || 1 / a === 1 / b; // `null` or `undefined` only equal to itself (strict comparison).
+
+  if (a == null || b == null) return false; // `NaN`s are equivalent, but non-reflexive.
+
+  if (a !== a) return b !== b; // Exhaust primitive checks
+
+  var type = typeof a;
+  if (type !== "function" && type !== "object" && typeof b != "object") return false; // Compare `[[Class]]` names.
+
+  var className = toString.call(a);
+  if (className !== toString.call(b)) return false;
+
+  switch (className) {
+    // Strings, numbers, regular expressions, dates, and booleans are compared by value.
+    case "[object RegExp]": // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
+
+    case "[object String]":
+      // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
+      // equivalent to `new String("5")`.
+      return "" + a === "" + b;
+
+    case "[object Number]":
+      // `NaN`s are equivalent, but non-reflexive.
+      // Object(NaN) is equivalent to NaN.
+      if (+a !== +a) return +b !== +b; // An `egal` comparison is performed for other numeric values.
+
+      return +a === 0 ? 1 / +a === 1 / b : +a === +b;
+
+    case "[object Date]":
+    case "[object Boolean]":
+      // Coerce dates and booleans to numeric primitive values. Dates are compared by their
+      // millisecond representations. Note that invalid dates with millisecond representations
+      // of `NaN` are not equivalent.
+      return +a === +b;
+
+    case "[object Symbol]":
+      return typeof Symbol !== "undefined" && Symbol.valueOf.call(a) === Symbol.valueOf.call(b);
+
+    case "[object Map]":
+    case "[object Set]":
+      // Maps and Sets are unwrapped to arrays of entry-pairs, adding an incidental level.
+      // Hide this extra level by increasing the depth.
+      if (depth >= 0) {
+        depth++;
+      }
+
+      break;
+  } // Unwrap any wrapped objects.
+
+
+  a = unwrap(a);
+  b = unwrap(b);
+  var areArrays = className === "[object Array]";
+
+  if (!areArrays) {
+    if (typeof a != "object" || typeof b != "object") return false; // Objects with different constructors are not equivalent, but `Object`s or `Array`s
+    // from different frames are.
+
+    var aCtor = a.constructor,
+        bCtor = b.constructor;
+
+    if (aCtor !== bCtor && !(typeof aCtor === "function" && aCtor instanceof aCtor && typeof bCtor === "function" && bCtor instanceof bCtor) && "constructor" in a && "constructor" in b) {
+      return false;
+    }
+  }
+
+  if (depth === 0) {
+    return false;
+  } else if (depth < 0) {
+    depth = -1;
+  } // Assume equality for cyclic structures. The algorithm for detecting cyclic
+  // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+  // Initializing stack of traversed objects.
+  // It's done here since we only need them for objects and arrays comparison.
+
+
+  aStack = aStack || [];
+  bStack = bStack || [];
+  var length = aStack.length;
+
+  while (length--) {
+    // Linear search. Performance is inversely proportional to the number of
+    // unique nested structures.
+    if (aStack[length] === a) return bStack[length] === b;
+  } // Add the first object to the stack of traversed objects.
+
+
+  aStack.push(a);
+  bStack.push(b); // Recursively compare objects and arrays.
+
+  if (areArrays) {
+    // Compare array lengths to determine if a deep comparison is necessary.
+    length = a.length;
+    if (length !== b.length) return false; // Deep compare the contents, ignoring non-numeric properties.
+
+    while (length--) {
+      if (!eq(a[length], b[length], depth - 1, aStack, bStack)) return false;
+    }
+  } else {
+    // Deep compare objects.
+    var keys = Object.keys(a);
+    var key = void 0;
+    length = keys.length; // Ensure that both objects contain the same number of properties before comparing deep equality.
+
+    if (Object.keys(b).length !== length) return false;
+
+    while (length--) {
+      // Deep compare each member
+      key = keys[length];
+      if (!(has$1(b, key) && eq(a[key], b[key], depth - 1, aStack, bStack))) return false;
+    }
+  } // Remove the first object from the stack of traversed objects.
+
+
+  aStack.pop();
+  bStack.pop();
+  return true;
+}
+
+function unwrap(a) {
+  if (isObservableArray(a)) return a.slice();
+  if (isES6Map(a) || isObservableMap(a)) return Array.from(a.entries());
+  if (isES6Set(a) || isObservableSet(a)) return Array.from(a.entries());
+  return a;
+}
+
+function has$1(a, key) {
+  return Object.prototype.hasOwnProperty.call(a, key);
+}
+
+function makeIterable(iterator) {
+  iterator[Symbol.iterator] = getSelf;
+  return iterator;
+}
+
+function getSelf() {
+  return this;
+}
+/*
+The only reason for this file to exist is pure horror:
+Without it rollup can make the bundling fail at any point in time; when it rolls up the files in the wrong order
+it will cause undefined errors (for example because super classes or local variables not being hoisted).
+With this file that will still happen,
+but at least in this file we can magically reorder the imports with trial and error until the build succeeds again.
+*/
+
+/**
+ * (c) Michel Weststrate 2015 - 2018
+ * MIT Licensed
+ *
+ * Welcome to the mobx sources! To get an global overview of how MobX internally works,
+ * this is a good place to start:
+ * https://medium.com/@mweststrate/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254#.xvbh6qd74
+ *
+ * Source folders:
+ * ===============
+ *
+ * - api/     Most of the public static methods exposed by the module can be found here.
+ * - core/    Implementation of the MobX algorithm; atoms, derivations, reactions, dependency trees, optimizations. Cool stuff can be found here.
+ * - types/   All the magic that is need to have observable objects, arrays and values is in this folder. Including the modifiers like `asFlat`.
+ * - utils/   Utility stuff.
+ *
+ */
+
+
+if (typeof Proxy === "undefined" || typeof Symbol === "undefined") {
+  throw new Error("[mobx] MobX 5+ requires Proxy and Symbol objects. If your environment doesn't support Symbol or Proxy objects, please downgrade to MobX 4. For React Native Android, consider upgrading JSCore.");
+}
+
+try {
+  // define process.env if needed
+  // if this is not a production build in the first place
+  // (in which case the expression below would be substituted with 'production')
+  "development";
+} catch (e) {
+  var g = getGlobal();
+  if (typeof process === "undefined") g.process = {};
+  g.process.env = {};
+}
+
+(function () {
+  function testCodeMinification() {}
+
+  if (testCodeMinification.name !== "testCodeMinification" && "development" !== "production" && typeof process !== 'undefined' && undefined !== "true") {
+    // trick so it doesn't get replaced
+    var varName = ["process", "env", "NODE_ENV"].join(".");
+    console.warn("[mobx] you are running a minified build, but '" + varName + "' was not set to 'production' in your bundler. This results in an unnecessarily large and slow bundle");
+  }
+})();
+
+if (typeof __MOBX_DEVTOOLS_GLOBAL_HOOK__ === "object") {
+  // See: https://github.com/andykog/mobx-devtools/
+  __MOBX_DEVTOOLS_GLOBAL_HOOK__.injectMobx({
+    spy: spy,
+    extras: {
+      getDebugName: getDebugName
+    },
+    $mobx: $mobx
+  });
+}
+},{"process":"../node_modules/process/browser.js"}],"../node_modules/shortid/lib/random/random-from-seed.js":[function(require,module,exports) {
+'use strict';
+
+// Found this seed-based random generator somewhere
+// Based on The Central Randomizer 1.3 (C) 1997 by Paul Houle (houle@msc.cornell.edu)
+
+var seed = 1;
+
+/**
+ * return a random number based on a seed
+ * @param seed
+ * @returns {number}
+ */
+function getNextValue() {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed/(233280.0);
+}
+
+function setSeed(_seed_) {
+    seed = _seed_;
+}
+
+module.exports = {
+    nextValue: getNextValue,
+    seed: setSeed
+};
+
+},{}],"../node_modules/shortid/lib/alphabet.js":[function(require,module,exports) {
+'use strict';
+
+var randomFromSeed = require('./random/random-from-seed');
+
+var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
+var alphabet;
+var previousSeed;
+
+var shuffled;
+
+function reset() {
+    shuffled = false;
+}
+
+function setCharacters(_alphabet_) {
+    if (!_alphabet_) {
+        if (alphabet !== ORIGINAL) {
+            alphabet = ORIGINAL;
+            reset();
+        }
+        return;
+    }
+
+    if (_alphabet_ === alphabet) {
+        return;
+    }
+
+    if (_alphabet_.length !== ORIGINAL.length) {
+        throw new Error('Custom alphabet for shortid must be ' + ORIGINAL.length + ' unique characters. You submitted ' + _alphabet_.length + ' characters: ' + _alphabet_);
+    }
+
+    var unique = _alphabet_.split('').filter(function(item, ind, arr){
+       return ind !== arr.lastIndexOf(item);
+    });
+
+    if (unique.length) {
+        throw new Error('Custom alphabet for shortid must be ' + ORIGINAL.length + ' unique characters. These characters were not unique: ' + unique.join(', '));
+    }
+
+    alphabet = _alphabet_;
+    reset();
+}
+
+function characters(_alphabet_) {
+    setCharacters(_alphabet_);
+    return alphabet;
+}
+
+function setSeed(seed) {
+    randomFromSeed.seed(seed);
+    if (previousSeed !== seed) {
+        reset();
+        previousSeed = seed;
+    }
+}
+
+function shuffle() {
+    if (!alphabet) {
+        setCharacters(ORIGINAL);
+    }
+
+    var sourceArray = alphabet.split('');
+    var targetArray = [];
+    var r = randomFromSeed.nextValue();
+    var characterIndex;
+
+    while (sourceArray.length > 0) {
+        r = randomFromSeed.nextValue();
+        characterIndex = Math.floor(r * sourceArray.length);
+        targetArray.push(sourceArray.splice(characterIndex, 1)[0]);
+    }
+    return targetArray.join('');
+}
+
+function getShuffled() {
+    if (shuffled) {
+        return shuffled;
+    }
+    shuffled = shuffle();
+    return shuffled;
+}
+
+/**
+ * lookup shuffled letter
+ * @param index
+ * @returns {string}
+ */
+function lookup(index) {
+    var alphabetShuffled = getShuffled();
+    return alphabetShuffled[index];
+}
+
+function get () {
+  return alphabet || ORIGINAL;
+}
+
+module.exports = {
+    get: get,
+    characters: characters,
+    seed: setSeed,
+    lookup: lookup,
+    shuffled: getShuffled
+};
+
+},{"./random/random-from-seed":"../node_modules/shortid/lib/random/random-from-seed.js"}],"../node_modules/shortid/lib/random/random-byte-browser.js":[function(require,module,exports) {
+'use strict';
+
+var crypto = typeof window === 'object' && (window.crypto || window.msCrypto); // IE 11 uses window.msCrypto
+
+var randomByte;
+
+if (!crypto || !crypto.getRandomValues) {
+    randomByte = function(size) {
+        var bytes = [];
+        for (var i = 0; i < size; i++) {
+            bytes.push(Math.floor(Math.random() * 256));
+        }
+        return bytes;
+    };
+} else {
+    randomByte = function(size) {
+        return crypto.getRandomValues(new Uint8Array(size));
+    };
+}
+
+module.exports = randomByte;
+
+},{}],"../node_modules/nanoid/format.browser.js":[function(require,module,exports) {
+// This file replaces `format.js` in bundlers like webpack or Rollup,
+// according to `browser` config in `package.json`.
+
+module.exports = function (random, alphabet, size) {
+  // We can’t use bytes bigger than the alphabet. To make bytes values closer
+  // to the alphabet, we apply bitmask on them. We look for the closest
+  // `2 ** x - 1` number, which will be bigger than alphabet size. If we have
+  // 30 symbols in the alphabet, we will take 31 (00011111).
+  // We do not use faster Math.clz32, because it is not available in browsers.
+  var mask = (2 << Math.log(alphabet.length - 1) / Math.LN2) - 1
+  // Bitmask is not a perfect solution (in our example it will pass 31 bytes,
+  // which is bigger than the alphabet). As a result, we will need more bytes,
+  // than ID size, because we will refuse bytes bigger than the alphabet.
+
+  // Every hardware random generator call is costly,
+  // because we need to wait for entropy collection. This is why often it will
+  // be faster to ask for few extra bytes in advance, to avoid additional calls.
+
+  // Here we calculate how many random bytes should we call in advance.
+  // It depends on ID length, mask / alphabet size and magic number 1.6
+  // (which was selected according benchmarks).
+
+  // -~f => Math.ceil(f) if n is float number
+  // -~i => i + 1 if n is integer number
+  var step = -~(1.6 * mask * size / alphabet.length)
+  var id = ''
+
+  while (true) {
+    var bytes = random(step)
+    // Compact alternative for `for (var i = 0; i < step; i++)`
+    var i = step
+    while (i--) {
+      // If random byte is bigger than alphabet even after bitmask,
+      // we refuse it by `|| ''`.
+      id += alphabet[bytes[i] & mask] || ''
+      // More compact than `id.length + 1 === size`
+      if (id.length === +size) return id
+    }
+  }
+}
+
+},{}],"../node_modules/shortid/lib/generate.js":[function(require,module,exports) {
+'use strict';
+
+var alphabet = require('./alphabet');
+var random = require('./random/random-byte');
+var format = require('nanoid/format');
+
+function generate(number) {
+    var loopCounter = 0;
+    var done;
+
+    var str = '';
+
+    while (!done) {
+        str = str + format(random, alphabet.get(), 1);
+        done = number < (Math.pow(16, loopCounter + 1 ) );
+        loopCounter++;
+    }
+    return str;
+}
+
+module.exports = generate;
+
+},{"./alphabet":"../node_modules/shortid/lib/alphabet.js","./random/random-byte":"../node_modules/shortid/lib/random/random-byte-browser.js","nanoid/format":"../node_modules/nanoid/format.browser.js"}],"../node_modules/shortid/lib/build.js":[function(require,module,exports) {
+'use strict';
+
+var generate = require('./generate');
+var alphabet = require('./alphabet');
+
+// Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
+// This number should be updated every year or so to keep the generated id short.
+// To regenerate `new Date() - 0` and bump the version. Always bump the version!
+var REDUCE_TIME = 1567752802062;
+
+// don't change unless we change the algos or REDUCE_TIME
+// must be an integer and less than 16
+var version = 7;
+
+// Counter is used when shortid is called multiple times in one second.
+var counter;
+
+// Remember the last time shortid was called in case counter is needed.
+var previousSeconds;
+
+/**
+ * Generate unique id
+ * Returns string id
+ */
+function build(clusterWorkerId) {
+    var str = '';
+
+    var seconds = Math.floor((Date.now() - REDUCE_TIME) * 0.001);
+
+    if (seconds === previousSeconds) {
+        counter++;
+    } else {
+        counter = 0;
+        previousSeconds = seconds;
+    }
+
+    str = str + generate(version);
+    str = str + generate(clusterWorkerId);
+    if (counter > 0) {
+        str = str + generate(counter);
+    }
+    str = str + generate(seconds);
+    return str;
+}
+
+module.exports = build;
+
+},{"./generate":"../node_modules/shortid/lib/generate.js","./alphabet":"../node_modules/shortid/lib/alphabet.js"}],"../node_modules/shortid/lib/is-valid.js":[function(require,module,exports) {
+'use strict';
+var alphabet = require('./alphabet');
+
+function isShortId(id) {
+    if (!id || typeof id !== 'string' || id.length < 6 ) {
+        return false;
+    }
+
+    var nonAlphabetic = new RegExp('[^' +
+      alphabet.get().replace(/[|\\{}()[\]^$+*?.-]/g, '\\$&') +
+    ']');
+    return !nonAlphabetic.test(id);
+}
+
+module.exports = isShortId;
+
+},{"./alphabet":"../node_modules/shortid/lib/alphabet.js"}],"../node_modules/shortid/lib/util/cluster-worker-id-browser.js":[function(require,module,exports) {
+'use strict';
+
+module.exports = 0;
+
+},{}],"../node_modules/shortid/lib/index.js":[function(require,module,exports) {
+'use strict';
+
+var alphabet = require('./alphabet');
+var build = require('./build');
+var isValid = require('./is-valid');
+
+// if you are using cluster or multiple servers use this to make each instance
+// has a unique value for worker
+// Note: I don't know if this is automatically set when using third
+// party cluster solutions such as pm2.
+var clusterWorkerId = require('./util/cluster-worker-id') || 0;
+
+/**
+ * Set the seed.
+ * Highly recommended if you don't want people to try to figure out your id schema.
+ * exposed as shortid.seed(int)
+ * @param seed Integer value to seed the random alphabet.  ALWAYS USE THE SAME SEED or you might get overlaps.
+ */
+function seed(seedValue) {
+    alphabet.seed(seedValue);
+    return module.exports;
+}
+
+/**
+ * Set the cluster worker or machine id
+ * exposed as shortid.worker(int)
+ * @param workerId worker must be positive integer.  Number less than 16 is recommended.
+ * returns shortid module so it can be chained.
+ */
+function worker(workerId) {
+    clusterWorkerId = workerId;
+    return module.exports;
+}
+
+/**
+ *
+ * sets new characters to use in the alphabet
+ * returns the shuffled alphabet
+ */
+function characters(newCharacters) {
+    if (newCharacters !== undefined) {
+        alphabet.characters(newCharacters);
+    }
+
+    return alphabet.shuffled();
+}
+
+/**
+ * Generate unique id
+ * Returns string id
+ */
+function generate() {
+  return build(clusterWorkerId);
+}
+
+// Export all other functions as properties of the generate function
+module.exports = generate;
+module.exports.generate = generate;
+module.exports.seed = seed;
+module.exports.worker = worker;
+module.exports.characters = characters;
+module.exports.isValid = isValid;
+
+},{"./alphabet":"../node_modules/shortid/lib/alphabet.js","./build":"../node_modules/shortid/lib/build.js","./is-valid":"../node_modules/shortid/lib/is-valid.js","./util/cluster-worker-id":"../node_modules/shortid/lib/util/cluster-worker-id-browser.js"}],"../node_modules/shortid/index.js":[function(require,module,exports) {
+'use strict';
+module.exports = require('./lib/index');
+
+},{"./lib/index":"../node_modules/shortid/lib/index.js"}],"../node_modules/invariant/browser.js":[function(require,module,exports) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+'use strict';
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
+var invariant = function (condition, format, a, b, c, d, e, f) {
+  if ("development" !== 'production') {
+    if (format === undefined) {
+      throw new Error('invariant requires an error message argument');
+    }
+  }
+
+  if (!condition) {
+    var error;
+
+    if (format === undefined) {
+      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+    } else {
+      var args = [a, b, c, d, e, f];
+      var argIndex = 0;
+      error = new Error(format.replace(/%s/g, function () {
+        return args[argIndex++];
+      }));
+      error.name = 'Invariant Violation';
+    }
+
+    error.framesToPop = 1; // we don't care about invariant's own frame
+
+    throw error;
+  }
+};
+
+module.exports = invariant;
+},{}],"../node_modules/immutability-helper/index.js":[function(require,module,exports) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var invariant = require("invariant");
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var splice = Array.prototype.splice;
+var toString = Object.prototype.toString;
+function type(obj) {
+    return toString.call(obj).slice(8, -1);
+}
+var assign = Object.assign || /* istanbul ignore next */ (function (target, source) {
+    getAllKeys(source).forEach(function (key) {
+        if (hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+        }
+    });
+    return target;
+});
+var getAllKeys = typeof Object.getOwnPropertySymbols === 'function'
+    ? function (obj) { return Object.keys(obj).concat(Object.getOwnPropertySymbols(obj)); }
+    /* istanbul ignore next */
+    : function (obj) { return Object.keys(obj); };
+function copy(object) {
+    return Array.isArray(object)
+        ? assign(object.constructor(object.length), object)
+        : (type(object) === 'Map')
+            ? new Map(object)
+            : (type(object) === 'Set')
+                ? new Set(object)
+                : (object && typeof object === 'object')
+                    ? assign(Object.create(Object.getPrototypeOf(object)), object)
+                    /* istanbul ignore next */
+                    : object;
+}
+var Context = /** @class */ (function () {
+    function Context() {
+        this.commands = assign({}, defaultCommands);
+        this.update = this.update.bind(this);
+        // Deprecated: update.extend, update.isEquals and update.newContext
+        this.update.extend = this.extend = this.extend.bind(this);
+        this.update.isEquals = function (x, y) { return x === y; };
+        this.update.newContext = function () { return new Context().update; };
+    }
+    Object.defineProperty(Context.prototype, "isEquals", {
+        get: function () {
+            return this.update.isEquals;
+        },
+        set: function (value) {
+            this.update.isEquals = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Context.prototype.extend = function (directive, fn) {
+        this.commands[directive] = fn;
+    };
+    Context.prototype.update = function (object, $spec) {
+        var _this = this;
+        var spec = (typeof $spec === 'function') ? { $apply: $spec } : $spec;
+        if (!(Array.isArray(object) && Array.isArray(spec))) {
+            invariant(!Array.isArray(spec), 'update(): You provided an invalid spec to update(). The spec may ' +
+                'not contain an array except as the value of $set, $push, $unshift, ' +
+                '$splice or any custom command allowing an array value.');
+        }
+        invariant(typeof spec === 'object' && spec !== null, 'update(): You provided an invalid spec to update(). The spec and ' +
+            'every included key path must be plain objects containing one of the ' +
+            'following commands: %s.', Object.keys(this.commands).join(', '));
+        var nextObject = object;
+        getAllKeys(spec).forEach(function (key) {
+            if (hasOwnProperty.call(_this.commands, key)) {
+                var objectWasNextObject = object === nextObject;
+                nextObject = _this.commands[key](spec[key], nextObject, spec, object);
+                if (objectWasNextObject && _this.isEquals(nextObject, object)) {
+                    nextObject = object;
+                }
+            }
+            else {
+                var nextValueForKey = type(object) === 'Map'
+                    ? _this.update(object.get(key), spec[key])
+                    : _this.update(object[key], spec[key]);
+                var nextObjectValue = type(nextObject) === 'Map'
+                    ? nextObject.get(key)
+                    : nextObject[key];
+                if (!_this.isEquals(nextValueForKey, nextObjectValue)
+                    || typeof nextValueForKey === 'undefined'
+                        && !hasOwnProperty.call(object, key)) {
+                    if (nextObject === object) {
+                        nextObject = copy(object);
+                    }
+                    if (type(nextObject) === 'Map') {
+                        nextObject.set(key, nextValueForKey);
+                    }
+                    else {
+                        nextObject[key] = nextValueForKey;
+                    }
+                }
+            }
+        });
+        return nextObject;
+    };
+    return Context;
+}());
+exports.Context = Context;
+var defaultCommands = {
+    $push: function (value, nextObject, spec) {
+        invariantPushAndUnshift(nextObject, spec, '$push');
+        return value.length ? nextObject.concat(value) : nextObject;
+    },
+    $unshift: function (value, nextObject, spec) {
+        invariantPushAndUnshift(nextObject, spec, '$unshift');
+        return value.length ? value.concat(nextObject) : nextObject;
+    },
+    $splice: function (value, nextObject, spec, originalObject) {
+        invariantSplices(nextObject, spec);
+        value.forEach(function (args) {
+            invariantSplice(args);
+            if (nextObject === originalObject && args.length) {
+                nextObject = copy(originalObject);
+            }
+            splice.apply(nextObject, args);
+        });
+        return nextObject;
+    },
+    $set: function (value, _nextObject, spec) {
+        invariantSet(spec);
+        return value;
+    },
+    $toggle: function (targets, nextObject) {
+        invariantSpecArray(targets, '$toggle');
+        var nextObjectCopy = targets.length ? copy(nextObject) : nextObject;
+        targets.forEach(function (target) {
+            nextObjectCopy[target] = !nextObject[target];
+        });
+        return nextObjectCopy;
+    },
+    $unset: function (value, nextObject, _spec, originalObject) {
+        invariantSpecArray(value, '$unset');
+        value.forEach(function (key) {
+            if (Object.hasOwnProperty.call(nextObject, key)) {
+                if (nextObject === originalObject) {
+                    nextObject = copy(originalObject);
+                }
+                delete nextObject[key];
+            }
+        });
+        return nextObject;
+    },
+    $add: function (values, nextObject, _spec, originalObject) {
+        invariantMapOrSet(nextObject, '$add');
+        invariantSpecArray(values, '$add');
+        if (type(nextObject) === 'Map') {
+            values.forEach(function (_a) {
+                var key = _a[0], value = _a[1];
+                if (nextObject === originalObject && nextObject.get(key) !== value) {
+                    nextObject = copy(originalObject);
+                }
+                nextObject.set(key, value);
+            });
+        }
+        else {
+            values.forEach(function (value) {
+                if (nextObject === originalObject && !nextObject.has(value)) {
+                    nextObject = copy(originalObject);
+                }
+                nextObject.add(value);
+            });
+        }
+        return nextObject;
+    },
+    $remove: function (value, nextObject, _spec, originalObject) {
+        invariantMapOrSet(nextObject, '$remove');
+        invariantSpecArray(value, '$remove');
+        value.forEach(function (key) {
+            if (nextObject === originalObject && nextObject.has(key)) {
+                nextObject = copy(originalObject);
+            }
+            nextObject.delete(key);
+        });
+        return nextObject;
+    },
+    $merge: function (value, nextObject, _spec, originalObject) {
+        invariantMerge(nextObject, value);
+        getAllKeys(value).forEach(function (key) {
+            if (value[key] !== nextObject[key]) {
+                if (nextObject === originalObject) {
+                    nextObject = copy(originalObject);
+                }
+                nextObject[key] = value[key];
+            }
+        });
+        return nextObject;
+    },
+    $apply: function (value, original) {
+        invariantApply(value);
+        return value(original);
+    },
+};
+var defaultContext = new Context();
+exports.isEquals = defaultContext.update.isEquals;
+exports.extend = defaultContext.extend;
+exports.default = defaultContext.update;
+// @ts-ignore
+exports.default.default = module.exports = assign(exports.default, exports);
+// invariants
+function invariantPushAndUnshift(value, spec, command) {
+    invariant(Array.isArray(value), 'update(): expected target of %s to be an array; got %s.', command, value);
+    invariantSpecArray(spec[command], command);
+}
+function invariantSpecArray(spec, command) {
+    invariant(Array.isArray(spec), 'update(): expected spec of %s to be an array; got %s. ' +
+        'Did you forget to wrap your parameter in an array?', command, spec);
+}
+function invariantSplices(value, spec) {
+    invariant(Array.isArray(value), 'Expected $splice target to be an array; got %s', value);
+    invariantSplice(spec.$splice);
+}
+function invariantSplice(value) {
+    invariant(Array.isArray(value), 'update(): expected spec of $splice to be an array of arrays; got %s. ' +
+        'Did you forget to wrap your parameters in an array?', value);
+}
+function invariantApply(fn) {
+    invariant(typeof fn === 'function', 'update(): expected spec of $apply to be a function; got %s.', fn);
+}
+function invariantSet(spec) {
+    invariant(Object.keys(spec).length === 1, 'Cannot have more than one key in an object with $set');
+}
+function invariantMerge(target, specValue) {
+    invariant(specValue && typeof specValue === 'object', 'update(): $merge expects a spec of type \'object\'; got %s', specValue);
+    invariant(target && typeof target === 'object', 'update(): $merge expects a target of type \'object\'; got %s', target);
+}
+function invariantMapOrSet(target, command) {
+    var typeOfTarget = type(target);
+    invariant(typeOfTarget === 'Map' || typeOfTarget === 'Set', 'update(): %s expects a target of type Set or Map; got %s', command, typeOfTarget);
+}
+
+},{"invariant":"../node_modules/invariant/browser.js"}],"../src/stores/FormStore.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.FormStore = exports.createFormItem = exports.FormItemType = void 0;
+
+require("antd/es/message/style/css");
+
+var _message2 = _interopRequireDefault(require("antd/es/message"));
+
+var _mobx = require("mobx");
+
+var _shortid = require("shortid");
+
+var _immutabilityHelper = _interopRequireDefault(require("immutability-helper"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var __assign = void 0 && (void 0).__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var FormItemType;
+exports.FormItemType = FormItemType;
+
+(function (FormItemType) {
+  FormItemType["TEXT"] = "text";
+  FormItemType["INPUT"] = "input";
+  FormItemType["NUMBER"] = "number";
+  FormItemType["TEXTAREA"] = "textarea";
+  FormItemType["CHECKBOX"] = "checkbox";
+  FormItemType["RADIO"] = "radio";
+  FormItemType["SELECT"] = "select";
+  FormItemType["LAYOUT"] = "layout";
+  FormItemType["RESULT"] = "result";
+})(FormItemType || (exports.FormItemType = FormItemType = {}));
+
+var createFormItem = function createFormItem(itemType) {
+  var id = (0, _shortid.generate)();
+
+  switch (itemType) {
+    case FormItemType.RESULT:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '检验结果'
+      };
+
+    case FormItemType.TEXT:
+      return {
+        id: id,
+        itemType: itemType,
+        content: '文字内容',
+        fontSize: 14,
+        lineHeight: 21,
+        textAlign: 'left'
+      };
+
+    case FormItemType.LAYOUT:
+      return {
+        id: id,
+        itemType: itemType,
+        rows: [[{
+          span: 12
+        }, {
+          span: 12
+        }]]
+      };
+
+    case FormItemType.SELECT:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '下拉选择框',
+        options: [createOption('选项 1'), createOption('选项 2'), createOption('选项 3')],
+        defaultValue: '选项 1'
+      };
+
+    case FormItemType.RADIO:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '单选框',
+        options: [createOption('选项 1'), createOption('选项 2')],
+        buttonStyle: 'solid',
+        defaultValue: '',
+        required: true
+      };
+
+    case FormItemType.CHECKBOX:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '多选框',
+        options: [createOption('选项 1')],
+        defaultValue: [],
+        required: true
+      };
+
+    case FormItemType.TEXTAREA:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '文本域',
+        placeholder: '文本域输入提示',
+        defaultValue: '',
+        required: true
+      };
+
+    case FormItemType.NUMBER:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '数字框',
+        defaultValue: 1,
+        min: 1,
+        max: 100,
+        unit: ''
+      };
+
+    default:
+      return {
+        id: id,
+        itemType: FormItemType.INPUT,
+        labelText: '文本框',
+        placeholder: '文本框输入提示',
+        defaultValue: '',
+        required: true
+      };
+  }
+};
+
+exports.createFormItem = createFormItem;
+
+var createOption = function createOption(value) {
+  return {
+    value: value,
+    text: value
+  };
+};
+
+var FormStore =
+/** @class */
+function () {
+  function FormStore() {
+    this.items = [];
+    this.activeId = ''; // autorun(() => console.log('form items: ', this.formItems))
+  }
+
+  FormStore.prototype.setItems = function (items) {
+    this.items = items;
+    this.activeId = '';
+  };
+
+  FormStore.prototype.getItems = function () {
+    return this.items.slice(0);
+  };
+
+  FormStore.prototype.add = function (itemType) {
+    if (itemType === FormItemType.RESULT && this.items.filter(function (item) {
+      return item.itemType === FormItemType.RESULT;
+    }).length > 0) {
+      _message2.default.error('检验结果字段只能有一个');
+
+      return;
+    }
+
+    var newItem = createFormItem(itemType);
+    this.items.push(newItem);
+  };
+
+  FormStore.prototype.delete = function (id) {
+    this.items = this.items.filter(function (item) {
+      return item.id !== id;
+    });
+  };
+
+  FormStore.prototype.update = function (newItem) {
+    this.items = this.items.map(function (item) {
+      return item.id === newItem.id ? newItem : item;
+    });
+  };
+
+  FormStore.prototype.activate = function (id) {
+    if (this.items.filter(function (item) {
+      return item.id === id;
+    }).length > 0) {
+      this.activeId = id;
+    }
+  };
+
+  FormStore.prototype.move = function (dragIndex, hoverIndex) {
+    var dragItem = this.items[dragIndex];
+    this.items = (0, _immutabilityHelper.default)(this.items, {
+      $splice: [[dragIndex, 1], [hoverIndex, 0, dragItem]]
+    });
+  };
+
+  FormStore.prototype.addOption = function (id) {
+    this.items = this.items.map(function (item) {
+      if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
+        var value = "";
+        item.options.push(createOption(value));
+      }
+
+      return item;
+    });
+  };
+
+  FormStore.prototype.deleteOption = function (id, optionIndex) {
+    this.items = this.items.map(function (item) {
+      if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
+        if (item.options.length > 1) {
+          item.options.splice(optionIndex, 1); // 删除选项后，重新设置默认值
+
+          if (FormItemType.SELECT === item.itemType) {
+            item.defaultValue = item.options[0].value;
+          }
+
+          if (FormItemType.CHECKBOX === item.itemType) {
+            item.defaultValue = [];
+          }
+
+          if (FormItemType.RADIO === item.itemType) {
+            item.defaultValue = '';
+          }
+        } else {
+          _message2.default.error('选项不得少于 1 个');
+        }
+      }
+
+      return item;
+    });
+  };
+
+  FormStore.prototype.updateOption = function (id, optionIndex, value) {
+    this.items = this.items.map(function (item) {
+      if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
+        item.options.splice(optionIndex, 1, createOption(value));
+      }
+
+      return item;
+    });
+  };
+
+  FormStore.prototype.setCheckboxDefaultOption = function (id, values) {
+    this.items = this.items.map(function (item) {
+      if (item.id === id && FormItemType.CHECKBOX === item.itemType) {
+        item.defaultValue = values;
+      }
+
+      return item;
+    });
+  };
+
+  FormStore.prototype.setRadioDefaultOption = function (id, value) {
+    this.items = this.items.map(function (item) {
+      if (item.id === id && FormItemType.RADIO === item.itemType) {
+        item.defaultValue = value;
+      }
+
+      return item;
+    });
+  };
+
+  FormStore.prototype.setSelectDefaultOption = function (id, value) {
+    this.items = this.items.map(function (item) {
+      if (item.id === id && FormItemType.SELECT === item.itemType) {
+        item.defaultValue = value;
+      }
+
+      return item;
+    });
+  };
+
+  FormStore.prototype.addCol = function (id, rowIndex) {
+    this.items = this.items.map(function (item) {
+      if (item.id === id && FormItemType.LAYOUT === item.itemType) {
+        item.rows[rowIndex].push({
+          span: 12
+        });
+      }
+
+      return item;
+    });
+  };
+
+  FormStore.prototype.updateColSpan = function (id, rowIndex, colIndex, span) {
+    this.items = this.items.map(function (item) {
+      if (item.id === id && FormItemType.LAYOUT === item.itemType) {
+        item.rows[rowIndex].splice(colIndex, 1, {
+          span: span
+        });
+      }
+
+      return item;
+    });
+  };
+
+  FormStore.prototype.deleteCol = function (id, rowIndex, colIndex) {
+    this.items = this.items.map(function (item) {
+      if (item.id === id && FormItemType.LAYOUT === item.itemType) {
+        item.rows[rowIndex].splice(colIndex, 1);
+      }
+
+      return item;
+    });
+  };
+
+  FormStore.prototype.updateTextItem = function (id, content, fontSize, lineHeight, textAlign) {
+    this.items = this.items.map(function (item) {
+      if (item.id === id && FormItemType.TEXT === item.itemType) {
+        ;
+        item.content = content;
+        item.fontSize = fontSize;
+        item.lineHeight = lineHeight;
+        item.textAlign = textAlign;
+      }
+
+      return item;
+    });
+  };
+
+  FormStore.prototype.setRequired = function (id, required) {
+    this.items = this.items.map(function (item) {
+      if (item.id === id) {
+        item.required = required;
+      }
+
+      return item;
+    });
+  };
+
+  Object.defineProperty(FormStore.prototype, "formItems", {
+    get: function get() {
+      var _this = this;
+
+      return this.items.map(function (item) {
+        return __assign(__assign({}, item), {
+          isActive: item.id === _this.activeId
+        });
+      });
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(FormStore.prototype, "activeItem", {
+    get: function get() {
+      return find(this.items, this.activeId);
+    },
+    enumerable: true,
+    configurable: true
+  });
+
+  __decorate([_mobx.observable], FormStore.prototype, "items", void 0);
+
+  __decorate([_mobx.observable], FormStore.prototype, "activeId", void 0);
+
+  return FormStore;
+}();
+
+exports.FormStore = FormStore;
+
+function find(items, id) {
+  var result = null;
+
+  for (var i = 0, len = items.length; i < len; i++) {
+    var item = items[i];
+
+    if (item.id === id) {
+      result = item;
+      break;
+    }
+  }
+
+  return result || {};
+}
+
+var _default = new FormStore();
+
+exports.default = _default;
+},{"antd/es/message/style/css":"../node_modules/antd/es/message/style/css.js","antd/es/message":"../node_modules/antd/es/message/index.js","mobx":"../node_modules/mobx/lib/mobx.module.js","shortid":"../node_modules/shortid/index.js","immutability-helper":"../node_modules/immutability-helper/index.js"}],"../node_modules/antd/es/layout/style/index.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/antd/es/layout/style/css.js":[function(require,module,exports) {
+"use strict";
+
+require("../../style/index.css");
+
+require("./index.css");
+},{"../../style/index.css":"../node_modules/antd/es/style/index.css","./index.css":"../node_modules/antd/es/layout/style/index.css"}],"../node_modules/antd/es/layout/layout.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.LayoutContext = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _createReactContext = _interopRequireDefault(require("@ant-design/create-react-context"));
+
+var _configProvider = require("../config-provider");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+var __rest = void 0 && (void 0).__rest || function (s, e) {
+  var t = {};
+
+  for (var p in s) {
+    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  }
+
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+  }
+  return t;
+};
+
+var LayoutContext = (0, _createReactContext.default)({
+  siderHook: {
+    addSider: function addSider() {
+      return null;
+    },
+    removeSider: function removeSider() {
+      return null;
+    }
+  }
+});
+exports.LayoutContext = LayoutContext;
+
+function generator(_ref) {
+  var suffixCls = _ref.suffixCls,
+      tagName = _ref.tagName,
+      displayName = _ref.displayName;
+  return function (BasicComponent) {
+    var _a;
+
+    return _a = /*#__PURE__*/function (_React$Component) {
+      _inherits(Adapter, _React$Component);
+
+      var _super = _createSuper(Adapter);
+
+      function Adapter() {
+        var _this;
+
+        _classCallCheck(this, Adapter);
+
+        _this = _super.apply(this, arguments);
+
+        _this.renderComponent = function (_ref2) {
+          var getPrefixCls = _ref2.getPrefixCls;
+          var customizePrefixCls = _this.props.prefixCls;
+          var prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
+          return /*#__PURE__*/React.createElement(BasicComponent, _extends({
+            prefixCls: prefixCls,
+            tagName: tagName
+          }, _this.props));
+        };
+
+        return _this;
+      }
+
+      _createClass(Adapter, [{
+        key: "render",
+        value: function render() {
+          return /*#__PURE__*/React.createElement(_configProvider.ConfigConsumer, null, this.renderComponent);
+        }
+      }]);
+
+      return Adapter;
+    }(React.Component), _a.displayName = displayName, _a;
+  };
+}
+
+var Basic = function Basic(props) {
+  var prefixCls = props.prefixCls,
+      className = props.className,
+      children = props.children,
+      tagName = props.tagName,
+      others = __rest(props, ["prefixCls", "className", "children", "tagName"]);
+
+  var classString = (0, _classnames.default)(className, prefixCls);
+  return React.createElement(tagName, _extends({
+    className: classString
+  }, others), children);
+};
+
+var BasicLayout = /*#__PURE__*/function (_React$Component2) {
+  _inherits(BasicLayout, _React$Component2);
+
+  var _super2 = _createSuper(BasicLayout);
+
+  function BasicLayout() {
+    var _this2;
+
+    _classCallCheck(this, BasicLayout);
+
+    _this2 = _super2.apply(this, arguments);
+    _this2.state = {
+      siders: []
+    };
+    return _this2;
+  }
+
+  _createClass(BasicLayout, [{
+    key: "getSiderHook",
+    value: function getSiderHook() {
+      var _this3 = this;
+
+      return {
+        addSider: function addSider(id) {
+          _this3.setState(function (state) {
+            return {
+              siders: [].concat(_toConsumableArray(state.siders), [id])
+            };
+          });
+        },
+        removeSider: function removeSider(id) {
+          _this3.setState(function (state) {
+            return {
+              siders: state.siders.filter(function (currentId) {
+                return currentId !== id;
+              })
+            };
+          });
+        }
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _a = this.props,
+          prefixCls = _a.prefixCls,
+          className = _a.className,
+          children = _a.children,
+          hasSider = _a.hasSider,
+          Tag = _a.tagName,
+          others = __rest(_a, ["prefixCls", "className", "children", "hasSider", "tagName"]);
+
+      var classString = (0, _classnames.default)(className, prefixCls, _defineProperty({}, "".concat(prefixCls, "-has-sider"), typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0));
+      return /*#__PURE__*/React.createElement(LayoutContext.Provider, {
+        value: {
+          siderHook: this.getSiderHook()
+        }
+      }, /*#__PURE__*/React.createElement(Tag, _extends({
+        className: classString
+      }, others), children));
+    }
+  }]);
+
+  return BasicLayout;
+}(React.Component);
+
+var Layout = generator({
+  suffixCls: 'layout',
+  tagName: 'section',
+  displayName: 'Layout'
+})(BasicLayout);
+var Header = generator({
+  suffixCls: 'layout-header',
+  tagName: 'header',
+  displayName: 'Header'
+})(Basic);
+var Footer = generator({
+  suffixCls: 'layout-footer',
+  tagName: 'footer',
+  displayName: 'Footer'
+})(Basic);
+var Content = generator({
+  suffixCls: 'layout-content',
+  tagName: 'main',
+  displayName: 'Content'
+})(Basic);
+Layout.Header = Header;
+Layout.Footer = Footer;
+Layout.Content = Content;
+var _default = Layout;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","@ant-design/create-react-context":"../node_modules/@ant-design/create-react-context/lib/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js"}],"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.polyfill = polyfill;
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+function componentWillMount() {
+  // Call this.constructor.gDSFP to support sub-classes.
+  var state = this.constructor.getDerivedStateFromProps(this.props, this.state);
+
+  if (state !== null && state !== undefined) {
+    this.setState(state);
+  }
+}
+
+function componentWillReceiveProps(nextProps) {
+  // Call this.constructor.gDSFP to support sub-classes.
+  // Use the setState() updater to ensure state isn't stale in certain edge cases.
+  function updater(prevState) {
+    var state = this.constructor.getDerivedStateFromProps(nextProps, prevState);
+    return state !== null && state !== undefined ? state : null;
+  } // Binding "this" is important for shallow renderer support.
+
+
+  this.setState(updater.bind(this));
+}
+
+function componentWillUpdate(nextProps, nextState) {
+  try {
+    var prevProps = this.props;
+    var prevState = this.state;
+    this.props = nextProps;
+    this.state = nextState;
+    this.__reactInternalSnapshotFlag = true;
+    this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(prevProps, prevState);
+  } finally {
+    this.props = prevProps;
+    this.state = prevState;
+  }
+} // React may warn about cWM/cWRP/cWU methods being deprecated.
+// Add a flag to suppress these warnings for this special case.
+
+
+componentWillMount.__suppressDeprecationWarning = true;
+componentWillReceiveProps.__suppressDeprecationWarning = true;
+componentWillUpdate.__suppressDeprecationWarning = true;
+
+function polyfill(Component) {
+  var prototype = Component.prototype;
+
+  if (!prototype || !prototype.isReactComponent) {
+    throw new Error('Can only polyfill class components');
+  }
+
+  if (typeof Component.getDerivedStateFromProps !== 'function' && typeof prototype.getSnapshotBeforeUpdate !== 'function') {
+    return Component;
+  } // If new component APIs are defined, "unsafe" lifecycles won't be called.
+  // Error if any of these lifecycles are present,
+  // Because they would work differently between older and newer (16.3+) versions of React.
+
+
+  var foundWillMountName = null;
+  var foundWillReceivePropsName = null;
+  var foundWillUpdateName = null;
+
+  if (typeof prototype.componentWillMount === 'function') {
+    foundWillMountName = 'componentWillMount';
+  } else if (typeof prototype.UNSAFE_componentWillMount === 'function') {
+    foundWillMountName = 'UNSAFE_componentWillMount';
+  }
+
+  if (typeof prototype.componentWillReceiveProps === 'function') {
+    foundWillReceivePropsName = 'componentWillReceiveProps';
+  } else if (typeof prototype.UNSAFE_componentWillReceiveProps === 'function') {
+    foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
+  }
+
+  if (typeof prototype.componentWillUpdate === 'function') {
+    foundWillUpdateName = 'componentWillUpdate';
+  } else if (typeof prototype.UNSAFE_componentWillUpdate === 'function') {
+    foundWillUpdateName = 'UNSAFE_componentWillUpdate';
+  }
+
+  if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
+    var componentName = Component.displayName || Component.name;
+    var newApiName = typeof Component.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
+    throw Error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + componentName + ' uses ' + newApiName + ' but also contains the following legacy lifecycles:' + (foundWillMountName !== null ? '\n  ' + foundWillMountName : '') + (foundWillReceivePropsName !== null ? '\n  ' + foundWillReceivePropsName : '') + (foundWillUpdateName !== null ? '\n  ' + foundWillUpdateName : '') + '\n\nThe above lifecycles should be removed. Learn more about this warning here:\n' + 'https://fb.me/react-async-component-lifecycle-hooks');
+  } // React <= 16.2 does not support static getDerivedStateFromProps.
+  // As a workaround, use cWM and cWRP to invoke the new static lifecycle.
+  // Newer versions of React will ignore these lifecycles if gDSFP exists.
+
+
+  if (typeof Component.getDerivedStateFromProps === 'function') {
+    prototype.componentWillMount = componentWillMount;
+    prototype.componentWillReceiveProps = componentWillReceiveProps;
+  } // React <= 16.2 does not support getSnapshotBeforeUpdate.
+  // As a workaround, use cWU to invoke the new lifecycle.
+  // Newer versions of React will ignore that lifecycle if gSBU exists.
+
+
+  if (typeof prototype.getSnapshotBeforeUpdate === 'function') {
+    if (typeof prototype.componentDidUpdate !== 'function') {
+      throw new Error('Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype');
+    }
+
+    prototype.componentWillUpdate = componentWillUpdate;
+    var componentDidUpdate = prototype.componentDidUpdate;
+
+    prototype.componentDidUpdate = function componentDidUpdatePolyfill(prevProps, prevState, maybeSnapshot) {
+      // 16.3+ will not execute our will-update method;
+      // It will pass a snapshot value to did-update though.
+      // Older versions will require our polyfilled will-update value.
+      // We need to handle both cases, but can't just check for the presence of "maybeSnapshot",
+      // Because for <= 15.x versions this might be a "prevContext" object.
+      // We also can't just check "__reactInternalSnapshot",
+      // Because get-snapshot might return a falsy value.
+      // So check for the explicit __reactInternalSnapshotFlag flag to determine behavior.
+      var snapshot = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : maybeSnapshot;
+      componentDidUpdate.call(this, prevProps, prevState, snapshot);
+    };
+  }
+
+  return Component;
+}
+},{}],"../node_modules/omit.js/es/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function omit(obj, fields) {
+  var shallowCopy = (0, _extends2.default)({}, obj);
+
+  for (var i = 0; i < fields.length; i++) {
+    var key = fields[i];
+    delete shallowCopy[key];
+  }
+
+  return shallowCopy;
+}
+
+var _default = omit;
+exports.default = _default;
+},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js"}],"../node_modules/antd/es/_util/isNumeric.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42589,12 +50686,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _layout.default.Sider = _Sider.default;
 var _default = _layout.default;
 exports.default = _default;
-},{"./layout":"../node_modules/antd/es/layout/layout.js","./Sider":"../node_modules/antd/es/layout/Sider.js"}],"../src/index.less":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/dnd-core/dist/esm/interfaces.js":[function(require,module,exports) {
+},{"./layout":"../node_modules/antd/es/layout/layout.js","./Sider":"../node_modules/antd/es/layout/Sider.js"}],"../node_modules/dnd-core/dist/esm/interfaces.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -51286,1265 +59378,7 @@ function contains(root, n) {
 
   return false;
 }
-},{}],"../node_modules/rc-util/es/unsafeLifecyclesPolyfill.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var unsafeLifecyclesPolyfill = function unsafeLifecyclesPolyfill(Component) {
-  var prototype = Component.prototype;
-
-  if (!prototype || !prototype.isReactComponent) {
-    throw new Error('Can only polyfill class components');
-  } // only handle componentWillReceiveProps
-
-
-  if (typeof prototype.componentWillReceiveProps !== 'function') {
-    return Component;
-  } // In React 16.9, React.Profiler was introduced together with UNSAFE_componentWillReceiveProps
-  // https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#performance-measurements-with-reactprofiler
-
-
-  if (!_react.default.Profiler) {
-    return Component;
-  } // Here polyfill get started
-
-
-  prototype.UNSAFE_componentWillReceiveProps = prototype.componentWillReceiveProps;
-  delete prototype.componentWillReceiveProps;
-  return Component;
-};
-
-var _default = unsafeLifecyclesPolyfill;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../node_modules/rc-animate/es/ChildrenUtils.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.toArrayChildren = toArrayChildren;
-exports.findChildInChildrenByKey = findChildInChildrenByKey;
-exports.findShownChildInChildrenByKey = findShownChildInChildrenByKey;
-exports.findHiddenChildInChildrenByKey = findHiddenChildInChildrenByKey;
-exports.isSameChildren = isSameChildren;
-exports.mergeChildren = mergeChildren;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function toArrayChildren(children) {
-  var ret = [];
-
-  _react.default.Children.forEach(children, function (child) {
-    ret.push(child);
-  });
-
-  return ret;
-}
-
-function findChildInChildrenByKey(children, key) {
-  var ret = null;
-
-  if (children) {
-    children.forEach(function (child) {
-      if (ret) {
-        return;
-      }
-
-      if (child && child.key === key) {
-        ret = child;
-      }
-    });
-  }
-
-  return ret;
-}
-
-function findShownChildInChildrenByKey(children, key, showProp) {
-  var ret = null;
-
-  if (children) {
-    children.forEach(function (child) {
-      if (child && child.key === key && child.props[showProp]) {
-        if (ret) {
-          throw new Error('two child with same key for <rc-animate> children');
-        }
-
-        ret = child;
-      }
-    });
-  }
-
-  return ret;
-}
-
-function findHiddenChildInChildrenByKey(children, key, showProp) {
-  var found = 0;
-
-  if (children) {
-    children.forEach(function (child) {
-      if (found) {
-        return;
-      }
-
-      found = child && child.key === key && !child.props[showProp];
-    });
-  }
-
-  return found;
-}
-
-function isSameChildren(c1, c2, showProp) {
-  var same = c1.length === c2.length;
-
-  if (same) {
-    c1.forEach(function (child, index) {
-      var child2 = c2[index];
-
-      if (child && child2) {
-        if (child && !child2 || !child && child2) {
-          same = false;
-        } else if (child.key !== child2.key) {
-          same = false;
-        } else if (showProp && child.props[showProp] !== child2.props[showProp]) {
-          same = false;
-        }
-      }
-    });
-  }
-
-  return same;
-}
-
-function mergeChildren(prev, next) {
-  var ret = []; // For each key of `next`, the list of keys to insert before that key in
-  // the combined list
-
-  var nextChildrenPending = {};
-  var pendingChildren = [];
-  prev.forEach(function (child) {
-    if (child && findChildInChildrenByKey(next, child.key)) {
-      if (pendingChildren.length) {
-        nextChildrenPending[child.key] = pendingChildren;
-        pendingChildren = [];
-      }
-    } else {
-      pendingChildren.push(child);
-    }
-  });
-  next.forEach(function (child) {
-    if (child && Object.prototype.hasOwnProperty.call(nextChildrenPending, child.key)) {
-      ret = ret.concat(nextChildrenPending[child.key]);
-    }
-
-    ret.push(child);
-  });
-  ret = ret.concat(pendingChildren);
-  return ret;
-}
-},{"react":"../node_modules/react/index.js"}],"../node_modules/css-animation/es/Event.js":[function(require,module,exports) {
-var process = require("process");
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var START_EVENT_NAME_MAP = {
-  transitionstart: {
-    transition: 'transitionstart',
-    WebkitTransition: 'webkitTransitionStart',
-    MozTransition: 'mozTransitionStart',
-    OTransition: 'oTransitionStart',
-    msTransition: 'MSTransitionStart'
-  },
-  animationstart: {
-    animation: 'animationstart',
-    WebkitAnimation: 'webkitAnimationStart',
-    MozAnimation: 'mozAnimationStart',
-    OAnimation: 'oAnimationStart',
-    msAnimation: 'MSAnimationStart'
-  }
-};
-var END_EVENT_NAME_MAP = {
-  transitionend: {
-    transition: 'transitionend',
-    WebkitTransition: 'webkitTransitionEnd',
-    MozTransition: 'mozTransitionEnd',
-    OTransition: 'oTransitionEnd',
-    msTransition: 'MSTransitionEnd'
-  },
-  animationend: {
-    animation: 'animationend',
-    WebkitAnimation: 'webkitAnimationEnd',
-    MozAnimation: 'mozAnimationEnd',
-    OAnimation: 'oAnimationEnd',
-    msAnimation: 'MSAnimationEnd'
-  }
-};
-var startEvents = [];
-var endEvents = [];
-
-function detectEvents() {
-  var testEl = document.createElement('div');
-  var style = testEl.style;
-
-  if (!('AnimationEvent' in window)) {
-    delete START_EVENT_NAME_MAP.animationstart.animation;
-    delete END_EVENT_NAME_MAP.animationend.animation;
-  }
-
-  if (!('TransitionEvent' in window)) {
-    delete START_EVENT_NAME_MAP.transitionstart.transition;
-    delete END_EVENT_NAME_MAP.transitionend.transition;
-  }
-
-  function process(EVENT_NAME_MAP, events) {
-    for (var baseEventName in EVENT_NAME_MAP) {
-      if (EVENT_NAME_MAP.hasOwnProperty(baseEventName)) {
-        var baseEvents = EVENT_NAME_MAP[baseEventName];
-
-        for (var styleName in baseEvents) {
-          if (styleName in style) {
-            events.push(baseEvents[styleName]);
-            break;
-          }
-        }
-      }
-    }
-  }
-
-  process(START_EVENT_NAME_MAP, startEvents);
-  process(END_EVENT_NAME_MAP, endEvents);
-}
-
-if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-  detectEvents();
-}
-
-function addEventListener(node, eventName, eventListener) {
-  node.addEventListener(eventName, eventListener, false);
-}
-
-function removeEventListener(node, eventName, eventListener) {
-  node.removeEventListener(eventName, eventListener, false);
-}
-
-var TransitionEvents = {
-  // Start events
-  startEvents: startEvents,
-  addStartEventListener: function addStartEventListener(node, eventListener) {
-    if (startEvents.length === 0) {
-      window.setTimeout(eventListener, 0);
-      return;
-    }
-
-    startEvents.forEach(function (startEvent) {
-      addEventListener(node, startEvent, eventListener);
-    });
-  },
-  removeStartEventListener: function removeStartEventListener(node, eventListener) {
-    if (startEvents.length === 0) {
-      return;
-    }
-
-    startEvents.forEach(function (startEvent) {
-      removeEventListener(node, startEvent, eventListener);
-    });
-  },
-  // End events
-  endEvents: endEvents,
-  addEndEventListener: function addEndEventListener(node, eventListener) {
-    if (endEvents.length === 0) {
-      window.setTimeout(eventListener, 0);
-      return;
-    }
-
-    endEvents.forEach(function (endEvent) {
-      addEventListener(node, endEvent, eventListener);
-    });
-  },
-  removeEndEventListener: function removeEndEventListener(node, eventListener) {
-    if (endEvents.length === 0) {
-      return;
-    }
-
-    endEvents.forEach(function (endEvent) {
-      removeEventListener(node, endEvent, eventListener);
-    });
-  }
-};
-var _default = TransitionEvents;
-exports.default = _default;
-},{"process":"../node_modules/process/browser.js"}],"../node_modules/component-indexof/index.js":[function(require,module,exports) {
-module.exports = function(arr, obj){
-  if (arr.indexOf) return arr.indexOf(obj);
-  for (var i = 0; i < arr.length; ++i) {
-    if (arr[i] === obj) return i;
-  }
-  return -1;
-};
-},{}],"../node_modules/component-classes/index.js":[function(require,module,exports) {
-/**
- * Module dependencies.
- */
-
-try {
-  var index = require('indexof');
-} catch (err) {
-  var index = require('component-indexof');
-}
-
-/**
- * Whitespace regexp.
- */
-
-var re = /\s+/;
-
-/**
- * toString reference.
- */
-
-var toString = Object.prototype.toString;
-
-/**
- * Wrap `el` in a `ClassList`.
- *
- * @param {Element} el
- * @return {ClassList}
- * @api public
- */
-
-module.exports = function(el){
-  return new ClassList(el);
-};
-
-/**
- * Initialize a new ClassList for `el`.
- *
- * @param {Element} el
- * @api private
- */
-
-function ClassList(el) {
-  if (!el || !el.nodeType) {
-    throw new Error('A DOM element reference is required');
-  }
-  this.el = el;
-  this.list = el.classList;
-}
-
-/**
- * Add class `name` if not already present.
- *
- * @param {String} name
- * @return {ClassList}
- * @api public
- */
-
-ClassList.prototype.add = function(name){
-  // classList
-  if (this.list) {
-    this.list.add(name);
-    return this;
-  }
-
-  // fallback
-  var arr = this.array();
-  var i = index(arr, name);
-  if (!~i) arr.push(name);
-  this.el.className = arr.join(' ');
-  return this;
-};
-
-/**
- * Remove class `name` when present, or
- * pass a regular expression to remove
- * any which match.
- *
- * @param {String|RegExp} name
- * @return {ClassList}
- * @api public
- */
-
-ClassList.prototype.remove = function(name){
-  if ('[object RegExp]' == toString.call(name)) {
-    return this.removeMatching(name);
-  }
-
-  // classList
-  if (this.list) {
-    this.list.remove(name);
-    return this;
-  }
-
-  // fallback
-  var arr = this.array();
-  var i = index(arr, name);
-  if (~i) arr.splice(i, 1);
-  this.el.className = arr.join(' ');
-  return this;
-};
-
-/**
- * Remove all classes matching `re`.
- *
- * @param {RegExp} re
- * @return {ClassList}
- * @api private
- */
-
-ClassList.prototype.removeMatching = function(re){
-  var arr = this.array();
-  for (var i = 0; i < arr.length; i++) {
-    if (re.test(arr[i])) {
-      this.remove(arr[i]);
-    }
-  }
-  return this;
-};
-
-/**
- * Toggle class `name`, can force state via `force`.
- *
- * For browsers that support classList, but do not support `force` yet,
- * the mistake will be detected and corrected.
- *
- * @param {String} name
- * @param {Boolean} force
- * @return {ClassList}
- * @api public
- */
-
-ClassList.prototype.toggle = function(name, force){
-  // classList
-  if (this.list) {
-    if ("undefined" !== typeof force) {
-      if (force !== this.list.toggle(name, force)) {
-        this.list.toggle(name); // toggle again to correct
-      }
-    } else {
-      this.list.toggle(name);
-    }
-    return this;
-  }
-
-  // fallback
-  if ("undefined" !== typeof force) {
-    if (!force) {
-      this.remove(name);
-    } else {
-      this.add(name);
-    }
-  } else {
-    if (this.has(name)) {
-      this.remove(name);
-    } else {
-      this.add(name);
-    }
-  }
-
-  return this;
-};
-
-/**
- * Return an array of classes.
- *
- * @return {Array}
- * @api public
- */
-
-ClassList.prototype.array = function(){
-  var className = this.el.getAttribute('class') || '';
-  var str = className.replace(/^\s+|\s+$/g, '');
-  var arr = str.split(re);
-  if ('' === arr[0]) arr.shift();
-  return arr;
-};
-
-/**
- * Check if class `name` is present.
- *
- * @param {String} name
- * @return {ClassList}
- * @api public
- */
-
-ClassList.prototype.has =
-ClassList.prototype.contains = function(name){
-  return this.list
-    ? this.list.contains(name)
-    : !! ~index(this.array(), name);
-};
-
-},{"indexof":"../node_modules/component-indexof/index.js","component-indexof":"../node_modules/component-indexof/index.js"}],"../node_modules/css-animation/es/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.isCssAnimationSupported = void 0;
-
-var _typeof2 = _interopRequireDefault(require("babel-runtime/helpers/typeof"));
-
-var _Event = _interopRequireDefault(require("./Event"));
-
-var _componentClasses = _interopRequireDefault(require("component-classes"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var isCssAnimationSupported = _Event.default.endEvents.length !== 0;
-exports.isCssAnimationSupported = isCssAnimationSupported;
-var capitalPrefixes = ['Webkit', 'Moz', 'O', // ms is special .... !
-'ms'];
-var prefixes = ['-webkit-', '-moz-', '-o-', 'ms-', ''];
-
-function getStyleProperty(node, name) {
-  // old ff need null, https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
-  var style = window.getComputedStyle(node, null);
-  var ret = '';
-
-  for (var i = 0; i < prefixes.length; i++) {
-    ret = style.getPropertyValue(prefixes[i] + name);
-
-    if (ret) {
-      break;
-    }
-  }
-
-  return ret;
-}
-
-function fixBrowserByTimeout(node) {
-  if (isCssAnimationSupported) {
-    var transitionDelay = parseFloat(getStyleProperty(node, 'transition-delay')) || 0;
-    var transitionDuration = parseFloat(getStyleProperty(node, 'transition-duration')) || 0;
-    var animationDelay = parseFloat(getStyleProperty(node, 'animation-delay')) || 0;
-    var animationDuration = parseFloat(getStyleProperty(node, 'animation-duration')) || 0;
-    var time = Math.max(transitionDuration + transitionDelay, animationDuration + animationDelay); // sometimes, browser bug
-
-    node.rcEndAnimTimeout = setTimeout(function () {
-      node.rcEndAnimTimeout = null;
-
-      if (node.rcEndListener) {
-        node.rcEndListener();
-      }
-    }, time * 1000 + 200);
-  }
-}
-
-function clearBrowserBugTimeout(node) {
-  if (node.rcEndAnimTimeout) {
-    clearTimeout(node.rcEndAnimTimeout);
-    node.rcEndAnimTimeout = null;
-  }
-}
-
-var cssAnimation = function cssAnimation(node, transitionName, endCallback) {
-  var nameIsObj = (typeof transitionName === 'undefined' ? 'undefined' : (0, _typeof2.default)(transitionName)) === 'object';
-  var className = nameIsObj ? transitionName.name : transitionName;
-  var activeClassName = nameIsObj ? transitionName.active : transitionName + '-active';
-  var end = endCallback;
-  var start = void 0;
-  var active = void 0;
-  var nodeClasses = (0, _componentClasses.default)(node);
-
-  if (endCallback && Object.prototype.toString.call(endCallback) === '[object Object]') {
-    end = endCallback.end;
-    start = endCallback.start;
-    active = endCallback.active;
-  }
-
-  if (node.rcEndListener) {
-    node.rcEndListener();
-  }
-
-  node.rcEndListener = function (e) {
-    if (e && e.target !== node) {
-      return;
-    }
-
-    if (node.rcAnimTimeout) {
-      clearTimeout(node.rcAnimTimeout);
-      node.rcAnimTimeout = null;
-    }
-
-    clearBrowserBugTimeout(node);
-    nodeClasses.remove(className);
-    nodeClasses.remove(activeClassName);
-
-    _Event.default.removeEndEventListener(node, node.rcEndListener);
-
-    node.rcEndListener = null; // Usually this optional end is used for informing an owner of
-    // a leave animation and telling it to remove the child.
-
-    if (end) {
-      end();
-    }
-  };
-
-  _Event.default.addEndEventListener(node, node.rcEndListener);
-
-  if (start) {
-    start();
-  }
-
-  nodeClasses.add(className);
-  node.rcAnimTimeout = setTimeout(function () {
-    node.rcAnimTimeout = null;
-    nodeClasses.add(activeClassName);
-
-    if (active) {
-      setTimeout(active, 0);
-    }
-
-    fixBrowserByTimeout(node); // 30ms for firefox
-  }, 30);
-  return {
-    stop: function stop() {
-      if (node.rcEndListener) {
-        node.rcEndListener();
-      }
-    }
-  };
-};
-
-cssAnimation.style = function (node, style, callback) {
-  if (node.rcEndListener) {
-    node.rcEndListener();
-  }
-
-  node.rcEndListener = function (e) {
-    if (e && e.target !== node) {
-      return;
-    }
-
-    if (node.rcAnimTimeout) {
-      clearTimeout(node.rcAnimTimeout);
-      node.rcAnimTimeout = null;
-    }
-
-    clearBrowserBugTimeout(node);
-
-    _Event.default.removeEndEventListener(node, node.rcEndListener);
-
-    node.rcEndListener = null; // Usually this optional callback is used for informing an owner of
-    // a leave animation and telling it to remove the child.
-
-    if (callback) {
-      callback();
-    }
-  };
-
-  _Event.default.addEndEventListener(node, node.rcEndListener);
-
-  node.rcAnimTimeout = setTimeout(function () {
-    for (var s in style) {
-      if (style.hasOwnProperty(s)) {
-        node.style[s] = style[s];
-      }
-    }
-
-    node.rcAnimTimeout = null;
-    fixBrowserByTimeout(node);
-  }, 0);
-};
-
-cssAnimation.setTransition = function (node, p, value) {
-  var property = p;
-  var v = value;
-
-  if (value === undefined) {
-    v = property;
-    property = '';
-  }
-
-  property = property || '';
-  capitalPrefixes.forEach(function (prefix) {
-    node.style[prefix + 'Transition' + property] = v;
-  });
-};
-
-cssAnimation.isCssAnimationSupported = isCssAnimationSupported;
-var _default = cssAnimation;
-exports.default = _default;
-},{"babel-runtime/helpers/typeof":"../node_modules/babel-runtime/helpers/typeof.js","./Event":"../node_modules/css-animation/es/Event.js","component-classes":"../node_modules/component-classes/index.js"}],"../node_modules/rc-animate/es/util/animate.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var util = {
-  isAppearSupported: function isAppearSupported(props) {
-    return props.transitionName && props.transitionAppear || props.animation.appear;
-  },
-  isEnterSupported: function isEnterSupported(props) {
-    return props.transitionName && props.transitionEnter || props.animation.enter;
-  },
-  isLeaveSupported: function isLeaveSupported(props) {
-    return props.transitionName && props.transitionLeave || props.animation.leave;
-  },
-  allowAppearCallback: function allowAppearCallback(props) {
-    return props.transitionAppear || props.animation.appear;
-  },
-  allowEnterCallback: function allowEnterCallback(props) {
-    return props.transitionEnter || props.animation.enter;
-  },
-  allowLeaveCallback: function allowLeaveCallback(props) {
-    return props.transitionLeave || props.animation.leave;
-  }
-};
-var _default = util;
-exports.default = _default;
-},{}],"../node_modules/rc-animate/es/AnimateChild.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _cssAnimation = _interopRequireWildcard(require("css-animation"));
-
-var _animate = _interopRequireDefault(require("./util/animate"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var transitionMap = {
-  enter: 'transitionEnter',
-  appear: 'transitionAppear',
-  leave: 'transitionLeave'
-};
-
-var AnimateChild = function (_React$Component) {
-  (0, _inherits2.default)(AnimateChild, _React$Component);
-
-  function AnimateChild() {
-    (0, _classCallCheck2.default)(this, AnimateChild);
-    return (0, _possibleConstructorReturn2.default)(this, (AnimateChild.__proto__ || Object.getPrototypeOf(AnimateChild)).apply(this, arguments));
-  }
-
-  (0, _createClass2.default)(AnimateChild, [{
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.stop();
-    }
-  }, {
-    key: 'componentWillEnter',
-    value: function componentWillEnter(done) {
-      if (_animate.default.isEnterSupported(this.props)) {
-        this.transition('enter', done);
-      } else {
-        done();
-      }
-    }
-  }, {
-    key: 'componentWillAppear',
-    value: function componentWillAppear(done) {
-      if (_animate.default.isAppearSupported(this.props)) {
-        this.transition('appear', done);
-      } else {
-        done();
-      }
-    }
-  }, {
-    key: 'componentWillLeave',
-    value: function componentWillLeave(done) {
-      if (_animate.default.isLeaveSupported(this.props)) {
-        this.transition('leave', done);
-      } else {
-        // always sync, do not interupt with react component life cycle
-        // update hidden -> animate hidden ->
-        // didUpdate -> animate leave -> unmount (if animate is none)
-        done();
-      }
-    }
-  }, {
-    key: 'transition',
-    value: function transition(animationType, finishCallback) {
-      var _this2 = this;
-
-      var node = _reactDom.default.findDOMNode(this);
-
-      var props = this.props;
-      var transitionName = props.transitionName;
-      var nameIsObj = typeof transitionName === 'object';
-      this.stop();
-
-      var end = function end() {
-        _this2.stopper = null;
-        finishCallback();
-      };
-
-      if ((_cssAnimation.isCssAnimationSupported || !props.animation[animationType]) && transitionName && props[transitionMap[animationType]]) {
-        var name = nameIsObj ? transitionName[animationType] : transitionName + '-' + animationType;
-        var activeName = name + '-active';
-
-        if (nameIsObj && transitionName[animationType + 'Active']) {
-          activeName = transitionName[animationType + 'Active'];
-        }
-
-        this.stopper = (0, _cssAnimation.default)(node, {
-          name: name,
-          active: activeName
-        }, end);
-      } else {
-        this.stopper = props.animation[animationType](node, end);
-      }
-    }
-  }, {
-    key: 'stop',
-    value: function stop() {
-      var stopper = this.stopper;
-
-      if (stopper) {
-        this.stopper = null;
-        stopper.stop();
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return this.props.children;
-    }
-  }]);
-  return AnimateChild;
-}(_react.default.Component);
-
-AnimateChild.propTypes = {
-  children: _propTypes.default.any,
-  animation: _propTypes.default.any,
-  transitionName: _propTypes.default.any
-};
-var _default = AnimateChild;
-exports.default = _default;
-},{"babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","prop-types":"../node_modules/prop-types/index.js","css-animation":"../node_modules/css-animation/es/index.js","./util/animate":"../node_modules/rc-animate/es/util/animate.js"}],"../node_modules/rc-animate/es/Animate.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
-
-var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _unsafeLifecyclesPolyfill = _interopRequireDefault(require("rc-util/es/unsafeLifecyclesPolyfill"));
-
-var _ChildrenUtils = require("./ChildrenUtils");
-
-var _AnimateChild = _interopRequireDefault(require("./AnimateChild"));
-
-var _animate = _interopRequireDefault(require("./util/animate"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var defaultKey = 'rc_animate_' + Date.now();
-
-function getChildrenFromProps(props) {
-  var children = props.children;
-
-  if (_react.default.isValidElement(children)) {
-    if (!children.key) {
-      return _react.default.cloneElement(children, {
-        key: defaultKey
-      });
-    }
-  }
-
-  return children;
-}
-
-function noop() {}
-
-var Animate = function (_React$Component) {
-  (0, _inherits2.default)(Animate, _React$Component); // eslint-disable-line
-
-  function Animate(props) {
-    (0, _classCallCheck2.default)(this, Animate);
-
-    var _this = (0, _possibleConstructorReturn2.default)(this, (Animate.__proto__ || Object.getPrototypeOf(Animate)).call(this, props));
-
-    _initialiseProps.call(_this);
-
-    _this.currentlyAnimatingKeys = {};
-    _this.keysToEnter = [];
-    _this.keysToLeave = [];
-    _this.state = {
-      children: (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(props))
-    };
-    _this.childrenRefs = {};
-    return _this;
-  }
-
-  (0, _createClass2.default)(Animate, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var showProp = this.props.showProp;
-      var children = this.state.children;
-
-      if (showProp) {
-        children = children.filter(function (child) {
-          return !!child.props[showProp];
-        });
-      }
-
-      children.forEach(function (child) {
-        if (child) {
-          _this2.performAppear(child.key);
-        }
-      });
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      var _this3 = this;
-
-      this.nextProps = nextProps;
-      var nextChildren = (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(nextProps));
-      var props = this.props; // exclusive needs immediate response
-
-      if (props.exclusive) {
-        Object.keys(this.currentlyAnimatingKeys).forEach(function (key) {
-          _this3.stop(key);
-        });
-      }
-
-      var showProp = props.showProp;
-      var currentlyAnimatingKeys = this.currentlyAnimatingKeys; // last props children if exclusive
-
-      var currentChildren = props.exclusive ? (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(props)) : this.state.children; // in case destroy in showProp mode
-
-      var newChildren = [];
-
-      if (showProp) {
-        currentChildren.forEach(function (currentChild) {
-          var nextChild = currentChild && (0, _ChildrenUtils.findChildInChildrenByKey)(nextChildren, currentChild.key);
-          var newChild = void 0;
-
-          if ((!nextChild || !nextChild.props[showProp]) && currentChild.props[showProp]) {
-            newChild = _react.default.cloneElement(nextChild || currentChild, (0, _defineProperty2.default)({}, showProp, true));
-          } else {
-            newChild = nextChild;
-          }
-
-          if (newChild) {
-            newChildren.push(newChild);
-          }
-        });
-        nextChildren.forEach(function (nextChild) {
-          if (!nextChild || !(0, _ChildrenUtils.findChildInChildrenByKey)(currentChildren, nextChild.key)) {
-            newChildren.push(nextChild);
-          }
-        });
-      } else {
-        newChildren = (0, _ChildrenUtils.mergeChildren)(currentChildren, nextChildren);
-      } // need render to avoid update
-
-
-      this.setState({
-        children: newChildren
-      });
-      nextChildren.forEach(function (child) {
-        var key = child && child.key;
-
-        if (child && currentlyAnimatingKeys[key]) {
-          return;
-        }
-
-        var hasPrev = child && (0, _ChildrenUtils.findChildInChildrenByKey)(currentChildren, key);
-
-        if (showProp) {
-          var showInNext = child.props[showProp];
-
-          if (hasPrev) {
-            var showInNow = (0, _ChildrenUtils.findShownChildInChildrenByKey)(currentChildren, key, showProp);
-
-            if (!showInNow && showInNext) {
-              _this3.keysToEnter.push(key);
-            }
-          } else if (showInNext) {
-            _this3.keysToEnter.push(key);
-          }
-        } else if (!hasPrev) {
-          _this3.keysToEnter.push(key);
-        }
-      });
-      currentChildren.forEach(function (child) {
-        var key = child && child.key;
-
-        if (child && currentlyAnimatingKeys[key]) {
-          return;
-        }
-
-        var hasNext = child && (0, _ChildrenUtils.findChildInChildrenByKey)(nextChildren, key);
-
-        if (showProp) {
-          var showInNow = child.props[showProp];
-
-          if (hasNext) {
-            var showInNext = (0, _ChildrenUtils.findShownChildInChildrenByKey)(nextChildren, key, showProp);
-
-            if (!showInNext && showInNow) {
-              _this3.keysToLeave.push(key);
-            }
-          } else if (showInNow) {
-            _this3.keysToLeave.push(key);
-          }
-        } else if (!hasNext) {
-          _this3.keysToLeave.push(key);
-        }
-      });
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
-      var keysToEnter = this.keysToEnter;
-      this.keysToEnter = [];
-      keysToEnter.forEach(this.performEnter);
-      var keysToLeave = this.keysToLeave;
-      this.keysToLeave = [];
-      keysToLeave.forEach(this.performLeave);
-    }
-  }, {
-    key: 'isValidChildByKey',
-    value: function isValidChildByKey(currentChildren, key) {
-      var showProp = this.props.showProp;
-
-      if (showProp) {
-        return (0, _ChildrenUtils.findShownChildInChildrenByKey)(currentChildren, key, showProp);
-      }
-
-      return (0, _ChildrenUtils.findChildInChildrenByKey)(currentChildren, key);
-    }
-  }, {
-    key: 'stop',
-    value: function stop(key) {
-      delete this.currentlyAnimatingKeys[key];
-      var component = this.childrenRefs[key];
-
-      if (component) {
-        component.stop();
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this4 = this;
-
-      var props = this.props;
-      this.nextProps = props;
-      var stateChildren = this.state.children;
-      var children = null;
-
-      if (stateChildren) {
-        children = stateChildren.map(function (child) {
-          if (child === null || child === undefined) {
-            return child;
-          }
-
-          if (!child.key) {
-            throw new Error('must set key for <rc-animate> children');
-          }
-
-          return _react.default.createElement(_AnimateChild.default, {
-            key: child.key,
-            ref: function ref(node) {
-              _this4.childrenRefs[child.key] = node;
-            },
-            animation: props.animation,
-            transitionName: props.transitionName,
-            transitionEnter: props.transitionEnter,
-            transitionAppear: props.transitionAppear,
-            transitionLeave: props.transitionLeave
-          }, child);
-        });
-      }
-
-      var Component = props.component;
-
-      if (Component) {
-        var passedProps = props;
-
-        if (typeof Component === 'string') {
-          passedProps = (0, _extends2.default)({
-            className: props.className,
-            style: props.style
-          }, props.componentProps);
-        }
-
-        return _react.default.createElement(Component, passedProps, children);
-      }
-
-      return children[0] || null;
-    }
-  }]);
-  return Animate;
-}(_react.default.Component);
-
-Animate.isAnimate = true;
-Animate.propTypes = {
-  className: _propTypes.default.string,
-  style: _propTypes.default.object,
-  component: _propTypes.default.any,
-  componentProps: _propTypes.default.object,
-  animation: _propTypes.default.object,
-  transitionName: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
-  transitionEnter: _propTypes.default.bool,
-  transitionAppear: _propTypes.default.bool,
-  exclusive: _propTypes.default.bool,
-  transitionLeave: _propTypes.default.bool,
-  onEnd: _propTypes.default.func,
-  onEnter: _propTypes.default.func,
-  onLeave: _propTypes.default.func,
-  onAppear: _propTypes.default.func,
-  showProp: _propTypes.default.string,
-  children: _propTypes.default.node
-};
-Animate.defaultProps = {
-  animation: {},
-  component: 'span',
-  componentProps: {},
-  transitionEnter: true,
-  transitionLeave: true,
-  transitionAppear: false,
-  onEnd: noop,
-  onEnter: noop,
-  onLeave: noop,
-  onAppear: noop
-};
-
-var _initialiseProps = function _initialiseProps() {
-  var _this5 = this;
-
-  this.performEnter = function (key) {
-    // may already remove by exclusive
-    if (_this5.childrenRefs[key]) {
-      _this5.currentlyAnimatingKeys[key] = true;
-
-      _this5.childrenRefs[key].componentWillEnter(_this5.handleDoneAdding.bind(_this5, key, 'enter'));
-    }
-  };
-
-  this.performAppear = function (key) {
-    if (_this5.childrenRefs[key]) {
-      _this5.currentlyAnimatingKeys[key] = true;
-
-      _this5.childrenRefs[key].componentWillAppear(_this5.handleDoneAdding.bind(_this5, key, 'appear'));
-    }
-  };
-
-  this.handleDoneAdding = function (key, type) {
-    var props = _this5.props;
-    delete _this5.currentlyAnimatingKeys[key]; // if update on exclusive mode, skip check
-
-    if (props.exclusive && props !== _this5.nextProps) {
-      return;
-    }
-
-    var currentChildren = (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(props));
-
-    if (!_this5.isValidChildByKey(currentChildren, key)) {
-      // exclusive will not need this
-      _this5.performLeave(key);
-    } else if (type === 'appear') {
-      if (_animate.default.allowAppearCallback(props)) {
-        props.onAppear(key);
-        props.onEnd(key, true);
-      }
-    } else if (_animate.default.allowEnterCallback(props)) {
-      props.onEnter(key);
-      props.onEnd(key, true);
-    }
-  };
-
-  this.performLeave = function (key) {
-    // may already remove by exclusive
-    if (_this5.childrenRefs[key]) {
-      _this5.currentlyAnimatingKeys[key] = true;
-
-      _this5.childrenRefs[key].componentWillLeave(_this5.handleDoneLeaving.bind(_this5, key));
-    }
-  };
-
-  this.handleDoneLeaving = function (key) {
-    var props = _this5.props;
-    delete _this5.currentlyAnimatingKeys[key]; // if update on exclusive mode, skip check
-
-    if (props.exclusive && props !== _this5.nextProps) {
-      return;
-    }
-
-    var currentChildren = (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(props)); // in case state change is too fast
-
-    if (_this5.isValidChildByKey(currentChildren, key)) {
-      _this5.performEnter(key);
-    } else {
-      var end = function end() {
-        if (_animate.default.allowLeaveCallback(props)) {
-          props.onLeave(key);
-          props.onEnd(key, false);
-        }
-      };
-
-      if (!(0, _ChildrenUtils.isSameChildren)(_this5.state.children, currentChildren, props.showProp)) {
-        _this5.setState({
-          children: currentChildren
-        }, end);
-      } else {
-        end();
-      }
-    }
-  };
-};
-
-var _default = (0, _unsafeLifecyclesPolyfill.default)(Animate);
-
-exports.default = _default;
-},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","rc-util/es/unsafeLifecyclesPolyfill":"../node_modules/rc-util/es/unsafeLifecyclesPolyfill.js","./ChildrenUtils":"../node_modules/rc-animate/es/ChildrenUtils.js","./AnimateChild":"../node_modules/rc-animate/es/AnimateChild.js","./util/animate":"../node_modules/rc-animate/es/util/animate.js"}],"../node_modules/rc-dialog/es/LazyRenderBox.js":[function(require,module,exports) {
+},{}],"../node_modules/rc-dialog/es/LazyRenderBox.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -56547,5211 +63381,7 @@ _Modal.default.destroyAll = function destroyAllFn() {
 
 var _default = _Modal.default;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Modal":"../node_modules/antd/es/modal/Modal.js","./confirm":"../node_modules/antd/es/modal/confirm.js","../icon":"../node_modules/antd/es/icon/index.js"}],"../node_modules/mobx/lib/mobx.module.js":[function(require,module,exports) {
-var process = require("process");
-var global = arguments[3];
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.FlowCancellationError = FlowCancellationError;
-exports._allowStateChanges = allowStateChanges;
-exports._allowStateChangesInsideComputed = allowStateChangesInsideComputed;
-exports._allowStateReadsEnd = allowStateReadsEnd;
-exports._allowStateReadsStart = allowStateReadsStart;
-exports._endAction = _endAction;
-exports._getAdministration = getAdministration;
-exports._getGlobalState = getGlobalState;
-exports._interceptReads = interceptReads;
-exports._isComputingDerivation = isComputingDerivation;
-exports._resetGlobalState = resetGlobalState;
-exports._startAction = _startAction;
-exports.autorun = autorun;
-exports.configure = configure;
-exports.createAtom = createAtom;
-exports.decorate = decorate;
-exports.entries = entries;
-exports.extendObservable = extendObservable;
-exports.flow = flow;
-exports.get = get;
-exports.getAtom = getAtom;
-exports.getDebugName = getDebugName;
-exports.getDependencyTree = getDependencyTree;
-exports.getObserverTree = getObserverTree;
-exports.has = has;
-exports.intercept = intercept;
-exports.isAction = isAction;
-exports.isArrayLike = isArrayLike;
-exports.isComputed = isComputed;
-exports.isComputedProp = isComputedProp;
-exports.isFlowCancellationError = isFlowCancellationError;
-exports.isObservable = isObservable;
-exports.isObservableArray = isObservableArray;
-exports.isObservableObject = isObservableObject;
-exports.isObservableProp = isObservableProp;
-exports.keys = keys;
-exports.observe = observe;
-exports.onBecomeObserved = onBecomeObserved;
-exports.onBecomeUnobserved = onBecomeUnobserved;
-exports.onReactionError = onReactionError;
-exports.reaction = reaction;
-exports.remove = remove;
-exports.runInAction = runInAction;
-exports.set = set;
-exports.spy = spy;
-exports.toJS = toJS;
-exports.trace = trace;
-exports.transaction = transaction;
-exports.untracked = untracked;
-exports.values = values;
-exports.when = when;
-exports.observable = exports.isObservableSet = exports.isObservableMap = exports.isBoxedObservable = exports.computed = exports.comparer = exports.action = exports.Reaction = exports.ObservableSet = exports.ObservableMap = exports.IDerivationState = exports.$mobx = void 0;
-
-/** MobX - (c) Michel Weststrate 2015 - 2020 - MIT Licensed */
-
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
-
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
-
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
-***************************************************************************** */
-
-/* global Reflect, Promise */
-var extendStatics = function (d, b) {
-  extendStatics = Object.setPrototypeOf || {
-    __proto__: []
-  } instanceof Array && function (d, b) {
-    d.__proto__ = b;
-  } || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-  };
-
-  return extendStatics(d, b);
-};
-
-function __extends(d, b) {
-  extendStatics(d, b);
-
-  function __() {
-    this.constructor = d;
-  }
-
-  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-var __assign = function () {
-  __assign = Object.assign || function __assign(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
-function __values(o) {
-  var m = typeof Symbol === "function" && o[Symbol.iterator],
-      i = 0;
-  if (m) return m.call(o);
-  return {
-    next: function () {
-      if (o && i >= o.length) o = void 0;
-      return {
-        value: o && o[i++],
-        done: !o
-      };
-    }
-  };
-}
-
-function __read(o, n) {
-  var m = typeof Symbol === "function" && o[Symbol.iterator];
-  if (!m) return o;
-  var i = m.call(o),
-      r,
-      ar = [],
-      e;
-
-  try {
-    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-  } catch (error) {
-    e = {
-      error: error
-    };
-  } finally {
-    try {
-      if (r && !r.done && (m = i["return"])) m.call(i);
-    } finally {
-      if (e) throw e.error;
-    }
-  }
-
-  return ar;
-}
-
-function __spread() {
-  for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-
-  return ar;
-}
-
-var OBFUSCATED_ERROR = "An invariant failed, however the error is obfuscated because this is a production build.";
-var EMPTY_ARRAY = [];
-Object.freeze(EMPTY_ARRAY);
-var EMPTY_OBJECT = {};
-Object.freeze(EMPTY_OBJECT);
-
-function getNextId() {
-  return ++globalState.mobxGuid;
-}
-
-function fail(message) {
-  invariant(false, message);
-  throw "X"; // unreachable
-}
-
-function invariant(check, message) {
-  if (!check) throw new Error("[mobx] " + (message || OBFUSCATED_ERROR));
-}
-/**
- * Prints a deprecation message, but only one time.
- * Returns false if the deprecated message was already printed before
- */
-
-
-var deprecatedMessages = [];
-
-function deprecated(msg, thing) {
-  if ("development" === "production") return false;
-
-  if (thing) {
-    return deprecated("'" + msg + "', use '" + thing + "' instead.");
-  }
-
-  if (deprecatedMessages.indexOf(msg) !== -1) return false;
-  deprecatedMessages.push(msg);
-  console.error("[mobx] Deprecated: " + msg);
-  return true;
-}
-/**
- * Makes sure that the provided function is invoked at most once.
- */
-
-
-function once(func) {
-  var invoked = false;
-  return function () {
-    if (invoked) return;
-    invoked = true;
-    return func.apply(this, arguments);
-  };
-}
-
-var noop = function () {};
-
-function unique(list) {
-  var res = [];
-  list.forEach(function (item) {
-    if (res.indexOf(item) === -1) res.push(item);
-  });
-  return res;
-}
-
-function isObject(value) {
-  return value !== null && typeof value === "object";
-}
-
-function isPlainObject(value) {
-  if (value === null || typeof value !== "object") return false;
-  var proto = Object.getPrototypeOf(value);
-  return proto === Object.prototype || proto === null;
-}
-
-function addHiddenProp(object, propName, value) {
-  Object.defineProperty(object, propName, {
-    enumerable: false,
-    writable: true,
-    configurable: true,
-    value: value
-  });
-}
-
-function addHiddenFinalProp(object, propName, value) {
-  Object.defineProperty(object, propName, {
-    enumerable: false,
-    writable: false,
-    configurable: true,
-    value: value
-  });
-}
-
-function isPropertyConfigurable(object, prop) {
-  var descriptor = Object.getOwnPropertyDescriptor(object, prop);
-  return !descriptor || descriptor.configurable !== false && descriptor.writable !== false;
-}
-
-function assertPropertyConfigurable(object, prop) {
-  if ("development" !== "production" && !isPropertyConfigurable(object, prop)) fail("Cannot make property '" + prop.toString() + "' observable, it is not configurable and writable in the target object");
-}
-
-function createInstanceofPredicate(name, clazz) {
-  var propName = "isMobX" + name;
-  clazz.prototype[propName] = true;
-  return function (x) {
-    return isObject(x) && x[propName] === true;
-  };
-}
-/**
- * Returns whether the argument is an array, disregarding observability.
- */
-
-
-function isArrayLike(x) {
-  return Array.isArray(x) || isObservableArray(x);
-}
-
-function isES6Map(thing) {
-  return thing instanceof Map;
-}
-
-function isES6Set(thing) {
-  return thing instanceof Set;
-}
-/**
- * Returns the following: own keys, prototype keys & own symbol keys, if they are enumerable.
- */
-
-
-function getPlainObjectKeys(object) {
-  var enumerables = new Set();
-
-  for (var key in object) enumerables.add(key); // *all* enumerables
-
-
-  Object.getOwnPropertySymbols(object).forEach(function (k) {
-    if (Object.getOwnPropertyDescriptor(object, k).enumerable) enumerables.add(k);
-  }); // *own* symbols
-  // Note: this implementation is missing enumerable, inherited, symbolic property names! That would however pretty expensive to add,
-  // as there is no efficient iterator that returns *all* properties
-
-  return Array.from(enumerables);
-}
-
-function stringifyKey(key) {
-  if (key && key.toString) return key.toString();else return new String(key).toString();
-}
-
-function getMapLikeKeys(map) {
-  if (isPlainObject(map)) return Object.keys(map);
-  if (Array.isArray(map)) return map.map(function (_a) {
-    var _b = __read(_a, 1),
-        key = _b[0];
-
-    return key;
-  });
-  if (isES6Map(map) || isObservableMap(map)) return Array.from(map.keys());
-  return fail("Cannot get keys from '" + map + "'");
-}
-
-function toPrimitive(value) {
-  return value === null ? null : typeof value === "object" ? "" + value : value;
-}
-
-var $mobx = Symbol("mobx administration");
-exports.$mobx = $mobx;
-
-var Atom =
-/** @class */
-function () {
-  /**
-   * Create a new atom. For debugging purposes it is recommended to give it a name.
-   * The onBecomeObserved and onBecomeUnobserved callbacks can be used for resource management.
-   */
-  function Atom(name) {
-    if (name === void 0) {
-      name = "Atom@" + getNextId();
-    }
-
-    this.name = name;
-    this.isPendingUnobservation = false; // for effective unobserving. BaseAtom has true, for extra optimization, so its onBecomeUnobserved never gets called, because it's not needed
-
-    this.isBeingObserved = false;
-    this.observers = new Set();
-    this.diffValue = 0;
-    this.lastAccessedBy = 0;
-    this.lowestObserverState = IDerivationState.NOT_TRACKING;
-  }
-
-  Atom.prototype.onBecomeObserved = function () {
-    if (this.onBecomeObservedListeners) {
-      this.onBecomeObservedListeners.forEach(function (listener) {
-        return listener();
-      });
-    }
-  };
-
-  Atom.prototype.onBecomeUnobserved = function () {
-    if (this.onBecomeUnobservedListeners) {
-      this.onBecomeUnobservedListeners.forEach(function (listener) {
-        return listener();
-      });
-    }
-  };
-  /**
-   * Invoke this method to notify mobx that your atom has been used somehow.
-   * Returns true if there is currently a reactive context.
-   */
-
-
-  Atom.prototype.reportObserved = function () {
-    return reportObserved(this);
-  };
-  /**
-   * Invoke this method _after_ this method has changed to signal mobx that all its observers should invalidate.
-   */
-
-
-  Atom.prototype.reportChanged = function () {
-    startBatch();
-    propagateChanged(this);
-    endBatch();
-  };
-
-  Atom.prototype.toString = function () {
-    return this.name;
-  };
-
-  return Atom;
-}();
-
-var isAtom = createInstanceofPredicate("Atom", Atom);
-
-function createAtom(name, onBecomeObservedHandler, onBecomeUnobservedHandler) {
-  if (onBecomeObservedHandler === void 0) {
-    onBecomeObservedHandler = noop;
-  }
-
-  if (onBecomeUnobservedHandler === void 0) {
-    onBecomeUnobservedHandler = noop;
-  }
-
-  var atom = new Atom(name); // default `noop` listener will not initialize the hook Set
-
-  if (onBecomeObservedHandler !== noop) {
-    onBecomeObserved(atom, onBecomeObservedHandler);
-  }
-
-  if (onBecomeUnobservedHandler !== noop) {
-    onBecomeUnobserved(atom, onBecomeUnobservedHandler);
-  }
-
-  return atom;
-}
-
-function identityComparer(a, b) {
-  return a === b;
-}
-
-function structuralComparer(a, b) {
-  return deepEqual(a, b);
-}
-
-function shallowComparer(a, b) {
-  return deepEqual(a, b, 1);
-}
-
-function defaultComparer(a, b) {
-  return Object.is(a, b);
-}
-
-var comparer = {
-  identity: identityComparer,
-  structural: structuralComparer,
-  default: defaultComparer,
-  shallow: shallowComparer
-};
-exports.comparer = comparer;
-var mobxDidRunLazyInitializersSymbol = Symbol("mobx did run lazy initializers");
-var mobxPendingDecorators = Symbol("mobx pending decorators");
-var enumerableDescriptorCache = {};
-var nonEnumerableDescriptorCache = {};
-
-function createPropertyInitializerDescriptor(prop, enumerable) {
-  var cache = enumerable ? enumerableDescriptorCache : nonEnumerableDescriptorCache;
-  return cache[prop] || (cache[prop] = {
-    configurable: true,
-    enumerable: enumerable,
-    get: function () {
-      initializeInstance(this);
-      return this[prop];
-    },
-    set: function (value) {
-      initializeInstance(this);
-      this[prop] = value;
-    }
-  });
-}
-
-function initializeInstance(target) {
-  var e_1, _a;
-
-  if (target[mobxDidRunLazyInitializersSymbol] === true) return;
-  var decorators = target[mobxPendingDecorators];
-
-  if (decorators) {
-    addHiddenProp(target, mobxDidRunLazyInitializersSymbol, true); // Build property key array from both strings and symbols
-
-    var keys = __spread(Object.getOwnPropertySymbols(decorators), Object.keys(decorators));
-
-    try {
-      for (var keys_1 = __values(keys), keys_1_1 = keys_1.next(); !keys_1_1.done; keys_1_1 = keys_1.next()) {
-        var key = keys_1_1.value;
-        var d = decorators[key];
-        d.propertyCreator(target, d.prop, d.descriptor, d.decoratorTarget, d.decoratorArguments);
-      }
-    } catch (e_1_1) {
-      e_1 = {
-        error: e_1_1
-      };
-    } finally {
-      try {
-        if (keys_1_1 && !keys_1_1.done && (_a = keys_1.return)) _a.call(keys_1);
-      } finally {
-        if (e_1) throw e_1.error;
-      }
-    }
-  }
-}
-
-function createPropDecorator(propertyInitiallyEnumerable, propertyCreator) {
-  return function decoratorFactory() {
-    var decoratorArguments;
-
-    var decorator = function decorate(target, prop, descriptor, applyImmediately // This is a special parameter to signal the direct application of a decorator, allow extendObservable to skip the entire type decoration part,
-    // as the instance to apply the decorator to equals the target
-    ) {
-      if (applyImmediately === true) {
-        propertyCreator(target, prop, descriptor, target, decoratorArguments);
-        return null;
-      }
-
-      if ("development" !== "production" && !quacksLikeADecorator(arguments)) fail("This function is a decorator, but it wasn't invoked like a decorator");
-
-      if (!Object.prototype.hasOwnProperty.call(target, mobxPendingDecorators)) {
-        var inheritedDecorators = target[mobxPendingDecorators];
-        addHiddenProp(target, mobxPendingDecorators, __assign({}, inheritedDecorators));
-      }
-
-      target[mobxPendingDecorators][prop] = {
-        prop: prop,
-        propertyCreator: propertyCreator,
-        descriptor: descriptor,
-        decoratorTarget: target,
-        decoratorArguments: decoratorArguments
-      };
-      return createPropertyInitializerDescriptor(prop, propertyInitiallyEnumerable);
-    };
-
-    if (quacksLikeADecorator(arguments)) {
-      // @decorator
-      decoratorArguments = EMPTY_ARRAY;
-      return decorator.apply(null, arguments);
-    } else {
-      // @decorator(args)
-      decoratorArguments = Array.prototype.slice.call(arguments);
-      return decorator;
-    }
-  };
-}
-
-function quacksLikeADecorator(args) {
-  return (args.length === 2 || args.length === 3) && (typeof args[1] === "string" || typeof args[1] === "symbol") || args.length === 4 && args[3] === true;
-}
-
-function deepEnhancer(v, _, name) {
-  // it is an observable already, done
-  if (isObservable(v)) return v; // something that can be converted and mutated?
-
-  if (Array.isArray(v)) return observable.array(v, {
-    name: name
-  });
-  if (isPlainObject(v)) return observable.object(v, undefined, {
-    name: name
-  });
-  if (isES6Map(v)) return observable.map(v, {
-    name: name
-  });
-  if (isES6Set(v)) return observable.set(v, {
-    name: name
-  });
-  return v;
-}
-
-function shallowEnhancer(v, _, name) {
-  if (v === undefined || v === null) return v;
-  if (isObservableObject(v) || isObservableArray(v) || isObservableMap(v) || isObservableSet(v)) return v;
-  if (Array.isArray(v)) return observable.array(v, {
-    name: name,
-    deep: false
-  });
-  if (isPlainObject(v)) return observable.object(v, undefined, {
-    name: name,
-    deep: false
-  });
-  if (isES6Map(v)) return observable.map(v, {
-    name: name,
-    deep: false
-  });
-  if (isES6Set(v)) return observable.set(v, {
-    name: name,
-    deep: false
-  });
-  return fail("development" !== "production" && "The shallow modifier / decorator can only used in combination with arrays, objects, maps and sets");
-}
-
-function referenceEnhancer(newValue) {
-  // never turn into an observable
-  return newValue;
-}
-
-function refStructEnhancer(v, oldValue, name) {
-  if ("development" !== "production" && isObservable(v)) throw "observable.struct should not be used with observable values";
-  if (deepEqual(v, oldValue)) return oldValue;
-  return v;
-}
-
-function createDecoratorForEnhancer(enhancer) {
-  invariant(enhancer);
-  var decorator = createPropDecorator(true, function (target, propertyName, descriptor, _decoratorTarget, decoratorArgs) {
-    if ("development" !== "production") {
-      invariant(!descriptor || !descriptor.get, "@observable cannot be used on getter (property \"" + stringifyKey(propertyName) + "\"), use @computed instead.");
-    }
-
-    var initialValue = descriptor ? descriptor.initializer ? descriptor.initializer.call(target) : descriptor.value : undefined;
-    asObservableObject(target).addObservableProp(propertyName, initialValue, enhancer);
-  });
-  var res = // Extra process checks, as this happens during module initialization
-  typeof process !== "undefined" && process.env && "development" !== "production" ? function observableDecorator() {
-    // This wrapper function is just to detect illegal decorator invocations, deprecate in a next version
-    // and simply return the created prop decorator
-    if (arguments.length < 2) return fail("Incorrect decorator invocation. @observable decorator doesn't expect any arguments");
-    return decorator.apply(null, arguments);
-  } : decorator;
-  res.enhancer = enhancer;
-  return res;
-} // Predefined bags of create observable options, to avoid allocating temporarily option objects
-// in the majority of cases
-
-
-var defaultCreateObservableOptions = {
-  deep: true,
-  name: undefined,
-  defaultDecorator: undefined,
-  proxy: true
-};
-Object.freeze(defaultCreateObservableOptions);
-
-function assertValidOption(key) {
-  if (!/^(deep|name|equals|defaultDecorator|proxy)$/.test(key)) fail("invalid option for (extend)observable: " + key);
-}
-
-function asCreateObservableOptions(thing) {
-  if (thing === null || thing === undefined) return defaultCreateObservableOptions;
-  if (typeof thing === "string") return {
-    name: thing,
-    deep: true,
-    proxy: true
-  };
-
-  if ("development" !== "production") {
-    if (typeof thing !== "object") return fail("expected options object");
-    Object.keys(thing).forEach(assertValidOption);
-  }
-
-  return thing;
-}
-
-var deepDecorator = createDecoratorForEnhancer(deepEnhancer);
-var shallowDecorator = createDecoratorForEnhancer(shallowEnhancer);
-var refDecorator = createDecoratorForEnhancer(referenceEnhancer);
-var refStructDecorator = createDecoratorForEnhancer(refStructEnhancer);
-
-function getEnhancerFromOptions(options) {
-  return options.defaultDecorator ? options.defaultDecorator.enhancer : options.deep === false ? referenceEnhancer : deepEnhancer;
-}
-/**
- * Turns an object, array or function into a reactive structure.
- * @param v the value which should become observable.
- */
-
-
-function createObservable(v, arg2, arg3) {
-  // @observable someProp;
-  if (typeof arguments[1] === "string" || typeof arguments[1] === "symbol") {
-    return deepDecorator.apply(null, arguments);
-  } // it is an observable already, done
-
-
-  if (isObservable(v)) return v; // something that can be converted and mutated?
-
-  var res = isPlainObject(v) ? observable.object(v, arg2, arg3) : Array.isArray(v) ? observable.array(v, arg2) : isES6Map(v) ? observable.map(v, arg2) : isES6Set(v) ? observable.set(v, arg2) : v; // this value could be converted to a new observable data structure, return it
-
-  if (res !== v) return res; // otherwise, just box it
-
-  fail("development" !== "production" && "The provided value could not be converted into an observable. If you want just create an observable reference to the object use 'observable.box(value)'");
-}
-
-var observableFactories = {
-  box: function (value, options) {
-    if (arguments.length > 2) incorrectlyUsedAsDecorator("box");
-    var o = asCreateObservableOptions(options);
-    return new ObservableValue(value, getEnhancerFromOptions(o), o.name, true, o.equals);
-  },
-  array: function (initialValues, options) {
-    if (arguments.length > 2) incorrectlyUsedAsDecorator("array");
-    var o = asCreateObservableOptions(options);
-    return createObservableArray(initialValues, getEnhancerFromOptions(o), o.name);
-  },
-  map: function (initialValues, options) {
-    if (arguments.length > 2) incorrectlyUsedAsDecorator("map");
-    var o = asCreateObservableOptions(options);
-    return new ObservableMap(initialValues, getEnhancerFromOptions(o), o.name);
-  },
-  set: function (initialValues, options) {
-    if (arguments.length > 2) incorrectlyUsedAsDecorator("set");
-    var o = asCreateObservableOptions(options);
-    return new ObservableSet(initialValues, getEnhancerFromOptions(o), o.name);
-  },
-  object: function (props, decorators, options) {
-    if (typeof arguments[1] === "string") incorrectlyUsedAsDecorator("object");
-    var o = asCreateObservableOptions(options);
-
-    if (o.proxy === false) {
-      return extendObservable({}, props, decorators, o);
-    } else {
-      var defaultDecorator = getDefaultDecoratorFromObjectOptions(o);
-      var base = extendObservable({}, undefined, undefined, o);
-      var proxy = createDynamicObservableObject(base);
-      extendObservableObjectWithProperties(proxy, props, decorators, defaultDecorator);
-      return proxy;
-    }
-  },
-  ref: refDecorator,
-  shallow: shallowDecorator,
-  deep: deepDecorator,
-  struct: refStructDecorator
-};
-var observable = createObservable; // weird trick to keep our typings nicely with our funcs, and still extend the observable function
-
-exports.observable = observable;
-Object.keys(observableFactories).forEach(function (name) {
-  return observable[name] = observableFactories[name];
-});
-
-function incorrectlyUsedAsDecorator(methodName) {
-  fail( // process.env.NODE_ENV !== "production" &&
-  "Expected one or two arguments to observable." + methodName + ". Did you accidentally try to use observable." + methodName + " as decorator?");
-}
-
-var computedDecorator = createPropDecorator(false, function (instance, propertyName, descriptor, decoratorTarget, decoratorArgs) {
-  var get = descriptor.get,
-      set = descriptor.set; // initialValue is the descriptor for get / set props
-  // Optimization: faster on decorator target or instance? Assuming target
-  // Optimization: find out if declaring on instance isn't just faster. (also makes the property descriptor simpler). But, more memory usage..
-  // Forcing instance now, fixes hot reloadig issues on React Native:
-
-  var options = decoratorArgs[0] || {};
-  asObservableObject(instance).addComputedProp(instance, propertyName, __assign({
-    get: get,
-    set: set,
-    context: instance
-  }, options));
-});
-var computedStructDecorator = computedDecorator({
-  equals: comparer.structural
-});
-/**
- * Decorator for class properties: @computed get value() { return expr; }.
- * For legacy purposes also invokable as ES5 observable created: `computed(() => expr)`;
- */
-
-var computed = function computed(arg1, arg2, arg3) {
-  if (typeof arg2 === "string") {
-    // @computed
-    return computedDecorator.apply(null, arguments);
-  }
-
-  if (arg1 !== null && typeof arg1 === "object" && arguments.length === 1) {
-    // @computed({ options })
-    return computedDecorator.apply(null, arguments);
-  } // computed(expr, options?)
-
-
-  if ("development" !== "production") {
-    invariant(typeof arg1 === "function", "First argument to `computed` should be an expression.");
-    invariant(arguments.length < 3, "Computed takes one or two arguments if used as function");
-  }
-
-  var opts = typeof arg2 === "object" ? arg2 : {};
-  opts.get = arg1;
-  opts.set = typeof arg2 === "function" ? arg2 : opts.set;
-  opts.name = opts.name || arg1.name || "";
-  /* for generated name */
-
-  return new ComputedValue(opts);
-};
-
-exports.computed = computed;
-computed.struct = computedStructDecorator;
-var IDerivationState;
-exports.IDerivationState = IDerivationState;
-
-(function (IDerivationState) {
-  // before being run or (outside batch and not being observed)
-  // at this point derivation is not holding any data about dependency tree
-  IDerivationState[IDerivationState["NOT_TRACKING"] = -1] = "NOT_TRACKING"; // no shallow dependency changed since last computation
-  // won't recalculate derivation
-  // this is what makes mobx fast
-
-  IDerivationState[IDerivationState["UP_TO_DATE"] = 0] = "UP_TO_DATE"; // some deep dependency changed, but don't know if shallow dependency changed
-  // will require to check first if UP_TO_DATE or POSSIBLY_STALE
-  // currently only ComputedValue will propagate POSSIBLY_STALE
-  //
-  // having this state is second big optimization:
-  // don't have to recompute on every dependency change, but only when it's needed
-
-  IDerivationState[IDerivationState["POSSIBLY_STALE"] = 1] = "POSSIBLY_STALE"; // A shallow dependency has changed since last computation and the derivation
-  // will need to recompute when it's needed next.
-
-  IDerivationState[IDerivationState["STALE"] = 2] = "STALE";
-})(IDerivationState || (exports.IDerivationState = IDerivationState = {}));
-
-var TraceMode;
-
-(function (TraceMode) {
-  TraceMode[TraceMode["NONE"] = 0] = "NONE";
-  TraceMode[TraceMode["LOG"] = 1] = "LOG";
-  TraceMode[TraceMode["BREAK"] = 2] = "BREAK";
-})(TraceMode || (TraceMode = {}));
-
-var CaughtException =
-/** @class */
-function () {
-  function CaughtException(cause) {
-    this.cause = cause; // Empty
-  }
-
-  return CaughtException;
-}();
-
-function isCaughtException(e) {
-  return e instanceof CaughtException;
-}
-/**
- * Finds out whether any dependency of the derivation has actually changed.
- * If dependenciesState is 1 then it will recalculate dependencies,
- * if any dependency changed it will propagate it by changing dependenciesState to 2.
- *
- * By iterating over the dependencies in the same order that they were reported and
- * stopping on the first change, all the recalculations are only called for ComputedValues
- * that will be tracked by derivation. That is because we assume that if the first x
- * dependencies of the derivation doesn't change then the derivation should run the same way
- * up until accessing x-th dependency.
- */
-
-
-function shouldCompute(derivation) {
-  switch (derivation.dependenciesState) {
-    case IDerivationState.UP_TO_DATE:
-      return false;
-
-    case IDerivationState.NOT_TRACKING:
-    case IDerivationState.STALE:
-      return true;
-
-    case IDerivationState.POSSIBLY_STALE:
-      {
-        // state propagation can occur outside of action/reactive context #2195
-        var prevAllowStateReads = allowStateReadsStart(true);
-        var prevUntracked = untrackedStart(); // no need for those computeds to be reported, they will be picked up in trackDerivedFunction.
-
-        var obs = derivation.observing,
-            l = obs.length;
-
-        for (var i = 0; i < l; i++) {
-          var obj = obs[i];
-
-          if (isComputedValue(obj)) {
-            if (globalState.disableErrorBoundaries) {
-              obj.get();
-            } else {
-              try {
-                obj.get();
-              } catch (e) {
-                // we are not interested in the value *or* exception at this moment, but if there is one, notify all
-                untrackedEnd(prevUntracked);
-                allowStateReadsEnd(prevAllowStateReads);
-                return true;
-              }
-            } // if ComputedValue `obj` actually changed it will be computed and propagated to its observers.
-            // and `derivation` is an observer of `obj`
-            // invariantShouldCompute(derivation)
-
-
-            if (derivation.dependenciesState === IDerivationState.STALE) {
-              untrackedEnd(prevUntracked);
-              allowStateReadsEnd(prevAllowStateReads);
-              return true;
-            }
-          }
-        }
-
-        changeDependenciesStateTo0(derivation);
-        untrackedEnd(prevUntracked);
-        allowStateReadsEnd(prevAllowStateReads);
-        return false;
-      }
-  }
-} // function invariantShouldCompute(derivation: IDerivation) {
-//     const newDepState = (derivation as any).dependenciesState
-//     if (
-//         process.env.NODE_ENV === "production" &&
-//         (newDepState === IDerivationState.POSSIBLY_STALE ||
-//             newDepState === IDerivationState.NOT_TRACKING)
-//     )
-//         fail("Illegal dependency state")
-// }
-
-
-function isComputingDerivation() {
-  return globalState.trackingDerivation !== null; // filter out actions inside computations
-}
-
-function checkIfStateModificationsAreAllowed(atom) {
-  var hasObservers = atom.observers.size > 0; // Should never be possible to change an observed observable from inside computed, see #798
-
-  if (globalState.computationDepth > 0 && hasObservers) fail("development" !== "production" && "Computed values are not allowed to cause side effects by changing observables that are already being observed. Tried to modify: " + atom.name); // Should not be possible to change observed state outside strict mode, except during initialization, see #563
-
-  if (!globalState.allowStateChanges && (hasObservers || globalState.enforceActions === "strict")) fail("development" !== "production" && (globalState.enforceActions ? "Since strict-mode is enabled, changing observed observable values outside actions is not allowed. Please wrap the code in an `action` if this change is intended. Tried to modify: " : "Side effects like changing state are not allowed at this point. Are you trying to modify state from, for example, the render function of a React component? Tried to modify: ") + atom.name);
-}
-
-function checkIfStateReadsAreAllowed(observable) {
-  if ("development" !== "production" && !globalState.allowStateReads && globalState.observableRequiresReaction) {
-    console.warn("[mobx] Observable " + observable.name + " being read outside a reactive context");
-  }
-}
-/**
- * Executes the provided function `f` and tracks which observables are being accessed.
- * The tracking information is stored on the `derivation` object and the derivation is registered
- * as observer of any of the accessed observables.
- */
-
-
-function trackDerivedFunction(derivation, f, context) {
-  var prevAllowStateReads = allowStateReadsStart(true); // pre allocate array allocation + room for variation in deps
-  // array will be trimmed by bindDependencies
-
-  changeDependenciesStateTo0(derivation);
-  derivation.newObserving = new Array(derivation.observing.length + 100);
-  derivation.unboundDepsCount = 0;
-  derivation.runId = ++globalState.runId;
-  var prevTracking = globalState.trackingDerivation;
-  globalState.trackingDerivation = derivation;
-  var result;
-
-  if (globalState.disableErrorBoundaries === true) {
-    result = f.call(context);
-  } else {
-    try {
-      result = f.call(context);
-    } catch (e) {
-      result = new CaughtException(e);
-    }
-  }
-
-  globalState.trackingDerivation = prevTracking;
-  bindDependencies(derivation);
-  warnAboutDerivationWithoutDependencies(derivation);
-  allowStateReadsEnd(prevAllowStateReads);
-  return result;
-}
-
-function warnAboutDerivationWithoutDependencies(derivation) {
-  if ("development" === "production") return;
-  if (derivation.observing.length !== 0) return;
-
-  if (globalState.reactionRequiresObservable || derivation.requiresObservable) {
-    console.warn("[mobx] Derivation " + derivation.name + " is created/updated without reading any observable value");
-  }
-}
-/**
- * diffs newObserving with observing.
- * update observing to be newObserving with unique observables
- * notify observers that become observed/unobserved
- */
-
-
-function bindDependencies(derivation) {
-  // invariant(derivation.dependenciesState !== IDerivationState.NOT_TRACKING, "INTERNAL ERROR bindDependencies expects derivation.dependenciesState !== -1");
-  var prevObserving = derivation.observing;
-  var observing = derivation.observing = derivation.newObserving;
-  var lowestNewObservingDerivationState = IDerivationState.UP_TO_DATE; // Go through all new observables and check diffValue: (this list can contain duplicates):
-  //   0: first occurrence, change to 1 and keep it
-  //   1: extra occurrence, drop it
-
-  var i0 = 0,
-      l = derivation.unboundDepsCount;
-
-  for (var i = 0; i < l; i++) {
-    var dep = observing[i];
-
-    if (dep.diffValue === 0) {
-      dep.diffValue = 1;
-      if (i0 !== i) observing[i0] = dep;
-      i0++;
-    } // Upcast is 'safe' here, because if dep is IObservable, `dependenciesState` will be undefined,
-    // not hitting the condition
-
-
-    if (dep.dependenciesState > lowestNewObservingDerivationState) {
-      lowestNewObservingDerivationState = dep.dependenciesState;
-    }
-  }
-
-  observing.length = i0;
-  derivation.newObserving = null; // newObserving shouldn't be needed outside tracking (statement moved down to work around FF bug, see #614)
-  // Go through all old observables and check diffValue: (it is unique after last bindDependencies)
-  //   0: it's not in new observables, unobserve it
-  //   1: it keeps being observed, don't want to notify it. change to 0
-
-  l = prevObserving.length;
-
-  while (l--) {
-    var dep = prevObserving[l];
-
-    if (dep.diffValue === 0) {
-      removeObserver(dep, derivation);
-    }
-
-    dep.diffValue = 0;
-  } // Go through all new observables and check diffValue: (now it should be unique)
-  //   0: it was set to 0 in last loop. don't need to do anything.
-  //   1: it wasn't observed, let's observe it. set back to 0
-
-
-  while (i0--) {
-    var dep = observing[i0];
-
-    if (dep.diffValue === 1) {
-      dep.diffValue = 0;
-      addObserver(dep, derivation);
-    }
-  } // Some new observed derivations may become stale during this derivation computation
-  // so they have had no chance to propagate staleness (#916)
-
-
-  if (lowestNewObservingDerivationState !== IDerivationState.UP_TO_DATE) {
-    derivation.dependenciesState = lowestNewObservingDerivationState;
-    derivation.onBecomeStale();
-  }
-}
-
-function clearObserving(derivation) {
-  // invariant(globalState.inBatch > 0, "INTERNAL ERROR clearObserving should be called only inside batch");
-  var obs = derivation.observing;
-  derivation.observing = [];
-  var i = obs.length;
-
-  while (i--) removeObserver(obs[i], derivation);
-
-  derivation.dependenciesState = IDerivationState.NOT_TRACKING;
-}
-
-function untracked(action) {
-  var prev = untrackedStart();
-
-  try {
-    return action();
-  } finally {
-    untrackedEnd(prev);
-  }
-}
-
-function untrackedStart() {
-  var prev = globalState.trackingDerivation;
-  globalState.trackingDerivation = null;
-  return prev;
-}
-
-function untrackedEnd(prev) {
-  globalState.trackingDerivation = prev;
-}
-
-function allowStateReadsStart(allowStateReads) {
-  var prev = globalState.allowStateReads;
-  globalState.allowStateReads = allowStateReads;
-  return prev;
-}
-
-function allowStateReadsEnd(prev) {
-  globalState.allowStateReads = prev;
-}
-/**
- * needed to keep `lowestObserverState` correct. when changing from (2 or 1) to 0
- *
- */
-
-
-function changeDependenciesStateTo0(derivation) {
-  if (derivation.dependenciesState === IDerivationState.UP_TO_DATE) return;
-  derivation.dependenciesState = IDerivationState.UP_TO_DATE;
-  var obs = derivation.observing;
-  var i = obs.length;
-
-  while (i--) obs[i].lowestObserverState = IDerivationState.UP_TO_DATE;
-} // we don't use globalState for these in order to avoid possible issues with multiple
-// mobx versions
-
-
-var currentActionId = 0;
-var nextActionId = 1;
-var functionNameDescriptor = Object.getOwnPropertyDescriptor(function () {}, "name");
-var isFunctionNameConfigurable = functionNameDescriptor && functionNameDescriptor.configurable;
-
-function createAction(actionName, fn, ref) {
-  if ("development" !== "production") {
-    invariant(typeof fn === "function", "`action` can only be invoked on functions");
-    if (typeof actionName !== "string" || !actionName) fail("actions should have valid names, got: '" + actionName + "'");
-  }
-
-  var res = function () {
-    return executeAction(actionName, fn, ref || this, arguments);
-  };
-
-  res.isMobxAction = true;
-
-  if ("development" !== "production") {
-    if (isFunctionNameConfigurable) {
-      Object.defineProperty(res, "name", {
-        value: actionName
-      });
-    }
-  }
-
-  return res;
-}
-
-function executeAction(actionName, fn, scope, args) {
-  var runInfo = _startAction(actionName, scope, args);
-
-  try {
-    return fn.apply(scope, args);
-  } catch (err) {
-    runInfo.error = err;
-    throw err;
-  } finally {
-    _endAction(runInfo);
-  }
-}
-
-function _startAction(actionName, scope, args) {
-  var notifySpy = isSpyEnabled() && !!actionName;
-  var startTime = 0;
-
-  if (notifySpy && "development" !== "production") {
-    startTime = Date.now();
-    var l = args && args.length || 0;
-    var flattendArgs = new Array(l);
-    if (l > 0) for (var i = 0; i < l; i++) flattendArgs[i] = args[i];
-    spyReportStart({
-      type: "action",
-      name: actionName,
-      object: scope,
-      arguments: flattendArgs
-    });
-  }
-
-  var prevDerivation = untrackedStart();
-  startBatch();
-  var prevAllowStateChanges = allowStateChangesStart(true);
-  var prevAllowStateReads = allowStateReadsStart(true);
-  var runInfo = {
-    prevDerivation: prevDerivation,
-    prevAllowStateChanges: prevAllowStateChanges,
-    prevAllowStateReads: prevAllowStateReads,
-    notifySpy: notifySpy,
-    startTime: startTime,
-    actionId: nextActionId++,
-    parentActionId: currentActionId
-  };
-  currentActionId = runInfo.actionId;
-  return runInfo;
-}
-
-function _endAction(runInfo) {
-  if (currentActionId !== runInfo.actionId) {
-    fail("invalid action stack. did you forget to finish an action?");
-  }
-
-  currentActionId = runInfo.parentActionId;
-
-  if (runInfo.error !== undefined) {
-    globalState.suppressReactionErrors = true;
-  }
-
-  allowStateChangesEnd(runInfo.prevAllowStateChanges);
-  allowStateReadsEnd(runInfo.prevAllowStateReads);
-  endBatch();
-  untrackedEnd(runInfo.prevDerivation);
-
-  if (runInfo.notifySpy && "development" !== "production") {
-    spyReportEnd({
-      time: Date.now() - runInfo.startTime
-    });
-  }
-
-  globalState.suppressReactionErrors = false;
-}
-
-function allowStateChanges(allowStateChanges, func) {
-  var prev = allowStateChangesStart(allowStateChanges);
-  var res;
-
-  try {
-    res = func();
-  } finally {
-    allowStateChangesEnd(prev);
-  }
-
-  return res;
-}
-
-function allowStateChangesStart(allowStateChanges) {
-  var prev = globalState.allowStateChanges;
-  globalState.allowStateChanges = allowStateChanges;
-  return prev;
-}
-
-function allowStateChangesEnd(prev) {
-  globalState.allowStateChanges = prev;
-}
-
-function allowStateChangesInsideComputed(func) {
-  var prev = globalState.computationDepth;
-  globalState.computationDepth = 0;
-  var res;
-
-  try {
-    res = func();
-  } finally {
-    globalState.computationDepth = prev;
-  }
-
-  return res;
-}
-
-var ObservableValue =
-/** @class */
-function (_super) {
-  __extends(ObservableValue, _super);
-
-  function ObservableValue(value, enhancer, name, notifySpy, equals) {
-    if (name === void 0) {
-      name = "ObservableValue@" + getNextId();
-    }
-
-    if (notifySpy === void 0) {
-      notifySpy = true;
-    }
-
-    if (equals === void 0) {
-      equals = comparer.default;
-    }
-
-    var _this = _super.call(this, name) || this;
-
-    _this.enhancer = enhancer;
-    _this.name = name;
-    _this.equals = equals;
-    _this.hasUnreportedChange = false;
-    _this.value = enhancer(value, undefined, name);
-
-    if (notifySpy && isSpyEnabled() && "development" !== "production") {
-      // only notify spy if this is a stand-alone observable
-      spyReport({
-        type: "create",
-        name: _this.name,
-        newValue: "" + _this.value
-      });
-    }
-
-    return _this;
-  }
-
-  ObservableValue.prototype.dehanceValue = function (value) {
-    if (this.dehancer !== undefined) return this.dehancer(value);
-    return value;
-  };
-
-  ObservableValue.prototype.set = function (newValue) {
-    var oldValue = this.value;
-    newValue = this.prepareNewValue(newValue);
-
-    if (newValue !== globalState.UNCHANGED) {
-      var notifySpy = isSpyEnabled();
-
-      if (notifySpy && "development" !== "production") {
-        spyReportStart({
-          type: "update",
-          name: this.name,
-          newValue: newValue,
-          oldValue: oldValue
-        });
-      }
-
-      this.setNewValue(newValue);
-      if (notifySpy && "development" !== "production") spyReportEnd();
-    }
-  };
-
-  ObservableValue.prototype.prepareNewValue = function (newValue) {
-    checkIfStateModificationsAreAllowed(this);
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        object: this,
-        type: "update",
-        newValue: newValue
-      });
-      if (!change) return globalState.UNCHANGED;
-      newValue = change.newValue;
-    } // apply modifier
-
-
-    newValue = this.enhancer(newValue, this.value, this.name);
-    return this.equals(this.value, newValue) ? globalState.UNCHANGED : newValue;
-  };
-
-  ObservableValue.prototype.setNewValue = function (newValue) {
-    var oldValue = this.value;
-    this.value = newValue;
-    this.reportChanged();
-
-    if (hasListeners(this)) {
-      notifyListeners(this, {
-        type: "update",
-        object: this,
-        newValue: newValue,
-        oldValue: oldValue
-      });
-    }
-  };
-
-  ObservableValue.prototype.get = function () {
-    this.reportObserved();
-    return this.dehanceValue(this.value);
-  };
-
-  ObservableValue.prototype.intercept = function (handler) {
-    return registerInterceptor(this, handler);
-  };
-
-  ObservableValue.prototype.observe = function (listener, fireImmediately) {
-    if (fireImmediately) listener({
-      object: this,
-      type: "update",
-      newValue: this.value,
-      oldValue: undefined
-    });
-    return registerListener(this, listener);
-  };
-
-  ObservableValue.prototype.toJSON = function () {
-    return this.get();
-  };
-
-  ObservableValue.prototype.toString = function () {
-    return this.name + "[" + this.value + "]";
-  };
-
-  ObservableValue.prototype.valueOf = function () {
-    return toPrimitive(this.get());
-  };
-
-  ObservableValue.prototype[Symbol.toPrimitive] = function () {
-    return this.valueOf();
-  };
-
-  return ObservableValue;
-}(Atom);
-
-var isObservableValue = createInstanceofPredicate("ObservableValue", ObservableValue);
-/**
- * A node in the state dependency root that observes other nodes, and can be observed itself.
- *
- * ComputedValue will remember the result of the computation for the duration of the batch, or
- * while being observed.
- *
- * During this time it will recompute only when one of its direct dependencies changed,
- * but only when it is being accessed with `ComputedValue.get()`.
- *
- * Implementation description:
- * 1. First time it's being accessed it will compute and remember result
- *    give back remembered result until 2. happens
- * 2. First time any deep dependency change, propagate POSSIBLY_STALE to all observers, wait for 3.
- * 3. When it's being accessed, recompute if any shallow dependency changed.
- *    if result changed: propagate STALE to all observers, that were POSSIBLY_STALE from the last step.
- *    go to step 2. either way
- *
- * If at any point it's outside batch and it isn't observed: reset everything and go to 1.
- */
-
-exports.isBoxedObservable = isObservableValue;
-
-var ComputedValue =
-/** @class */
-function () {
-  /**
-   * Create a new computed value based on a function expression.
-   *
-   * The `name` property is for debug purposes only.
-   *
-   * The `equals` property specifies the comparer function to use to determine if a newly produced
-   * value differs from the previous value. Two comparers are provided in the library; `defaultComparer`
-   * compares based on identity comparison (===), and `structualComparer` deeply compares the structure.
-   * Structural comparison can be convenient if you always produce a new aggregated object and
-   * don't want to notify observers if it is structurally the same.
-   * This is useful for working with vectors, mouse coordinates etc.
-   */
-  function ComputedValue(options) {
-    this.dependenciesState = IDerivationState.NOT_TRACKING;
-    this.observing = []; // nodes we are looking at. Our value depends on these nodes
-
-    this.newObserving = null; // during tracking it's an array with new observed observers
-
-    this.isBeingObserved = false;
-    this.isPendingUnobservation = false;
-    this.observers = new Set();
-    this.diffValue = 0;
-    this.runId = 0;
-    this.lastAccessedBy = 0;
-    this.lowestObserverState = IDerivationState.UP_TO_DATE;
-    this.unboundDepsCount = 0;
-    this.__mapid = "#" + getNextId();
-    this.value = new CaughtException(null);
-    this.isComputing = false; // to check for cycles
-
-    this.isRunningSetter = false;
-    this.isTracing = TraceMode.NONE;
-    invariant(options.get, "missing option for computed: get");
-    this.derivation = options.get;
-    this.name = options.name || "ComputedValue@" + getNextId();
-    if (options.set) this.setter = createAction(this.name + "-setter", options.set);
-    this.equals = options.equals || (options.compareStructural || options.struct ? comparer.structural : comparer.default);
-    this.scope = options.context;
-    this.requiresReaction = !!options.requiresReaction;
-    this.keepAlive = !!options.keepAlive;
-  }
-
-  ComputedValue.prototype.onBecomeStale = function () {
-    propagateMaybeChanged(this);
-  };
-
-  ComputedValue.prototype.onBecomeObserved = function () {
-    if (this.onBecomeObservedListeners) {
-      this.onBecomeObservedListeners.forEach(function (listener) {
-        return listener();
-      });
-    }
-  };
-
-  ComputedValue.prototype.onBecomeUnobserved = function () {
-    if (this.onBecomeUnobservedListeners) {
-      this.onBecomeUnobservedListeners.forEach(function (listener) {
-        return listener();
-      });
-    }
-  };
-  /**
-   * Returns the current value of this computed value.
-   * Will evaluate its computation first if needed.
-   */
-
-
-  ComputedValue.prototype.get = function () {
-    if (this.isComputing) fail("Cycle detected in computation " + this.name + ": " + this.derivation);
-
-    if (globalState.inBatch === 0 && this.observers.size === 0 && !this.keepAlive) {
-      if (shouldCompute(this)) {
-        this.warnAboutUntrackedRead();
-        startBatch(); // See perf test 'computed memoization'
-
-        this.value = this.computeValue(false);
-        endBatch();
-      }
-    } else {
-      reportObserved(this);
-      if (shouldCompute(this)) if (this.trackAndCompute()) propagateChangeConfirmed(this);
-    }
-
-    var result = this.value;
-    if (isCaughtException(result)) throw result.cause;
-    return result;
-  };
-
-  ComputedValue.prototype.peek = function () {
-    var res = this.computeValue(false);
-    if (isCaughtException(res)) throw res.cause;
-    return res;
-  };
-
-  ComputedValue.prototype.set = function (value) {
-    if (this.setter) {
-      invariant(!this.isRunningSetter, "The setter of computed value '" + this.name + "' is trying to update itself. Did you intend to update an _observable_ value, instead of the computed property?");
-      this.isRunningSetter = true;
-
-      try {
-        this.setter.call(this.scope, value);
-      } finally {
-        this.isRunningSetter = false;
-      }
-    } else invariant(false, "development" !== "production" && "[ComputedValue '" + this.name + "'] It is not possible to assign a new value to a computed value.");
-  };
-
-  ComputedValue.prototype.trackAndCompute = function () {
-    if (isSpyEnabled() && "development" !== "production") {
-      spyReport({
-        object: this.scope,
-        type: "compute",
-        name: this.name
-      });
-    }
-
-    var oldValue = this.value;
-    var wasSuspended =
-    /* see #1208 */
-    this.dependenciesState === IDerivationState.NOT_TRACKING;
-    var newValue = this.computeValue(true);
-    var changed = wasSuspended || isCaughtException(oldValue) || isCaughtException(newValue) || !this.equals(oldValue, newValue);
-
-    if (changed) {
-      this.value = newValue;
-    }
-
-    return changed;
-  };
-
-  ComputedValue.prototype.computeValue = function (track) {
-    this.isComputing = true;
-    globalState.computationDepth++;
-    var res;
-
-    if (track) {
-      res = trackDerivedFunction(this, this.derivation, this.scope);
-    } else {
-      if (globalState.disableErrorBoundaries === true) {
-        res = this.derivation.call(this.scope);
-      } else {
-        try {
-          res = this.derivation.call(this.scope);
-        } catch (e) {
-          res = new CaughtException(e);
-        }
-      }
-    }
-
-    globalState.computationDepth--;
-    this.isComputing = false;
-    return res;
-  };
-
-  ComputedValue.prototype.suspend = function () {
-    if (!this.keepAlive) {
-      clearObserving(this);
-      this.value = undefined; // don't hold on to computed value!
-    }
-  };
-
-  ComputedValue.prototype.observe = function (listener, fireImmediately) {
-    var _this = this;
-
-    var firstTime = true;
-    var prevValue = undefined;
-    return autorun(function () {
-      var newValue = _this.get();
-
-      if (!firstTime || fireImmediately) {
-        var prevU = untrackedStart();
-        listener({
-          type: "update",
-          object: _this,
-          newValue: newValue,
-          oldValue: prevValue
-        });
-        untrackedEnd(prevU);
-      }
-
-      firstTime = false;
-      prevValue = newValue;
-    });
-  };
-
-  ComputedValue.prototype.warnAboutUntrackedRead = function () {
-    if ("development" === "production") return;
-
-    if (this.requiresReaction === true) {
-      fail("[mobx] Computed value " + this.name + " is read outside a reactive context");
-    }
-
-    if (this.isTracing !== TraceMode.NONE) {
-      console.log("[mobx.trace] '" + this.name + "' is being read outside a reactive context. Doing a full recompute");
-    }
-
-    if (globalState.computedRequiresReaction) {
-      console.warn("[mobx] Computed value " + this.name + " is being read outside a reactive context. Doing a full recompute");
-    }
-  };
-
-  ComputedValue.prototype.toJSON = function () {
-    return this.get();
-  };
-
-  ComputedValue.prototype.toString = function () {
-    return this.name + "[" + this.derivation.toString() + "]";
-  };
-
-  ComputedValue.prototype.valueOf = function () {
-    return toPrimitive(this.get());
-  };
-
-  ComputedValue.prototype[Symbol.toPrimitive] = function () {
-    return this.valueOf();
-  };
-
-  return ComputedValue;
-}();
-
-var isComputedValue = createInstanceofPredicate("ComputedValue", ComputedValue);
-/**
- * These values will persist if global state is reset
- */
-
-var persistentKeys = ["mobxGuid", "spyListeners", "enforceActions", "computedRequiresReaction", "reactionRequiresObservable", "observableRequiresReaction", "allowStateReads", "disableErrorBoundaries", "runId", "UNCHANGED"];
-
-var MobXGlobals =
-/** @class */
-function () {
-  function MobXGlobals() {
-    /**
-     * MobXGlobals version.
-     * MobX compatiblity with other versions loaded in memory as long as this version matches.
-     * It indicates that the global state still stores similar information
-     *
-     * N.B: this version is unrelated to the package version of MobX, and is only the version of the
-     * internal state storage of MobX, and can be the same across many different package versions
-     */
-    this.version = 5;
-    /**
-     * globally unique token to signal unchanged
-     */
-
-    this.UNCHANGED = {};
-    /**
-     * Currently running derivation
-     */
-
-    this.trackingDerivation = null;
-    /**
-     * Are we running a computation currently? (not a reaction)
-     */
-
-    this.computationDepth = 0;
-    /**
-     * Each time a derivation is tracked, it is assigned a unique run-id
-     */
-
-    this.runId = 0;
-    /**
-     * 'guid' for general purpose. Will be persisted amongst resets.
-     */
-
-    this.mobxGuid = 0;
-    /**
-     * Are we in a batch block? (and how many of them)
-     */
-
-    this.inBatch = 0;
-    /**
-     * Observables that don't have observers anymore, and are about to be
-     * suspended, unless somebody else accesses it in the same batch
-     *
-     * @type {IObservable[]}
-     */
-
-    this.pendingUnobservations = [];
-    /**
-     * List of scheduled, not yet executed, reactions.
-     */
-
-    this.pendingReactions = [];
-    /**
-     * Are we currently processing reactions?
-     */
-
-    this.isRunningReactions = false;
-    /**
-     * Is it allowed to change observables at this point?
-     * In general, MobX doesn't allow that when running computations and React.render.
-     * To ensure that those functions stay pure.
-     */
-
-    this.allowStateChanges = true;
-    /**
-     * Is it allowed to read observables at this point?
-     * Used to hold the state needed for `observableRequiresReaction`
-     */
-
-    this.allowStateReads = true;
-    /**
-     * If strict mode is enabled, state changes are by default not allowed
-     */
-
-    this.enforceActions = false;
-    /**
-     * Spy callbacks
-     */
-
-    this.spyListeners = [];
-    /**
-     * Globally attached error handlers that react specifically to errors in reactions
-     */
-
-    this.globalReactionErrorHandlers = [];
-    /**
-     * Warn if computed values are accessed outside a reactive context
-     */
-
-    this.computedRequiresReaction = false;
-    /**
-     * (Experimental)
-     * Warn if you try to create to derivation / reactive context without accessing any observable.
-     */
-
-    this.reactionRequiresObservable = false;
-    /**
-     * (Experimental)
-     * Warn if observables are accessed outside a reactive context
-     */
-
-    this.observableRequiresReaction = false;
-    /**
-     * Allows overwriting of computed properties, useful in tests but not prod as it can cause
-     * memory leaks. See https://github.com/mobxjs/mobx/issues/1867
-     */
-
-    this.computedConfigurable = false;
-    /*
-     * Don't catch and rethrow exceptions. This is useful for inspecting the state of
-     * the stack when an exception occurs while debugging.
-     */
-
-    this.disableErrorBoundaries = false;
-    /*
-     * If true, we are already handling an exception in an action. Any errors in reactions should be suppressed, as
-     * they are not the cause, see: https://github.com/mobxjs/mobx/issues/1836
-     */
-
-    this.suppressReactionErrors = false;
-  }
-
-  return MobXGlobals;
-}();
-
-var mockGlobal = {};
-
-function getGlobal() {
-  if (typeof window !== "undefined") {
-    return window;
-  }
-
-  if (typeof global !== "undefined") {
-    return global;
-  }
-
-  if (typeof self !== "undefined") {
-    return self;
-  }
-
-  return mockGlobal;
-}
-
-var canMergeGlobalState = true;
-var isolateCalled = false;
-
-var globalState = function () {
-  var global = getGlobal();
-  if (global.__mobxInstanceCount > 0 && !global.__mobxGlobals) canMergeGlobalState = false;
-  if (global.__mobxGlobals && global.__mobxGlobals.version !== new MobXGlobals().version) canMergeGlobalState = false;
-
-  if (!canMergeGlobalState) {
-    setTimeout(function () {
-      if (!isolateCalled) {
-        fail("There are multiple, different versions of MobX active. Make sure MobX is loaded only once or use `configure({ isolateGlobalState: true })`");
-      }
-    }, 1);
-    return new MobXGlobals();
-  } else if (global.__mobxGlobals) {
-    global.__mobxInstanceCount += 1;
-    if (!global.__mobxGlobals.UNCHANGED) global.__mobxGlobals.UNCHANGED = {}; // make merge backward compatible
-
-    return global.__mobxGlobals;
-  } else {
-    global.__mobxInstanceCount = 1;
-    return global.__mobxGlobals = new MobXGlobals();
-  }
-}();
-
-function isolateGlobalState() {
-  if (globalState.pendingReactions.length || globalState.inBatch || globalState.isRunningReactions) fail("isolateGlobalState should be called before MobX is running any reactions");
-  isolateCalled = true;
-
-  if (canMergeGlobalState) {
-    if (--getGlobal().__mobxInstanceCount === 0) getGlobal().__mobxGlobals = undefined;
-    globalState = new MobXGlobals();
-  }
-}
-
-function getGlobalState() {
-  return globalState;
-}
-/**
- * For testing purposes only; this will break the internal state of existing observables,
- * but can be used to get back at a stable state after throwing errors
- */
-
-
-function resetGlobalState() {
-  var defaultGlobals = new MobXGlobals();
-
-  for (var key in defaultGlobals) if (persistentKeys.indexOf(key) === -1) globalState[key] = defaultGlobals[key];
-
-  globalState.allowStateChanges = !globalState.enforceActions;
-}
-
-function hasObservers(observable) {
-  return observable.observers && observable.observers.size > 0;
-}
-
-function getObservers(observable) {
-  return observable.observers;
-} // function invariantObservers(observable: IObservable) {
-//     const list = observable.observers
-//     const map = observable.observersIndexes
-//     const l = list.length
-//     for (let i = 0; i < l; i++) {
-//         const id = list[i].__mapid
-//         if (i) {
-//             invariant(map[id] === i, "INTERNAL ERROR maps derivation.__mapid to index in list") // for performance
-//         } else {
-//             invariant(!(id in map), "INTERNAL ERROR observer on index 0 shouldn't be held in map.") // for performance
-//         }
-//     }
-//     invariant(
-//         list.length === 0 || Object.keys(map).length === list.length - 1,
-//         "INTERNAL ERROR there is no junk in map"
-//     )
-// }
-
-
-function addObserver(observable, node) {
-  // invariant(node.dependenciesState !== -1, "INTERNAL ERROR, can add only dependenciesState !== -1");
-  // invariant(observable._observers.indexOf(node) === -1, "INTERNAL ERROR add already added node");
-  // invariantObservers(observable);
-  observable.observers.add(node);
-  if (observable.lowestObserverState > node.dependenciesState) observable.lowestObserverState = node.dependenciesState; // invariantObservers(observable);
-  // invariant(observable._observers.indexOf(node) !== -1, "INTERNAL ERROR didn't add node");
-}
-
-function removeObserver(observable, node) {
-  // invariant(globalState.inBatch > 0, "INTERNAL ERROR, remove should be called only inside batch");
-  // invariant(observable._observers.indexOf(node) !== -1, "INTERNAL ERROR remove already removed node");
-  // invariantObservers(observable);
-  observable.observers.delete(node);
-
-  if (observable.observers.size === 0) {
-    // deleting last observer
-    queueForUnobservation(observable);
-  } // invariantObservers(observable);
-  // invariant(observable._observers.indexOf(node) === -1, "INTERNAL ERROR remove already removed node2");
-
-}
-
-function queueForUnobservation(observable) {
-  if (observable.isPendingUnobservation === false) {
-    // invariant(observable._observers.length === 0, "INTERNAL ERROR, should only queue for unobservation unobserved observables");
-    observable.isPendingUnobservation = true;
-    globalState.pendingUnobservations.push(observable);
-  }
-}
-/**
- * Batch starts a transaction, at least for purposes of memoizing ComputedValues when nothing else does.
- * During a batch `onBecomeUnobserved` will be called at most once per observable.
- * Avoids unnecessary recalculations.
- */
-
-
-function startBatch() {
-  globalState.inBatch++;
-}
-
-function endBatch() {
-  if (--globalState.inBatch === 0) {
-    runReactions(); // the batch is actually about to finish, all unobserving should happen here.
-
-    var list = globalState.pendingUnobservations;
-
-    for (var i = 0; i < list.length; i++) {
-      var observable = list[i];
-      observable.isPendingUnobservation = false;
-
-      if (observable.observers.size === 0) {
-        if (observable.isBeingObserved) {
-          // if this observable had reactive observers, trigger the hooks
-          observable.isBeingObserved = false;
-          observable.onBecomeUnobserved();
-        }
-
-        if (observable instanceof ComputedValue) {
-          // computed values are automatically teared down when the last observer leaves
-          // this process happens recursively, this computed might be the last observabe of another, etc..
-          observable.suspend();
-        }
-      }
-    }
-
-    globalState.pendingUnobservations = [];
-  }
-}
-
-function reportObserved(observable) {
-  checkIfStateReadsAreAllowed(observable);
-  var derivation = globalState.trackingDerivation;
-
-  if (derivation !== null) {
-    /**
-     * Simple optimization, give each derivation run an unique id (runId)
-     * Check if last time this observable was accessed the same runId is used
-     * if this is the case, the relation is already known
-     */
-    if (derivation.runId !== observable.lastAccessedBy) {
-      observable.lastAccessedBy = derivation.runId; // Tried storing newObserving, or observing, or both as Set, but performance didn't come close...
-
-      derivation.newObserving[derivation.unboundDepsCount++] = observable;
-
-      if (!observable.isBeingObserved) {
-        observable.isBeingObserved = true;
-        observable.onBecomeObserved();
-      }
-    }
-
-    return true;
-  } else if (observable.observers.size === 0 && globalState.inBatch > 0) {
-    queueForUnobservation(observable);
-  }
-
-  return false;
-} // function invariantLOS(observable: IObservable, msg: string) {
-//     // it's expensive so better not run it in produciton. but temporarily helpful for testing
-//     const min = getObservers(observable).reduce((a, b) => Math.min(a, b.dependenciesState), 2)
-//     if (min >= observable.lowestObserverState) return // <- the only assumption about `lowestObserverState`
-//     throw new Error(
-//         "lowestObserverState is wrong for " +
-//             msg +
-//             " because " +
-//             min +
-//             " < " +
-//             observable.lowestObserverState
-//     )
-// }
-
-/**
- * NOTE: current propagation mechanism will in case of self reruning autoruns behave unexpectedly
- * It will propagate changes to observers from previous run
- * It's hard or maybe impossible (with reasonable perf) to get it right with current approach
- * Hopefully self reruning autoruns aren't a feature people should depend on
- * Also most basic use cases should be ok
- */
-// Called by Atom when its value changes
-
-
-function propagateChanged(observable) {
-  // invariantLOS(observable, "changed start");
-  if (observable.lowestObserverState === IDerivationState.STALE) return;
-  observable.lowestObserverState = IDerivationState.STALE; // Ideally we use for..of here, but the downcompiled version is really slow...
-
-  observable.observers.forEach(function (d) {
-    if (d.dependenciesState === IDerivationState.UP_TO_DATE) {
-      if (d.isTracing !== TraceMode.NONE) {
-        logTraceInfo(d, observable);
-      }
-
-      d.onBecomeStale();
-    }
-
-    d.dependenciesState = IDerivationState.STALE;
-  }); // invariantLOS(observable, "changed end");
-} // Called by ComputedValue when it recalculate and its value changed
-
-
-function propagateChangeConfirmed(observable) {
-  // invariantLOS(observable, "confirmed start");
-  if (observable.lowestObserverState === IDerivationState.STALE) return;
-  observable.lowestObserverState = IDerivationState.STALE;
-  observable.observers.forEach(function (d) {
-    if (d.dependenciesState === IDerivationState.POSSIBLY_STALE) d.dependenciesState = IDerivationState.STALE;else if (d.dependenciesState === IDerivationState.UP_TO_DATE // this happens during computing of `d`, just keep lowestObserverState up to date.
-    ) observable.lowestObserverState = IDerivationState.UP_TO_DATE;
-  }); // invariantLOS(observable, "confirmed end");
-} // Used by computed when its dependency changed, but we don't wan't to immediately recompute.
-
-
-function propagateMaybeChanged(observable) {
-  // invariantLOS(observable, "maybe start");
-  if (observable.lowestObserverState !== IDerivationState.UP_TO_DATE) return;
-  observable.lowestObserverState = IDerivationState.POSSIBLY_STALE;
-  observable.observers.forEach(function (d) {
-    if (d.dependenciesState === IDerivationState.UP_TO_DATE) {
-      d.dependenciesState = IDerivationState.POSSIBLY_STALE;
-
-      if (d.isTracing !== TraceMode.NONE) {
-        logTraceInfo(d, observable);
-      }
-
-      d.onBecomeStale();
-    }
-  }); // invariantLOS(observable, "maybe end");
-}
-
-function logTraceInfo(derivation, observable) {
-  console.log("[mobx.trace] '" + derivation.name + "' is invalidated due to a change in: '" + observable.name + "'");
-
-  if (derivation.isTracing === TraceMode.BREAK) {
-    var lines = [];
-    printDepTree(getDependencyTree(derivation), lines, 1); // prettier-ignore
-
-    new Function("debugger;\n/*\nTracing '" + derivation.name + "'\n\nYou are entering this break point because derivation '" + derivation.name + "' is being traced and '" + observable.name + "' is now forcing it to update.\nJust follow the stacktrace you should now see in the devtools to see precisely what piece of your code is causing this update\nThe stackframe you are looking for is at least ~6-8 stack-frames up.\n\n" + (derivation instanceof ComputedValue ? derivation.derivation.toString().replace(/[*]\//g, "/") : "") + "\n\nThe dependencies for this derivation are:\n\n" + lines.join("\n") + "\n*/\n    ")();
-  }
-}
-
-function printDepTree(tree, lines, depth) {
-  if (lines.length >= 1000) {
-    lines.push("(and many more)");
-    return;
-  }
-
-  lines.push("" + new Array(depth).join("\t") + tree.name); // MWE: not the fastest, but the easiest way :)
-
-  if (tree.dependencies) tree.dependencies.forEach(function (child) {
-    return printDepTree(child, lines, depth + 1);
-  });
-}
-
-var Reaction =
-/** @class */
-function () {
-  function Reaction(name, onInvalidate, errorHandler, requiresObservable) {
-    if (name === void 0) {
-      name = "Reaction@" + getNextId();
-    }
-
-    if (requiresObservable === void 0) {
-      requiresObservable = false;
-    }
-
-    this.name = name;
-    this.onInvalidate = onInvalidate;
-    this.errorHandler = errorHandler;
-    this.requiresObservable = requiresObservable;
-    this.observing = []; // nodes we are looking at. Our value depends on these nodes
-
-    this.newObserving = [];
-    this.dependenciesState = IDerivationState.NOT_TRACKING;
-    this.diffValue = 0;
-    this.runId = 0;
-    this.unboundDepsCount = 0;
-    this.__mapid = "#" + getNextId();
-    this.isDisposed = false;
-    this._isScheduled = false;
-    this._isTrackPending = false;
-    this._isRunning = false;
-    this.isTracing = TraceMode.NONE;
-  }
-
-  Reaction.prototype.onBecomeStale = function () {
-    this.schedule();
-  };
-
-  Reaction.prototype.schedule = function () {
-    if (!this._isScheduled) {
-      this._isScheduled = true;
-      globalState.pendingReactions.push(this);
-      runReactions();
-    }
-  };
-
-  Reaction.prototype.isScheduled = function () {
-    return this._isScheduled;
-  };
-  /**
-   * internal, use schedule() if you intend to kick off a reaction
-   */
-
-
-  Reaction.prototype.runReaction = function () {
-    if (!this.isDisposed) {
-      startBatch();
-      this._isScheduled = false;
-
-      if (shouldCompute(this)) {
-        this._isTrackPending = true;
-
-        try {
-          this.onInvalidate();
-
-          if (this._isTrackPending && isSpyEnabled() && "development" !== "production") {
-            // onInvalidate didn't trigger track right away..
-            spyReport({
-              name: this.name,
-              type: "scheduled-reaction"
-            });
-          }
-        } catch (e) {
-          this.reportExceptionInDerivation(e);
-        }
-      }
-
-      endBatch();
-    }
-  };
-
-  Reaction.prototype.track = function (fn) {
-    if (this.isDisposed) {
-      return; // console.warn("Reaction already disposed") // Note: Not a warning / error in mobx 4 either
-    }
-
-    startBatch();
-    var notify = isSpyEnabled();
-    var startTime;
-
-    if (notify && "development" !== "production") {
-      startTime = Date.now();
-      spyReportStart({
-        name: this.name,
-        type: "reaction"
-      });
-    }
-
-    this._isRunning = true;
-    var result = trackDerivedFunction(this, fn, undefined);
-    this._isRunning = false;
-    this._isTrackPending = false;
-
-    if (this.isDisposed) {
-      // disposed during last run. Clean up everything that was bound after the dispose call.
-      clearObserving(this);
-    }
-
-    if (isCaughtException(result)) this.reportExceptionInDerivation(result.cause);
-
-    if (notify && "development" !== "production") {
-      spyReportEnd({
-        time: Date.now() - startTime
-      });
-    }
-
-    endBatch();
-  };
-
-  Reaction.prototype.reportExceptionInDerivation = function (error) {
-    var _this = this;
-
-    if (this.errorHandler) {
-      this.errorHandler(error, this);
-      return;
-    }
-
-    if (globalState.disableErrorBoundaries) throw error;
-    var message = "[mobx] Encountered an uncaught exception that was thrown by a reaction or observer component, in: '" + this + "'";
-
-    if (globalState.suppressReactionErrors) {
-      console.warn("[mobx] (error in reaction '" + this.name + "' suppressed, fix error of causing action below)"); // prettier-ignore
-    } else {
-      console.error(message, error);
-      /** If debugging brought you here, please, read the above message :-). Tnx! */
-    }
-
-    if (isSpyEnabled()) {
-      spyReport({
-        type: "error",
-        name: this.name,
-        message: message,
-        error: "" + error
-      });
-    }
-
-    globalState.globalReactionErrorHandlers.forEach(function (f) {
-      return f(error, _this);
-    });
-  };
-
-  Reaction.prototype.dispose = function () {
-    if (!this.isDisposed) {
-      this.isDisposed = true;
-
-      if (!this._isRunning) {
-        // if disposed while running, clean up later. Maybe not optimal, but rare case
-        startBatch();
-        clearObserving(this);
-        endBatch();
-      }
-    }
-  };
-
-  Reaction.prototype.getDisposer = function () {
-    var r = this.dispose.bind(this);
-    r[$mobx] = this;
-    return r;
-  };
-
-  Reaction.prototype.toString = function () {
-    return "Reaction[" + this.name + "]";
-  };
-
-  Reaction.prototype.trace = function (enterBreakPoint) {
-    if (enterBreakPoint === void 0) {
-      enterBreakPoint = false;
-    }
-
-    trace(this, enterBreakPoint);
-  };
-
-  return Reaction;
-}();
-
-exports.Reaction = Reaction;
-
-function onReactionError(handler) {
-  globalState.globalReactionErrorHandlers.push(handler);
-  return function () {
-    var idx = globalState.globalReactionErrorHandlers.indexOf(handler);
-    if (idx >= 0) globalState.globalReactionErrorHandlers.splice(idx, 1);
-  };
-}
-/**
- * Magic number alert!
- * Defines within how many times a reaction is allowed to re-trigger itself
- * until it is assumed that this is gonna be a never ending loop...
- */
-
-
-var MAX_REACTION_ITERATIONS = 100;
-
-var reactionScheduler = function (f) {
-  return f();
-};
-
-function runReactions() {
-  // Trampolining, if runReactions are already running, new reactions will be picked up
-  if (globalState.inBatch > 0 || globalState.isRunningReactions) return;
-  reactionScheduler(runReactionsHelper);
-}
-
-function runReactionsHelper() {
-  globalState.isRunningReactions = true;
-  var allReactions = globalState.pendingReactions;
-  var iterations = 0; // While running reactions, new reactions might be triggered.
-  // Hence we work with two variables and check whether
-  // we converge to no remaining reactions after a while.
-
-  while (allReactions.length > 0) {
-    if (++iterations === MAX_REACTION_ITERATIONS) {
-      console.error("Reaction doesn't converge to a stable state after " + MAX_REACTION_ITERATIONS + " iterations." + (" Probably there is a cycle in the reactive function: " + allReactions[0]));
-      allReactions.splice(0); // clear reactions
-    }
-
-    var remainingReactions = allReactions.splice(0);
-
-    for (var i = 0, l = remainingReactions.length; i < l; i++) remainingReactions[i].runReaction();
-  }
-
-  globalState.isRunningReactions = false;
-}
-
-var isReaction = createInstanceofPredicate("Reaction", Reaction);
-
-function setReactionScheduler(fn) {
-  var baseScheduler = reactionScheduler;
-
-  reactionScheduler = function (f) {
-    return fn(function () {
-      return baseScheduler(f);
-    });
-  };
-}
-
-function isSpyEnabled() {
-  return "development" !== "production" && !!globalState.spyListeners.length;
-}
-
-function spyReport(event) {
-  if ("development" === "production") return; // dead code elimination can do the rest
-
-  if (!globalState.spyListeners.length) return;
-  var listeners = globalState.spyListeners;
-
-  for (var i = 0, l = listeners.length; i < l; i++) listeners[i](event);
-}
-
-function spyReportStart(event) {
-  if ("development" === "production") return;
-
-  var change = __assign(__assign({}, event), {
-    spyReportStart: true
-  });
-
-  spyReport(change);
-}
-
-var END_EVENT = {
-  spyReportEnd: true
-};
-
-function spyReportEnd(change) {
-  if ("development" === "production") return;
-  if (change) spyReport(__assign(__assign({}, change), {
-    spyReportEnd: true
-  }));else spyReport(END_EVENT);
-}
-
-function spy(listener) {
-  if ("development" === "production") {
-    console.warn("[mobx.spy] Is a no-op in production builds");
-    return function () {};
-  } else {
-    globalState.spyListeners.push(listener);
-    return once(function () {
-      globalState.spyListeners = globalState.spyListeners.filter(function (l) {
-        return l !== listener;
-      });
-    });
-  }
-}
-
-function dontReassignFields() {
-  fail("development" !== "production" && "@action fields are not reassignable");
-}
-
-function namedActionDecorator(name) {
-  return function (target, prop, descriptor) {
-    if (descriptor) {
-      if ("development" !== "production" && descriptor.get !== undefined) {
-        return fail("@action cannot be used with getters");
-      } // babel / typescript
-      // @action method() { }
-
-
-      if (descriptor.value) {
-        // typescript
-        return {
-          value: createAction(name, descriptor.value),
-          enumerable: false,
-          configurable: true,
-          writable: true // for typescript, this must be writable, otherwise it cannot inherit :/ (see inheritable actions test)
-
-        };
-      } // babel only: @action method = () => {}
-
-
-      var initializer_1 = descriptor.initializer;
-      return {
-        enumerable: false,
-        configurable: true,
-        writable: true,
-        initializer: function () {
-          // N.B: we can't immediately invoke initializer; this would be wrong
-          return createAction(name, initializer_1.call(this));
-        }
-      };
-    } // bound instance methods
-
-
-    return actionFieldDecorator(name).apply(this, arguments);
-  };
-}
-
-function actionFieldDecorator(name) {
-  // Simple property that writes on first invocation to the current instance
-  return function (target, prop, descriptor) {
-    Object.defineProperty(target, prop, {
-      configurable: true,
-      enumerable: false,
-      get: function () {
-        return undefined;
-      },
-      set: function (value) {
-        addHiddenProp(this, prop, action(name, value));
-      }
-    });
-  };
-}
-
-function boundActionDecorator(target, propertyName, descriptor, applyToInstance) {
-  if (applyToInstance === true) {
-    defineBoundAction(target, propertyName, descriptor.value);
-    return null;
-  }
-
-  if (descriptor) {
-    // if (descriptor.value)
-    // Typescript / Babel: @action.bound method() { }
-    // also: babel @action.bound method = () => {}
-    return {
-      configurable: true,
-      enumerable: false,
-      get: function () {
-        defineBoundAction(this, propertyName, descriptor.value || descriptor.initializer.call(this));
-        return this[propertyName];
-      },
-      set: dontReassignFields
-    };
-  } // field decorator Typescript @action.bound method = () => {}
-
-
-  return {
-    enumerable: false,
-    configurable: true,
-    set: function (v) {
-      defineBoundAction(this, propertyName, v);
-    },
-    get: function () {
-      return undefined;
-    }
-  };
-}
-
-var action = function action(arg1, arg2, arg3, arg4) {
-  // action(fn() {})
-  if (arguments.length === 1 && typeof arg1 === "function") return createAction(arg1.name || "<unnamed action>", arg1); // action("name", fn() {})
-
-  if (arguments.length === 2 && typeof arg2 === "function") return createAction(arg1, arg2); // @action("name") fn() {}
-
-  if (arguments.length === 1 && typeof arg1 === "string") return namedActionDecorator(arg1); // @action fn() {}
-
-  if (arg4 === true) {
-    // apply to instance immediately
-    addHiddenProp(arg1, arg2, createAction(arg1.name || arg2, arg3.value, this));
-  } else {
-    return namedActionDecorator(arg2).apply(null, arguments);
-  }
-};
-
-exports.action = action;
-action.bound = boundActionDecorator;
-
-function runInAction(arg1, arg2) {
-  var actionName = typeof arg1 === "string" ? arg1 : arg1.name || "<unnamed action>";
-  var fn = typeof arg1 === "function" ? arg1 : arg2;
-
-  if ("development" !== "production") {
-    invariant(typeof fn === "function" && fn.length === 0, "`runInAction` expects a function without arguments");
-    if (typeof actionName !== "string" || !actionName) fail("actions should have valid names, got: '" + actionName + "'");
-  }
-
-  return executeAction(actionName, fn, this, undefined);
-}
-
-function isAction(thing) {
-  return typeof thing === "function" && thing.isMobxAction === true;
-}
-
-function defineBoundAction(target, propertyName, fn) {
-  addHiddenProp(target, propertyName, createAction(propertyName, fn.bind(target)));
-}
-/**
- * Creates a named reactive view and keeps it alive, so that the view is always
- * updated if one of the dependencies changes, even when the view is not further used by something else.
- * @param view The reactive view
- * @returns disposer function, which can be used to stop the view from being updated in the future.
- */
-
-
-function autorun(view, opts) {
-  if (opts === void 0) {
-    opts = EMPTY_OBJECT;
-  }
-
-  if ("development" !== "production") {
-    invariant(typeof view === "function", "Autorun expects a function as first argument");
-    invariant(isAction(view) === false, "Autorun does not accept actions since actions are untrackable");
-  }
-
-  var name = opts && opts.name || view.name || "Autorun@" + getNextId();
-  var runSync = !opts.scheduler && !opts.delay;
-  var reaction;
-
-  if (runSync) {
-    // normal autorun
-    reaction = new Reaction(name, function () {
-      this.track(reactionRunner);
-    }, opts.onError, opts.requiresObservable);
-  } else {
-    var scheduler_1 = createSchedulerFromOptions(opts); // debounced autorun
-
-    var isScheduled_1 = false;
-    reaction = new Reaction(name, function () {
-      if (!isScheduled_1) {
-        isScheduled_1 = true;
-        scheduler_1(function () {
-          isScheduled_1 = false;
-          if (!reaction.isDisposed) reaction.track(reactionRunner);
-        });
-      }
-    }, opts.onError, opts.requiresObservable);
-  }
-
-  function reactionRunner() {
-    view(reaction);
-  }
-
-  reaction.schedule();
-  return reaction.getDisposer();
-}
-
-var run = function (f) {
-  return f();
-};
-
-function createSchedulerFromOptions(opts) {
-  return opts.scheduler ? opts.scheduler : opts.delay ? function (f) {
-    return setTimeout(f, opts.delay);
-  } : run;
-}
-
-function reaction(expression, effect, opts) {
-  if (opts === void 0) {
-    opts = EMPTY_OBJECT;
-  }
-
-  if ("development" !== "production") {
-    invariant(typeof expression === "function", "First argument to reaction should be a function");
-    invariant(typeof opts === "object", "Third argument of reactions should be an object");
-  }
-
-  var name = opts.name || "Reaction@" + getNextId();
-  var effectAction = action(name, opts.onError ? wrapErrorHandler(opts.onError, effect) : effect);
-  var runSync = !opts.scheduler && !opts.delay;
-  var scheduler = createSchedulerFromOptions(opts);
-  var firstTime = true;
-  var isScheduled = false;
-  var value;
-  var equals = opts.compareStructural ? comparer.structural : opts.equals || comparer.default;
-  var r = new Reaction(name, function () {
-    if (firstTime || runSync) {
-      reactionRunner();
-    } else if (!isScheduled) {
-      isScheduled = true;
-      scheduler(reactionRunner);
-    }
-  }, opts.onError, opts.requiresObservable);
-
-  function reactionRunner() {
-    isScheduled = false; // Q: move into reaction runner?
-
-    if (r.isDisposed) return;
-    var changed = false;
-    r.track(function () {
-      var nextValue = expression(r);
-      changed = firstTime || !equals(value, nextValue);
-      value = nextValue;
-    });
-    if (firstTime && opts.fireImmediately) effectAction(value, r);
-    if (!firstTime && changed === true) effectAction(value, r);
-    if (firstTime) firstTime = false;
-  }
-
-  r.schedule();
-  return r.getDisposer();
-}
-
-function wrapErrorHandler(errorHandler, baseFn) {
-  return function () {
-    try {
-      return baseFn.apply(this, arguments);
-    } catch (e) {
-      errorHandler.call(this, e);
-    }
-  };
-}
-
-function onBecomeObserved(thing, arg2, arg3) {
-  return interceptHook("onBecomeObserved", thing, arg2, arg3);
-}
-
-function onBecomeUnobserved(thing, arg2, arg3) {
-  return interceptHook("onBecomeUnobserved", thing, arg2, arg3);
-}
-
-function interceptHook(hook, thing, arg2, arg3) {
-  var atom = typeof arg3 === "function" ? getAtom(thing, arg2) : getAtom(thing);
-  var cb = typeof arg3 === "function" ? arg3 : arg2;
-  var listenersKey = hook + "Listeners";
-
-  if (atom[listenersKey]) {
-    atom[listenersKey].add(cb);
-  } else {
-    atom[listenersKey] = new Set([cb]);
-  }
-
-  var orig = atom[hook];
-  if (typeof orig !== "function") return fail("development" !== "production" && "Not an atom that can be (un)observed");
-  return function () {
-    var hookListeners = atom[listenersKey];
-
-    if (hookListeners) {
-      hookListeners.delete(cb);
-
-      if (hookListeners.size === 0) {
-        delete atom[listenersKey];
-      }
-    }
-  };
-}
-
-function configure(options) {
-  var enforceActions = options.enforceActions,
-      computedRequiresReaction = options.computedRequiresReaction,
-      computedConfigurable = options.computedConfigurable,
-      disableErrorBoundaries = options.disableErrorBoundaries,
-      reactionScheduler = options.reactionScheduler,
-      reactionRequiresObservable = options.reactionRequiresObservable,
-      observableRequiresReaction = options.observableRequiresReaction;
-
-  if (options.isolateGlobalState === true) {
-    isolateGlobalState();
-  }
-
-  if (enforceActions !== undefined) {
-    if (typeof enforceActions === "boolean" || enforceActions === "strict") deprecated("Deprecated value for 'enforceActions', use 'false' => '\"never\"', 'true' => '\"observed\"', '\"strict\"' => \"'always'\" instead");
-    var ea = void 0;
-
-    switch (enforceActions) {
-      case true:
-      case "observed":
-        ea = true;
-        break;
-
-      case false:
-      case "never":
-        ea = false;
-        break;
-
-      case "strict":
-      case "always":
-        ea = "strict";
-        break;
-
-      default:
-        fail("Invalid value for 'enforceActions': '" + enforceActions + "', expected 'never', 'always' or 'observed'");
-    }
-
-    globalState.enforceActions = ea;
-    globalState.allowStateChanges = ea === true || ea === "strict" ? false : true;
-  }
-
-  if (computedRequiresReaction !== undefined) {
-    globalState.computedRequiresReaction = !!computedRequiresReaction;
-  }
-
-  if (reactionRequiresObservable !== undefined) {
-    globalState.reactionRequiresObservable = !!reactionRequiresObservable;
-  }
-
-  if (observableRequiresReaction !== undefined) {
-    globalState.observableRequiresReaction = !!observableRequiresReaction;
-    globalState.allowStateReads = !globalState.observableRequiresReaction;
-  }
-
-  if (computedConfigurable !== undefined) {
-    globalState.computedConfigurable = !!computedConfigurable;
-  }
-
-  if (disableErrorBoundaries !== undefined) {
-    if (disableErrorBoundaries === true) console.warn("WARNING: Debug feature only. MobX will NOT recover from errors when `disableErrorBoundaries` is enabled.");
-    globalState.disableErrorBoundaries = !!disableErrorBoundaries;
-  }
-
-  if (reactionScheduler) {
-    setReactionScheduler(reactionScheduler);
-  }
-}
-
-function decorate(thing, decorators) {
-  "development" !== "production" && invariant(isPlainObject(decorators), "Decorators should be a key value map");
-  var target = typeof thing === "function" ? thing.prototype : thing;
-
-  var _loop_1 = function (prop) {
-    var propertyDecorators = decorators[prop];
-
-    if (!Array.isArray(propertyDecorators)) {
-      propertyDecorators = [propertyDecorators];
-    }
-
-    "development" !== "production" && invariant(propertyDecorators.every(function (decorator) {
-      return typeof decorator === "function";
-    }), "Decorate: expected a decorator function or array of decorator functions for '" + prop + "'");
-    var descriptor = Object.getOwnPropertyDescriptor(target, prop);
-    var newDescriptor = propertyDecorators.reduce(function (accDescriptor, decorator) {
-      return decorator(target, prop, accDescriptor);
-    }, descriptor);
-    if (newDescriptor) Object.defineProperty(target, prop, newDescriptor);
-  };
-
-  for (var prop in decorators) {
-    _loop_1(prop);
-  }
-
-  return thing;
-}
-
-function extendObservable(target, properties, decorators, options) {
-  if ("development" !== "production") {
-    invariant(arguments.length >= 2 && arguments.length <= 4, "'extendObservable' expected 2-4 arguments");
-    invariant(typeof target === "object", "'extendObservable' expects an object as first argument");
-    invariant(!isObservableMap(target), "'extendObservable' should not be used on maps, use map.merge instead");
-  }
-
-  options = asCreateObservableOptions(options);
-  var defaultDecorator = getDefaultDecoratorFromObjectOptions(options);
-  initializeInstance(target); // Fixes #1740
-
-  asObservableObject(target, options.name, defaultDecorator.enhancer); // make sure object is observable, even without initial props
-
-  if (properties) extendObservableObjectWithProperties(target, properties, decorators, defaultDecorator);
-  return target;
-}
-
-function getDefaultDecoratorFromObjectOptions(options) {
-  return options.defaultDecorator || (options.deep === false ? refDecorator : deepDecorator);
-}
-
-function extendObservableObjectWithProperties(target, properties, decorators, defaultDecorator) {
-  var e_1, _a, e_2, _b;
-
-  if ("development" !== "production") {
-    invariant(!isObservable(properties), "Extending an object with another observable (object) is not supported. Please construct an explicit propertymap, using `toJS` if need. See issue #540");
-
-    if (decorators) {
-      var keys = getPlainObjectKeys(decorators);
-
-      try {
-        for (var keys_1 = __values(keys), keys_1_1 = keys_1.next(); !keys_1_1.done; keys_1_1 = keys_1.next()) {
-          var key = keys_1_1.value;
-          if (!(key in properties)) fail("Trying to declare a decorator for unspecified property '" + stringifyKey(key) + "'");
-        }
-      } catch (e_1_1) {
-        e_1 = {
-          error: e_1_1
-        };
-      } finally {
-        try {
-          if (keys_1_1 && !keys_1_1.done && (_a = keys_1.return)) _a.call(keys_1);
-        } finally {
-          if (e_1) throw e_1.error;
-        }
-      }
-    }
-  }
-
-  startBatch();
-
-  try {
-    var keys = getPlainObjectKeys(properties);
-
-    try {
-      for (var keys_2 = __values(keys), keys_2_1 = keys_2.next(); !keys_2_1.done; keys_2_1 = keys_2.next()) {
-        var key = keys_2_1.value;
-        var descriptor = Object.getOwnPropertyDescriptor(properties, key);
-
-        if ("development" !== "production") {
-          if (!isPlainObject(properties)) fail("'extendObservabe' only accepts plain objects as second argument");
-          if (isComputed(descriptor.value)) fail("Passing a 'computed' as initial property value is no longer supported by extendObservable. Use a getter or decorator instead");
-        }
-
-        var decorator = decorators && key in decorators ? decorators[key] : descriptor.get ? computedDecorator : defaultDecorator;
-        if ("development" !== "production" && typeof decorator !== "function") fail("Not a valid decorator for '" + stringifyKey(key) + "', got: " + decorator);
-        var resultDescriptor = decorator(target, key, descriptor, true);
-        if (resultDescriptor // otherwise, assume already applied, due to `applyToInstance`
-        ) Object.defineProperty(target, key, resultDescriptor);
-      }
-    } catch (e_2_1) {
-      e_2 = {
-        error: e_2_1
-      };
-    } finally {
-      try {
-        if (keys_2_1 && !keys_2_1.done && (_b = keys_2.return)) _b.call(keys_2);
-      } finally {
-        if (e_2) throw e_2.error;
-      }
-    }
-  } finally {
-    endBatch();
-  }
-}
-
-function getDependencyTree(thing, property) {
-  return nodeToDependencyTree(getAtom(thing, property));
-}
-
-function nodeToDependencyTree(node) {
-  var result = {
-    name: node.name
-  };
-  if (node.observing && node.observing.length > 0) result.dependencies = unique(node.observing).map(nodeToDependencyTree);
-  return result;
-}
-
-function getObserverTree(thing, property) {
-  return nodeToObserverTree(getAtom(thing, property));
-}
-
-function nodeToObserverTree(node) {
-  var result = {
-    name: node.name
-  };
-  if (hasObservers(node)) result.observers = Array.from(getObservers(node)).map(nodeToObserverTree);
-  return result;
-}
-
-var generatorId = 0;
-
-function FlowCancellationError() {
-  this.message = "FLOW_CANCELLED";
-}
-
-FlowCancellationError.prototype = Object.create(Error.prototype);
-
-function isFlowCancellationError(error) {
-  return error instanceof FlowCancellationError;
-}
-
-function flow(generator) {
-  if (arguments.length !== 1) fail(!!"development" && "Flow expects 1 argument and cannot be used as decorator");
-  var name = generator.name || "<unnamed flow>"; // Implementation based on https://github.com/tj/co/blob/master/index.js
-
-  return function () {
-    var ctx = this;
-    var args = arguments;
-    var runId = ++generatorId;
-    var gen = action(name + " - runid: " + runId + " - init", generator).apply(ctx, args);
-    var rejector;
-    var pendingPromise = undefined;
-    var promise = new Promise(function (resolve, reject) {
-      var stepId = 0;
-      rejector = reject;
-
-      function onFulfilled(res) {
-        pendingPromise = undefined;
-        var ret;
-
-        try {
-          ret = action(name + " - runid: " + runId + " - yield " + stepId++, gen.next).call(gen, res);
-        } catch (e) {
-          return reject(e);
-        }
-
-        next(ret);
-      }
-
-      function onRejected(err) {
-        pendingPromise = undefined;
-        var ret;
-
-        try {
-          ret = action(name + " - runid: " + runId + " - yield " + stepId++, gen.throw).call(gen, err);
-        } catch (e) {
-          return reject(e);
-        }
-
-        next(ret);
-      }
-
-      function next(ret) {
-        if (ret && typeof ret.then === "function") {
-          // an async iterator
-          ret.then(next, reject);
-          return;
-        }
-
-        if (ret.done) return resolve(ret.value);
-        pendingPromise = Promise.resolve(ret.value);
-        return pendingPromise.then(onFulfilled, onRejected);
-      }
-
-      onFulfilled(undefined); // kick off the process
-    });
-    promise.cancel = action(name + " - runid: " + runId + " - cancel", function () {
-      try {
-        if (pendingPromise) cancelPromise(pendingPromise); // Finally block can return (or yield) stuff..
-
-        var res = gen.return(undefined); // eat anything that promise would do, it's cancelled!
-
-        var yieldedPromise = Promise.resolve(res.value);
-        yieldedPromise.then(noop, noop);
-        cancelPromise(yieldedPromise); // maybe it can be cancelled :)
-        // reject our original promise
-
-        rejector(new FlowCancellationError());
-      } catch (e) {
-        rejector(e); // there could be a throwing finally block
-      }
-    });
-    return promise;
-  };
-}
-
-function cancelPromise(promise) {
-  if (typeof promise.cancel === "function") promise.cancel();
-}
-
-function interceptReads(thing, propOrHandler, handler) {
-  var target;
-
-  if (isObservableMap(thing) || isObservableArray(thing) || isObservableValue(thing)) {
-    target = getAdministration(thing);
-  } else if (isObservableObject(thing)) {
-    if (typeof propOrHandler !== "string") return fail("development" !== "production" && "InterceptReads can only be used with a specific property, not with an object in general");
-    target = getAdministration(thing, propOrHandler);
-  } else {
-    return fail("development" !== "production" && "Expected observable map, object or array as first array");
-  }
-
-  if (target.dehancer !== undefined) return fail("development" !== "production" && "An intercept reader was already established");
-  target.dehancer = typeof propOrHandler === "function" ? propOrHandler : handler;
-  return function () {
-    target.dehancer = undefined;
-  };
-}
-
-function intercept(thing, propOrHandler, handler) {
-  if (typeof handler === "function") return interceptProperty(thing, propOrHandler, handler);else return interceptInterceptable(thing, propOrHandler);
-}
-
-function interceptInterceptable(thing, handler) {
-  return getAdministration(thing).intercept(handler);
-}
-
-function interceptProperty(thing, property, handler) {
-  return getAdministration(thing, property).intercept(handler);
-}
-
-function _isComputed(value, property) {
-  if (value === null || value === undefined) return false;
-
-  if (property !== undefined) {
-    if (isObservableObject(value) === false) return false;
-    if (!value[$mobx].values.has(property)) return false;
-    var atom = getAtom(value, property);
-    return isComputedValue(atom);
-  }
-
-  return isComputedValue(value);
-}
-
-function isComputed(value) {
-  if (arguments.length > 1) return fail("development" !== "production" && "isComputed expects only 1 argument. Use isObservableProp to inspect the observability of a property");
-  return _isComputed(value);
-}
-
-function isComputedProp(value, propName) {
-  if (typeof propName !== "string") return fail("development" !== "production" && "isComputed expected a property name as second argument");
-  return _isComputed(value, propName);
-}
-
-function _isObservable(value, property) {
-  if (value === null || value === undefined) return false;
-
-  if (property !== undefined) {
-    if ("development" !== "production" && (isObservableMap(value) || isObservableArray(value))) return fail("isObservable(object, propertyName) is not supported for arrays and maps. Use map.has or array.length instead.");
-
-    if (isObservableObject(value)) {
-      return value[$mobx].values.has(property);
-    }
-
-    return false;
-  } // For first check, see #701
-
-
-  return isObservableObject(value) || !!value[$mobx] || isAtom(value) || isReaction(value) || isComputedValue(value);
-}
-
-function isObservable(value) {
-  if (arguments.length !== 1) fail("development" !== "production" && "isObservable expects only 1 argument. Use isObservableProp to inspect the observability of a property");
-  return _isObservable(value);
-}
-
-function isObservableProp(value, propName) {
-  if (typeof propName !== "string") return fail("development" !== "production" && "expected a property name as second argument");
-  return _isObservable(value, propName);
-}
-
-function keys(obj) {
-  if (isObservableObject(obj)) {
-    return obj[$mobx].getKeys();
-  }
-
-  if (isObservableMap(obj)) {
-    return Array.from(obj.keys());
-  }
-
-  if (isObservableSet(obj)) {
-    return Array.from(obj.keys());
-  }
-
-  if (isObservableArray(obj)) {
-    return obj.map(function (_, index) {
-      return index;
-    });
-  }
-
-  return fail("development" !== "production" && "'keys()' can only be used on observable objects, arrays, sets and maps");
-}
-
-function values(obj) {
-  if (isObservableObject(obj)) {
-    return keys(obj).map(function (key) {
-      return obj[key];
-    });
-  }
-
-  if (isObservableMap(obj)) {
-    return keys(obj).map(function (key) {
-      return obj.get(key);
-    });
-  }
-
-  if (isObservableSet(obj)) {
-    return Array.from(obj.values());
-  }
-
-  if (isObservableArray(obj)) {
-    return obj.slice();
-  }
-
-  return fail("development" !== "production" && "'values()' can only be used on observable objects, arrays, sets and maps");
-}
-
-function entries(obj) {
-  if (isObservableObject(obj)) {
-    return keys(obj).map(function (key) {
-      return [key, obj[key]];
-    });
-  }
-
-  if (isObservableMap(obj)) {
-    return keys(obj).map(function (key) {
-      return [key, obj.get(key)];
-    });
-  }
-
-  if (isObservableSet(obj)) {
-    return Array.from(obj.entries());
-  }
-
-  if (isObservableArray(obj)) {
-    return obj.map(function (key, index) {
-      return [index, key];
-    });
-  }
-
-  return fail("development" !== "production" && "'entries()' can only be used on observable objects, arrays and maps");
-}
-
-function set(obj, key, value) {
-  if (arguments.length === 2 && !isObservableSet(obj)) {
-    startBatch();
-    var values_1 = key;
-
-    try {
-      for (var key_1 in values_1) set(obj, key_1, values_1[key_1]);
-    } finally {
-      endBatch();
-    }
-
-    return;
-  }
-
-  if (isObservableObject(obj)) {
-    var adm = obj[$mobx];
-    var existingObservable = adm.values.get(key);
-
-    if (existingObservable) {
-      adm.write(key, value);
-    } else {
-      adm.addObservableProp(key, value, adm.defaultEnhancer);
-    }
-  } else if (isObservableMap(obj)) {
-    obj.set(key, value);
-  } else if (isObservableSet(obj)) {
-    obj.add(key);
-  } else if (isObservableArray(obj)) {
-    if (typeof key !== "number") key = parseInt(key, 10);
-    invariant(key >= 0, "Not a valid index: '" + key + "'");
-    startBatch();
-    if (key >= obj.length) obj.length = key + 1;
-    obj[key] = value;
-    endBatch();
-  } else {
-    return fail("development" !== "production" && "'set()' can only be used on observable objects, arrays and maps");
-  }
-}
-
-function remove(obj, key) {
-  if (isObservableObject(obj)) {
-    obj[$mobx].remove(key);
-  } else if (isObservableMap(obj)) {
-    obj.delete(key);
-  } else if (isObservableSet(obj)) {
-    obj.delete(key);
-  } else if (isObservableArray(obj)) {
-    if (typeof key !== "number") key = parseInt(key, 10);
-    invariant(key >= 0, "Not a valid index: '" + key + "'");
-    obj.splice(key, 1);
-  } else {
-    return fail("development" !== "production" && "'remove()' can only be used on observable objects, arrays and maps");
-  }
-}
-
-function has(obj, key) {
-  if (isObservableObject(obj)) {
-    // return keys(obj).indexOf(key) >= 0
-    var adm = getAdministration(obj);
-    return adm.has(key);
-  } else if (isObservableMap(obj)) {
-    return obj.has(key);
-  } else if (isObservableSet(obj)) {
-    return obj.has(key);
-  } else if (isObservableArray(obj)) {
-    return key >= 0 && key < obj.length;
-  } else {
-    return fail("development" !== "production" && "'has()' can only be used on observable objects, arrays and maps");
-  }
-}
-
-function get(obj, key) {
-  if (!has(obj, key)) return undefined;
-
-  if (isObservableObject(obj)) {
-    return obj[key];
-  } else if (isObservableMap(obj)) {
-    return obj.get(key);
-  } else if (isObservableArray(obj)) {
-    return obj[key];
-  } else {
-    return fail("development" !== "production" && "'get()' can only be used on observable objects, arrays and maps");
-  }
-}
-
-function observe(thing, propOrCb, cbOrFire, fireImmediately) {
-  if (typeof cbOrFire === "function") return observeObservableProperty(thing, propOrCb, cbOrFire, fireImmediately);else return observeObservable(thing, propOrCb, cbOrFire);
-}
-
-function observeObservable(thing, listener, fireImmediately) {
-  return getAdministration(thing).observe(listener, fireImmediately);
-}
-
-function observeObservableProperty(thing, property, listener, fireImmediately) {
-  return getAdministration(thing, property).observe(listener, fireImmediately);
-}
-
-var defaultOptions = {
-  detectCycles: true,
-  exportMapsAsObjects: true,
-  recurseEverything: false
-};
-
-function cache(map, key, value, options) {
-  if (options.detectCycles) map.set(key, value);
-  return value;
-}
-
-function toJSHelper(source, options, __alreadySeen) {
-  if (!options.recurseEverything && !isObservable(source)) return source;
-  if (typeof source !== "object") return source; // Directly return null if source is null
-
-  if (source === null) return null; // Directly return the Date object itself if contained in the observable
-
-  if (source instanceof Date) return source;
-  if (isObservableValue(source)) return toJSHelper(source.get(), options, __alreadySeen); // make sure we track the keys of the object
-
-  if (isObservable(source)) keys(source);
-  var detectCycles = options.detectCycles === true;
-
-  if (detectCycles && source !== null && __alreadySeen.has(source)) {
-    return __alreadySeen.get(source);
-  }
-
-  if (isObservableArray(source) || Array.isArray(source)) {
-    var res_1 = cache(__alreadySeen, source, [], options);
-    var toAdd = source.map(function (value) {
-      return toJSHelper(value, options, __alreadySeen);
-    });
-    res_1.length = toAdd.length;
-
-    for (var i = 0, l = toAdd.length; i < l; i++) res_1[i] = toAdd[i];
-
-    return res_1;
-  }
-
-  if (isObservableSet(source) || Object.getPrototypeOf(source) === Set.prototype) {
-    if (options.exportMapsAsObjects === false) {
-      var res_2 = cache(__alreadySeen, source, new Set(), options);
-      source.forEach(function (value) {
-        res_2.add(toJSHelper(value, options, __alreadySeen));
-      });
-      return res_2;
-    } else {
-      var res_3 = cache(__alreadySeen, source, [], options);
-      source.forEach(function (value) {
-        res_3.push(toJSHelper(value, options, __alreadySeen));
-      });
-      return res_3;
-    }
-  }
-
-  if (isObservableMap(source) || Object.getPrototypeOf(source) === Map.prototype) {
-    if (options.exportMapsAsObjects === false) {
-      var res_4 = cache(__alreadySeen, source, new Map(), options);
-      source.forEach(function (value, key) {
-        res_4.set(key, toJSHelper(value, options, __alreadySeen));
-      });
-      return res_4;
-    } else {
-      var res_5 = cache(__alreadySeen, source, {}, options);
-      source.forEach(function (value, key) {
-        res_5[key] = toJSHelper(value, options, __alreadySeen);
-      });
-      return res_5;
-    }
-  } // Fallback to the situation that source is an ObservableObject or a plain object
-
-
-  var res = cache(__alreadySeen, source, {}, options);
-  getPlainObjectKeys(source).forEach(function (key) {
-    res[key] = toJSHelper(source[key], options, __alreadySeen);
-  });
-  return res;
-}
-
-function toJS(source, options) {
-  // backward compatibility
-  if (typeof options === "boolean") options = {
-    detectCycles: options
-  };
-  if (!options) options = defaultOptions;
-  options.detectCycles = options.detectCycles === undefined ? options.recurseEverything === true : options.detectCycles === true;
-
-  var __alreadySeen;
-
-  if (options.detectCycles) __alreadySeen = new Map();
-  return toJSHelper(source, options, __alreadySeen);
-}
-
-function trace() {
-  var args = [];
-
-  for (var _i = 0; _i < arguments.length; _i++) {
-    args[_i] = arguments[_i];
-  }
-
-  var enterBreakPoint = false;
-  if (typeof args[args.length - 1] === "boolean") enterBreakPoint = args.pop();
-  var derivation = getAtomFromArgs(args);
-
-  if (!derivation) {
-    return fail("development" !== "production" && "'trace(break?)' can only be used inside a tracked computed value or a Reaction. Consider passing in the computed value or reaction explicitly");
-  }
-
-  if (derivation.isTracing === TraceMode.NONE) {
-    console.log("[mobx.trace] '" + derivation.name + "' tracing enabled");
-  }
-
-  derivation.isTracing = enterBreakPoint ? TraceMode.BREAK : TraceMode.LOG;
-}
-
-function getAtomFromArgs(args) {
-  switch (args.length) {
-    case 0:
-      return globalState.trackingDerivation;
-
-    case 1:
-      return getAtom(args[0]);
-
-    case 2:
-      return getAtom(args[0], args[1]);
-  }
-}
-/**
- * During a transaction no views are updated until the end of the transaction.
- * The transaction will be run synchronously nonetheless.
- *
- * @param action a function that updates some reactive state
- * @returns any value that was returned by the 'action' parameter.
- */
-
-
-function transaction(action, thisArg) {
-  if (thisArg === void 0) {
-    thisArg = undefined;
-  }
-
-  startBatch();
-
-  try {
-    return action.apply(thisArg);
-  } finally {
-    endBatch();
-  }
-}
-
-function when(predicate, arg1, arg2) {
-  if (arguments.length === 1 || arg1 && typeof arg1 === "object") return whenPromise(predicate, arg1);
-  return _when(predicate, arg1, arg2 || {});
-}
-
-function _when(predicate, effect, opts) {
-  var timeoutHandle;
-
-  if (typeof opts.timeout === "number") {
-    timeoutHandle = setTimeout(function () {
-      if (!disposer[$mobx].isDisposed) {
-        disposer();
-        var error = new Error("WHEN_TIMEOUT");
-        if (opts.onError) opts.onError(error);else throw error;
-      }
-    }, opts.timeout);
-  }
-
-  opts.name = opts.name || "When@" + getNextId();
-  var effectAction = createAction(opts.name + "-effect", effect);
-  var disposer = autorun(function (r) {
-    if (predicate()) {
-      r.dispose();
-      if (timeoutHandle) clearTimeout(timeoutHandle);
-      effectAction();
-    }
-  }, opts);
-  return disposer;
-}
-
-function whenPromise(predicate, opts) {
-  if ("development" !== "production" && opts && opts.onError) return fail("the options 'onError' and 'promise' cannot be combined");
-  var cancel;
-  var res = new Promise(function (resolve, reject) {
-    var disposer = _when(predicate, resolve, __assign(__assign({}, opts), {
-      onError: reject
-    }));
-
-    cancel = function () {
-      disposer();
-      reject("WHEN_CANCELLED");
-    };
-  });
-  res.cancel = cancel;
-  return res;
-}
-
-function getAdm(target) {
-  return target[$mobx];
-}
-
-function isPropertyKey(val) {
-  return typeof val === "string" || typeof val === "number" || typeof val === "symbol";
-} // Optimization: we don't need the intermediate objects and could have a completely custom administration for DynamicObjects,
-// and skip either the internal values map, or the base object with its property descriptors!
-
-
-var objectProxyTraps = {
-  has: function (target, name) {
-    if (name === $mobx || name === "constructor" || name === mobxDidRunLazyInitializersSymbol) return true;
-    var adm = getAdm(target); // MWE: should `in` operator be reactive? If not, below code path will be faster / more memory efficient
-    // TODO: check performance stats!
-    // if (adm.values.get(name as string)) return true
-
-    if (isPropertyKey(name)) return adm.has(name);
-    return name in target;
-  },
-  get: function (target, name) {
-    if (name === $mobx || name === "constructor" || name === mobxDidRunLazyInitializersSymbol) return target[name];
-    var adm = getAdm(target);
-    var observable = adm.values.get(name);
-
-    if (observable instanceof Atom) {
-      var result = observable.get();
-
-      if (result === undefined) {
-        // This fixes #1796, because deleting a prop that has an
-        // undefined value won't retrigger a observer (no visible effect),
-        // the autorun wouldn't subscribe to future key changes (see also next comment)
-        adm.has(name);
-      }
-
-      return result;
-    } // make sure we start listening to future keys
-    // note that we only do this here for optimization
-
-
-    if (isPropertyKey(name)) adm.has(name);
-    return target[name];
-  },
-  set: function (target, name, value) {
-    if (!isPropertyKey(name)) return false;
-    set(target, name, value);
-    return true;
-  },
-  deleteProperty: function (target, name) {
-    if (!isPropertyKey(name)) return false;
-    var adm = getAdm(target);
-    adm.remove(name);
-    return true;
-  },
-  ownKeys: function (target) {
-    var adm = getAdm(target);
-    adm.keysAtom.reportObserved();
-    return Reflect.ownKeys(target);
-  },
-  preventExtensions: function (target) {
-    fail("Dynamic observable objects cannot be frozen");
-    return false;
-  }
-};
-
-function createDynamicObservableObject(base) {
-  var proxy = new Proxy(base, objectProxyTraps);
-  base[$mobx].proxy = proxy;
-  return proxy;
-}
-
-function hasInterceptors(interceptable) {
-  return interceptable.interceptors !== undefined && interceptable.interceptors.length > 0;
-}
-
-function registerInterceptor(interceptable, handler) {
-  var interceptors = interceptable.interceptors || (interceptable.interceptors = []);
-  interceptors.push(handler);
-  return once(function () {
-    var idx = interceptors.indexOf(handler);
-    if (idx !== -1) interceptors.splice(idx, 1);
-  });
-}
-
-function interceptChange(interceptable, change) {
-  var prevU = untrackedStart();
-
-  try {
-    // Interceptor can modify the array, copy it to avoid concurrent modification, see #1950
-    var interceptors = __spread(interceptable.interceptors || []);
-
-    for (var i = 0, l = interceptors.length; i < l; i++) {
-      change = interceptors[i](change);
-      invariant(!change || change.type, "Intercept handlers should return nothing or a change object");
-      if (!change) break;
-    }
-
-    return change;
-  } finally {
-    untrackedEnd(prevU);
-  }
-}
-
-function hasListeners(listenable) {
-  return listenable.changeListeners !== undefined && listenable.changeListeners.length > 0;
-}
-
-function registerListener(listenable, handler) {
-  var listeners = listenable.changeListeners || (listenable.changeListeners = []);
-  listeners.push(handler);
-  return once(function () {
-    var idx = listeners.indexOf(handler);
-    if (idx !== -1) listeners.splice(idx, 1);
-  });
-}
-
-function notifyListeners(listenable, change) {
-  var prevU = untrackedStart();
-  var listeners = listenable.changeListeners;
-  if (!listeners) return;
-  listeners = listeners.slice();
-
-  for (var i = 0, l = listeners.length; i < l; i++) {
-    listeners[i](change);
-  }
-
-  untrackedEnd(prevU);
-}
-
-var MAX_SPLICE_SIZE = 10000; // See e.g. https://github.com/mobxjs/mobx/issues/859
-
-var arrayTraps = {
-  get: function (target, name) {
-    if (name === $mobx) return target[$mobx];
-    if (name === "length") return target[$mobx].getArrayLength();
-
-    if (typeof name === "number") {
-      return arrayExtensions.get.call(target, name);
-    }
-
-    if (typeof name === "string" && !isNaN(name)) {
-      return arrayExtensions.get.call(target, parseInt(name));
-    }
-
-    if (arrayExtensions.hasOwnProperty(name)) {
-      return arrayExtensions[name];
-    }
-
-    return target[name];
-  },
-  set: function (target, name, value) {
-    if (name === "length") {
-      target[$mobx].setArrayLength(value);
-    }
-
-    if (typeof name === "number") {
-      arrayExtensions.set.call(target, name, value);
-    }
-
-    if (typeof name === "symbol" || isNaN(name)) {
-      target[name] = value;
-    } else {
-      // numeric string
-      arrayExtensions.set.call(target, parseInt(name), value);
-    }
-
-    return true;
-  },
-  preventExtensions: function (target) {
-    fail("Observable arrays cannot be frozen");
-    return false;
-  }
-};
-
-function createObservableArray(initialValues, enhancer, name, owned) {
-  if (name === void 0) {
-    name = "ObservableArray@" + getNextId();
-  }
-
-  if (owned === void 0) {
-    owned = false;
-  }
-
-  var adm = new ObservableArrayAdministration(name, enhancer, owned);
-  addHiddenFinalProp(adm.values, $mobx, adm);
-  var proxy = new Proxy(adm.values, arrayTraps);
-  adm.proxy = proxy;
-
-  if (initialValues && initialValues.length) {
-    var prev = allowStateChangesStart(true);
-    adm.spliceWithArray(0, 0, initialValues);
-    allowStateChangesEnd(prev);
-  }
-
-  return proxy;
-}
-
-var ObservableArrayAdministration =
-/** @class */
-function () {
-  function ObservableArrayAdministration(name, enhancer, owned) {
-    this.owned = owned;
-    this.values = [];
-    this.proxy = undefined;
-    this.lastKnownLength = 0;
-    this.atom = new Atom(name || "ObservableArray@" + getNextId());
-
-    this.enhancer = function (newV, oldV) {
-      return enhancer(newV, oldV, name + "[..]");
-    };
-  }
-
-  ObservableArrayAdministration.prototype.dehanceValue = function (value) {
-    if (this.dehancer !== undefined) return this.dehancer(value);
-    return value;
-  };
-
-  ObservableArrayAdministration.prototype.dehanceValues = function (values) {
-    if (this.dehancer !== undefined && values.length > 0) return values.map(this.dehancer);
-    return values;
-  };
-
-  ObservableArrayAdministration.prototype.intercept = function (handler) {
-    return registerInterceptor(this, handler);
-  };
-
-  ObservableArrayAdministration.prototype.observe = function (listener, fireImmediately) {
-    if (fireImmediately === void 0) {
-      fireImmediately = false;
-    }
-
-    if (fireImmediately) {
-      listener({
-        object: this.proxy,
-        type: "splice",
-        index: 0,
-        added: this.values.slice(),
-        addedCount: this.values.length,
-        removed: [],
-        removedCount: 0
-      });
-    }
-
-    return registerListener(this, listener);
-  };
-
-  ObservableArrayAdministration.prototype.getArrayLength = function () {
-    this.atom.reportObserved();
-    return this.values.length;
-  };
-
-  ObservableArrayAdministration.prototype.setArrayLength = function (newLength) {
-    if (typeof newLength !== "number" || newLength < 0) throw new Error("[mobx.array] Out of range: " + newLength);
-    var currentLength = this.values.length;
-    if (newLength === currentLength) return;else if (newLength > currentLength) {
-      var newItems = new Array(newLength - currentLength);
-
-      for (var i = 0; i < newLength - currentLength; i++) newItems[i] = undefined; // No Array.fill everywhere...
-
-
-      this.spliceWithArray(currentLength, 0, newItems);
-    } else this.spliceWithArray(newLength, currentLength - newLength);
-  };
-
-  ObservableArrayAdministration.prototype.updateArrayLength = function (oldLength, delta) {
-    if (oldLength !== this.lastKnownLength) throw new Error("[mobx] Modification exception: the internal structure of an observable array was changed.");
-    this.lastKnownLength += delta;
-  };
-
-  ObservableArrayAdministration.prototype.spliceWithArray = function (index, deleteCount, newItems) {
-    var _this = this;
-
-    checkIfStateModificationsAreAllowed(this.atom);
-    var length = this.values.length;
-    if (index === undefined) index = 0;else if (index > length) index = length;else if (index < 0) index = Math.max(0, length + index);
-    if (arguments.length === 1) deleteCount = length - index;else if (deleteCount === undefined || deleteCount === null) deleteCount = 0;else deleteCount = Math.max(0, Math.min(deleteCount, length - index));
-    if (newItems === undefined) newItems = EMPTY_ARRAY;
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        object: this.proxy,
-        type: "splice",
-        index: index,
-        removedCount: deleteCount,
-        added: newItems
-      });
-      if (!change) return EMPTY_ARRAY;
-      deleteCount = change.removedCount;
-      newItems = change.added;
-    }
-
-    newItems = newItems.length === 0 ? newItems : newItems.map(function (v) {
-      return _this.enhancer(v, undefined);
-    });
-
-    if ("development" !== "production") {
-      var lengthDelta = newItems.length - deleteCount;
-      this.updateArrayLength(length, lengthDelta); // checks if internal array wasn't modified
-    }
-
-    var res = this.spliceItemsIntoValues(index, deleteCount, newItems);
-    if (deleteCount !== 0 || newItems.length !== 0) this.notifyArraySplice(index, newItems, res);
-    return this.dehanceValues(res);
-  };
-
-  ObservableArrayAdministration.prototype.spliceItemsIntoValues = function (index, deleteCount, newItems) {
-    var _a;
-
-    if (newItems.length < MAX_SPLICE_SIZE) {
-      return (_a = this.values).splice.apply(_a, __spread([index, deleteCount], newItems));
-    } else {
-      var res = this.values.slice(index, index + deleteCount);
-      this.values = this.values.slice(0, index).concat(newItems, this.values.slice(index + deleteCount));
-      return res;
-    }
-  };
-
-  ObservableArrayAdministration.prototype.notifyArrayChildUpdate = function (index, newValue, oldValue) {
-    var notifySpy = !this.owned && isSpyEnabled();
-    var notify = hasListeners(this);
-    var change = notify || notifySpy ? {
-      object: this.proxy,
-      type: "update",
-      index: index,
-      newValue: newValue,
-      oldValue: oldValue
-    } : null; // The reason why this is on right hand side here (and not above), is this way the uglifier will drop it, but it won't
-    // cause any runtime overhead in development mode without NODE_ENV set, unless spying is enabled
-
-    if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
-      name: this.atom.name
-    }));
-    this.atom.reportChanged();
-    if (notify) notifyListeners(this, change);
-    if (notifySpy && "development" !== "production") spyReportEnd();
-  };
-
-  ObservableArrayAdministration.prototype.notifyArraySplice = function (index, added, removed) {
-    var notifySpy = !this.owned && isSpyEnabled();
-    var notify = hasListeners(this);
-    var change = notify || notifySpy ? {
-      object: this.proxy,
-      type: "splice",
-      index: index,
-      removed: removed,
-      added: added,
-      removedCount: removed.length,
-      addedCount: added.length
-    } : null;
-    if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
-      name: this.atom.name
-    }));
-    this.atom.reportChanged(); // conform: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/observe
-
-    if (notify) notifyListeners(this, change);
-    if (notifySpy && "development" !== "production") spyReportEnd();
-  };
-
-  return ObservableArrayAdministration;
-}();
-
-var arrayExtensions = {
-  intercept: function (handler) {
-    return this[$mobx].intercept(handler);
-  },
-  observe: function (listener, fireImmediately) {
-    if (fireImmediately === void 0) {
-      fireImmediately = false;
-    }
-
-    var adm = this[$mobx];
-    return adm.observe(listener, fireImmediately);
-  },
-  clear: function () {
-    return this.splice(0);
-  },
-  replace: function (newItems) {
-    var adm = this[$mobx];
-    return adm.spliceWithArray(0, adm.values.length, newItems);
-  },
-
-  /**
-   * Converts this array back to a (shallow) javascript structure.
-   * For a deep clone use mobx.toJS
-   */
-  toJS: function () {
-    return this.slice();
-  },
-  toJSON: function () {
-    // Used by JSON.stringify
-    return this.toJS();
-  },
-
-  /*
-   * functions that do alter the internal structure of the array, (based on lib.es6.d.ts)
-   * since these functions alter the inner structure of the array, the have side effects.
-   * Because the have side effects, they should not be used in computed function,
-   * and for that reason the do not call dependencyState.notifyObserved
-   */
-  splice: function (index, deleteCount) {
-    var newItems = [];
-
-    for (var _i = 2; _i < arguments.length; _i++) {
-      newItems[_i - 2] = arguments[_i];
-    }
-
-    var adm = this[$mobx];
-
-    switch (arguments.length) {
-      case 0:
-        return [];
-
-      case 1:
-        return adm.spliceWithArray(index);
-
-      case 2:
-        return adm.spliceWithArray(index, deleteCount);
-    }
-
-    return adm.spliceWithArray(index, deleteCount, newItems);
-  },
-  spliceWithArray: function (index, deleteCount, newItems) {
-    var adm = this[$mobx];
-    return adm.spliceWithArray(index, deleteCount, newItems);
-  },
-  push: function () {
-    var items = [];
-
-    for (var _i = 0; _i < arguments.length; _i++) {
-      items[_i] = arguments[_i];
-    }
-
-    var adm = this[$mobx];
-    adm.spliceWithArray(adm.values.length, 0, items);
-    return adm.values.length;
-  },
-  pop: function () {
-    return this.splice(Math.max(this[$mobx].values.length - 1, 0), 1)[0];
-  },
-  shift: function () {
-    return this.splice(0, 1)[0];
-  },
-  unshift: function () {
-    var items = [];
-
-    for (var _i = 0; _i < arguments.length; _i++) {
-      items[_i] = arguments[_i];
-    }
-
-    var adm = this[$mobx];
-    adm.spliceWithArray(0, 0, items);
-    return adm.values.length;
-  },
-  reverse: function () {
-    // reverse by default mutates in place before returning the result
-    // which makes it both a 'derivation' and a 'mutation'.
-    // so we deviate from the default and just make it an dervitation
-    if ("development" !== "production") {
-      console.warn("[mobx] `observableArray.reverse()` will not update the array in place. Use `observableArray.slice().reverse()` to suppress this warning and perform the operation on a copy, or `observableArray.replace(observableArray.slice().reverse())` to reverse & update in place");
-    }
-
-    var clone = this.slice();
-    return clone.reverse.apply(clone, arguments);
-  },
-  sort: function (compareFn) {
-    // sort by default mutates in place before returning the result
-    // which goes against all good practices. Let's not change the array in place!
-    if ("development" !== "production") {
-      console.warn("[mobx] `observableArray.sort()` will not update the array in place. Use `observableArray.slice().sort()` to suppress this warning and perform the operation on a copy, or `observableArray.replace(observableArray.slice().sort())` to sort & update in place");
-    }
-
-    var clone = this.slice();
-    return clone.sort.apply(clone, arguments);
-  },
-  remove: function (value) {
-    var adm = this[$mobx];
-    var idx = adm.dehanceValues(adm.values).indexOf(value);
-
-    if (idx > -1) {
-      this.splice(idx, 1);
-      return true;
-    }
-
-    return false;
-  },
-  get: function (index) {
-    var adm = this[$mobx];
-
-    if (adm) {
-      if (index < adm.values.length) {
-        adm.atom.reportObserved();
-        return adm.dehanceValue(adm.values[index]);
-      }
-
-      console.warn("[mobx.array] Attempt to read an array index (" + index + ") that is out of bounds (" + adm.values.length + "). Please check length first. Out of bound indices will not be tracked by MobX");
-    }
-
-    return undefined;
-  },
-  set: function (index, newValue) {
-    var adm = this[$mobx];
-    var values = adm.values;
-
-    if (index < values.length) {
-      // update at index in range
-      checkIfStateModificationsAreAllowed(adm.atom);
-      var oldValue = values[index];
-
-      if (hasInterceptors(adm)) {
-        var change = interceptChange(adm, {
-          type: "update",
-          object: adm.proxy,
-          index: index,
-          newValue: newValue
-        });
-        if (!change) return;
-        newValue = change.newValue;
-      }
-
-      newValue = adm.enhancer(newValue, oldValue);
-      var changed = newValue !== oldValue;
-
-      if (changed) {
-        values[index] = newValue;
-        adm.notifyArrayChildUpdate(index, newValue, oldValue);
-      }
-    } else if (index === values.length) {
-      // add a new item
-      adm.spliceWithArray(index, 0, [newValue]);
-    } else {
-      // out of bounds
-      throw new Error("[mobx.array] Index out of bounds, " + index + " is larger than " + values.length);
-    }
-  }
-};
-["concat", "every", "filter", "forEach", "indexOf", "join", "lastIndexOf", "map", "reduce", "reduceRight", "slice", "some", "toString", "toLocaleString"].forEach(function (funcName) {
-  arrayExtensions[funcName] = function () {
-    var adm = this[$mobx];
-    adm.atom.reportObserved();
-    var res = adm.dehanceValues(adm.values);
-    return res[funcName].apply(res, arguments);
-  };
-});
-var isObservableArrayAdministration = createInstanceofPredicate("ObservableArrayAdministration", ObservableArrayAdministration);
-
-function isObservableArray(thing) {
-  return isObject(thing) && isObservableArrayAdministration(thing[$mobx]);
-}
-
-var _a;
-
-var ObservableMapMarker = {}; // just extend Map? See also https://gist.github.com/nestharus/13b4d74f2ef4a2f4357dbd3fc23c1e54
-// But: https://github.com/mobxjs/mobx/issues/1556
-
-var ObservableMap =
-/** @class */
-function () {
-  function ObservableMap(initialData, enhancer, name) {
-    if (enhancer === void 0) {
-      enhancer = deepEnhancer;
-    }
-
-    if (name === void 0) {
-      name = "ObservableMap@" + getNextId();
-    }
-
-    this.enhancer = enhancer;
-    this.name = name;
-    this[_a] = ObservableMapMarker;
-    this._keysAtom = createAtom(this.name + ".keys()");
-    this[Symbol.toStringTag] = "Map";
-
-    if (typeof Map !== "function") {
-      throw new Error("mobx.map requires Map polyfill for the current browser. Check babel-polyfill or core-js/es6/map.js");
-    }
-
-    this._data = new Map();
-    this._hasMap = new Map();
-    this.merge(initialData);
-  }
-
-  ObservableMap.prototype._has = function (key) {
-    return this._data.has(key);
-  };
-
-  ObservableMap.prototype.has = function (key) {
-    var _this = this;
-
-    if (!globalState.trackingDerivation) return this._has(key);
-
-    var entry = this._hasMap.get(key);
-
-    if (!entry) {
-      // todo: replace with atom (breaking change)
-      var newEntry = entry = new ObservableValue(this._has(key), referenceEnhancer, this.name + "." + stringifyKey(key) + "?", false);
-
-      this._hasMap.set(key, newEntry);
-
-      onBecomeUnobserved(newEntry, function () {
-        return _this._hasMap.delete(key);
-      });
-    }
-
-    return entry.get();
-  };
-
-  ObservableMap.prototype.set = function (key, value) {
-    var hasKey = this._has(key);
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        type: hasKey ? "update" : "add",
-        object: this,
-        newValue: value,
-        name: key
-      });
-      if (!change) return this;
-      value = change.newValue;
-    }
-
-    if (hasKey) {
-      this._updateValue(key, value);
-    } else {
-      this._addValue(key, value);
-    }
-
-    return this;
-  };
-
-  ObservableMap.prototype.delete = function (key) {
-    var _this = this;
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        type: "delete",
-        object: this,
-        name: key
-      });
-      if (!change) return false;
-    }
-
-    if (this._has(key)) {
-      var notifySpy = isSpyEnabled();
-      var notify = hasListeners(this);
-      var change = notify || notifySpy ? {
-        type: "delete",
-        object: this,
-        oldValue: this._data.get(key).value,
-        name: key
-      } : null;
-      if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
-        name: this.name,
-        key: key
-      }));
-      transaction(function () {
-        _this._keysAtom.reportChanged();
-
-        _this._updateHasMapEntry(key, false);
-
-        var observable = _this._data.get(key);
-
-        observable.setNewValue(undefined);
-
-        _this._data.delete(key);
-      });
-      if (notify) notifyListeners(this, change);
-      if (notifySpy && "development" !== "production") spyReportEnd();
-      return true;
-    }
-
-    return false;
-  };
-
-  ObservableMap.prototype._updateHasMapEntry = function (key, value) {
-    var entry = this._hasMap.get(key);
-
-    if (entry) {
-      entry.setNewValue(value);
-    }
-  };
-
-  ObservableMap.prototype._updateValue = function (key, newValue) {
-    var observable = this._data.get(key);
-
-    newValue = observable.prepareNewValue(newValue);
-
-    if (newValue !== globalState.UNCHANGED) {
-      var notifySpy = isSpyEnabled();
-      var notify = hasListeners(this);
-      var change = notify || notifySpy ? {
-        type: "update",
-        object: this,
-        oldValue: observable.value,
-        name: key,
-        newValue: newValue
-      } : null;
-      if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
-        name: this.name,
-        key: key
-      }));
-      observable.setNewValue(newValue);
-      if (notify) notifyListeners(this, change);
-      if (notifySpy && "development" !== "production") spyReportEnd();
-    }
-  };
-
-  ObservableMap.prototype._addValue = function (key, newValue) {
-    var _this = this;
-
-    checkIfStateModificationsAreAllowed(this._keysAtom);
-    transaction(function () {
-      var observable = new ObservableValue(newValue, _this.enhancer, _this.name + "." + stringifyKey(key), false);
-
-      _this._data.set(key, observable);
-
-      newValue = observable.value; // value might have been changed
-
-      _this._updateHasMapEntry(key, true);
-
-      _this._keysAtom.reportChanged();
-    });
-    var notifySpy = isSpyEnabled();
-    var notify = hasListeners(this);
-    var change = notify || notifySpy ? {
-      type: "add",
-      object: this,
-      name: key,
-      newValue: newValue
-    } : null;
-    if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
-      name: this.name,
-      key: key
-    }));
-    if (notify) notifyListeners(this, change);
-    if (notifySpy && "development" !== "production") spyReportEnd();
-  };
-
-  ObservableMap.prototype.get = function (key) {
-    if (this.has(key)) return this.dehanceValue(this._data.get(key).get());
-    return this.dehanceValue(undefined);
-  };
-
-  ObservableMap.prototype.dehanceValue = function (value) {
-    if (this.dehancer !== undefined) {
-      return this.dehancer(value);
-    }
-
-    return value;
-  };
-
-  ObservableMap.prototype.keys = function () {
-    this._keysAtom.reportObserved();
-
-    return this._data.keys();
-  };
-
-  ObservableMap.prototype.values = function () {
-    var self = this;
-    var nextIndex = 0;
-    var keys = Array.from(this.keys());
-    return makeIterable({
-      next: function () {
-        return nextIndex < keys.length ? {
-          value: self.get(keys[nextIndex++]),
-          done: false
-        } : {
-          done: true
-        };
-      }
-    });
-  };
-
-  ObservableMap.prototype.entries = function () {
-    var self = this;
-    var nextIndex = 0;
-    var keys = Array.from(this.keys());
-    return makeIterable({
-      next: function () {
-        if (nextIndex < keys.length) {
-          var key = keys[nextIndex++];
-          return {
-            value: [key, self.get(key)],
-            done: false
-          };
-        }
-
-        return {
-          done: true
-        };
-      }
-    });
-  };
-
-  ObservableMap.prototype[(_a = $mobx, Symbol.iterator)] = function () {
-    return this.entries();
-  };
-
-  ObservableMap.prototype.forEach = function (callback, thisArg) {
-    var e_1, _b;
-
-    try {
-      for (var _c = __values(this), _d = _c.next(); !_d.done; _d = _c.next()) {
-        var _e = __read(_d.value, 2),
-            key = _e[0],
-            value = _e[1];
-
-        callback.call(thisArg, value, key, this);
-      }
-    } catch (e_1_1) {
-      e_1 = {
-        error: e_1_1
-      };
-    } finally {
-      try {
-        if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
-      } finally {
-        if (e_1) throw e_1.error;
-      }
-    }
-  };
-  /** Merge another object into this object, returns this. */
-
-
-  ObservableMap.prototype.merge = function (other) {
-    var _this = this;
-
-    if (isObservableMap(other)) {
-      other = other.toJS();
-    }
-
-    transaction(function () {
-      if (isPlainObject(other)) getPlainObjectKeys(other).forEach(function (key) {
-        return _this.set(key, other[key]);
-      });else if (Array.isArray(other)) other.forEach(function (_b) {
-        var _c = __read(_b, 2),
-            key = _c[0],
-            value = _c[1];
-
-        return _this.set(key, value);
-      });else if (isES6Map(other)) {
-        if (other.constructor !== Map) fail("Cannot initialize from classes that inherit from Map: " + other.constructor.name); // prettier-ignore
-
-        other.forEach(function (value, key) {
-          return _this.set(key, value);
-        });
-      } else if (other !== null && other !== undefined) fail("Cannot initialize map from " + other);
-    });
-    return this;
-  };
-
-  ObservableMap.prototype.clear = function () {
-    var _this = this;
-
-    transaction(function () {
-      untracked(function () {
-        var e_2, _b;
-
-        try {
-          for (var _c = __values(_this.keys()), _d = _c.next(); !_d.done; _d = _c.next()) {
-            var key = _d.value;
-
-            _this.delete(key);
-          }
-        } catch (e_2_1) {
-          e_2 = {
-            error: e_2_1
-          };
-        } finally {
-          try {
-            if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
-          } finally {
-            if (e_2) throw e_2.error;
-          }
-        }
-      });
-    });
-  };
-
-  ObservableMap.prototype.replace = function (values) {
-    var _this = this;
-
-    transaction(function () {
-      // grab all the keys that are present in the new map but not present in the current map
-      // and delete them from the map, then merge the new map
-      // this will cause reactions only on changed values
-      var newKeys = getMapLikeKeys(values);
-      var oldKeys = Array.from(_this.keys());
-      var missingKeys = oldKeys.filter(function (k) {
-        return newKeys.indexOf(k) === -1;
-      });
-      missingKeys.forEach(function (k) {
-        return _this.delete(k);
-      });
-
-      _this.merge(values);
-    });
-    return this;
-  };
-
-  Object.defineProperty(ObservableMap.prototype, "size", {
-    get: function () {
-      this._keysAtom.reportObserved();
-
-      return this._data.size;
-    },
-    enumerable: true,
-    configurable: true
-  });
-  /**
-   * Returns a plain object that represents this map.
-   * Note that all the keys being stringified.
-   * If there are duplicating keys after converting them to strings, behaviour is undetermined.
-   */
-
-  ObservableMap.prototype.toPOJO = function () {
-    var e_3, _b;
-
-    var res = {};
-
-    try {
-      for (var _c = __values(this), _d = _c.next(); !_d.done; _d = _c.next()) {
-        var _e = __read(_d.value, 2),
-            key = _e[0],
-            value = _e[1]; // We lie about symbol key types due to https://github.com/Microsoft/TypeScript/issues/1863
-
-
-        res[typeof key === "symbol" ? key : stringifyKey(key)] = value;
-      }
-    } catch (e_3_1) {
-      e_3 = {
-        error: e_3_1
-      };
-    } finally {
-      try {
-        if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
-      } finally {
-        if (e_3) throw e_3.error;
-      }
-    }
-
-    return res;
-  };
-  /**
-   * Returns a shallow non observable object clone of this map.
-   * Note that the values migth still be observable. For a deep clone use mobx.toJS.
-   */
-
-
-  ObservableMap.prototype.toJS = function () {
-    return new Map(this);
-  };
-
-  ObservableMap.prototype.toJSON = function () {
-    // Used by JSON.stringify
-    return this.toPOJO();
-  };
-
-  ObservableMap.prototype.toString = function () {
-    var _this = this;
-
-    return this.name + "[{ " + Array.from(this.keys()).map(function (key) {
-      return stringifyKey(key) + ": " + ("" + _this.get(key));
-    }).join(", ") + " }]";
-  };
-  /**
-   * Observes this object. Triggers for the events 'add', 'update' and 'delete'.
-   * See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/observe
-   * for callback details
-   */
-
-
-  ObservableMap.prototype.observe = function (listener, fireImmediately) {
-    "development" !== "production" && invariant(fireImmediately !== true, "`observe` doesn't support fireImmediately=true in combination with maps.");
-    return registerListener(this, listener);
-  };
-
-  ObservableMap.prototype.intercept = function (handler) {
-    return registerInterceptor(this, handler);
-  };
-
-  return ObservableMap;
-}();
-/* 'var' fixes small-build issue */
-
-
-exports.ObservableMap = ObservableMap;
-var isObservableMap = createInstanceofPredicate("ObservableMap", ObservableMap);
-exports.isObservableMap = isObservableMap;
-
-var _a$1;
-
-var ObservableSetMarker = {};
-
-var ObservableSet =
-/** @class */
-function () {
-  function ObservableSet(initialData, enhancer, name) {
-    if (enhancer === void 0) {
-      enhancer = deepEnhancer;
-    }
-
-    if (name === void 0) {
-      name = "ObservableSet@" + getNextId();
-    }
-
-    this.name = name;
-    this[_a$1] = ObservableSetMarker;
-    this._data = new Set();
-    this._atom = createAtom(this.name);
-    this[Symbol.toStringTag] = "Set";
-
-    if (typeof Set !== "function") {
-      throw new Error("mobx.set requires Set polyfill for the current browser. Check babel-polyfill or core-js/es6/set.js");
-    }
-
-    this.enhancer = function (newV, oldV) {
-      return enhancer(newV, oldV, name);
-    };
-
-    if (initialData) {
-      this.replace(initialData);
-    }
-  }
-
-  ObservableSet.prototype.dehanceValue = function (value) {
-    if (this.dehancer !== undefined) {
-      return this.dehancer(value);
-    }
-
-    return value;
-  };
-
-  ObservableSet.prototype.clear = function () {
-    var _this = this;
-
-    transaction(function () {
-      untracked(function () {
-        var e_1, _b;
-
-        try {
-          for (var _c = __values(_this._data.values()), _d = _c.next(); !_d.done; _d = _c.next()) {
-            var value = _d.value;
-
-            _this.delete(value);
-          }
-        } catch (e_1_1) {
-          e_1 = {
-            error: e_1_1
-          };
-        } finally {
-          try {
-            if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
-          } finally {
-            if (e_1) throw e_1.error;
-          }
-        }
-      });
-    });
-  };
-
-  ObservableSet.prototype.forEach = function (callbackFn, thisArg) {
-    var e_2, _b;
-
-    try {
-      for (var _c = __values(this), _d = _c.next(); !_d.done; _d = _c.next()) {
-        var value = _d.value;
-        callbackFn.call(thisArg, value, value, this);
-      }
-    } catch (e_2_1) {
-      e_2 = {
-        error: e_2_1
-      };
-    } finally {
-      try {
-        if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
-      } finally {
-        if (e_2) throw e_2.error;
-      }
-    }
-  };
-
-  Object.defineProperty(ObservableSet.prototype, "size", {
-    get: function () {
-      this._atom.reportObserved();
-
-      return this._data.size;
-    },
-    enumerable: true,
-    configurable: true
-  });
-
-  ObservableSet.prototype.add = function (value) {
-    var _this = this;
-
-    checkIfStateModificationsAreAllowed(this._atom);
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        type: "add",
-        object: this,
-        newValue: value
-      });
-      if (!change) return this; // TODO: ideally, value = change.value would be done here, so that values can be
-      // changed by interceptor. Same applies for other Set and Map api's.
-    }
-
-    if (!this.has(value)) {
-      transaction(function () {
-        _this._data.add(_this.enhancer(value, undefined));
-
-        _this._atom.reportChanged();
-      });
-      var notifySpy = isSpyEnabled();
-      var notify = hasListeners(this);
-      var change = notify || notifySpy ? {
-        type: "add",
-        object: this,
-        newValue: value
-      } : null;
-      if (notifySpy && "development" !== "production") spyReportStart(change);
-      if (notify) notifyListeners(this, change);
-      if (notifySpy && "development" !== "production") spyReportEnd();
-    }
-
-    return this;
-  };
-
-  ObservableSet.prototype.delete = function (value) {
-    var _this = this;
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        type: "delete",
-        object: this,
-        oldValue: value
-      });
-      if (!change) return false;
-    }
-
-    if (this.has(value)) {
-      var notifySpy = isSpyEnabled();
-      var notify = hasListeners(this);
-      var change = notify || notifySpy ? {
-        type: "delete",
-        object: this,
-        oldValue: value
-      } : null;
-      if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
-        name: this.name
-      }));
-      transaction(function () {
-        _this._atom.reportChanged();
-
-        _this._data.delete(value);
-      });
-      if (notify) notifyListeners(this, change);
-      if (notifySpy && "development" !== "production") spyReportEnd();
-      return true;
-    }
-
-    return false;
-  };
-
-  ObservableSet.prototype.has = function (value) {
-    this._atom.reportObserved();
-
-    return this._data.has(this.dehanceValue(value));
-  };
-
-  ObservableSet.prototype.entries = function () {
-    var nextIndex = 0;
-    var keys = Array.from(this.keys());
-    var values = Array.from(this.values());
-    return makeIterable({
-      next: function () {
-        var index = nextIndex;
-        nextIndex += 1;
-        return index < values.length ? {
-          value: [keys[index], values[index]],
-          done: false
-        } : {
-          done: true
-        };
-      }
-    });
-  };
-
-  ObservableSet.prototype.keys = function () {
-    return this.values();
-  };
-
-  ObservableSet.prototype.values = function () {
-    this._atom.reportObserved();
-
-    var self = this;
-    var nextIndex = 0;
-    var observableValues = Array.from(this._data.values());
-    return makeIterable({
-      next: function () {
-        return nextIndex < observableValues.length ? {
-          value: self.dehanceValue(observableValues[nextIndex++]),
-          done: false
-        } : {
-          done: true
-        };
-      }
-    });
-  };
-
-  ObservableSet.prototype.replace = function (other) {
-    var _this = this;
-
-    if (isObservableSet(other)) {
-      other = other.toJS();
-    }
-
-    transaction(function () {
-      if (Array.isArray(other)) {
-        _this.clear();
-
-        other.forEach(function (value) {
-          return _this.add(value);
-        });
-      } else if (isES6Set(other)) {
-        _this.clear();
-
-        other.forEach(function (value) {
-          return _this.add(value);
-        });
-      } else if (other !== null && other !== undefined) {
-        fail("Cannot initialize set from " + other);
-      }
-    });
-    return this;
-  };
-
-  ObservableSet.prototype.observe = function (listener, fireImmediately) {
-    // TODO 'fireImmediately' can be true?
-    "development" !== "production" && invariant(fireImmediately !== true, "`observe` doesn't support fireImmediately=true in combination with sets.");
-    return registerListener(this, listener);
-  };
-
-  ObservableSet.prototype.intercept = function (handler) {
-    return registerInterceptor(this, handler);
-  };
-
-  ObservableSet.prototype.toJS = function () {
-    return new Set(this);
-  };
-
-  ObservableSet.prototype.toString = function () {
-    return this.name + "[ " + Array.from(this).join(", ") + " ]";
-  };
-
-  ObservableSet.prototype[(_a$1 = $mobx, Symbol.iterator)] = function () {
-    return this.values();
-  };
-
-  return ObservableSet;
-}();
-
-exports.ObservableSet = ObservableSet;
-var isObservableSet = createInstanceofPredicate("ObservableSet", ObservableSet);
-exports.isObservableSet = isObservableSet;
-
-var ObservableObjectAdministration =
-/** @class */
-function () {
-  function ObservableObjectAdministration(target, values, name, defaultEnhancer) {
-    if (values === void 0) {
-      values = new Map();
-    }
-
-    this.target = target;
-    this.values = values;
-    this.name = name;
-    this.defaultEnhancer = defaultEnhancer;
-    this.keysAtom = new Atom(name + ".keys");
-  }
-
-  ObservableObjectAdministration.prototype.read = function (key) {
-    return this.values.get(key).get();
-  };
-
-  ObservableObjectAdministration.prototype.write = function (key, newValue) {
-    var instance = this.target;
-    var observable = this.values.get(key);
-
-    if (observable instanceof ComputedValue) {
-      observable.set(newValue);
-      return;
-    } // intercept
-
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        type: "update",
-        object: this.proxy || instance,
-        name: key,
-        newValue: newValue
-      });
-      if (!change) return;
-      newValue = change.newValue;
-    }
-
-    newValue = observable.prepareNewValue(newValue); // notify spy & observers
-
-    if (newValue !== globalState.UNCHANGED) {
-      var notify = hasListeners(this);
-      var notifySpy = isSpyEnabled();
-      var change = notify || notifySpy ? {
-        type: "update",
-        object: this.proxy || instance,
-        oldValue: observable.value,
-        name: key,
-        newValue: newValue
-      } : null;
-      if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
-        name: this.name,
-        key: key
-      }));
-      observable.setNewValue(newValue);
-      if (notify) notifyListeners(this, change);
-      if (notifySpy && "development" !== "production") spyReportEnd();
-    }
-  };
-
-  ObservableObjectAdministration.prototype.has = function (key) {
-    var map = this.pendingKeys || (this.pendingKeys = new Map());
-    var entry = map.get(key);
-    if (entry) return entry.get();else {
-      var exists = !!this.values.get(key); // Possible optimization: Don't have a separate map for non existing keys,
-      // but store them in the values map instead, using a special symbol to denote "not existing"
-
-      entry = new ObservableValue(exists, referenceEnhancer, this.name + "." + stringifyKey(key) + "?", false);
-      map.set(key, entry);
-      return entry.get(); // read to subscribe
-    }
-  };
-
-  ObservableObjectAdministration.prototype.addObservableProp = function (propName, newValue, enhancer) {
-    if (enhancer === void 0) {
-      enhancer = this.defaultEnhancer;
-    }
-
-    var target = this.target;
-    assertPropertyConfigurable(target, propName);
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        object: this.proxy || target,
-        name: propName,
-        type: "add",
-        newValue: newValue
-      });
-      if (!change) return;
-      newValue = change.newValue;
-    }
-
-    var observable = new ObservableValue(newValue, enhancer, this.name + "." + stringifyKey(propName), false);
-    this.values.set(propName, observable);
-    newValue = observable.value; // observableValue might have changed it
-
-    Object.defineProperty(target, propName, generateObservablePropConfig(propName));
-    this.notifyPropertyAddition(propName, newValue);
-  };
-
-  ObservableObjectAdministration.prototype.addComputedProp = function (propertyOwner, // where is the property declared?
-  propName, options) {
-    var target = this.target;
-    options.name = options.name || this.name + "." + stringifyKey(propName);
-    this.values.set(propName, new ComputedValue(options));
-    if (propertyOwner === target || isPropertyConfigurable(propertyOwner, propName)) Object.defineProperty(propertyOwner, propName, generateComputedPropConfig(propName));
-  };
-
-  ObservableObjectAdministration.prototype.remove = function (key) {
-    if (!this.values.has(key)) return;
-    var target = this.target;
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        object: this.proxy || target,
-        name: key,
-        type: "remove"
-      });
-      if (!change) return;
-    }
-
-    try {
-      startBatch();
-      var notify = hasListeners(this);
-      var notifySpy = isSpyEnabled();
-      var oldObservable = this.values.get(key);
-      var oldValue = oldObservable && oldObservable.get();
-      oldObservable && oldObservable.set(undefined); // notify key and keyset listeners
-
-      this.keysAtom.reportChanged();
-      this.values.delete(key);
-
-      if (this.pendingKeys) {
-        var entry = this.pendingKeys.get(key);
-        if (entry) entry.set(false);
-      } // delete the prop
-
-
-      delete this.target[key];
-      var change = notify || notifySpy ? {
-        type: "remove",
-        object: this.proxy || target,
-        oldValue: oldValue,
-        name: key
-      } : null;
-      if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
-        name: this.name,
-        key: key
-      }));
-      if (notify) notifyListeners(this, change);
-      if (notifySpy && "development" !== "production") spyReportEnd();
-    } finally {
-      endBatch();
-    }
-  };
-
-  ObservableObjectAdministration.prototype.illegalAccess = function (owner, propName) {
-    /**
-     * This happens if a property is accessed through the prototype chain, but the property was
-     * declared directly as own property on the prototype.
-     *
-     * E.g.:
-     * class A {
-     * }
-     * extendObservable(A.prototype, { x: 1 })
-     *
-     * classB extens A {
-     * }
-     * console.log(new B().x)
-     *
-     * It is unclear whether the property should be considered 'static' or inherited.
-     * Either use `console.log(A.x)`
-     * or: decorate(A, { x: observable })
-     *
-     * When using decorate, the property will always be redeclared as own property on the actual instance
-     */
-    console.warn("Property '" + propName + "' of '" + owner + "' was accessed through the prototype chain. Use 'decorate' instead to declare the prop or access it statically through it's owner");
-  };
-  /**
-   * Observes this object. Triggers for the events 'add', 'update' and 'delete'.
-   * See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/observe
-   * for callback details
-   */
-
-
-  ObservableObjectAdministration.prototype.observe = function (callback, fireImmediately) {
-    "development" !== "production" && invariant(fireImmediately !== true, "`observe` doesn't support the fire immediately property for observable objects.");
-    return registerListener(this, callback);
-  };
-
-  ObservableObjectAdministration.prototype.intercept = function (handler) {
-    return registerInterceptor(this, handler);
-  };
-
-  ObservableObjectAdministration.prototype.notifyPropertyAddition = function (key, newValue) {
-    var notify = hasListeners(this);
-    var notifySpy = isSpyEnabled();
-    var change = notify || notifySpy ? {
-      type: "add",
-      object: this.proxy || this.target,
-      name: key,
-      newValue: newValue
-    } : null;
-    if (notifySpy && "development" !== "production") spyReportStart(__assign(__assign({}, change), {
-      name: this.name,
-      key: key
-    }));
-    if (notify) notifyListeners(this, change);
-    if (notifySpy && "development" !== "production") spyReportEnd();
-
-    if (this.pendingKeys) {
-      var entry = this.pendingKeys.get(key);
-      if (entry) entry.set(true);
-    }
-
-    this.keysAtom.reportChanged();
-  };
-
-  ObservableObjectAdministration.prototype.getKeys = function () {
-    var e_1, _a;
-
-    this.keysAtom.reportObserved(); // return Reflect.ownKeys(this.values) as any
-
-    var res = [];
-
-    try {
-      for (var _b = __values(this.values), _c = _b.next(); !_c.done; _c = _b.next()) {
-        var _d = __read(_c.value, 2),
-            key = _d[0],
-            value = _d[1];
-
-        if (value instanceof ObservableValue) res.push(key);
-      }
-    } catch (e_1_1) {
-      e_1 = {
-        error: e_1_1
-      };
-    } finally {
-      try {
-        if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
-      } finally {
-        if (e_1) throw e_1.error;
-      }
-    }
-
-    return res;
-  };
-
-  return ObservableObjectAdministration;
-}();
-
-function asObservableObject(target, name, defaultEnhancer) {
-  if (name === void 0) {
-    name = "";
-  }
-
-  if (defaultEnhancer === void 0) {
-    defaultEnhancer = deepEnhancer;
-  }
-
-  if (Object.prototype.hasOwnProperty.call(target, $mobx)) return target[$mobx];
-  "development" !== "production" && invariant(Object.isExtensible(target), "Cannot make the designated object observable; it is not extensible");
-  if (!isPlainObject(target)) name = (target.constructor.name || "ObservableObject") + "@" + getNextId();
-  if (!name) name = "ObservableObject@" + getNextId();
-  var adm = new ObservableObjectAdministration(target, new Map(), stringifyKey(name), defaultEnhancer);
-  addHiddenProp(target, $mobx, adm);
-  return adm;
-}
-
-var observablePropertyConfigs = Object.create(null);
-var computedPropertyConfigs = Object.create(null);
-
-function generateObservablePropConfig(propName) {
-  return observablePropertyConfigs[propName] || (observablePropertyConfigs[propName] = {
-    configurable: true,
-    enumerable: true,
-    get: function () {
-      return this[$mobx].read(propName);
-    },
-    set: function (v) {
-      this[$mobx].write(propName, v);
-    }
-  });
-}
-
-function getAdministrationForComputedPropOwner(owner) {
-  var adm = owner[$mobx];
-
-  if (!adm) {
-    // because computed props are declared on proty,
-    // the current instance might not have been initialized yet
-    initializeInstance(owner);
-    return owner[$mobx];
-  }
-
-  return adm;
-}
-
-function generateComputedPropConfig(propName) {
-  return computedPropertyConfigs[propName] || (computedPropertyConfigs[propName] = {
-    configurable: globalState.computedConfigurable,
-    enumerable: false,
-    get: function () {
-      return getAdministrationForComputedPropOwner(this).read(propName);
-    },
-    set: function (v) {
-      getAdministrationForComputedPropOwner(this).write(propName, v);
-    }
-  });
-}
-
-var isObservableObjectAdministration = createInstanceofPredicate("ObservableObjectAdministration", ObservableObjectAdministration);
-
-function isObservableObject(thing) {
-  if (isObject(thing)) {
-    // Initializers run lazily when transpiling to babel, so make sure they are run...
-    initializeInstance(thing);
-    return isObservableObjectAdministration(thing[$mobx]);
-  }
-
-  return false;
-}
-
-function getAtom(thing, property) {
-  if (typeof thing === "object" && thing !== null) {
-    if (isObservableArray(thing)) {
-      if (property !== undefined) fail("development" !== "production" && "It is not possible to get index atoms from arrays");
-      return thing[$mobx].atom;
-    }
-
-    if (isObservableSet(thing)) {
-      return thing[$mobx];
-    }
-
-    if (isObservableMap(thing)) {
-      var anyThing = thing;
-      if (property === undefined) return anyThing._keysAtom;
-
-      var observable = anyThing._data.get(property) || anyThing._hasMap.get(property);
-
-      if (!observable) fail("development" !== "production" && "the entry '" + property + "' does not exist in the observable map '" + getDebugName(thing) + "'");
-      return observable;
-    } // Initializers run lazily when transpiling to babel, so make sure they are run...
-
-
-    initializeInstance(thing);
-    if (property && !thing[$mobx]) thing[property]; // See #1072
-
-    if (isObservableObject(thing)) {
-      if (!property) return fail("development" !== "production" && "please specify a property");
-      var observable = thing[$mobx].values.get(property);
-      if (!observable) fail("development" !== "production" && "no observable property '" + property + "' found on the observable object '" + getDebugName(thing) + "'");
-      return observable;
-    }
-
-    if (isAtom(thing) || isComputedValue(thing) || isReaction(thing)) {
-      return thing;
-    }
-  } else if (typeof thing === "function") {
-    if (isReaction(thing[$mobx])) {
-      // disposer function
-      return thing[$mobx];
-    }
-  }
-
-  return fail("development" !== "production" && "Cannot obtain atom from " + thing);
-}
-
-function getAdministration(thing, property) {
-  if (!thing) fail("Expecting some object");
-  if (property !== undefined) return getAdministration(getAtom(thing, property));
-  if (isAtom(thing) || isComputedValue(thing) || isReaction(thing)) return thing;
-  if (isObservableMap(thing) || isObservableSet(thing)) return thing; // Initializers run lazily when transpiling to babel, so make sure they are run...
-
-  initializeInstance(thing);
-  if (thing[$mobx]) return thing[$mobx];
-  fail("development" !== "production" && "Cannot obtain administration from " + thing);
-}
-
-function getDebugName(thing, property) {
-  var named;
-  if (property !== undefined) named = getAtom(thing, property);else if (isObservableObject(thing) || isObservableMap(thing) || isObservableSet(thing)) named = getAdministration(thing);else named = getAtom(thing); // valid for arrays as well
-
-  return named.name;
-}
-
-var toString = Object.prototype.toString;
-
-function deepEqual(a, b, depth) {
-  if (depth === void 0) {
-    depth = -1;
-  }
-
-  return eq(a, b, depth);
-} // Copied from https://github.com/jashkenas/underscore/blob/5c237a7c682fb68fd5378203f0bf22dce1624854/underscore.js#L1186-L1289
-// Internal recursive comparison function for `isEqual`.
-
-
-function eq(a, b, depth, aStack, bStack) {
-  // Identical objects are equal. `0 === -0`, but they aren't identical.
-  // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
-  if (a === b) return a !== 0 || 1 / a === 1 / b; // `null` or `undefined` only equal to itself (strict comparison).
-
-  if (a == null || b == null) return false; // `NaN`s are equivalent, but non-reflexive.
-
-  if (a !== a) return b !== b; // Exhaust primitive checks
-
-  var type = typeof a;
-  if (type !== "function" && type !== "object" && typeof b != "object") return false; // Compare `[[Class]]` names.
-
-  var className = toString.call(a);
-  if (className !== toString.call(b)) return false;
-
-  switch (className) {
-    // Strings, numbers, regular expressions, dates, and booleans are compared by value.
-    case "[object RegExp]": // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
-
-    case "[object String]":
-      // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
-      // equivalent to `new String("5")`.
-      return "" + a === "" + b;
-
-    case "[object Number]":
-      // `NaN`s are equivalent, but non-reflexive.
-      // Object(NaN) is equivalent to NaN.
-      if (+a !== +a) return +b !== +b; // An `egal` comparison is performed for other numeric values.
-
-      return +a === 0 ? 1 / +a === 1 / b : +a === +b;
-
-    case "[object Date]":
-    case "[object Boolean]":
-      // Coerce dates and booleans to numeric primitive values. Dates are compared by their
-      // millisecond representations. Note that invalid dates with millisecond representations
-      // of `NaN` are not equivalent.
-      return +a === +b;
-
-    case "[object Symbol]":
-      return typeof Symbol !== "undefined" && Symbol.valueOf.call(a) === Symbol.valueOf.call(b);
-
-    case "[object Map]":
-    case "[object Set]":
-      // Maps and Sets are unwrapped to arrays of entry-pairs, adding an incidental level.
-      // Hide this extra level by increasing the depth.
-      if (depth >= 0) {
-        depth++;
-      }
-
-      break;
-  } // Unwrap any wrapped objects.
-
-
-  a = unwrap(a);
-  b = unwrap(b);
-  var areArrays = className === "[object Array]";
-
-  if (!areArrays) {
-    if (typeof a != "object" || typeof b != "object") return false; // Objects with different constructors are not equivalent, but `Object`s or `Array`s
-    // from different frames are.
-
-    var aCtor = a.constructor,
-        bCtor = b.constructor;
-
-    if (aCtor !== bCtor && !(typeof aCtor === "function" && aCtor instanceof aCtor && typeof bCtor === "function" && bCtor instanceof bCtor) && "constructor" in a && "constructor" in b) {
-      return false;
-    }
-  }
-
-  if (depth === 0) {
-    return false;
-  } else if (depth < 0) {
-    depth = -1;
-  } // Assume equality for cyclic structures. The algorithm for detecting cyclic
-  // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
-  // Initializing stack of traversed objects.
-  // It's done here since we only need them for objects and arrays comparison.
-
-
-  aStack = aStack || [];
-  bStack = bStack || [];
-  var length = aStack.length;
-
-  while (length--) {
-    // Linear search. Performance is inversely proportional to the number of
-    // unique nested structures.
-    if (aStack[length] === a) return bStack[length] === b;
-  } // Add the first object to the stack of traversed objects.
-
-
-  aStack.push(a);
-  bStack.push(b); // Recursively compare objects and arrays.
-
-  if (areArrays) {
-    // Compare array lengths to determine if a deep comparison is necessary.
-    length = a.length;
-    if (length !== b.length) return false; // Deep compare the contents, ignoring non-numeric properties.
-
-    while (length--) {
-      if (!eq(a[length], b[length], depth - 1, aStack, bStack)) return false;
-    }
-  } else {
-    // Deep compare objects.
-    var keys = Object.keys(a);
-    var key = void 0;
-    length = keys.length; // Ensure that both objects contain the same number of properties before comparing deep equality.
-
-    if (Object.keys(b).length !== length) return false;
-
-    while (length--) {
-      // Deep compare each member
-      key = keys[length];
-      if (!(has$1(b, key) && eq(a[key], b[key], depth - 1, aStack, bStack))) return false;
-    }
-  } // Remove the first object from the stack of traversed objects.
-
-
-  aStack.pop();
-  bStack.pop();
-  return true;
-}
-
-function unwrap(a) {
-  if (isObservableArray(a)) return a.slice();
-  if (isES6Map(a) || isObservableMap(a)) return Array.from(a.entries());
-  if (isES6Set(a) || isObservableSet(a)) return Array.from(a.entries());
-  return a;
-}
-
-function has$1(a, key) {
-  return Object.prototype.hasOwnProperty.call(a, key);
-}
-
-function makeIterable(iterator) {
-  iterator[Symbol.iterator] = getSelf;
-  return iterator;
-}
-
-function getSelf() {
-  return this;
-}
-/*
-The only reason for this file to exist is pure horror:
-Without it rollup can make the bundling fail at any point in time; when it rolls up the files in the wrong order
-it will cause undefined errors (for example because super classes or local variables not being hoisted).
-With this file that will still happen,
-but at least in this file we can magically reorder the imports with trial and error until the build succeeds again.
-*/
-
-/**
- * (c) Michel Weststrate 2015 - 2018
- * MIT Licensed
- *
- * Welcome to the mobx sources! To get an global overview of how MobX internally works,
- * this is a good place to start:
- * https://medium.com/@mweststrate/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254#.xvbh6qd74
- *
- * Source folders:
- * ===============
- *
- * - api/     Most of the public static methods exposed by the module can be found here.
- * - core/    Implementation of the MobX algorithm; atoms, derivations, reactions, dependency trees, optimizations. Cool stuff can be found here.
- * - types/   All the magic that is need to have observable objects, arrays and values is in this folder. Including the modifiers like `asFlat`.
- * - utils/   Utility stuff.
- *
- */
-
-
-if (typeof Proxy === "undefined" || typeof Symbol === "undefined") {
-  throw new Error("[mobx] MobX 5+ requires Proxy and Symbol objects. If your environment doesn't support Symbol or Proxy objects, please downgrade to MobX 4. For React Native Android, consider upgrading JSCore.");
-}
-
-try {
-  // define process.env if needed
-  // if this is not a production build in the first place
-  // (in which case the expression below would be substituted with 'production')
-  "development";
-} catch (e) {
-  var g = getGlobal();
-  if (typeof process === "undefined") g.process = {};
-  g.process.env = {};
-}
-
-(function () {
-  function testCodeMinification() {}
-
-  if (testCodeMinification.name !== "testCodeMinification" && "development" !== "production" && typeof process !== 'undefined' && undefined !== "true") {
-    // trick so it doesn't get replaced
-    var varName = ["process", "env", "NODE_ENV"].join(".");
-    console.warn("[mobx] you are running a minified build, but '" + varName + "' was not set to 'production' in your bundler. This results in an unnecessarily large and slow bundle");
-  }
-})();
-
-if (typeof __MOBX_DEVTOOLS_GLOBAL_HOOK__ === "object") {
-  // See: https://github.com/andykog/mobx-devtools/
-  __MOBX_DEVTOOLS_GLOBAL_HOOK__.injectMobx({
-    spy: spy,
-    extras: {
-      getDebugName: getDebugName
-    },
-    $mobx: $mobx
-  });
-}
-},{"process":"../node_modules/process/browser.js"}],"../node_modules/mobx-react-lite/dist/mobxreactlite.esm.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Modal":"../node_modules/antd/es/modal/Modal.js","./confirm":"../node_modules/antd/es/modal/confirm.js","../icon":"../node_modules/antd/es/icon/index.js"}],"../node_modules/mobx-react-lite/dist/mobxreactlite.esm.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -66306,38 +67936,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.Provider = _Provider3.default;
 exports.connect = _connect3.default;
 exports.create = _create3.default;
-},{"./Provider":"../node_modules/mini-store/lib/Provider.js","./connect":"../node_modules/mini-store/lib/connect.js","./create":"../node_modules/mini-store/lib/create.js"}],"../node_modules/rc-util/es/createChainedFunction.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = createChainedFunction;
-
-/**
- * Safe chained function
- *
- * Will only create a new function if needed,
- * otherwise will pass back existing functions or null.
- *
- * @returns {function|null}
- */
-function createChainedFunction() {
-  var args = [].slice.call(arguments, 0);
-
-  if (args.length === 1) {
-    return args[0];
-  }
-
-  return function chainedFunction() {
-    for (var i = 0; i < args.length; i++) {
-      if (args[i] && args[i].apply) {
-        args[i].apply(this, arguments);
-      }
-    }
-  };
-}
-},{}],"../node_modules/rc-menu/es/utils/isMobile.js":[function(require,module,exports) {
+},{"./Provider":"../node_modules/mini-store/lib/Provider.js","./connect":"../node_modules/mini-store/lib/connect.js","./create":"../node_modules/mini-store/lib/create.js"}],"../node_modules/rc-menu/es/utils/isMobile.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -81569,2078 +83168,7 @@ _radio.default.Button = _radioButton.default;
 _radio.default.Group = _group.default;
 var _default = _radio.default;
 exports.default = _default;
-},{"./radio":"../node_modules/antd/es/radio/radio.js","./group":"../node_modules/antd/es/radio/group.js","./radioButton":"../node_modules/antd/es/radio/radioButton.js"}],"../node_modules/antd/es/message/style/index.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/antd/es/message/style/css.js":[function(require,module,exports) {
-"use strict";
-
-require("../../style/index.css");
-
-require("./index.css");
-},{"../../style/index.css":"../node_modules/antd/es/style/index.css","./index.css":"../node_modules/antd/es/message/style/index.css"}],"../node_modules/rc-notification/es/Notice.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Notice = function (_Component) {
-  (0, _inherits2.default)(Notice, _Component);
-
-  function Notice() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    (0, _classCallCheck2.default)(this, Notice);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn2.default)(this, (_ref = Notice.__proto__ || Object.getPrototypeOf(Notice)).call.apply(_ref, [this].concat(args))), _this), _this.close = function (e) {
-      if (e) {
-        e.stopPropagation();
-      }
-
-      _this.clearCloseTimer();
-
-      _this.props.onClose();
-    }, _this.startCloseTimer = function () {
-      if (_this.props.duration) {
-        _this.closeTimer = setTimeout(function () {
-          _this.close();
-        }, _this.props.duration * 1000);
-      }
-    }, _this.clearCloseTimer = function () {
-      if (_this.closeTimer) {
-        clearTimeout(_this.closeTimer);
-        _this.closeTimer = null;
-      }
-    }, _temp), (0, _possibleConstructorReturn2.default)(_this, _ret);
-  }
-
-  (0, _createClass2.default)(Notice, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.startCloseTimer();
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate(prevProps) {
-      if (this.props.duration !== prevProps.duration || this.props.update) {
-        this.restartCloseTimer();
-      }
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.clearCloseTimer();
-    }
-  }, {
-    key: 'restartCloseTimer',
-    value: function restartCloseTimer() {
-      this.clearCloseTimer();
-      this.startCloseTimer();
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _className;
-
-      var props = this.props;
-      var componentClass = props.prefixCls + '-notice';
-      var className = (_className = {}, (0, _defineProperty2.default)(_className, '' + componentClass, 1), (0, _defineProperty2.default)(_className, componentClass + '-closable', props.closable), (0, _defineProperty2.default)(_className, props.className, !!props.className), _className);
-      return _react.default.createElement('div', {
-        className: (0, _classnames.default)(className),
-        style: props.style,
-        onMouseEnter: this.clearCloseTimer,
-        onMouseLeave: this.startCloseTimer,
-        onClick: props.onClick
-      }, _react.default.createElement('div', {
-        className: componentClass + '-content'
-      }, props.children), props.closable ? _react.default.createElement('a', {
-        tabIndex: '0',
-        onClick: this.close,
-        className: componentClass + '-close'
-      }, props.closeIcon || _react.default.createElement('span', {
-        className: componentClass + '-close-x'
-      })) : null);
-    }
-  }]);
-  return Notice;
-}(_react.Component);
-
-Notice.propTypes = {
-  duration: _propTypes.default.number,
-  onClose: _propTypes.default.func,
-  children: _propTypes.default.any,
-  update: _propTypes.default.bool,
-  closeIcon: _propTypes.default.node
-};
-Notice.defaultProps = {
-  onEnd: function onEnd() {},
-  onClose: function onClose() {},
-  duration: 1.5,
-  style: {
-    right: '50%'
-  }
-};
-var _default = Notice;
-exports.default = _default;
-},{"babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","prop-types":"../node_modules/prop-types/index.js"}],"../node_modules/rc-notification/es/Notification.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
-
-var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
-
-var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-var _rcAnimate = _interopRequireDefault(require("rc-animate"));
-
-var _createChainedFunction = _interopRequireDefault(require("rc-util/es/createChainedFunction"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _Notice = _interopRequireDefault(require("./Notice"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var seed = 0;
-var now = Date.now();
-
-function getUuid() {
-  return 'rcNotification_' + now + '_' + seed++;
-}
-
-var Notification = function (_Component) {
-  (0, _inherits2.default)(Notification, _Component);
-
-  function Notification() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    (0, _classCallCheck2.default)(this, Notification);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn2.default)(this, (_ref = Notification.__proto__ || Object.getPrototypeOf(Notification)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      notices: []
-    }, _this.add = function (notice) {
-      var key = notice.key = notice.key || getUuid();
-      var maxCount = _this.props.maxCount;
-
-      _this.setState(function (previousState) {
-        var notices = previousState.notices;
-        var noticeIndex = notices.map(function (v) {
-          return v.key;
-        }).indexOf(key);
-        var updatedNotices = notices.concat();
-
-        if (noticeIndex !== -1) {
-          updatedNotices.splice(noticeIndex, 1, notice);
-        } else {
-          if (maxCount && notices.length >= maxCount) {
-            notice.updateKey = updatedNotices[0].updateKey || updatedNotices[0].key;
-            updatedNotices.shift();
-          }
-
-          updatedNotices.push(notice);
-        }
-
-        return {
-          notices: updatedNotices
-        };
-      });
-    }, _this.remove = function (key) {
-      _this.setState(function (previousState) {
-        return {
-          notices: previousState.notices.filter(function (notice) {
-            return notice.key !== key;
-          })
-        };
-      });
-    }, _temp), (0, _possibleConstructorReturn2.default)(_this, _ret);
-  }
-
-  (0, _createClass2.default)(Notification, [{
-    key: 'getTransitionName',
-    value: function getTransitionName() {
-      var props = this.props;
-      var transitionName = props.transitionName;
-
-      if (!transitionName && props.animation) {
-        transitionName = props.prefixCls + '-' + props.animation;
-      }
-
-      return transitionName;
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this,
-          _className;
-
-      var props = this.props;
-      var notices = this.state.notices;
-      var noticeNodes = notices.map(function (notice, index) {
-        var update = Boolean(index === notices.length - 1 && notice.updateKey);
-        var key = notice.updateKey ? notice.updateKey : notice.key;
-        var onClose = (0, _createChainedFunction.default)(_this2.remove.bind(_this2, notice.key), notice.onClose);
-        return _react.default.createElement(_Notice.default, (0, _extends2.default)({
-          prefixCls: props.prefixCls
-        }, notice, {
-          key: key,
-          update: update,
-          onClose: onClose,
-          onClick: notice.onClick,
-          closeIcon: props.closeIcon
-        }), notice.content);
-      });
-      var className = (_className = {}, (0, _defineProperty2.default)(_className, props.prefixCls, 1), (0, _defineProperty2.default)(_className, props.className, !!props.className), _className);
-      return _react.default.createElement('div', {
-        className: (0, _classnames.default)(className),
-        style: props.style
-      }, _react.default.createElement(_rcAnimate.default, {
-        transitionName: this.getTransitionName()
-      }, noticeNodes));
-    }
-  }]);
-  return Notification;
-}(_react.Component);
-
-Notification.propTypes = {
-  prefixCls: _propTypes.default.string,
-  transitionName: _propTypes.default.string,
-  animation: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
-  style: _propTypes.default.object,
-  maxCount: _propTypes.default.number,
-  closeIcon: _propTypes.default.node
-};
-Notification.defaultProps = {
-  prefixCls: 'rc-notification',
-  animation: 'fade',
-  style: {
-    top: 65,
-    left: '50%'
-  }
-};
-
-Notification.newInstance = function newNotificationInstance(properties, callback) {
-  var _ref2 = properties || {},
-      getContainer = _ref2.getContainer,
-      props = (0, _objectWithoutProperties2.default)(_ref2, ['getContainer']);
-
-  var div = document.createElement('div');
-
-  if (getContainer) {
-    var root = getContainer();
-    root.appendChild(div);
-  } else {
-    document.body.appendChild(div);
-  }
-
-  var called = false;
-
-  function ref(notification) {
-    if (called) {
-      return;
-    }
-
-    called = true;
-    callback({
-      notice: function notice(noticeProps) {
-        notification.add(noticeProps);
-      },
-      removeNotice: function removeNotice(key) {
-        notification.remove(key);
-      },
-      component: notification,
-      destroy: function destroy() {
-        _reactDom.default.unmountComponentAtNode(div);
-
-        div.parentNode.removeChild(div);
-      }
-    });
-  }
-
-  _reactDom.default.render(_react.default.createElement(Notification, (0, _extends2.default)({}, props, {
-    ref: ref
-  })), div);
-};
-
-var _default = Notification;
-exports.default = _default;
-},{"babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-dom":"../node_modules/react-dom/index.js","rc-animate":"../node_modules/rc-animate/es/Animate.js","rc-util/es/createChainedFunction":"../node_modules/rc-util/es/createChainedFunction.js","classnames":"../node_modules/classnames/index.js","./Notice":"../node_modules/rc-notification/es/Notice.js"}],"../node_modules/rc-notification/es/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _Notification = _interopRequireDefault(require("./Notification"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = _Notification.default;
-exports.default = _default;
-},{"./Notification":"../node_modules/rc-notification/es/Notification.js"}],"../node_modules/antd/es/message/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _rcNotification = _interopRequireDefault(require("rc-notification"));
-
-var _icon = _interopRequireDefault(require("../icon"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-var defaultDuration = 3;
-var defaultTop;
-var messageInstance;
-var key = 1;
-var prefixCls = 'ant-message';
-var transitionName = 'move-up';
-var getContainer;
-var maxCount;
-
-function getMessageInstance(callback) {
-  if (messageInstance) {
-    callback(messageInstance);
-    return;
-  }
-
-  _rcNotification.default.newInstance({
-    prefixCls: prefixCls,
-    transitionName: transitionName,
-    style: {
-      top: defaultTop
-    },
-    getContainer: getContainer,
-    maxCount: maxCount
-  }, function (instance) {
-    if (messageInstance) {
-      callback(messageInstance);
-      return;
-    }
-
-    messageInstance = instance;
-    callback(instance);
-  });
-}
-
-function notice(args) {
-  var duration = args.duration !== undefined ? args.duration : defaultDuration;
-  var iconType = {
-    info: 'info-circle',
-    success: 'check-circle',
-    error: 'close-circle',
-    warning: 'exclamation-circle',
-    loading: 'loading'
-  }[args.type];
-  var target = args.key || key++;
-  var closePromise = new Promise(function (resolve) {
-    var callback = function callback() {
-      if (typeof args.onClose === 'function') {
-        args.onClose();
-      }
-
-      return resolve(true);
-    };
-
-    getMessageInstance(function (instance) {
-      var iconNode = /*#__PURE__*/React.createElement(_icon.default, {
-        type: iconType,
-        theme: iconType === 'loading' ? 'outlined' : 'filled'
-      });
-      var switchIconNode = iconType ? iconNode : '';
-      instance.notice({
-        key: target,
-        duration: duration,
-        style: {},
-        content: /*#__PURE__*/React.createElement("div", {
-          className: "".concat(prefixCls, "-custom-content").concat(args.type ? " ".concat(prefixCls, "-").concat(args.type) : '')
-        }, args.icon ? args.icon : switchIconNode, /*#__PURE__*/React.createElement("span", null, args.content)),
-        onClose: callback
-      });
-    });
-  });
-
-  var result = function result() {
-    if (messageInstance) {
-      messageInstance.removeNotice(target);
-    }
-  };
-
-  result.then = function (filled, rejected) {
-    return closePromise.then(filled, rejected);
-  };
-
-  result.promise = closePromise;
-  return result;
-}
-
-function isArgsProps(content) {
-  return Object.prototype.toString.call(content) === '[object Object]' && !!content.content;
-}
-
-var api = {
-  open: notice,
-  config: function config(options) {
-    if (options.top !== undefined) {
-      defaultTop = options.top;
-      messageInstance = null; // delete messageInstance for new defaultTop
-    }
-
-    if (options.duration !== undefined) {
-      defaultDuration = options.duration;
-    }
-
-    if (options.prefixCls !== undefined) {
-      prefixCls = options.prefixCls;
-    }
-
-    if (options.getContainer !== undefined) {
-      getContainer = options.getContainer;
-    }
-
-    if (options.transitionName !== undefined) {
-      transitionName = options.transitionName;
-      messageInstance = null; // delete messageInstance for new transitionName
-    }
-
-    if (options.maxCount !== undefined) {
-      maxCount = options.maxCount;
-      messageInstance = null;
-    }
-  },
-  destroy: function destroy() {
-    if (messageInstance) {
-      messageInstance.destroy();
-      messageInstance = null;
-    }
-  }
-};
-['success', 'info', 'warning', 'error', 'loading'].forEach(function (type) {
-  api[type] = function (content, duration, onClose) {
-    if (isArgsProps(content)) {
-      return api.open(_extends(_extends({}, content), {
-        type: type
-      }));
-    }
-
-    if (typeof duration === 'function') {
-      onClose = duration;
-      duration = undefined;
-    }
-
-    return api.open({
-      content: content,
-      duration: duration,
-      type: type,
-      onClose: onClose
-    });
-  };
-});
-api.warn = api.warning;
-var _default = api;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","rc-notification":"../node_modules/rc-notification/es/index.js","../icon":"../node_modules/antd/es/icon/index.js"}],"../node_modules/shortid/lib/random/random-from-seed.js":[function(require,module,exports) {
-'use strict';
-
-// Found this seed-based random generator somewhere
-// Based on The Central Randomizer 1.3 (C) 1997 by Paul Houle (houle@msc.cornell.edu)
-
-var seed = 1;
-
-/**
- * return a random number based on a seed
- * @param seed
- * @returns {number}
- */
-function getNextValue() {
-    seed = (seed * 9301 + 49297) % 233280;
-    return seed/(233280.0);
-}
-
-function setSeed(_seed_) {
-    seed = _seed_;
-}
-
-module.exports = {
-    nextValue: getNextValue,
-    seed: setSeed
-};
-
-},{}],"../node_modules/shortid/lib/alphabet.js":[function(require,module,exports) {
-'use strict';
-
-var randomFromSeed = require('./random/random-from-seed');
-
-var ORIGINAL = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
-var alphabet;
-var previousSeed;
-
-var shuffled;
-
-function reset() {
-    shuffled = false;
-}
-
-function setCharacters(_alphabet_) {
-    if (!_alphabet_) {
-        if (alphabet !== ORIGINAL) {
-            alphabet = ORIGINAL;
-            reset();
-        }
-        return;
-    }
-
-    if (_alphabet_ === alphabet) {
-        return;
-    }
-
-    if (_alphabet_.length !== ORIGINAL.length) {
-        throw new Error('Custom alphabet for shortid must be ' + ORIGINAL.length + ' unique characters. You submitted ' + _alphabet_.length + ' characters: ' + _alphabet_);
-    }
-
-    var unique = _alphabet_.split('').filter(function(item, ind, arr){
-       return ind !== arr.lastIndexOf(item);
-    });
-
-    if (unique.length) {
-        throw new Error('Custom alphabet for shortid must be ' + ORIGINAL.length + ' unique characters. These characters were not unique: ' + unique.join(', '));
-    }
-
-    alphabet = _alphabet_;
-    reset();
-}
-
-function characters(_alphabet_) {
-    setCharacters(_alphabet_);
-    return alphabet;
-}
-
-function setSeed(seed) {
-    randomFromSeed.seed(seed);
-    if (previousSeed !== seed) {
-        reset();
-        previousSeed = seed;
-    }
-}
-
-function shuffle() {
-    if (!alphabet) {
-        setCharacters(ORIGINAL);
-    }
-
-    var sourceArray = alphabet.split('');
-    var targetArray = [];
-    var r = randomFromSeed.nextValue();
-    var characterIndex;
-
-    while (sourceArray.length > 0) {
-        r = randomFromSeed.nextValue();
-        characterIndex = Math.floor(r * sourceArray.length);
-        targetArray.push(sourceArray.splice(characterIndex, 1)[0]);
-    }
-    return targetArray.join('');
-}
-
-function getShuffled() {
-    if (shuffled) {
-        return shuffled;
-    }
-    shuffled = shuffle();
-    return shuffled;
-}
-
-/**
- * lookup shuffled letter
- * @param index
- * @returns {string}
- */
-function lookup(index) {
-    var alphabetShuffled = getShuffled();
-    return alphabetShuffled[index];
-}
-
-function get () {
-  return alphabet || ORIGINAL;
-}
-
-module.exports = {
-    get: get,
-    characters: characters,
-    seed: setSeed,
-    lookup: lookup,
-    shuffled: getShuffled
-};
-
-},{"./random/random-from-seed":"../node_modules/shortid/lib/random/random-from-seed.js"}],"../node_modules/shortid/lib/random/random-byte-browser.js":[function(require,module,exports) {
-'use strict';
-
-var crypto = typeof window === 'object' && (window.crypto || window.msCrypto); // IE 11 uses window.msCrypto
-
-var randomByte;
-
-if (!crypto || !crypto.getRandomValues) {
-    randomByte = function(size) {
-        var bytes = [];
-        for (var i = 0; i < size; i++) {
-            bytes.push(Math.floor(Math.random() * 256));
-        }
-        return bytes;
-    };
-} else {
-    randomByte = function(size) {
-        return crypto.getRandomValues(new Uint8Array(size));
-    };
-}
-
-module.exports = randomByte;
-
-},{}],"../node_modules/nanoid/format.browser.js":[function(require,module,exports) {
-// This file replaces `format.js` in bundlers like webpack or Rollup,
-// according to `browser` config in `package.json`.
-
-module.exports = function (random, alphabet, size) {
-  // We can’t use bytes bigger than the alphabet. To make bytes values closer
-  // to the alphabet, we apply bitmask on them. We look for the closest
-  // `2 ** x - 1` number, which will be bigger than alphabet size. If we have
-  // 30 symbols in the alphabet, we will take 31 (00011111).
-  // We do not use faster Math.clz32, because it is not available in browsers.
-  var mask = (2 << Math.log(alphabet.length - 1) / Math.LN2) - 1
-  // Bitmask is not a perfect solution (in our example it will pass 31 bytes,
-  // which is bigger than the alphabet). As a result, we will need more bytes,
-  // than ID size, because we will refuse bytes bigger than the alphabet.
-
-  // Every hardware random generator call is costly,
-  // because we need to wait for entropy collection. This is why often it will
-  // be faster to ask for few extra bytes in advance, to avoid additional calls.
-
-  // Here we calculate how many random bytes should we call in advance.
-  // It depends on ID length, mask / alphabet size and magic number 1.6
-  // (which was selected according benchmarks).
-
-  // -~f => Math.ceil(f) if n is float number
-  // -~i => i + 1 if n is integer number
-  var step = -~(1.6 * mask * size / alphabet.length)
-  var id = ''
-
-  while (true) {
-    var bytes = random(step)
-    // Compact alternative for `for (var i = 0; i < step; i++)`
-    var i = step
-    while (i--) {
-      // If random byte is bigger than alphabet even after bitmask,
-      // we refuse it by `|| ''`.
-      id += alphabet[bytes[i] & mask] || ''
-      // More compact than `id.length + 1 === size`
-      if (id.length === +size) return id
-    }
-  }
-}
-
-},{}],"../node_modules/shortid/lib/generate.js":[function(require,module,exports) {
-'use strict';
-
-var alphabet = require('./alphabet');
-var random = require('./random/random-byte');
-var format = require('nanoid/format');
-
-function generate(number) {
-    var loopCounter = 0;
-    var done;
-
-    var str = '';
-
-    while (!done) {
-        str = str + format(random, alphabet.get(), 1);
-        done = number < (Math.pow(16, loopCounter + 1 ) );
-        loopCounter++;
-    }
-    return str;
-}
-
-module.exports = generate;
-
-},{"./alphabet":"../node_modules/shortid/lib/alphabet.js","./random/random-byte":"../node_modules/shortid/lib/random/random-byte-browser.js","nanoid/format":"../node_modules/nanoid/format.browser.js"}],"../node_modules/shortid/lib/build.js":[function(require,module,exports) {
-'use strict';
-
-var generate = require('./generate');
-var alphabet = require('./alphabet');
-
-// Ignore all milliseconds before a certain time to reduce the size of the date entropy without sacrificing uniqueness.
-// This number should be updated every year or so to keep the generated id short.
-// To regenerate `new Date() - 0` and bump the version. Always bump the version!
-var REDUCE_TIME = 1567752802062;
-
-// don't change unless we change the algos or REDUCE_TIME
-// must be an integer and less than 16
-var version = 7;
-
-// Counter is used when shortid is called multiple times in one second.
-var counter;
-
-// Remember the last time shortid was called in case counter is needed.
-var previousSeconds;
-
-/**
- * Generate unique id
- * Returns string id
- */
-function build(clusterWorkerId) {
-    var str = '';
-
-    var seconds = Math.floor((Date.now() - REDUCE_TIME) * 0.001);
-
-    if (seconds === previousSeconds) {
-        counter++;
-    } else {
-        counter = 0;
-        previousSeconds = seconds;
-    }
-
-    str = str + generate(version);
-    str = str + generate(clusterWorkerId);
-    if (counter > 0) {
-        str = str + generate(counter);
-    }
-    str = str + generate(seconds);
-    return str;
-}
-
-module.exports = build;
-
-},{"./generate":"../node_modules/shortid/lib/generate.js","./alphabet":"../node_modules/shortid/lib/alphabet.js"}],"../node_modules/shortid/lib/is-valid.js":[function(require,module,exports) {
-'use strict';
-var alphabet = require('./alphabet');
-
-function isShortId(id) {
-    if (!id || typeof id !== 'string' || id.length < 6 ) {
-        return false;
-    }
-
-    var nonAlphabetic = new RegExp('[^' +
-      alphabet.get().replace(/[|\\{}()[\]^$+*?.-]/g, '\\$&') +
-    ']');
-    return !nonAlphabetic.test(id);
-}
-
-module.exports = isShortId;
-
-},{"./alphabet":"../node_modules/shortid/lib/alphabet.js"}],"../node_modules/shortid/lib/util/cluster-worker-id-browser.js":[function(require,module,exports) {
-'use strict';
-
-module.exports = 0;
-
-},{}],"../node_modules/shortid/lib/index.js":[function(require,module,exports) {
-'use strict';
-
-var alphabet = require('./alphabet');
-var build = require('./build');
-var isValid = require('./is-valid');
-
-// if you are using cluster or multiple servers use this to make each instance
-// has a unique value for worker
-// Note: I don't know if this is automatically set when using third
-// party cluster solutions such as pm2.
-var clusterWorkerId = require('./util/cluster-worker-id') || 0;
-
-/**
- * Set the seed.
- * Highly recommended if you don't want people to try to figure out your id schema.
- * exposed as shortid.seed(int)
- * @param seed Integer value to seed the random alphabet.  ALWAYS USE THE SAME SEED or you might get overlaps.
- */
-function seed(seedValue) {
-    alphabet.seed(seedValue);
-    return module.exports;
-}
-
-/**
- * Set the cluster worker or machine id
- * exposed as shortid.worker(int)
- * @param workerId worker must be positive integer.  Number less than 16 is recommended.
- * returns shortid module so it can be chained.
- */
-function worker(workerId) {
-    clusterWorkerId = workerId;
-    return module.exports;
-}
-
-/**
- *
- * sets new characters to use in the alphabet
- * returns the shuffled alphabet
- */
-function characters(newCharacters) {
-    if (newCharacters !== undefined) {
-        alphabet.characters(newCharacters);
-    }
-
-    return alphabet.shuffled();
-}
-
-/**
- * Generate unique id
- * Returns string id
- */
-function generate() {
-  return build(clusterWorkerId);
-}
-
-// Export all other functions as properties of the generate function
-module.exports = generate;
-module.exports.generate = generate;
-module.exports.seed = seed;
-module.exports.worker = worker;
-module.exports.characters = characters;
-module.exports.isValid = isValid;
-
-},{"./alphabet":"../node_modules/shortid/lib/alphabet.js","./build":"../node_modules/shortid/lib/build.js","./is-valid":"../node_modules/shortid/lib/is-valid.js","./util/cluster-worker-id":"../node_modules/shortid/lib/util/cluster-worker-id-browser.js"}],"../node_modules/shortid/index.js":[function(require,module,exports) {
-'use strict';
-module.exports = require('./lib/index');
-
-},{"./lib/index":"../node_modules/shortid/lib/index.js"}],"../node_modules/invariant/browser.js":[function(require,module,exports) {
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-'use strict';
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
-var invariant = function (condition, format, a, b, c, d, e, f) {
-  if ("development" !== 'production') {
-    if (format === undefined) {
-      throw new Error('invariant requires an error message argument');
-    }
-  }
-
-  if (!condition) {
-    var error;
-
-    if (format === undefined) {
-      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-    } else {
-      var args = [a, b, c, d, e, f];
-      var argIndex = 0;
-      error = new Error(format.replace(/%s/g, function () {
-        return args[argIndex++];
-      }));
-      error.name = 'Invariant Violation';
-    }
-
-    error.framesToPop = 1; // we don't care about invariant's own frame
-
-    throw error;
-  }
-};
-
-module.exports = invariant;
-},{}],"../node_modules/immutability-helper/index.js":[function(require,module,exports) {
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var invariant = require("invariant");
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var splice = Array.prototype.splice;
-var toString = Object.prototype.toString;
-function type(obj) {
-    return toString.call(obj).slice(8, -1);
-}
-var assign = Object.assign || /* istanbul ignore next */ (function (target, source) {
-    getAllKeys(source).forEach(function (key) {
-        if (hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
-        }
-    });
-    return target;
-});
-var getAllKeys = typeof Object.getOwnPropertySymbols === 'function'
-    ? function (obj) { return Object.keys(obj).concat(Object.getOwnPropertySymbols(obj)); }
-    /* istanbul ignore next */
-    : function (obj) { return Object.keys(obj); };
-function copy(object) {
-    return Array.isArray(object)
-        ? assign(object.constructor(object.length), object)
-        : (type(object) === 'Map')
-            ? new Map(object)
-            : (type(object) === 'Set')
-                ? new Set(object)
-                : (object && typeof object === 'object')
-                    ? assign(Object.create(Object.getPrototypeOf(object)), object)
-                    /* istanbul ignore next */
-                    : object;
-}
-var Context = /** @class */ (function () {
-    function Context() {
-        this.commands = assign({}, defaultCommands);
-        this.update = this.update.bind(this);
-        // Deprecated: update.extend, update.isEquals and update.newContext
-        this.update.extend = this.extend = this.extend.bind(this);
-        this.update.isEquals = function (x, y) { return x === y; };
-        this.update.newContext = function () { return new Context().update; };
-    }
-    Object.defineProperty(Context.prototype, "isEquals", {
-        get: function () {
-            return this.update.isEquals;
-        },
-        set: function (value) {
-            this.update.isEquals = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Context.prototype.extend = function (directive, fn) {
-        this.commands[directive] = fn;
-    };
-    Context.prototype.update = function (object, $spec) {
-        var _this = this;
-        var spec = (typeof $spec === 'function') ? { $apply: $spec } : $spec;
-        if (!(Array.isArray(object) && Array.isArray(spec))) {
-            invariant(!Array.isArray(spec), 'update(): You provided an invalid spec to update(). The spec may ' +
-                'not contain an array except as the value of $set, $push, $unshift, ' +
-                '$splice or any custom command allowing an array value.');
-        }
-        invariant(typeof spec === 'object' && spec !== null, 'update(): You provided an invalid spec to update(). The spec and ' +
-            'every included key path must be plain objects containing one of the ' +
-            'following commands: %s.', Object.keys(this.commands).join(', '));
-        var nextObject = object;
-        getAllKeys(spec).forEach(function (key) {
-            if (hasOwnProperty.call(_this.commands, key)) {
-                var objectWasNextObject = object === nextObject;
-                nextObject = _this.commands[key](spec[key], nextObject, spec, object);
-                if (objectWasNextObject && _this.isEquals(nextObject, object)) {
-                    nextObject = object;
-                }
-            }
-            else {
-                var nextValueForKey = type(object) === 'Map'
-                    ? _this.update(object.get(key), spec[key])
-                    : _this.update(object[key], spec[key]);
-                var nextObjectValue = type(nextObject) === 'Map'
-                    ? nextObject.get(key)
-                    : nextObject[key];
-                if (!_this.isEquals(nextValueForKey, nextObjectValue)
-                    || typeof nextValueForKey === 'undefined'
-                        && !hasOwnProperty.call(object, key)) {
-                    if (nextObject === object) {
-                        nextObject = copy(object);
-                    }
-                    if (type(nextObject) === 'Map') {
-                        nextObject.set(key, nextValueForKey);
-                    }
-                    else {
-                        nextObject[key] = nextValueForKey;
-                    }
-                }
-            }
-        });
-        return nextObject;
-    };
-    return Context;
-}());
-exports.Context = Context;
-var defaultCommands = {
-    $push: function (value, nextObject, spec) {
-        invariantPushAndUnshift(nextObject, spec, '$push');
-        return value.length ? nextObject.concat(value) : nextObject;
-    },
-    $unshift: function (value, nextObject, spec) {
-        invariantPushAndUnshift(nextObject, spec, '$unshift');
-        return value.length ? value.concat(nextObject) : nextObject;
-    },
-    $splice: function (value, nextObject, spec, originalObject) {
-        invariantSplices(nextObject, spec);
-        value.forEach(function (args) {
-            invariantSplice(args);
-            if (nextObject === originalObject && args.length) {
-                nextObject = copy(originalObject);
-            }
-            splice.apply(nextObject, args);
-        });
-        return nextObject;
-    },
-    $set: function (value, _nextObject, spec) {
-        invariantSet(spec);
-        return value;
-    },
-    $toggle: function (targets, nextObject) {
-        invariantSpecArray(targets, '$toggle');
-        var nextObjectCopy = targets.length ? copy(nextObject) : nextObject;
-        targets.forEach(function (target) {
-            nextObjectCopy[target] = !nextObject[target];
-        });
-        return nextObjectCopy;
-    },
-    $unset: function (value, nextObject, _spec, originalObject) {
-        invariantSpecArray(value, '$unset');
-        value.forEach(function (key) {
-            if (Object.hasOwnProperty.call(nextObject, key)) {
-                if (nextObject === originalObject) {
-                    nextObject = copy(originalObject);
-                }
-                delete nextObject[key];
-            }
-        });
-        return nextObject;
-    },
-    $add: function (values, nextObject, _spec, originalObject) {
-        invariantMapOrSet(nextObject, '$add');
-        invariantSpecArray(values, '$add');
-        if (type(nextObject) === 'Map') {
-            values.forEach(function (_a) {
-                var key = _a[0], value = _a[1];
-                if (nextObject === originalObject && nextObject.get(key) !== value) {
-                    nextObject = copy(originalObject);
-                }
-                nextObject.set(key, value);
-            });
-        }
-        else {
-            values.forEach(function (value) {
-                if (nextObject === originalObject && !nextObject.has(value)) {
-                    nextObject = copy(originalObject);
-                }
-                nextObject.add(value);
-            });
-        }
-        return nextObject;
-    },
-    $remove: function (value, nextObject, _spec, originalObject) {
-        invariantMapOrSet(nextObject, '$remove');
-        invariantSpecArray(value, '$remove');
-        value.forEach(function (key) {
-            if (nextObject === originalObject && nextObject.has(key)) {
-                nextObject = copy(originalObject);
-            }
-            nextObject.delete(key);
-        });
-        return nextObject;
-    },
-    $merge: function (value, nextObject, _spec, originalObject) {
-        invariantMerge(nextObject, value);
-        getAllKeys(value).forEach(function (key) {
-            if (value[key] !== nextObject[key]) {
-                if (nextObject === originalObject) {
-                    nextObject = copy(originalObject);
-                }
-                nextObject[key] = value[key];
-            }
-        });
-        return nextObject;
-    },
-    $apply: function (value, original) {
-        invariantApply(value);
-        return value(original);
-    },
-};
-var defaultContext = new Context();
-exports.isEquals = defaultContext.update.isEquals;
-exports.extend = defaultContext.extend;
-exports.default = defaultContext.update;
-// @ts-ignore
-exports.default.default = module.exports = assign(exports.default, exports);
-// invariants
-function invariantPushAndUnshift(value, spec, command) {
-    invariant(Array.isArray(value), 'update(): expected target of %s to be an array; got %s.', command, value);
-    invariantSpecArray(spec[command], command);
-}
-function invariantSpecArray(spec, command) {
-    invariant(Array.isArray(spec), 'update(): expected spec of %s to be an array; got %s. ' +
-        'Did you forget to wrap your parameter in an array?', command, spec);
-}
-function invariantSplices(value, spec) {
-    invariant(Array.isArray(value), 'Expected $splice target to be an array; got %s', value);
-    invariantSplice(spec.$splice);
-}
-function invariantSplice(value) {
-    invariant(Array.isArray(value), 'update(): expected spec of $splice to be an array of arrays; got %s. ' +
-        'Did you forget to wrap your parameters in an array?', value);
-}
-function invariantApply(fn) {
-    invariant(typeof fn === 'function', 'update(): expected spec of $apply to be a function; got %s.', fn);
-}
-function invariantSet(spec) {
-    invariant(Object.keys(spec).length === 1, 'Cannot have more than one key in an object with $set');
-}
-function invariantMerge(target, specValue) {
-    invariant(specValue && typeof specValue === 'object', 'update(): $merge expects a spec of type \'object\'; got %s', specValue);
-    invariant(target && typeof target === 'object', 'update(): $merge expects a target of type \'object\'; got %s', target);
-}
-function invariantMapOrSet(target, command) {
-    var typeOfTarget = type(target);
-    invariant(typeOfTarget === 'Map' || typeOfTarget === 'Set', 'update(): %s expects a target of type Set or Map; got %s', command, typeOfTarget);
-}
-
-},{"invariant":"../node_modules/invariant/browser.js"}],"../src/stores/FormStore.ts":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.FormStore = exports.createFormItem = exports.FormItemType = void 0;
-
-require("antd/es/message/style/css");
-
-var _message2 = _interopRequireDefault(require("antd/es/message"));
-
-var _mobx = require("mobx");
-
-var _shortid = require("shortid");
-
-var _immutabilityHelper = _interopRequireDefault(require("immutability-helper"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var __assign = void 0 && (void 0).__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
-var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
-  var c = arguments.length,
-      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-      d;
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-  }
-  return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var FormItemType;
-exports.FormItemType = FormItemType;
-
-(function (FormItemType) {
-  FormItemType["TEXT"] = "text";
-  FormItemType["INPUT"] = "input";
-  FormItemType["NUMBER"] = "number";
-  FormItemType["TEXTAREA"] = "textarea";
-  FormItemType["CHECKBOX"] = "checkbox";
-  FormItemType["RADIO"] = "radio";
-  FormItemType["SELECT"] = "select";
-  FormItemType["LAYOUT"] = "layout";
-  FormItemType["RESULT"] = "result";
-})(FormItemType || (exports.FormItemType = FormItemType = {}));
-
-var createFormItem = function createFormItem(itemType) {
-  var id = (0, _shortid.generate)();
-
-  switch (itemType) {
-    case FormItemType.RESULT:
-      return {
-        id: id,
-        itemType: itemType,
-        labelText: '检验结果'
-      };
-
-    case FormItemType.TEXT:
-      return {
-        id: id,
-        itemType: itemType,
-        content: '文字内容',
-        fontSize: 14,
-        lineHeight: 21,
-        textAlign: 'left'
-      };
-
-    case FormItemType.LAYOUT:
-      return {
-        id: id,
-        itemType: itemType,
-        rows: [[{
-          span: 12
-        }, {
-          span: 12
-        }]]
-      };
-
-    case FormItemType.SELECT:
-      return {
-        id: id,
-        itemType: itemType,
-        labelText: '下拉选择框',
-        options: [createOption('选项 1'), createOption('选项 2'), createOption('选项 3')],
-        defaultValue: '选项 1'
-      };
-
-    case FormItemType.RADIO:
-      return {
-        id: id,
-        itemType: itemType,
-        labelText: '单选框',
-        options: [createOption('选项 1'), createOption('选项 2')],
-        buttonStyle: 'solid',
-        defaultValue: '',
-        required: true
-      };
-
-    case FormItemType.CHECKBOX:
-      return {
-        id: id,
-        itemType: itemType,
-        labelText: '多选框',
-        options: [createOption('选项 1')],
-        defaultValue: [],
-        required: true
-      };
-
-    case FormItemType.TEXTAREA:
-      return {
-        id: id,
-        itemType: itemType,
-        labelText: '文本域',
-        placeholder: '文本域输入提示',
-        defaultValue: '',
-        required: true
-      };
-
-    case FormItemType.NUMBER:
-      return {
-        id: id,
-        itemType: itemType,
-        labelText: '数字框',
-        defaultValue: 1,
-        min: 1,
-        max: 100,
-        unit: ''
-      };
-
-    default:
-      return {
-        id: id,
-        itemType: FormItemType.INPUT,
-        labelText: '文本框',
-        placeholder: '文本框输入提示',
-        defaultValue: '',
-        required: true
-      };
-  }
-};
-
-exports.createFormItem = createFormItem;
-
-var createOption = function createOption(value) {
-  return {
-    value: value,
-    text: value
-  };
-};
-
-var FormStore =
-/** @class */
-function () {
-  function FormStore() {
-    this.items = [];
-    this.activeId = ''; // autorun(() => console.log('form items: ', this.formItems))
-  }
-
-  FormStore.prototype.setItems = function (items) {
-    this.items = items;
-    this.activeId = '';
-  };
-
-  FormStore.prototype.getItems = function () {
-    return this.items.slice(0);
-  };
-
-  FormStore.prototype.add = function (itemType) {
-    if (itemType === FormItemType.RESULT && this.items.filter(function (item) {
-      return item.itemType === FormItemType.RESULT;
-    }).length > 0) {
-      _message2.default.error('检验结果字段只能有一个');
-
-      return;
-    }
-
-    var newItem = createFormItem(itemType);
-    this.items.push(newItem);
-  };
-
-  FormStore.prototype.delete = function (id) {
-    this.items = this.items.filter(function (item) {
-      return item.id !== id;
-    });
-  };
-
-  FormStore.prototype.update = function (newItem) {
-    this.items = this.items.map(function (item) {
-      return item.id === newItem.id ? newItem : item;
-    });
-  };
-
-  FormStore.prototype.activate = function (id) {
-    if (this.items.filter(function (item) {
-      return item.id === id;
-    }).length > 0) {
-      this.activeId = id;
-    }
-  };
-
-  FormStore.prototype.move = function (dragIndex, hoverIndex) {
-    var dragItem = this.items[dragIndex];
-    this.items = (0, _immutabilityHelper.default)(this.items, {
-      $splice: [[dragIndex, 1], [hoverIndex, 0, dragItem]]
-    });
-  };
-
-  FormStore.prototype.addOption = function (id) {
-    this.items = this.items.map(function (item) {
-      if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
-        var value = "";
-        item.options.push(createOption(value));
-      }
-
-      return item;
-    });
-  };
-
-  FormStore.prototype.deleteOption = function (id, optionIndex) {
-    this.items = this.items.map(function (item) {
-      if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
-        if (item.options.length > 1) {
-          item.options.splice(optionIndex, 1); // 删除选项后，重新设置默认值
-
-          if (FormItemType.SELECT === item.itemType) {
-            item.defaultValue = item.options[0].value;
-          }
-
-          if (FormItemType.CHECKBOX === item.itemType) {
-            item.defaultValue = [];
-          }
-
-          if (FormItemType.RADIO === item.itemType) {
-            item.defaultValue = '';
-          }
-        } else {
-          _message2.default.error('选项不得少于 1 个');
-        }
-      }
-
-      return item;
-    });
-  };
-
-  FormStore.prototype.updateOption = function (id, optionIndex, value) {
-    this.items = this.items.map(function (item) {
-      if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
-        item.options.splice(optionIndex, 1, createOption(value));
-      }
-
-      return item;
-    });
-  };
-
-  FormStore.prototype.setCheckboxDefaultOption = function (id, values) {
-    this.items = this.items.map(function (item) {
-      if (item.id === id && FormItemType.CHECKBOX === item.itemType) {
-        item.defaultValue = values;
-      }
-
-      return item;
-    });
-  };
-
-  FormStore.prototype.setRadioDefaultOption = function (id, value) {
-    this.items = this.items.map(function (item) {
-      if (item.id === id && FormItemType.RADIO === item.itemType) {
-        item.defaultValue = value;
-      }
-
-      return item;
-    });
-  };
-
-  FormStore.prototype.setSelectDefaultOption = function (id, value) {
-    this.items = this.items.map(function (item) {
-      if (item.id === id && FormItemType.SELECT === item.itemType) {
-        item.defaultValue = value;
-      }
-
-      return item;
-    });
-  };
-
-  FormStore.prototype.addCol = function (id, rowIndex) {
-    this.items = this.items.map(function (item) {
-      if (item.id === id && FormItemType.LAYOUT === item.itemType) {
-        item.rows[rowIndex].push({
-          span: 12
-        });
-      }
-
-      return item;
-    });
-  };
-
-  FormStore.prototype.updateColSpan = function (id, rowIndex, colIndex, span) {
-    this.items = this.items.map(function (item) {
-      if (item.id === id && FormItemType.LAYOUT === item.itemType) {
-        item.rows[rowIndex].splice(colIndex, 1, {
-          span: span
-        });
-      }
-
-      return item;
-    });
-  };
-
-  FormStore.prototype.deleteCol = function (id, rowIndex, colIndex) {
-    this.items = this.items.map(function (item) {
-      if (item.id === id && FormItemType.LAYOUT === item.itemType) {
-        item.rows[rowIndex].splice(colIndex, 1);
-      }
-
-      return item;
-    });
-  };
-
-  FormStore.prototype.updateTextItem = function (id, content, fontSize, lineHeight, textAlign) {
-    this.items = this.items.map(function (item) {
-      if (item.id === id && FormItemType.TEXT === item.itemType) {
-        ;
-        item.content = content;
-        item.fontSize = fontSize;
-        item.lineHeight = lineHeight;
-        item.textAlign = textAlign;
-      }
-
-      return item;
-    });
-  };
-
-  FormStore.prototype.setRequired = function (id, required) {
-    this.items = this.items.map(function (item) {
-      if (item.id === id) {
-        item.required = required;
-      }
-
-      return item;
-    });
-  };
-
-  Object.defineProperty(FormStore.prototype, "formItems", {
-    get: function get() {
-      var _this = this;
-
-      return this.items.map(function (item) {
-        return __assign(__assign({}, item), {
-          isActive: item.id === _this.activeId
-        });
-      });
-    },
-    enumerable: true,
-    configurable: true
-  });
-  Object.defineProperty(FormStore.prototype, "activeItem", {
-    get: function get() {
-      return find(this.items, this.activeId);
-    },
-    enumerable: true,
-    configurable: true
-  });
-
-  __decorate([_mobx.observable], FormStore.prototype, "items", void 0);
-
-  __decorate([_mobx.observable], FormStore.prototype, "activeId", void 0);
-
-  return FormStore;
-}();
-
-exports.FormStore = FormStore;
-
-function find(items, id) {
-  var result = null;
-
-  for (var i = 0, len = items.length; i < len; i++) {
-    var item = items[i];
-
-    if (item.id === id) {
-      result = item;
-      break;
-    }
-  }
-
-  return result || {};
-}
-
-var _default = new FormStore();
-
-exports.default = _default;
-},{"antd/es/message/style/css":"../node_modules/antd/es/message/style/css.js","antd/es/message":"../node_modules/antd/es/message/index.js","mobx":"../node_modules/mobx/lib/mobx.module.js","shortid":"../node_modules/shortid/index.js","immutability-helper":"../node_modules/immutability-helper/index.js"}],"../src/components/GeneratedForm.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("antd/es/button/style/css");
-
-var _button = _interopRequireDefault(require("antd/es/button"));
-
-require("antd/es/divider/style/css");
-
-var _divider = _interopRequireDefault(require("antd/es/divider"));
-
-require("antd/es/empty/style/css");
-
-var _empty = _interopRequireDefault(require("antd/es/empty"));
-
-require("antd/es/input-number/style/css");
-
-var _inputNumber = _interopRequireDefault(require("antd/es/input-number"));
-
-require("antd/es/checkbox/style/css");
-
-var _checkbox = _interopRequireDefault(require("antd/es/checkbox"));
-
-require("antd/es/select/style/css");
-
-var _select = _interopRequireDefault(require("antd/es/select"));
-
-require("antd/es/input/style/css");
-
-var _input = _interopRequireDefault(require("antd/es/input"));
-
-require("antd/es/radio/style/css");
-
-var _radio = _interopRequireDefault(require("antd/es/radio"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _FormStore = require("../stores/FormStore");
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var __assign = void 0 && (void 0).__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
-var createFormValues = function createFormValues(items) {
-  var values = items.reduce(function (values, item) {
-    var _a;
-
-    if ([_FormStore.FormItemType.INPUT, _FormStore.FormItemType.TEXTAREA, _FormStore.FormItemType.RADIO, _FormStore.FormItemType.CHECKBOX, _FormStore.FormItemType.SELECT].indexOf(item.itemType) > -1) {
-      return __assign(__assign({}, values), (_a = {}, _a[item.id] = item.defaultValue, _a));
-    }
-
-    return values;
-  }, {});
-  return {
-    values: values,
-    result: -1,
-    comment: ''
-  };
-};
-
-var shouldValidateRequired = function shouldValidateRequired(item) {
-  return [_FormStore.FormItemType.INPUT, _FormStore.FormItemType.TEXTAREA, _FormStore.FormItemType.CHECKBOX, _FormStore.FormItemType.RADIO].indexOf(item.itemType) > -1;
-};
-
-function GeneratedForm(props) {
-  var _a = props.form,
-      items = _a.items,
-      attrs = _a.attrs;
-  var formWidth = attrs.formWidth,
-      formWidthUnit = attrs.formWidthUnit,
-      labelAlign = attrs.labelAlign,
-      labelWidth = attrs.labelWidth;
-
-  var _b = (0, _react.useState)(createFormValues(items)),
-      formValues = _b[0],
-      setFormValues = _b[1];
-
-  var _c = (0, _react.useState)({
-    result: false,
-    errors: {}
-  }),
-      validationResult = _c[0],
-      setValidationResult = _c[1];
-
-  var _d = (0, _react.useState)(0),
-      validateCount = _d[0],
-      setValidateCount = _d[1];
-
-  function onSubmit() {
-    console.log('form items =>', items);
-    console.log('form values =>', formValues);
-    var newValidationResult = validate(items, formValues);
-    console.log(newValidationResult);
-
-    if (newValidationResult.result) {
-      if (props.onSubmit) props.onSubmit(formValues);
-      setValidationResult({
-        result: false,
-        errors: {}
-      });
-      setFormValues(createFormValues(items));
-    } else {
-      setValidationResult(newValidationResult);
-    }
-
-    setValidateCount(validateCount + 1);
-  }
-
-  function validate(items, formValues) {
-    var values = formValues.values;
-    return items.reduce(function (_a, item) {
-      var result = _a.result,
-          errors = _a.errors; // 校验必填项
-
-      if (shouldValidateRequired(item) && item.required) {
-        var _b = item,
-            id = _b.id,
-            labelText = _b.labelText;
-        var value = values[id];
-
-        if ( // 空字符串
-        typeof value === 'string' && value === '' || // 空数组
-        Object.prototype.toString.call(value) === '[object Array]' && value.length === 0) {
-          errors[id] = labelText + "\u4E3A\u5FC5\u586B\u9879";
-          result = false;
-        }
-      } // 检验结果项为必填
-
-
-      if (item.itemType === _FormStore.FormItemType.RESULT && formValues.result === -1) {
-        result === false;
-      }
-
-      return {
-        result: result,
-        errors: errors
-      };
-    }, {
-      result: false,
-      errors: {}
-    });
-  }
-
-  var renderFormItem = function renderFormItem(formItem) {
-    var itemType = formItem.itemType;
-
-    switch (itemType) {
-      case _FormStore.FormItemType.RESULT:
-        return _react.default.createElement("div", null, _react.default.createElement(_radio.default.Group, {
-          style: {
-            height: 32,
-            lineHeight: '32px',
-            marginBottom: 16
-          },
-          value: formValues.result,
-          onChange: function onChange(e) {
-            return setFormValues(__assign(__assign({}, formValues), {
-              result: e.target.value
-            }));
-          }
-        }, _react.default.createElement(_radio.default, {
-          value: 1
-        }, "\u5408\u683C"), _react.default.createElement(_radio.default, {
-          value: 0
-        }, "\u4E0D\u5408\u683C"), _react.default.createElement("span", {
-          className: "err-msg"
-        }, validateCount > 0 && formValues.result === -1 ? '检验结果为必填项' : '')), _react.default.createElement(_input.default.TextArea, {
-          placeholder: "\u5907\u6CE8",
-          value: formValues.comment,
-          onChange: function onChange(e) {
-            return setFormValues(__assign(__assign({}, formValues), {
-              comment: e.target.value
-            }));
-          }
-        }));
-
-      case _FormStore.FormItemType.SELECT:
-        var selectItem_1 = formItem;
-        return _react.default.createElement(_select.default, {
-          value: formValues.values[selectItem_1.id],
-          onChange: function onChange(value) {
-            var _a;
-
-            var values = formValues.values;
-            setFormValues(__assign(__assign({}, formValues), {
-              values: __assign(__assign({}, values), (_a = {}, _a[selectItem_1.id] = value, _a))
-            }));
-          },
-          style: {
-            width: '100%'
-          }
-        }, selectItem_1.options.map(function (option, optionIndex) {
-          return _react.default.createElement(_select.default.Option, {
-            key: optionIndex,
-            value: option.value
-          }, option.text);
-        }));
-
-      case _FormStore.FormItemType.CHECKBOX:
-        var checkboxItem_1 = formItem;
-        return _react.default.createElement(_checkbox.default.Group, {
-          value: formValues.values[checkboxItem_1.id],
-          onChange: function onChange(value) {
-            var _a;
-
-            var values = formValues.values;
-            setFormValues(__assign(__assign({}, formValues), {
-              values: __assign(__assign({}, values), (_a = {}, _a[checkboxItem_1.id] = value, _a))
-            }));
-          }
-        }, checkboxItem_1.options.map(function (option, optionIndex) {
-          return _react.default.createElement(_checkbox.default, {
-            key: optionIndex,
-            value: option.value
-          }, option.text);
-        }));
-
-      case _FormStore.FormItemType.RADIO:
-        var radioItem_1 = formItem;
-        return _react.default.createElement(_radio.default.Group, {
-          value: formValues.values[radioItem_1.id],
-          onChange: function onChange(e) {
-            var _a;
-
-            var values = formValues.values;
-            setFormValues(__assign(__assign({}, formValues), {
-              values: __assign(__assign({}, values), (_a = {}, _a[radioItem_1.id] = e.target.value, _a))
-            }));
-          },
-          buttonStyle: radioItem_1.buttonStyle
-        }, radioItem_1.options.map(function (option, optionIndex) {
-          return _react.default.createElement(_radio.default.Button, {
-            key: optionIndex,
-            value: option.value
-          }, option.text);
-        }));
-
-      case _FormStore.FormItemType.TEXTAREA:
-        var textareaItem_1 = formItem;
-        return _react.default.createElement(_input.default.TextArea, {
-          value: formValues.values[textareaItem_1.id],
-          onChange: function onChange(e) {
-            var _a;
-
-            var values = formValues.values;
-            setFormValues(__assign(__assign({}, formValues), {
-              values: __assign(__assign({}, values), (_a = {}, _a[textareaItem_1.id] = e.target.value, _a))
-            }));
-          },
-          placeholder: textareaItem_1.placeholder
-        });
-
-      case _FormStore.FormItemType.NUMBER:
-        var numberItem_1 = formItem;
-        return _react.default.createElement(_inputNumber.default, {
-          style: {
-            width: '100%'
-          },
-          value: formValues.values[numberItem_1.id],
-          onChange: function onChange(value) {
-            var _a;
-
-            value = value || numberItem_1.min;
-            var values = formValues.values;
-            setFormValues(__assign(__assign({}, formValues), {
-              values: __assign(__assign({}, values), (_a = {}, _a[numberItem_1.id] = value, _a))
-            }));
-          },
-          min: numberItem_1.min,
-          max: numberItem_1.max,
-          formatter: function formatter(value) {
-            if (!value) return numberItem_1.min + " " + numberItem_1.unit;
-            return value + " " + numberItem_1.unit;
-          },
-          parser: function parser(value) {
-            if (!value) return Number(numberItem_1.min);
-            return Number(value.replace(" " + numberItem_1.unit, ''));
-          }
-        });
-
-      default:
-        var inputItem_1 = formItem;
-        return _react.default.createElement(_input.default, {
-          value: formValues.values[inputItem_1.id],
-          onChange: function onChange(e) {
-            var _a;
-
-            var values = formValues.values;
-            setFormValues(__assign(__assign({}, formValues), {
-              values: __assign(__assign({}, values), (_a = {}, _a[inputItem_1.id] = e.target.value, _a))
-            }));
-          },
-          placeholder: inputItem_1.placeholder
-        });
-    }
-  };
-
-  if (items.length === 0) return _react.default.createElement(_empty.default, null);
-  return _react.default.createElement("div", {
-    className: "generated-form",
-    style: {
-      width: "" + formWidth + formWidthUnit
-    }
-  }, items.map(function (item, index) {
-    var itemType = item.itemType;
-
-    if (itemType === _FormStore.FormItemType.TEXT) {
-      var textItem = item;
-      return _react.default.createElement("div", {
-        key: index,
-        className: "form-item form-item-text",
-        style: {
-          fontSize: textItem.fontSize,
-          lineHeight: textItem.lineHeight + "px",
-          textAlign: textItem.textAlign
-        }
-      }, _react.default.createElement("div", {
-        className: "form-item-label"
-      }, textItem.content));
-    }
-
-    if ([_FormStore.FormItemType.INPUT, _FormStore.FormItemType.NUMBER, _FormStore.FormItemType.TEXTAREA, _FormStore.FormItemType.RADIO, _FormStore.FormItemType.CHECKBOX, _FormStore.FormItemType.SELECT, _FormStore.FormItemType.RESULT].indexOf(itemType) > -1) {
-      var errMsg = validationResult.errors[item.id];
-      return _react.default.createElement("div", {
-        className: "form-item",
-        key: index
-      }, _react.default.createElement("div", {
-        className: (0, _classnames.default)('form-item-label', labelAlign === 'top' ? 'label-standalone' : ''),
-        style: __assign({
-          width: labelWidth
-        }, labelAlign !== 'top' ? {
-          textAlign: labelAlign
-        } : {})
-      }, item.labelText), _react.default.createElement("div", {
-        className: 'form-item-content'
-      }, renderFormItem(item), _react.default.createElement("div", {
-        className: "err-msg"
-      }, errMsg)));
-    }
-
-    return null;
-  }), _react.default.createElement(_divider.default, null), _react.default.createElement("div", {
-    style: {
-      paddingLeft: labelWidth
-    }
-  }, _react.default.createElement(_button.default, {
-    type: "primary",
-    onClick: onSubmit,
-    style: {
-      width: 90,
-      marginRight: 16
-    }
-  }, "\u63D0 \u4EA4"), _react.default.createElement(_button.default, {
-    type: "default",
-    onClick: function onClick() {
-      return setFormValues(createFormValues(items));
-    },
-    style: {
-      width: 90
-    }
-  }, "\u91CD \u7F6E")));
-}
-
-var _default = GeneratedForm;
-exports.default = _default;
-},{"antd/es/button/style/css":"../node_modules/antd/es/button/style/css.js","antd/es/button":"../node_modules/antd/es/button/index.js","antd/es/divider/style/css":"../node_modules/antd/es/divider/style/css.js","antd/es/divider":"../node_modules/antd/es/divider/index.js","antd/es/empty/style/css":"../node_modules/antd/es/empty/style/css.js","antd/es/empty":"../node_modules/antd/es/empty/index.js","antd/es/input-number/style/css":"../node_modules/antd/es/input-number/style/css.js","antd/es/input-number":"../node_modules/antd/es/input-number/index.js","antd/es/checkbox/style/css":"../node_modules/antd/es/checkbox/style/css.js","antd/es/checkbox":"../node_modules/antd/es/checkbox/index.js","antd/es/select/style/css":"../node_modules/antd/es/select/style/css.js","antd/es/select":"../node_modules/antd/es/select/index.js","antd/es/input/style/css":"../node_modules/antd/es/input/style/css.js","antd/es/input":"../node_modules/antd/es/input/index.js","antd/es/radio/style/css":"../node_modules/antd/es/radio/style/css.js","antd/es/radio":"../node_modules/antd/es/radio/index.js","react":"../node_modules/react/index.js","../stores/FormStore":"../src/stores/FormStore.ts","classnames":"../node_modules/classnames/index.js"}],"../src/components/Toolbar.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("antd/es/modal/style/css");
-
-var _modal = _interopRequireDefault(require("antd/es/modal"));
-
-require("antd/es/button/style/css");
-
-var _button = _interopRequireDefault(require("antd/es/button"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _mobxReact = require("mobx-react");
-
-var _GeneratedForm = _interopRequireDefault(require("./GeneratedForm"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Toolbar(props) {
-  var form = props.form,
-      formAttrs = props.formAttrs,
-      onSave = props.onSave;
-
-  var _a = (0, _react.useState)(false),
-      modalVisible = _a[0],
-      setModalVisible = _a[1];
-
-  var getJson = function getJson() {
-    return JSON.stringify({
-      items: form.getItems(),
-      attrs: formAttrs
-    });
-  };
-
-  function onPreview() {
-    setModalVisible(true);
-  }
-
-  return _react.default.createElement("div", {
-    className: "form-editor-toolbar-content"
-  }, _react.default.createElement(_button.default, {
-    type: "link",
-    icon: "eye",
-    onClick: onPreview
-  }, "\u9884\u89C8"), _react.default.createElement(_button.default, {
-    type: "link",
-    icon: "save",
-    onClick: function onClick() {
-      return onSave(getJson());
-    }
-  }, "\u4FDD\u5B58"), _react.default.createElement(_modal.default, {
-    title: "\u8868\u5355\u9884\u89C8",
-    centered: true,
-    visible: modalVisible,
-    onCancel: function onCancel() {
-      return setModalVisible(false);
-    },
-    footer: null,
-    width: 800
-  }, modalVisible ? _react.default.createElement(_GeneratedForm.default, {
-    form: JSON.parse(getJson())
-  }) : null));
-}
-
-var _default = (0, _mobxReact.observer)(Toolbar);
-
-exports.default = _default;
-},{"antd/es/modal/style/css":"../node_modules/antd/es/modal/style/css.js","antd/es/modal":"../node_modules/antd/es/modal/index.js","antd/es/button/style/css":"../node_modules/antd/es/button/style/css.js","antd/es/button":"../node_modules/antd/es/button/index.js","react":"../node_modules/react/index.js","mobx-react":"../node_modules/mobx-react/dist/mobxreact.esm.js","./GeneratedForm":"../src/components/GeneratedForm.tsx"}],"../node_modules/antd/es/grid/style/index.css":[function(require,module,exports) {
+},{"./radio":"../node_modules/antd/es/radio/radio.js","./group":"../node_modules/antd/es/radio/group.js","./radioButton":"../node_modules/antd/es/radio/radioButton.js"}],"../node_modules/antd/es/grid/style/index.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -83651,7 +83179,7 @@ module.hot.accept(reloadCSS);
 require("../../style/index.css");
 
 require("./index.css");
-},{"../../style/index.css":"../node_modules/antd/es/style/index.css","./index.css":"../node_modules/antd/es/grid/style/index.css"}],"../node_modules/antd/es/col/style/css.js":[function(require,module,exports) {
+},{"../../style/index.css":"../node_modules/antd/es/style/index.css","./index.css":"../node_modules/antd/es/grid/style/index.css"}],"../node_modules/antd/es/row/style/css.js":[function(require,module,exports) {
 "use strict";
 
 require("../../style/index.css");
@@ -84745,25 +84273,7 @@ var _row = _interopRequireDefault(require("./row"));
 var _col = _interopRequireDefault(require("./col"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./row":"../node_modules/antd/es/grid/row.js","./col":"../node_modules/antd/es/grid/col.js"}],"../node_modules/antd/es/col/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _grid = require("../grid");
-
-var _default = _grid.Col;
-exports.default = _default;
-},{"../grid":"../node_modules/antd/es/grid/index.js"}],"../node_modules/antd/es/row/style/css.js":[function(require,module,exports) {
-"use strict";
-
-require("../../style/index.css");
-
-require("../../grid/style/css");
-},{"../../style/index.css":"../node_modules/antd/es/style/index.css","../../grid/style/css":"../node_modules/antd/es/grid/style/css.js"}],"../node_modules/antd/es/row/index.js":[function(require,module,exports) {
+},{"./row":"../node_modules/antd/es/grid/row.js","./col":"../node_modules/antd/es/grid/col.js"}],"../node_modules/antd/es/row/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -84775,20 +84285,13 @@ var _grid = require("../grid");
 
 var _default = _grid.Row;
 exports.default = _default;
-},{"../grid":"../node_modules/antd/es/grid/index.js"}],"../src/ItemTypes.ts":[function(require,module,exports) {
+},{"../grid":"../node_modules/antd/es/grid/index.js"}],"../node_modules/antd/es/col/style/css.js":[function(require,module,exports) {
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  FIELD: 'field',
-  EDITABLE_FIELD: 'eidtable_field',
-  EDITABLE_FORM: 'editable_form'
-};
-exports.default = _default;
-},{}],"../src/components/Field.tsx":[function(require,module,exports) {
+require("../../style/index.css");
+
+require("../../grid/style/css");
+},{"../../style/index.css":"../node_modules/antd/es/style/index.css","../../grid/style/css":"../node_modules/antd/es/grid/style/css.js"}],"../node_modules/antd/es/col/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -84796,132 +84299,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _grid = require("../grid");
 
-var _reactDnd = require("react-dnd");
-
-var _ItemTypes = _interopRequireDefault(require("../ItemTypes"));
-
-var _mobxReact = require("mobx-react");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Field(props) {
-  var name = props.name,
-      text = props.text;
-
-  var _a = (0, _reactDnd.useDrag)({
-    item: {
-      name: name,
-      type: _ItemTypes.default.FIELD
-    },
-    collect: function collect(monitor) {
-      return {
-        isDragging: monitor.isDragging()
-      };
-    }
-  }),
-      isDragging = _a[0].isDragging,
-      drag = _a[1];
-
-  return _react.default.createElement("div", {
-    ref: drag,
-    className: "field",
-    style: {
-      opacity: isDragging ? 0.4 : 1
-    }
-  }, text);
-}
-
-var _default = (0, _mobxReact.observer)(Field);
-
+var _default = _grid.Col;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-dnd":"../node_modules/react-dnd/dist/esm/index.js","../ItemTypes":"../src/ItemTypes.ts","mobx-react":"../node_modules/mobx-react/dist/mobxreact.esm.js"}],"../src/components/FieldList.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("antd/es/col/style/css");
-
-var _col = _interopRequireDefault(require("antd/es/col"));
-
-require("antd/es/row/style/css");
-
-var _row = _interopRequireDefault(require("antd/es/row"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _Field = _interopRequireDefault(require("./Field"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var fields = {
-  basic: [{
-    name: 'input',
-    text: '文本框'
-  }, {
-    name: 'number',
-    text: '数字框'
-  }, {
-    name: 'textarea',
-    text: '文本域'
-  }, {
-    name: 'radio',
-    text: '单选框'
-  }, {
-    name: 'checkbox',
-    text: '多选框'
-  }, {
-    name: 'select',
-    text: '下拉选择框'
-  }, {
-    name: 'text',
-    text: '文字'
-  }],
-  advanced: [// {
-  //     name: 'layout',
-  //     text: '布局'
-  // },
-  {
-    name: 'result',
-    text: '检验结果'
-  }]
-};
-
-function FieldList() {
-  var renderFields = function renderFields(label, fields) {
-    return _react.default.createElement("div", null, _react.default.createElement("div", {
-      className: "label"
-    }, label), fields.map(function (_, i, fields) {
-      if (i % 2 === 0) {
-        var fieldsInRow = fields.slice(i, i + 2);
-        return _react.default.createElement(_row.default, {
-          gutter: 10,
-          key: i
-        }, fieldsInRow.map(function (field, j) {
-          return _react.default.createElement(_col.default, {
-            span: 12,
-            key: i + "-" + j
-          }, _react.default.createElement(_Field.default, {
-            name: field.name,
-            text: field.text
-          }));
-        }));
-      }
-
-      return null;
-    }));
-  };
-
-  return _react.default.createElement(_react.default.Fragment, null, renderFields('通用字段', fields.basic), renderFields('自定义字段', fields.advanced));
-}
-
-var _default = FieldList;
-exports.default = _default;
-},{"antd/es/col/style/css":"../node_modules/antd/es/col/style/css.js","antd/es/col":"../node_modules/antd/es/col/index.js","antd/es/row/style/css":"../node_modules/antd/es/row/style/css.js","antd/es/row":"../node_modules/antd/es/row/index.js","react":"../node_modules/react/index.js","./Field":"../src/components/Field.tsx"}],"../node_modules/antd/es/tabs/style/index.css":[function(require,module,exports) {
+},{"../grid":"../node_modules/antd/es/grid/index.js"}],"../node_modules/antd/es/tabs/style/index.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -87936,241 +87318,7 @@ Tabs.defaultProps = {
   hideAdd: false,
   tabPosition: 'top'
 };
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","rc-tabs":"../node_modules/rc-tabs/es/index.js","rc-tabs/es/TabContent":"../node_modules/rc-tabs/es/TabContent.js","classnames":"../node_modules/classnames/index.js","omit.js":"../node_modules/omit.js/es/index.js","./TabBar":"../node_modules/antd/es/tabs/TabBar.js","../icon":"../node_modules/antd/es/icon/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js","../_util/warning":"../node_modules/antd/es/_util/warning.js","../_util/styleChecker":"../node_modules/antd/es/_util/styleChecker.js"}],"../src/components/FormAttrs.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("antd/es/radio/style/css");
-
-var _radio = _interopRequireDefault(require("antd/es/radio"));
-
-require("antd/es/input-number/style/css");
-
-var _inputNumber = _interopRequireDefault(require("antd/es/input-number"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _mobxReact = require("mobx-react");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
-  var c = arguments.length,
-      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-      d;
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-  }
-  return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var FormAttrs =
-/** @class */
-function (_super) {
-  __extends(FormAttrs, _super);
-
-  function FormAttrs() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  FormAttrs.prototype.render = function () {
-    var formAttrs = this.props.formAttrs;
-    return _react.default.createElement("div", {
-      className: "attrs"
-    }, _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u8868\u5355\u5BBD\u5EA6"), _react.default.createElement(_inputNumber.default, {
-      className: "input",
-      value: formAttrs.formWidth,
-      min: 0,
-      step: 1,
-      onChange: function onChange(value) {
-        if (value !== undefined) {
-          formAttrs.formWidth = value;
-        }
-      }
-    })), _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u8868\u5355\u5BBD\u5EA6\u5355\u4F4D"), _react.default.createElement(_radio.default.Group, {
-      className: "input",
-      value: formAttrs.formWidthUnit,
-      buttonStyle: "solid",
-      onChange: function onChange(e) {
-        formAttrs.formWidthUnit = e.target.value;
-      }
-    }, _react.default.createElement(_radio.default.Button, {
-      value: "%"
-    }, "\u767E\u5206\u6BD4 %"), _react.default.createElement(_radio.default.Button, {
-      value: "px"
-    }, "\u50CF\u7D20 px "))), _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u6807\u7B7E\u5BBD\u5EA6"), _react.default.createElement(_inputNumber.default, {
-      className: "input",
-      value: formAttrs.labelWidth,
-      min: 0,
-      step: 1,
-      onChange: function onChange(value) {
-        if (value !== undefined) {
-          formAttrs.labelWidth = value;
-        }
-      }
-    })), _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u6807\u7B7E\u5BBD\u5EA6\u5355\u4F4D"), _react.default.createElement(_radio.default.Group, {
-      className: "input",
-      value: formAttrs.labelWidthUnit,
-      buttonStyle: "solid",
-      onChange: function onChange(e) {
-        formAttrs.labelWidthUnit = e.target.value;
-      }
-    }, _react.default.createElement(_radio.default.Button, {
-      value: "%"
-    }, "\u767E\u5206\u6BD4 %"), _react.default.createElement(_radio.default.Button, {
-      value: "px"
-    }, "\u50CF\u7D20 px "))), _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u6807\u7B7E\u5BF9\u9F50\u65B9\u5F0F"), _react.default.createElement(_radio.default.Group, {
-      className: "input",
-      value: formAttrs.labelAlign,
-      buttonStyle: "solid",
-      onChange: function onChange(e) {
-        formAttrs.labelAlign = e.target.value;
-      }
-    }, _react.default.createElement(_radio.default.Button, {
-      value: "left"
-    }, "\u5DE6\u5BF9\u9F50"), _react.default.createElement(_radio.default.Button, {
-      value: "right"
-    }, "\u53F3\u5BF9\u9F50"), _react.default.createElement(_radio.default.Button, {
-      value: "top"
-    }, "\u9876\u90E8\u5BF9\u9F50"))));
-  };
-
-  FormAttrs = __decorate([_mobxReact.observer], FormAttrs);
-  return FormAttrs;
-}(_react.default.Component);
-
-var _default = FormAttrs;
-exports.default = _default;
-},{"antd/es/radio/style/css":"../node_modules/antd/es/radio/style/css.js","antd/es/radio":"../node_modules/antd/es/radio/index.js","antd/es/input-number/style/css":"../node_modules/antd/es/input-number/style/css.js","antd/es/input-number":"../node_modules/antd/es/input-number/index.js","react":"../node_modules/react/index.js","mobx-react":"../node_modules/mobx-react/dist/mobxreact.esm.js"}],"../src/stores/FormAttrsStore.ts":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.FormAttrsStore = void 0;
-
-var _mobx = require("mobx");
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
-  var c = arguments.length,
-      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-      d;
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-  }
-  return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var FormAttrsStore =
-/** @class */
-function () {
-  function FormAttrsStore() {
-    this.formWidth = 100;
-    this.formWidthUnit = '%';
-    this.labelAlign = 'left';
-    this.labelWidth = 100;
-    this.labelWidthUnit = 'px';
-  }
-
-  Object.defineProperty(FormAttrsStore.prototype, "formWidthString", {
-    get: function get() {
-      return "" + this.formWidth + this.formWidthUnit;
-    },
-    enumerable: true,
-    configurable: true
-  });
-  Object.defineProperty(FormAttrsStore.prototype, "labelWidthString", {
-    get: function get() {
-      return "" + this.labelWidth + this.labelWidthUnit;
-    },
-    enumerable: true,
-    configurable: true
-  });
-
-  FormAttrsStore.prototype.reset = function (attrs) {
-    this.formWidth = attrs.formWidth || 100;
-    this.labelAlign = attrs.labelAlign || 'left';
-    this.labelWidth = attrs.labelWidth || 100;
-    this.labelWidthUnit = attrs.labelWidthUnit || 'px';
-  };
-
-  __decorate([_mobx.observable], FormAttrsStore.prototype, "formWidth", void 0);
-
-  __decorate([_mobx.observable], FormAttrsStore.prototype, "formWidthUnit", void 0);
-
-  __decorate([_mobx.observable], FormAttrsStore.prototype, "labelAlign", void 0);
-
-  __decorate([_mobx.observable], FormAttrsStore.prototype, "labelWidth", void 0);
-
-  __decorate([_mobx.observable], FormAttrsStore.prototype, "labelWidthUnit", void 0);
-
-  __decorate([_mobx.computed], FormAttrsStore.prototype, "formWidthString", null);
-
-  __decorate([_mobx.computed], FormAttrsStore.prototype, "labelWidthString", null);
-
-  return FormAttrsStore;
-}();
-
-exports.FormAttrsStore = FormAttrsStore;
-
-var _default = new FormAttrsStore();
-
-exports.default = _default;
-},{"mobx":"../node_modules/mobx/lib/mobx.module.js"}],"../node_modules/antd/es/list/style/index.css":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","rc-tabs":"../node_modules/rc-tabs/es/index.js","rc-tabs/es/TabContent":"../node_modules/rc-tabs/es/TabContent.js","classnames":"../node_modules/classnames/index.js","omit.js":"../node_modules/omit.js/es/index.js","./TabBar":"../node_modules/antd/es/tabs/TabBar.js","../icon":"../node_modules/antd/es/icon/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js","../_util/warning":"../node_modules/antd/es/_util/warning.js","../_util/styleChecker":"../node_modules/antd/es/_util/styleChecker.js"}],"../node_modules/antd/es/list/style/index.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -90853,7 +90001,7 @@ List.defaultProps = {
   loading: false,
   pagination: false
 };
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","omit.js":"../node_modules/omit.js/es/index.js","../spin":"../node_modules/antd/es/spin/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js","../pagination":"../node_modules/antd/es/pagination/index.js","../grid":"../node_modules/antd/es/grid/index.js","./Item":"../node_modules/antd/es/list/Item.js"}],"../src/components/FieldAttrs.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","omit.js":"../node_modules/omit.js/es/index.js","../spin":"../node_modules/antd/es/spin/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js","../pagination":"../node_modules/antd/es/pagination/index.js","../grid":"../node_modules/antd/es/grid/index.js","./Item":"../node_modules/antd/es/list/Item.js"}],"../dist/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -90861,508 +90009,33 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("antd/es/radio/style/css");
+require("antd/es/layout/style/css");
 
-var _radio = _interopRequireDefault(require("antd/es/radio"));
+var _layout = _interopRequireDefault(require("antd/es/layout"));
 
-require("antd/es/select/style/css");
+var _react = _interopRequireWildcard(require("react"));
 
-var _select = _interopRequireDefault(require("antd/es/select"));
+var _reactDnd = require("react-dnd");
+
+var _reactDndHtml5Backend = _interopRequireDefault(require("react-dnd-html5-backend"));
+
+require("antd/es/modal/style/css");
+
+var _modal = _interopRequireDefault(require("antd/es/modal"));
 
 require("antd/es/button/style/css");
 
 var _button = _interopRequireDefault(require("antd/es/button"));
-
-require("antd/es/list/style/css");
-
-var _list = _interopRequireDefault(require("antd/es/list"));
-
-require("antd/es/input-number/style/css");
-
-var _inputNumber = _interopRequireDefault(require("antd/es/input-number"));
-
-require("antd/es/input/style/css");
-
-var _input = _interopRequireDefault(require("antd/es/input"));
-
-var _react = _interopRequireDefault(require("react"));
 
 var _mobxReact = require("mobx-react");
 
-var _FormStore = require("../stores/FormStore");
+require("antd/es/divider/style/css");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _divider = _interopRequireDefault(require("antd/es/divider"));
 
-var __assign = void 0 && (void 0).__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
+require("antd/es/empty/style/css");
 
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
-function FieldAttrs(props) {
-  var form = props.form;
-  var _a = form.activeItem,
-      id = _a.id,
-      itemType = _a.itemType;
-  var labelText = form.activeItem.labelText;
-
-  function onChangeAttrs(newItem) {
-    form.update(newItem);
-  }
-
-  var renderInputExtraAttrs = function renderInputExtraAttrs(item) {
-    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u8F93\u5165\u63D0\u793A"), _react.default.createElement(_input.default, {
-      className: "input",
-      value: item.placeholder,
-      onChange: function onChange(e) {
-        return onChangeAttrs(__assign(__assign({}, item), {
-          placeholder: e.target.value
-        }));
-      }
-    })), _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u9ED8\u8BA4\u503C"), _react.default.createElement(_input.default, {
-      className: "input",
-      value: item.defaultValue,
-      onChange: function onChange(e) {
-        return onChangeAttrs(__assign(__assign({}, item), {
-          defaultValue: e.target.value
-        }));
-      }
-    })));
-  };
-
-  var renderNumberExtraAttrs = function renderNumberExtraAttrs(item) {
-    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u6700\u5C0F\u503C"), _react.default.createElement(_inputNumber.default, {
-      className: "input",
-      value: item.min,
-      onChange: function onChange(value) {
-        return onChangeAttrs(__assign(__assign({}, item), {
-          min: Number(value)
-        }));
-      }
-    })), _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u6700\u5927\u503C"), _react.default.createElement(_inputNumber.default, {
-      className: "input",
-      value: item.max,
-      onChange: function onChange(value) {
-        return onChangeAttrs(__assign(__assign({}, item), {
-          max: Number(value)
-        }));
-      }
-    })), _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u9ED8\u8BA4\u503C"), _react.default.createElement(_inputNumber.default, {
-      className: "input",
-      value: item.defaultValue,
-      min: item.min,
-      max: item.max,
-      onChange: function onChange(value) {
-        return onChangeAttrs(__assign(__assign({}, item), {
-          defaultValue: Number(value)
-        }));
-      }
-    })), _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u5355\u4F4D"), _react.default.createElement(_input.default, {
-      className: "input",
-      value: item.unit,
-      onChange: function onChange(e) {
-        return onChangeAttrs(__assign(__assign({}, item), {
-          unit: e.target.value
-        }));
-      }
-    })));
-  };
-
-  var renderItemOptions = function renderItemOptions(item) {
-    var options = item.options;
-    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u9009\u9879"), _react.default.createElement(_list.default, {
-      size: "small",
-      itemLayout: "horizontal",
-      dataSource: options,
-      renderItem: function renderItem(option, optionIndex) {
-        return _react.default.createElement(_list.default.Item, {
-          key: optionIndex
-        }, _react.default.createElement("div", {
-          className: "attr-item-option"
-        }, _react.default.createElement(_input.default, {
-          value: option.value,
-          onChange: function onChange(e) {
-            form.updateOption(item.id, optionIndex, e.target.value);
-          }
-        }), _react.default.createElement(_button.default, {
-          type: "danger",
-          icon: "delete",
-          className: "btn-delete-option",
-          onClick: function onClick() {
-            return form.deleteOption(item.id, optionIndex);
-          }
-        }, "\u5220\u9664")));
-      }
-    }), _react.default.createElement(_button.default, {
-      type: "primary",
-      onClick: function onClick() {
-        return form.addOption(item.id);
-      },
-      icon: "plus"
-    }, "\u6DFB\u52A0\u9009\u9879")));
-  };
-
-  var renderCheckboxExtraAttrs = function renderCheckboxExtraAttrs(item) {
-    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u9ED8\u8BA4\u503C"), _react.default.createElement(_select.default, {
-      mode: "tags",
-      value: item.defaultValue,
-      style: {
-        width: '100%'
-      },
-      onChange: function onChange(values) {
-        return form.setCheckboxDefaultOption(item.id, values);
-      }
-    }, item.options.map(function (option, optionIndex) {
-      return _react.default.createElement(_select.default.Option, {
-        key: optionIndex,
-        value: option.value
-      }, option.value);
-    }))));
-  };
-
-  var renderRadioExtraAttrs = function renderRadioExtraAttrs(item) {
-    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u9ED8\u8BA4\u503C"), _react.default.createElement(_select.default, {
-      value: item.defaultValue,
-      style: {
-        width: '100%'
-      },
-      onChange: function onChange(value) {
-        return form.setRadioDefaultOption(item.id, value);
-      }
-    }, item.options.map(function (option, optionIndex) {
-      return _react.default.createElement(_select.default.Option, {
-        key: optionIndex,
-        value: option.value
-      }, option.value);
-    }))));
-  };
-
-  var renderSelectExtraAttrs = function renderSelectExtraAttrs(item) {
-    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u9ED8\u8BA4\u503C"), _react.default.createElement(_select.default, {
-      value: item.defaultValue,
-      style: {
-        width: '100%'
-      },
-      onChange: function onChange(value) {
-        return form.setSelectDefaultOption(item.id, value);
-      }
-    }, item.options.map(function (option, optionIndex) {
-      return _react.default.createElement(_select.default.Option, {
-        key: optionIndex,
-        value: option.value
-      }, option.value);
-    }))));
-  };
-
-  var renderLayoutExtraAttrs = function renderLayoutExtraAttrs(item) {
-    var rows = item.rows;
-    return _react.default.createElement(_react.default.Fragment, null, rows.map(function (row, rowIndex) {
-      return _react.default.createElement("div", {
-        className: "attr-item",
-        key: rowIndex
-      }, _react.default.createElement("div", {
-        className: "label"
-      }, "\u5217\u5BBD"), _react.default.createElement(_list.default, {
-        size: "small",
-        itemLayout: "horizontal",
-        dataSource: row,
-        renderItem: function renderItem(col, colIndex) {
-          return _react.default.createElement(_list.default.Item, {
-            key: colIndex
-          }, _react.default.createElement("div", {
-            className: "attr-item-option"
-          }, _react.default.createElement(_inputNumber.default, {
-            className: "input",
-            value: col.span,
-            min: 1,
-            max: 24,
-            step: 1,
-            onChange: function onChange(value) {
-              form.updateColSpan(item.id, rowIndex, colIndex, Number(value));
-            }
-          }), _react.default.createElement(_button.default, {
-            type: "danger",
-            icon: "delete",
-            className: "btn-delete-option",
-            onClick: function onClick() {
-              return form.deleteCol(item.id, rowIndex, colIndex);
-            }
-          }, "\u5220\u9664")));
-        }
-      }), _react.default.createElement(_button.default, {
-        type: "primary",
-        onClick: function onClick() {
-          return form.addCol(item.id, rowIndex);
-        },
-        icon: "plus"
-      }, "\u6DFB\u52A0\u5217"));
-    }));
-  };
-
-  var renderTextExtraAttrs = function renderTextExtraAttrs(item) {
-    var id = item.id,
-        content = item.content,
-        fontSize = item.fontSize,
-        lineHeight = item.lineHeight,
-        textAlign = item.textAlign;
-    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u6587\u5B57\u5185\u5BB9"), _react.default.createElement(_input.default.TextArea, {
-      value: content,
-      onChange: function onChange(e) {
-        return form.updateTextItem(id, e.target.value, fontSize, lineHeight, textAlign);
-      }
-    })), _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u6587\u5B57\u5927\u5C0F"), _react.default.createElement(_inputNumber.default, {
-      className: "input",
-      value: fontSize,
-      min: 12,
-      max: 100,
-      step: 1,
-      onChange: function onChange(newFontSize) {
-        return form.updateTextItem(id, content, Number(newFontSize), lineHeight, textAlign);
-      }
-    })), _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u6587\u5B57\u884C\u9AD8"), _react.default.createElement(_inputNumber.default, {
-      className: "input",
-      value: lineHeight,
-      min: 12,
-      max: 100,
-      step: 1,
-      onChange: function onChange(newLineHeight) {
-        return form.updateTextItem(id, content, fontSize, Number(newLineHeight), textAlign);
-      }
-    })), _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u5BF9\u9F50\u65B9\u5F0F"), _react.default.createElement(_select.default, {
-      style: {
-        width: '100%'
-      },
-      value: textAlign,
-      onChange: function onChange(newTextAlign) {
-        return form.updateTextItem(id, content, fontSize, lineHeight, newTextAlign);
-      }
-    }, _react.default.createElement(_select.default.Option, {
-      value: 'left'
-    }, "\u5DE6\u5BF9\u9F50"), _react.default.createElement(_select.default.Option, {
-      value: 'right'
-    }, "\u53F3\u5BF9\u9F50"), _react.default.createElement(_select.default.Option, {
-      value: 'center'
-    }, "\u5C45\u4E2D"))));
-  };
-
-  var renderValidationAttrs = function renderValidationAttrs(item) {
-    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-      className: "attr-item"
-    }, _react.default.createElement("div", {
-      className: "label"
-    }, "\u662F\u5426\u5FC5\u586B"), _react.default.createElement(_radio.default.Group, {
-      value: item.required,
-      onChange: function onChange(e) {
-        return form.setRequired(item.id, e.target.value);
-      }
-    }, _react.default.createElement(_radio.default, {
-      value: true
-    }, "\u5FC5\u586B"), _react.default.createElement(_radio.default, {
-      value: false
-    }, "\u9009\u586B"))));
-  };
-
-  var hasLabelText = [_FormStore.FormItemType.INPUT, _FormStore.FormItemType.NUMBER, _FormStore.FormItemType.TEXTAREA, _FormStore.FormItemType.CHECKBOX, _FormStore.FormItemType.RADIO, _FormStore.FormItemType.SELECT].indexOf(itemType) > -1;
-  var hasValidationAttrs = [_FormStore.FormItemType.INPUT, _FormStore.FormItemType.TEXTAREA, _FormStore.FormItemType.CHECKBOX, _FormStore.FormItemType.RADIO].indexOf(itemType) > -1;
-  return _react.default.createElement("div", {
-    className: "attrs"
-  }, _react.default.createElement("div", {
-    className: "attr-item"
-  }, _react.default.createElement("div", {
-    className: "label"
-  }, "\u6807\u8BC6"), _react.default.createElement(_input.default, {
-    className: "input",
-    value: id,
-    disabled: true
-  })), hasLabelText ? _react.default.createElement("div", {
-    className: "attr-item"
-  }, _react.default.createElement("div", {
-    className: "label"
-  }, "\u6807\u7B7E\u6587\u5B57"), _react.default.createElement(_input.default, {
-    className: "input",
-    value: labelText,
-    onChange: function onChange(e) {
-      return onChangeAttrs(__assign(__assign({}, form.activeItem), labelText ? {} : {}));
-    }
-  })) : null, itemType === _FormStore.FormItemType.INPUT ? renderInputExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.NUMBER ? renderNumberExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.TEXTAREA ? renderInputExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.CHECKBOX ? renderItemOptions(form.activeItem) : null, itemType === _FormStore.FormItemType.CHECKBOX ? renderCheckboxExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.RADIO ? renderItemOptions(form.activeItem) : null, itemType === _FormStore.FormItemType.RADIO ? renderRadioExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.SELECT ? renderItemOptions(form.activeItem) : null, itemType === _FormStore.FormItemType.SELECT ? renderSelectExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.LAYOUT ? renderLayoutExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.TEXT ? renderTextExtraAttrs(form.activeItem) : null, hasValidationAttrs ? renderValidationAttrs(form.activeItem) : null);
-}
-
-var _default = (0, _mobxReact.observer)(FieldAttrs);
-
-exports.default = _default;
-},{"antd/es/radio/style/css":"../node_modules/antd/es/radio/style/css.js","antd/es/radio":"../node_modules/antd/es/radio/index.js","antd/es/select/style/css":"../node_modules/antd/es/select/style/css.js","antd/es/select":"../node_modules/antd/es/select/index.js","antd/es/button/style/css":"../node_modules/antd/es/button/style/css.js","antd/es/button":"../node_modules/antd/es/button/index.js","antd/es/list/style/css":"../node_modules/antd/es/list/style/css.js","antd/es/list":"../node_modules/antd/es/list/index.js","antd/es/input-number/style/css":"../node_modules/antd/es/input-number/style/css.js","antd/es/input-number":"../node_modules/antd/es/input-number/index.js","antd/es/input/style/css":"../node_modules/antd/es/input/style/css.js","antd/es/input":"../node_modules/antd/es/input/index.js","react":"../node_modules/react/index.js","mobx-react":"../node_modules/mobx-react/dist/mobxreact.esm.js","../stores/FormStore":"../src/stores/FormStore.ts"}],"../src/components/AttrsPanel.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("antd/es/tabs/style/css");
-
-var _tabs = _interopRequireDefault(require("antd/es/tabs"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _FormAttrs = _interopRequireDefault(require("./FormAttrs"));
-
-var _FormAttrsStore = _interopRequireDefault(require("../stores/FormAttrsStore"));
-
-var _FieldAttrs = _interopRequireDefault(require("./FieldAttrs"));
-
-var _FormStore = _interopRequireDefault(require("../stores/FormStore"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var __extends = void 0 && (void 0).__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var TabPane = _tabs.default.TabPane;
-
-var AttrsPanel =
-/** @class */
-function (_super) {
-  __extends(AttrsPanel, _super);
-
-  function AttrsPanel() {
-    var _this = _super !== null && _super.apply(this, arguments) || this;
-
-    _this.onChangeTab = function (activeTab) {// console.log(activeTab)
-    };
-
-    return _this;
-  }
-
-  AttrsPanel.prototype.render = function () {
-    return _react.default.createElement(_tabs.default, {
-      onChange: this.onChangeTab,
-      animated: false
-    }, _react.default.createElement(TabPane, {
-      tab: "\u5B57\u6BB5\u5C5E\u6027",
-      key: "field-attrs"
-    }, _react.default.createElement(_FieldAttrs.default, {
-      form: _FormStore.default
-    })), _react.default.createElement(TabPane, {
-      tab: "\u8868\u5355\u5C5E\u6027",
-      key: "form-attrs"
-    }, _react.default.createElement(_FormAttrs.default, {
-      formAttrs: _FormAttrsStore.default
-    })));
-  };
-
-  return AttrsPanel;
-}(_react.default.Component);
-
-var _default = AttrsPanel;
-exports.default = _default;
-},{"antd/es/tabs/style/css":"../node_modules/antd/es/tabs/style/css.js","antd/es/tabs":"../node_modules/antd/es/tabs/index.js","react":"../node_modules/react/index.js","./FormAttrs":"../src/components/FormAttrs.tsx","../stores/FormAttrsStore":"../src/stores/FormAttrsStore.ts","./FieldAttrs":"../src/components/FieldAttrs.tsx","../stores/FormStore":"../src/stores/FormStore.ts"}],"../src/components/EditableField.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("antd/es/button/style/css");
-
-var _button = _interopRequireDefault(require("antd/es/button"));
-
-require("antd/es/col/style/css");
-
-var _col = _interopRequireDefault(require("antd/es/col"));
-
-require("antd/es/row/style/css");
-
-var _row = _interopRequireDefault(require("antd/es/row"));
+var _empty = _interopRequireDefault(require("antd/es/empty"));
 
 require("antd/es/input-number/style/css");
 
@@ -91384,19 +90057,33 @@ require("antd/es/radio/style/css");
 
 var _radio = _interopRequireDefault(require("antd/es/radio"));
 
-var _react = _interopRequireWildcard(require("react"));
+require("antd/es/message/style/css");
 
-var _reactDnd = require("react-dnd");
+var _message2 = _interopRequireDefault(require("antd/es/message"));
 
-var _ItemTypes = _interopRequireDefault(require("../ItemTypes"));
+var _mobx = require("mobx");
 
-var _FormAttrsStore = _interopRequireDefault(require("../stores/FormAttrsStore"));
+var _shortid = require("shortid");
 
-var _FormStore = _interopRequireWildcard(require("../stores/FormStore"));
-
-var _mobxReact = require("mobx-react");
+var _immutabilityHelper = _interopRequireDefault(require("immutability-helper"));
 
 var _classnames = _interopRequireDefault(require("classnames"));
+
+require("antd/es/row/style/css");
+
+var _row = _interopRequireDefault(require("antd/es/row"));
+
+require("antd/es/col/style/css");
+
+var _col = _interopRequireDefault(require("antd/es/col"));
+
+require("antd/es/tabs/style/css");
+
+var _tabs = _interopRequireDefault(require("antd/es/tabs"));
+
+require("antd/es/list/style/css");
+
+var _list = _interopRequireDefault(require("antd/es/list"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -91404,21 +90091,1684 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var __assign = void 0 && (void 0).__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
+function styleInject(css, ref) {
+  if (ref === void 0) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') {
+    return;
+  }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
     }
+  } else {
+    head.appendChild(style);
+  }
 
-    return t;
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = ".form-editor * {\n  box-sizing: border-box;\n}\n.form-editor-components > .ant-layout-sider-children {\n  padding: 0 16px;\n}\n.form-editor-components div.label {\n  font-size: 16px;\n  line-height: 44px;\n}\n.form-editor-components .ant-row {\n  margin-bottom: 10px;\n}\n.form-editor-components .ant-row .field {\n  box-sizing: border-box;\n  font-size: 12px;\n  line-height: 30px;\n  height: 30px;\n  width: 100%;\n  text-align: center;\n  border: 1px dashed rgba(0, 0, 0, 0);\n  background-color: #f4f6fc;\n}\n.form-editor-components .ant-row .field:hover {\n  border: 1px dashed #1890ff;\n  color: #1890ff;\n}\n.form-editor-content-main .form-editor-toolbar {\n  background: #fff;\n  height: 44px;\n  line-height: 44px;\n  border-bottom: 1px solid #eee;\n  padding: 0 16px;\n}\n.form-editor-content-main .form-editor-toolbar-content {\n  text-align: right;\n}\n.form-editor-content-main .form-editor-editarea {\n  padding: 10px 10px 0 10px;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form {\n  min-height: 100%;\n  border: 1px dashed #ddd;\n  background-color: #fff;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable {\n  position: relative;\n  display: flex;\n  padding: 16px;\n  margin: 4px;\n  border: 1px dashed #ddd;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-active {\n  border: 1px solid #1890ff;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.label-standalone {\n  flex-direction: column;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.label-standalone .field-editable-label {\n  flex: 1;\n  text-align: left;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-label {\n  font-size: 14px;\n  line-height: 32px;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-label:after {\n  content: '：';\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-content {\n  flex: 1;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-content > .ant-checkbox-group {\n  line-height: 32px;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable .btn-delete {\n  position: absolute;\n  right: 4px;\n  bottom: 4px;\n  z-index: 2;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-layout {\n  display: block;\n  padding: 0;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-layout .ant-row > .ant-col {\n  padding: 10px;\n  border: 1px dashed #ddd;\n  min-height: 64px;\n  box-sizing: border-box;\n}\n.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-text {\n  display: block;\n}\n.form-editor-content-attrs .attrs {\n  padding: 0 16px;\n}\n.form-editor-content-attrs .attrs .attr-item {\n  margin-bottom: 16px;\n}\n.form-editor-content-attrs .attrs .attr-item .label {\n  font-size: 14px;\n  line-height: 21px;\n  height: 30px;\n}\n.form-editor-content-attrs .attrs .attr-item .label::after {\n  content: '：';\n}\n.form-editor-content-attrs .attrs .attr-item .input {\n  display: inline-block;\n  width: 100%;\n}\n.form-editor-content-attrs .attrs .attr-item .input .ant-radio-button-wrapper {\n  width: 80px;\n  padding: 0;\n}\n.form-editor-content-attrs .attrs .attr-item .input .ant-radio-button-wrapper > span:last-child {\n  display: inline-block;\n  width: 80px;\n  text-align: center;\n}\n.form-editor-content-attrs .attrs .attr-item-option {\n  display: flex;\n}\n.form-editor-content-attrs .attrs .attr-item-option .ant-input {\n  flex: 1;\n}\n.form-editor-content-attrs .attrs .attr-item-option .btn-delete-option {\n  margin-left: 10px;\n}\n.generated-form {\n  min-height: 100%;\n  background-color: #fff;\n}\n.generated-form .form-item {\n  display: flex;\n  margin: 0 0 5px 0;\n}\n.generated-form .form-item.label-standalone {\n  flex-direction: column;\n}\n.generated-form .form-item.label-standalone .form-item-label {\n  flex: 1;\n  text-align: left;\n}\n.generated-form .form-item-label {\n  font-size: 14px;\n  line-height: 32px;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.generated-form .form-item-label:after {\n  content: '：';\n}\n.generated-form .form-item-content {\n  flex: 1;\n}\n.generated-form .form-item-content > .ant-checkbox-group {\n  line-height: 32px;\n}\n.generated-form .form-item.form-item-text {\n  display: block;\n}\n.generated-form .form-item .err-msg {\n  padding: 3px 0 0 1px;\n  height: 20px;\n  line-height: 14px;\n  color: #f5222d;\n}\n";
+styleInject(css_248z);
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
   };
 
-  return __assign.apply(this, arguments);
+  return _setPrototypeOf(o, p);
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _initializerDefineProperty(target, property, descriptor, context) {
+  if (!descriptor) return;
+  Object.defineProperty(target, property, {
+    enumerable: descriptor.enumerable,
+    configurable: descriptor.configurable,
+    writable: descriptor.writable,
+    value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
+  });
+}
+
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object.keys(descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object.defineProperty(target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var _class, _descriptor, _descriptor2, _temp;
+
+var FormItemType;
+
+(function (FormItemType) {
+  FormItemType["TEXT"] = "text";
+  FormItemType["INPUT"] = "input";
+  FormItemType["NUMBER"] = "number";
+  FormItemType["TEXTAREA"] = "textarea";
+  FormItemType["CHECKBOX"] = "checkbox";
+  FormItemType["RADIO"] = "radio";
+  FormItemType["SELECT"] = "select";
+  FormItemType["LAYOUT"] = "layout";
+  FormItemType["RESULT"] = "result";
+})(FormItemType || (FormItemType = {}));
+
+var createFormItem = function createFormItem(itemType) {
+  var id = (0, _shortid.generate)();
+
+  switch (itemType) {
+    case FormItemType.RESULT:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '检验结果'
+      };
+
+    case FormItemType.TEXT:
+      return {
+        id: id,
+        itemType: itemType,
+        content: '文字内容',
+        fontSize: 14,
+        lineHeight: 21,
+        textAlign: 'left'
+      };
+
+    case FormItemType.LAYOUT:
+      return {
+        id: id,
+        itemType: itemType,
+        rows: [[{
+          span: 12
+        }, {
+          span: 12
+        }]]
+      };
+
+    case FormItemType.SELECT:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '下拉选择框',
+        options: [createOption('选项 1'), createOption('选项 2'), createOption('选项 3')],
+        defaultValue: '选项 1'
+      };
+
+    case FormItemType.RADIO:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '单选框',
+        options: [createOption('选项 1'), createOption('选项 2')],
+        buttonStyle: 'solid',
+        defaultValue: '',
+        required: true
+      };
+
+    case FormItemType.CHECKBOX:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '多选框',
+        options: [createOption('选项 1')],
+        defaultValue: [],
+        required: true
+      };
+
+    case FormItemType.TEXTAREA:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '文本域',
+        placeholder: '文本域输入提示',
+        defaultValue: '',
+        required: true
+      };
+
+    case FormItemType.NUMBER:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '数字框',
+        defaultValue: 1,
+        min: 1,
+        max: 100,
+        unit: ''
+      };
+
+    default:
+      return {
+        id: id,
+        itemType: FormItemType.INPUT,
+        labelText: '文本框',
+        placeholder: '文本框输入提示',
+        defaultValue: '',
+        required: true
+      };
+  }
 };
+
+var createOption = function createOption(value) {
+  return {
+    value: value,
+    text: value
+  };
+};
+
+var FormStore = (_class = (_temp = /*#__PURE__*/function () {
+  function FormStore() {
+    // autorun(() => console.log('form items: ', this.formItems))
+    _classCallCheck(this, FormStore);
+
+    _initializerDefineProperty(this, "items", _descriptor, this);
+
+    _initializerDefineProperty(this, "activeId", _descriptor2, this);
+  }
+
+  _createClass(FormStore, [{
+    key: "setItems",
+    value: function setItems(items) {
+      this.items = items;
+      this.activeId = '';
+    }
+  }, {
+    key: "getItems",
+    value: function getItems() {
+      return this.items.slice(0);
+    }
+  }, {
+    key: "add",
+    value: function add(itemType) {
+      if (itemType === FormItemType.RESULT && this.items.filter(function (item) {
+        return item.itemType === FormItemType.RESULT;
+      }).length > 0) {
+        _message2.default.error('检验结果字段只能有一个');
+
+        return;
+      }
+
+      var newItem = createFormItem(itemType);
+      this.items.push(newItem);
+    }
+  }, {
+    key: "delete",
+    value: function _delete(id) {
+      this.items = this.items.filter(function (item) {
+        return item.id !== id;
+      });
+    }
+  }, {
+    key: "update",
+    value: function update(newItem) {
+      this.items = this.items.map(function (item) {
+        return item.id === newItem.id ? newItem : item;
+      });
+    }
+  }, {
+    key: "activate",
+    value: function activate(id) {
+      if (this.items.filter(function (item) {
+        return item.id === id;
+      }).length > 0) {
+        this.activeId = id;
+      }
+    }
+  }, {
+    key: "move",
+    value: function move(dragIndex, hoverIndex) {
+      var dragItem = this.items[dragIndex];
+      this.items = (0, _immutabilityHelper.default)(this.items, {
+        $splice: [[dragIndex, 1], [hoverIndex, 0, dragItem]]
+      });
+    }
+  }, {
+    key: "addOption",
+    value: function addOption(id) {
+      this.items = this.items.map(function (item) {
+        if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
+          var value = "";
+          item.options.push(createOption(value));
+        }
+
+        return item;
+      });
+    }
+  }, {
+    key: "deleteOption",
+    value: function deleteOption(id, optionIndex) {
+      this.items = this.items.map(function (item) {
+        if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
+          if (item.options.length > 1) {
+            item.options.splice(optionIndex, 1); // 删除选项后，重新设置默认值
+
+            if (FormItemType.SELECT === item.itemType) {
+              item.defaultValue = item.options[0].value;
+            }
+
+            if (FormItemType.CHECKBOX === item.itemType) {
+              item.defaultValue = [];
+            }
+
+            if (FormItemType.RADIO === item.itemType) {
+              item.defaultValue = '';
+            }
+          } else {
+            _message2.default.error('选项不得少于 1 个');
+          }
+        }
+
+        return item;
+      });
+    }
+  }, {
+    key: "updateOption",
+    value: function updateOption(id, optionIndex, value) {
+      this.items = this.items.map(function (item) {
+        if (item.id === id && [FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(item.itemType) > -1) {
+          item.options.splice(optionIndex, 1, createOption(value));
+        }
+
+        return item;
+      });
+    }
+  }, {
+    key: "setCheckboxDefaultOption",
+    value: function setCheckboxDefaultOption(id, values) {
+      this.items = this.items.map(function (item) {
+        if (item.id === id && FormItemType.CHECKBOX === item.itemType) {
+          item.defaultValue = values;
+        }
+
+        return item;
+      });
+    }
+  }, {
+    key: "setRadioDefaultOption",
+    value: function setRadioDefaultOption(id, value) {
+      this.items = this.items.map(function (item) {
+        if (item.id === id && FormItemType.RADIO === item.itemType) {
+          item.defaultValue = value;
+        }
+
+        return item;
+      });
+    }
+  }, {
+    key: "setSelectDefaultOption",
+    value: function setSelectDefaultOption(id, value) {
+      this.items = this.items.map(function (item) {
+        if (item.id === id && FormItemType.SELECT === item.itemType) {
+          item.defaultValue = value;
+        }
+
+        return item;
+      });
+    }
+  }, {
+    key: "addCol",
+    value: function addCol(id, rowIndex) {
+      this.items = this.items.map(function (item) {
+        if (item.id === id && FormItemType.LAYOUT === item.itemType) {
+          item.rows[rowIndex].push({
+            span: 12
+          });
+        }
+
+        return item;
+      });
+    }
+  }, {
+    key: "updateColSpan",
+    value: function updateColSpan(id, rowIndex, colIndex, span) {
+      this.items = this.items.map(function (item) {
+        if (item.id === id && FormItemType.LAYOUT === item.itemType) {
+          item.rows[rowIndex].splice(colIndex, 1, {
+            span: span
+          });
+        }
+
+        return item;
+      });
+    }
+  }, {
+    key: "deleteCol",
+    value: function deleteCol(id, rowIndex, colIndex) {
+      this.items = this.items.map(function (item) {
+        if (item.id === id && FormItemType.LAYOUT === item.itemType) {
+          item.rows[rowIndex].splice(colIndex, 1);
+        }
+
+        return item;
+      });
+    }
+  }, {
+    key: "updateTextItem",
+    value: function updateTextItem(id, content, fontSize, lineHeight, textAlign) {
+      this.items = this.items.map(function (item) {
+        if (item.id === id && FormItemType.TEXT === item.itemType) {
+          item.content = content;
+          item.fontSize = fontSize;
+          item.lineHeight = lineHeight;
+          item.textAlign = textAlign;
+        }
+
+        return item;
+      });
+    }
+  }, {
+    key: "setRequired",
+    value: function setRequired(id, required) {
+      this.items = this.items.map(function (item) {
+        if (item.id === id) {
+          item.required = required;
+        }
+
+        return item;
+      });
+    }
+  }, {
+    key: "formItems",
+    get: function get() {
+      var _this = this;
+
+      return this.items.map(function (item) {
+        return _objectSpread2({}, item, {
+          isActive: item.id === _this.activeId
+        });
+      });
+    }
+  }, {
+    key: "activeItem",
+    get: function get() {
+      return find(this.items, this.activeId);
+    }
+  }]);
+
+  return FormStore;
+}(), _temp), (_descriptor = _applyDecoratedDescriptor(_class.prototype, "items", [_mobx.observable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return [];
+  }
+}), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "activeId", [_mobx.observable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return '';
+  }
+})), _class);
+
+function find(items, id) {
+  var result = null;
+
+  for (var i = 0, len = items.length; i < len; i++) {
+    var item = items[i];
+
+    if (item.id === id) {
+      result = item;
+      break;
+    }
+  }
+
+  return result || {};
+}
+
+var formStore = new FormStore();
+
+var createFormValues = function createFormValues(items) {
+  var values = items.reduce(function (values, item) {
+    if ([FormItemType.INPUT, FormItemType.TEXTAREA, FormItemType.RADIO, FormItemType.CHECKBOX, FormItemType.SELECT].indexOf(item.itemType) > -1) {
+      return _objectSpread2({}, values, _defineProperty({}, item.id, item.defaultValue));
+    }
+
+    return values;
+  }, {});
+  return {
+    values: values,
+    result: -1,
+    comment: ''
+  };
+};
+
+var shouldValidateRequired = function shouldValidateRequired(item) {
+  return [FormItemType.INPUT, FormItemType.TEXTAREA, FormItemType.CHECKBOX, FormItemType.RADIO].indexOf(item.itemType) > -1;
+};
+
+function GeneratedForm(props) {
+  var _props$form = props.form,
+      items = _props$form.items,
+      attrs = _props$form.attrs;
+  var formWidth = attrs.formWidth,
+      formWidthUnit = attrs.formWidthUnit,
+      labelAlign = attrs.labelAlign,
+      labelWidth = attrs.labelWidth;
+
+  var _useState = (0, _react.useState)(createFormValues(items)),
+      _useState2 = _slicedToArray(_useState, 2),
+      formValues = _useState2[0],
+      setFormValues = _useState2[1];
+
+  var _useState3 = (0, _react.useState)({
+    result: false,
+    errors: {}
+  }),
+      _useState4 = _slicedToArray(_useState3, 2),
+      validationResult = _useState4[0],
+      setValidationResult = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(0),
+      _useState6 = _slicedToArray(_useState5, 2),
+      validateCount = _useState6[0],
+      setValidateCount = _useState6[1];
+
+  function onSubmit() {
+    console.log('form items =>', items);
+    console.log('form values =>', formValues);
+    var newValidationResult = validate(items, formValues);
+    console.log(newValidationResult);
+
+    if (newValidationResult.result) {
+      if (props.onSubmit) props.onSubmit(formValues);
+      setValidationResult({
+        result: false,
+        errors: {}
+      });
+      setFormValues(createFormValues(items));
+    } else {
+      setValidationResult(newValidationResult);
+    }
+
+    setValidateCount(validateCount + 1);
+  }
+
+  function validate(items, formValues) {
+    var values = formValues.values;
+    return items.reduce(function (_ref, item) {
+      var result = _ref.result,
+          errors = _ref.errors; // 校验必填项
+
+      if (shouldValidateRequired(item) && item.required) {
+        var _ref2 = item,
+            _id = _ref2.id,
+            labelText = _ref2.labelText;
+        var value = values[_id];
+
+        if ( // 空字符串
+        typeof value === 'string' && value === '' || // 空数组
+        Object.prototype.toString.call(value) === '[object Array]' && value.length === 0) {
+          errors[_id] = "".concat(labelText, "\u4E3A\u5FC5\u586B\u9879");
+          result = false;
+        }
+      } // 检验结果项为必填
+
+
+      if (item.itemType === FormItemType.RESULT && formValues.result === -1) ;
+      return {
+        result: result,
+        errors: errors
+      };
+    }, {
+      result: false,
+      errors: {}
+    });
+  }
+
+  var renderFormItem = function renderFormItem(formItem) {
+    var itemType = formItem.itemType;
+
+    switch (itemType) {
+      case FormItemType.RESULT:
+        return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_radio.default.Group, {
+          style: {
+            height: 32,
+            lineHeight: '32px',
+            marginBottom: 16
+          },
+          value: formValues.result,
+          onChange: function onChange(e) {
+            return setFormValues(_objectSpread2({}, formValues, {
+              result: e.target.value
+            }));
+          }
+        }, /*#__PURE__*/_react.default.createElement(_radio.default, {
+          value: 1
+        }, "\u5408\u683C"), /*#__PURE__*/_react.default.createElement(_radio.default, {
+          value: 0
+        }, "\u4E0D\u5408\u683C"), /*#__PURE__*/_react.default.createElement("span", {
+          className: "err-msg"
+        }, validateCount > 0 && formValues.result === -1 ? '检验结果为必填项' : '')), /*#__PURE__*/_react.default.createElement(_input.default.TextArea, {
+          placeholder: "\u5907\u6CE8",
+          value: formValues.comment,
+          onChange: function onChange(e) {
+            return setFormValues(_objectSpread2({}, formValues, {
+              comment: e.target.value
+            }));
+          }
+        }));
+
+      case FormItemType.SELECT:
+        var selectItem = formItem;
+        return /*#__PURE__*/_react.default.createElement(_select.default, {
+          value: formValues.values[selectItem.id],
+          onChange: function onChange(value) {
+            var values = formValues.values;
+            setFormValues(_objectSpread2({}, formValues, {
+              values: _objectSpread2({}, values, _defineProperty({}, selectItem.id, value))
+            }));
+          },
+          style: {
+            width: '100%'
+          }
+        }, selectItem.options.map(function (option, optionIndex) {
+          return /*#__PURE__*/_react.default.createElement(_select.default.Option, {
+            key: optionIndex,
+            value: option.value
+          }, option.text);
+        }));
+
+      case FormItemType.CHECKBOX:
+        var checkboxItem = formItem;
+        return /*#__PURE__*/_react.default.createElement(_checkbox.default.Group, {
+          value: formValues.values[checkboxItem.id],
+          onChange: function onChange(value) {
+            var values = formValues.values;
+            setFormValues(_objectSpread2({}, formValues, {
+              values: _objectSpread2({}, values, _defineProperty({}, checkboxItem.id, value))
+            }));
+          }
+        }, checkboxItem.options.map(function (option, optionIndex) {
+          return /*#__PURE__*/_react.default.createElement(_checkbox.default, {
+            key: optionIndex,
+            value: option.value
+          }, option.text);
+        }));
+
+      case FormItemType.RADIO:
+        var radioItem = formItem;
+        return /*#__PURE__*/_react.default.createElement(_radio.default.Group, {
+          value: formValues.values[radioItem.id],
+          onChange: function onChange(e) {
+            var values = formValues.values;
+            setFormValues(_objectSpread2({}, formValues, {
+              values: _objectSpread2({}, values, _defineProperty({}, radioItem.id, e.target.value))
+            }));
+          },
+          buttonStyle: radioItem.buttonStyle
+        }, radioItem.options.map(function (option, optionIndex) {
+          return /*#__PURE__*/_react.default.createElement(_radio.default.Button, {
+            key: optionIndex,
+            value: option.value
+          }, option.text);
+        }));
+
+      case FormItemType.TEXTAREA:
+        var textareaItem = formItem;
+        return /*#__PURE__*/_react.default.createElement(_input.default.TextArea, {
+          value: formValues.values[textareaItem.id],
+          onChange: function onChange(e) {
+            var values = formValues.values;
+            setFormValues(_objectSpread2({}, formValues, {
+              values: _objectSpread2({}, values, _defineProperty({}, textareaItem.id, e.target.value))
+            }));
+          },
+          placeholder: textareaItem.placeholder
+        });
+
+      case FormItemType.NUMBER:
+        var numberItem = formItem;
+        return /*#__PURE__*/_react.default.createElement(_inputNumber.default, {
+          style: {
+            width: '100%'
+          },
+          value: formValues.values[numberItem.id],
+          onChange: function onChange(value) {
+            value = value || numberItem.min;
+            var values = formValues.values;
+            setFormValues(_objectSpread2({}, formValues, {
+              values: _objectSpread2({}, values, _defineProperty({}, numberItem.id, value))
+            }));
+          },
+          min: numberItem.min,
+          max: numberItem.max,
+          formatter: function formatter(value) {
+            if (!value) return "".concat(numberItem.min, " ").concat(numberItem.unit);
+            return "".concat(value, " ").concat(numberItem.unit);
+          },
+          parser: function parser(value) {
+            if (!value) return Number(numberItem.min);
+            return Number(value.replace(" ".concat(numberItem.unit), ''));
+          }
+        });
+
+      default:
+        var inputItem = formItem;
+        return /*#__PURE__*/_react.default.createElement(_input.default, {
+          value: formValues.values[inputItem.id],
+          onChange: function onChange(e) {
+            var values = formValues.values;
+            setFormValues(_objectSpread2({}, formValues, {
+              values: _objectSpread2({}, values, _defineProperty({}, inputItem.id, e.target.value))
+            }));
+          },
+          placeholder: inputItem.placeholder
+        });
+    }
+  };
+
+  if (items.length === 0) return /*#__PURE__*/_react.default.createElement(_empty.default, null);
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "generated-form",
+    style: {
+      width: "".concat(formWidth).concat(formWidthUnit)
+    }
+  }, items.map(function (item, index) {
+    var itemType = item.itemType;
+
+    if (itemType === FormItemType.TEXT) {
+      var textItem = item;
+      return /*#__PURE__*/_react.default.createElement("div", {
+        key: index,
+        className: "form-item form-item-text",
+        style: {
+          fontSize: textItem.fontSize,
+          lineHeight: "".concat(textItem.lineHeight, "px"),
+          textAlign: textItem.textAlign
+        }
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "form-item-label"
+      }, textItem.content));
+    }
+
+    if ([FormItemType.INPUT, FormItemType.NUMBER, FormItemType.TEXTAREA, FormItemType.RADIO, FormItemType.CHECKBOX, FormItemType.SELECT, FormItemType.RESULT].indexOf(itemType) > -1) {
+      var errMsg = validationResult.errors[item.id];
+      return /*#__PURE__*/_react.default.createElement("div", {
+        className: "form-item",
+        key: index
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: (0, _classnames.default)('form-item-label', labelAlign === 'top' ? 'label-standalone' : ''),
+        style: _objectSpread2({
+          width: labelWidth
+        }, labelAlign !== 'top' ? {
+          textAlign: labelAlign
+        } : {})
+      }, item.labelText), /*#__PURE__*/_react.default.createElement("div", {
+        className: "form-item-content"
+      }, renderFormItem(item), /*#__PURE__*/_react.default.createElement("div", {
+        className: "err-msg"
+      }, errMsg)));
+    }
+
+    return null;
+  }), /*#__PURE__*/_react.default.createElement(_divider.default, null), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      paddingLeft: labelWidth
+    }
+  }, /*#__PURE__*/_react.default.createElement(_button.default, {
+    type: "primary",
+    onClick: onSubmit,
+    style: {
+      width: 90,
+      marginRight: 16
+    }
+  }, "\u63D0 \u4EA4"), /*#__PURE__*/_react.default.createElement(_button.default, {
+    type: "default",
+    onClick: function onClick() {
+      return setFormValues(createFormValues(items));
+    },
+    style: {
+      width: 90
+    }
+  }, "\u91CD \u7F6E")));
+}
+
+function Toolbar(props) {
+  var form = props.form,
+      formAttrs = props.formAttrs,
+      onSave = props.onSave;
+
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      modalVisible = _useState2[0],
+      setModalVisible = _useState2[1];
+
+  var getJson = function getJson() {
+    return JSON.stringify({
+      items: form.getItems(),
+      attrs: formAttrs
+    });
+  };
+
+  function onPreview() {
+    setModalVisible(true);
+  }
+
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "form-editor-toolbar-content"
+  }, /*#__PURE__*/_react.default.createElement(_button.default, {
+    type: "link",
+    icon: "eye",
+    onClick: onPreview
+  }, "\u9884\u89C8"), /*#__PURE__*/_react.default.createElement(_button.default, {
+    type: "link",
+    icon: "save",
+    onClick: function onClick() {
+      return onSave(getJson());
+    }
+  }, "\u4FDD\u5B58"), /*#__PURE__*/_react.default.createElement(_modal.default, {
+    title: "\u8868\u5355\u9884\u89C8",
+    centered: true,
+    visible: modalVisible,
+    onCancel: function onCancel() {
+      return setModalVisible(false);
+    },
+    footer: null,
+    width: 800
+  }, modalVisible ? /*#__PURE__*/_react.default.createElement(GeneratedForm, {
+    form: JSON.parse(getJson())
+  }) : null));
+}
+
+var Toolbar$1 = (0, _mobxReact.observer)(Toolbar);
+var ItemTypes = {
+  FIELD: 'field',
+  EDITABLE_FIELD: 'eidtable_field',
+  EDITABLE_FORM: 'editable_form'
+};
+
+function Field(props) {
+  var name = props.name,
+      text = props.text;
+
+  var _useDrag = (0, _reactDnd.useDrag)({
+    item: {
+      name: name,
+      type: ItemTypes.FIELD
+    },
+    collect: function collect(monitor) {
+      return {
+        isDragging: monitor.isDragging()
+      };
+    }
+  }),
+      _useDrag2 = _slicedToArray(_useDrag, 2),
+      isDragging = _useDrag2[0].isDragging,
+      drag = _useDrag2[1];
+
+  return /*#__PURE__*/_react.default.createElement("div", {
+    ref: drag,
+    className: "field",
+    style: {
+      opacity: isDragging ? 0.4 : 1
+    }
+  }, text);
+}
+
+var Field$1 = (0, _mobxReact.observer)(Field);
+var fields = {
+  basic: [{
+    name: 'input',
+    text: '文本框'
+  }, {
+    name: 'number',
+    text: '数字框'
+  }, {
+    name: 'textarea',
+    text: '文本域'
+  }, {
+    name: 'radio',
+    text: '单选框'
+  }, {
+    name: 'checkbox',
+    text: '多选框'
+  }, {
+    name: 'select',
+    text: '下拉选择框'
+  }, {
+    name: 'text',
+    text: '文字'
+  }],
+  advanced: [// {
+  //     name: 'layout',
+  //     text: '布局'
+  // },
+  {
+    name: 'result',
+    text: '检验结果'
+  }]
+};
+
+function FieldList() {
+  var renderFields = function renderFields(label, fields) {
+    return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, label), fields.map(function (_, i, fields) {
+      if (i % 2 === 0) {
+        var fieldsInRow = fields.slice(i, i + 2);
+        return /*#__PURE__*/_react.default.createElement(_row.default, {
+          gutter: 10,
+          key: i
+        }, fieldsInRow.map(function (field, j) {
+          return /*#__PURE__*/_react.default.createElement(_col.default, {
+            span: 12,
+            key: "".concat(i, "-").concat(j)
+          }, /*#__PURE__*/_react.default.createElement(Field$1, {
+            name: field.name,
+            text: field.text
+          }));
+        }));
+      }
+
+      return null;
+    }));
+  };
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, renderFields('通用字段', fields.basic), renderFields('自定义字段', fields.advanced));
+}
+
+var _class$1;
+
+var FormAttrs = (0, _mobxReact.observer)(_class$1 = /*#__PURE__*/function (_React$Component) {
+  _inherits(FormAttrs, _React$Component);
+
+  var _super = _createSuper(FormAttrs);
+
+  function FormAttrs() {
+    _classCallCheck(this, FormAttrs);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(FormAttrs, [{
+    key: "render",
+    value: function render() {
+      var formAttrs = this.props.formAttrs;
+      return /*#__PURE__*/_react.default.createElement("div", {
+        className: "attrs"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "attr-item"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "label"
+      }, "\u8868\u5355\u5BBD\u5EA6"), /*#__PURE__*/_react.default.createElement(_inputNumber.default, {
+        className: "input",
+        value: formAttrs.formWidth,
+        min: 0,
+        step: 1,
+        onChange: function onChange(value) {
+          if (value !== undefined) {
+            formAttrs.formWidth = value;
+          }
+        }
+      })), /*#__PURE__*/_react.default.createElement("div", {
+        className: "attr-item"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "label"
+      }, "\u8868\u5355\u5BBD\u5EA6\u5355\u4F4D"), /*#__PURE__*/_react.default.createElement(_radio.default.Group, {
+        className: "input",
+        value: formAttrs.formWidthUnit,
+        buttonStyle: "solid",
+        onChange: function onChange(e) {
+          formAttrs.formWidthUnit = e.target.value;
+        }
+      }, /*#__PURE__*/_react.default.createElement(_radio.default.Button, {
+        value: "%"
+      }, "\u767E\u5206\u6BD4 %"), /*#__PURE__*/_react.default.createElement(_radio.default.Button, {
+        value: "px"
+      }, "\u50CF\u7D20 px "))), /*#__PURE__*/_react.default.createElement("div", {
+        className: "attr-item"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "label"
+      }, "\u6807\u7B7E\u5BBD\u5EA6"), /*#__PURE__*/_react.default.createElement(_inputNumber.default, {
+        className: "input",
+        value: formAttrs.labelWidth,
+        min: 0,
+        step: 1,
+        onChange: function onChange(value) {
+          if (value !== undefined) {
+            formAttrs.labelWidth = value;
+          }
+        }
+      })), /*#__PURE__*/_react.default.createElement("div", {
+        className: "attr-item"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "label"
+      }, "\u6807\u7B7E\u5BBD\u5EA6\u5355\u4F4D"), /*#__PURE__*/_react.default.createElement(_radio.default.Group, {
+        className: "input",
+        value: formAttrs.labelWidthUnit,
+        buttonStyle: "solid",
+        onChange: function onChange(e) {
+          formAttrs.labelWidthUnit = e.target.value;
+        }
+      }, /*#__PURE__*/_react.default.createElement(_radio.default.Button, {
+        value: "%"
+      }, "\u767E\u5206\u6BD4 %"), /*#__PURE__*/_react.default.createElement(_radio.default.Button, {
+        value: "px"
+      }, "\u50CF\u7D20 px "))), /*#__PURE__*/_react.default.createElement("div", {
+        className: "attr-item"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "label"
+      }, "\u6807\u7B7E\u5BF9\u9F50\u65B9\u5F0F"), /*#__PURE__*/_react.default.createElement(_radio.default.Group, {
+        className: "input",
+        value: formAttrs.labelAlign,
+        buttonStyle: "solid",
+        onChange: function onChange(e) {
+          formAttrs.labelAlign = e.target.value;
+        }
+      }, /*#__PURE__*/_react.default.createElement(_radio.default.Button, {
+        value: "left"
+      }, "\u5DE6\u5BF9\u9F50"), /*#__PURE__*/_react.default.createElement(_radio.default.Button, {
+        value: "right"
+      }, "\u53F3\u5BF9\u9F50"), /*#__PURE__*/_react.default.createElement(_radio.default.Button, {
+        value: "top"
+      }, "\u9876\u90E8\u5BF9\u9F50"))));
+    }
+  }]);
+
+  return FormAttrs;
+}(_react.default.Component)) || _class$1;
+
+var _class$2, _descriptor$1, _descriptor2$1, _descriptor3, _descriptor4, _descriptor5, _temp$1;
+
+var FormAttrsStore = (_class$2 = (_temp$1 = /*#__PURE__*/function () {
+  function FormAttrsStore() {
+    _classCallCheck(this, FormAttrsStore);
+
+    _initializerDefineProperty(this, "formWidth", _descriptor$1, this);
+
+    _initializerDefineProperty(this, "formWidthUnit", _descriptor2$1, this);
+
+    _initializerDefineProperty(this, "labelAlign", _descriptor3, this);
+
+    _initializerDefineProperty(this, "labelWidth", _descriptor4, this);
+
+    _initializerDefineProperty(this, "labelWidthUnit", _descriptor5, this);
+  }
+
+  _createClass(FormAttrsStore, [{
+    key: "reset",
+    value: function reset(attrs) {
+      this.formWidth = attrs.formWidth || 100;
+      this.labelAlign = attrs.labelAlign || 'left';
+      this.labelWidth = attrs.labelWidth || 100;
+      this.labelWidthUnit = attrs.labelWidthUnit || 'px';
+    }
+  }, {
+    key: "formWidthString",
+    get: function get() {
+      return "".concat(this.formWidth).concat(this.formWidthUnit);
+    }
+  }, {
+    key: "labelWidthString",
+    get: function get() {
+      return "".concat(this.labelWidth).concat(this.labelWidthUnit);
+    }
+  }]);
+
+  return FormAttrsStore;
+}(), _temp$1), (_descriptor$1 = _applyDecoratedDescriptor(_class$2.prototype, "formWidth", [_mobx.observable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return 100;
+  }
+}), _descriptor2$1 = _applyDecoratedDescriptor(_class$2.prototype, "formWidthUnit", [_mobx.observable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return '%';
+  }
+}), _descriptor3 = _applyDecoratedDescriptor(_class$2.prototype, "labelAlign", [_mobx.observable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return 'left';
+  }
+}), _descriptor4 = _applyDecoratedDescriptor(_class$2.prototype, "labelWidth", [_mobx.observable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return 100;
+  }
+}), _descriptor5 = _applyDecoratedDescriptor(_class$2.prototype, "labelWidthUnit", [_mobx.observable], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return 'px';
+  }
+}), _applyDecoratedDescriptor(_class$2.prototype, "formWidthString", [_mobx.computed], Object.getOwnPropertyDescriptor(_class$2.prototype, "formWidthString"), _class$2.prototype), _applyDecoratedDescriptor(_class$2.prototype, "labelWidthString", [_mobx.computed], Object.getOwnPropertyDescriptor(_class$2.prototype, "labelWidthString"), _class$2.prototype)), _class$2);
+var formAttrsStore = new FormAttrsStore();
+
+function FieldAttrs(props) {
+  var form = props.form;
+  var _ref = form.activeItem,
+      id = _ref.id,
+      itemType = _ref.itemType;
+  var labelText = form.activeItem.labelText;
+
+  function onChangeAttrs(newItem) {
+    form.update(newItem);
+  }
+
+  var renderInputExtraAttrs = function renderInputExtraAttrs(item) {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u8F93\u5165\u63D0\u793A"), /*#__PURE__*/_react.default.createElement(_input.default, {
+      className: "input",
+      value: item.placeholder,
+      onChange: function onChange(e) {
+        return onChangeAttrs(_objectSpread2({}, item, {
+          placeholder: e.target.value
+        }));
+      }
+    })), /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u9ED8\u8BA4\u503C"), /*#__PURE__*/_react.default.createElement(_input.default, {
+      className: "input",
+      value: item.defaultValue,
+      onChange: function onChange(e) {
+        return onChangeAttrs(_objectSpread2({}, item, {
+          defaultValue: e.target.value
+        }));
+      }
+    })));
+  };
+
+  var renderNumberExtraAttrs = function renderNumberExtraAttrs(item) {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u6700\u5C0F\u503C"), /*#__PURE__*/_react.default.createElement(_inputNumber.default, {
+      className: "input",
+      value: item.min,
+      onChange: function onChange(value) {
+        return onChangeAttrs(_objectSpread2({}, item, {
+          min: Number(value)
+        }));
+      }
+    })), /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u6700\u5927\u503C"), /*#__PURE__*/_react.default.createElement(_inputNumber.default, {
+      className: "input",
+      value: item.max,
+      onChange: function onChange(value) {
+        return onChangeAttrs(_objectSpread2({}, item, {
+          max: Number(value)
+        }));
+      }
+    })), /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u9ED8\u8BA4\u503C"), /*#__PURE__*/_react.default.createElement(_inputNumber.default, {
+      className: "input",
+      value: item.defaultValue,
+      min: item.min,
+      max: item.max,
+      onChange: function onChange(value) {
+        return onChangeAttrs(_objectSpread2({}, item, {
+          defaultValue: Number(value)
+        }));
+      }
+    })), /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u5355\u4F4D"), /*#__PURE__*/_react.default.createElement(_input.default, {
+      className: "input",
+      value: item.unit,
+      onChange: function onChange(e) {
+        return onChangeAttrs(_objectSpread2({}, item, {
+          unit: e.target.value
+        }));
+      }
+    })));
+  };
+
+  var renderItemOptions = function renderItemOptions(item) {
+    var options = item.options;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u9009\u9879"), /*#__PURE__*/_react.default.createElement(_list.default, {
+      size: "small",
+      itemLayout: "horizontal",
+      dataSource: options,
+      renderItem: function renderItem(option, optionIndex) {
+        return /*#__PURE__*/_react.default.createElement(_list.default.Item, {
+          key: optionIndex
+        }, /*#__PURE__*/_react.default.createElement("div", {
+          className: "attr-item-option"
+        }, /*#__PURE__*/_react.default.createElement(_input.default, {
+          value: option.value,
+          onChange: function onChange(e) {
+            form.updateOption(item.id, optionIndex, e.target.value);
+          }
+        }), /*#__PURE__*/_react.default.createElement(_button.default, {
+          type: "danger",
+          icon: "delete",
+          className: "btn-delete-option",
+          onClick: function onClick() {
+            return form.deleteOption(item.id, optionIndex);
+          }
+        }, "\u5220\u9664")));
+      }
+    }), /*#__PURE__*/_react.default.createElement(_button.default, {
+      type: "primary",
+      onClick: function onClick() {
+        return form.addOption(item.id);
+      },
+      icon: "plus"
+    }, "\u6DFB\u52A0\u9009\u9879")));
+  };
+
+  var renderCheckboxExtraAttrs = function renderCheckboxExtraAttrs(item) {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u9ED8\u8BA4\u503C"), /*#__PURE__*/_react.default.createElement(_select.default, {
+      mode: "tags",
+      value: item.defaultValue,
+      style: {
+        width: '100%'
+      },
+      onChange: function onChange(values) {
+        return form.setCheckboxDefaultOption(item.id, values);
+      }
+    }, item.options.map(function (option, optionIndex) {
+      return /*#__PURE__*/_react.default.createElement(_select.default.Option, {
+        key: optionIndex,
+        value: option.value
+      }, option.value);
+    }))));
+  };
+
+  var renderRadioExtraAttrs = function renderRadioExtraAttrs(item) {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u9ED8\u8BA4\u503C"), /*#__PURE__*/_react.default.createElement(_select.default, {
+      value: item.defaultValue,
+      style: {
+        width: '100%'
+      },
+      onChange: function onChange(value) {
+        return form.setRadioDefaultOption(item.id, value);
+      }
+    }, item.options.map(function (option, optionIndex) {
+      return /*#__PURE__*/_react.default.createElement(_select.default.Option, {
+        key: optionIndex,
+        value: option.value
+      }, option.value);
+    }))));
+  };
+
+  var renderSelectExtraAttrs = function renderSelectExtraAttrs(item) {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u9ED8\u8BA4\u503C"), /*#__PURE__*/_react.default.createElement(_select.default, {
+      value: item.defaultValue,
+      style: {
+        width: '100%'
+      },
+      onChange: function onChange(value) {
+        return form.setSelectDefaultOption(item.id, value);
+      }
+    }, item.options.map(function (option, optionIndex) {
+      return /*#__PURE__*/_react.default.createElement(_select.default.Option, {
+        key: optionIndex,
+        value: option.value
+      }, option.value);
+    }))));
+  };
+
+  var renderLayoutExtraAttrs = function renderLayoutExtraAttrs(item) {
+    var rows = item.rows;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, rows.map(function (row, rowIndex) {
+      return /*#__PURE__*/_react.default.createElement("div", {
+        className: "attr-item",
+        key: rowIndex
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "label"
+      }, "\u5217\u5BBD"), /*#__PURE__*/_react.default.createElement(_list.default, {
+        size: "small",
+        itemLayout: "horizontal",
+        dataSource: row,
+        renderItem: function renderItem(col, colIndex) {
+          return /*#__PURE__*/_react.default.createElement(_list.default.Item, {
+            key: colIndex
+          }, /*#__PURE__*/_react.default.createElement("div", {
+            className: "attr-item-option"
+          }, /*#__PURE__*/_react.default.createElement(_inputNumber.default, {
+            className: "input",
+            value: col.span,
+            min: 1,
+            max: 24,
+            step: 1,
+            onChange: function onChange(value) {
+              form.updateColSpan(item.id, rowIndex, colIndex, Number(value));
+            }
+          }), /*#__PURE__*/_react.default.createElement(_button.default, {
+            type: "danger",
+            icon: "delete",
+            className: "btn-delete-option",
+            onClick: function onClick() {
+              return form.deleteCol(item.id, rowIndex, colIndex);
+            }
+          }, "\u5220\u9664")));
+        }
+      }), /*#__PURE__*/_react.default.createElement(_button.default, {
+        type: "primary",
+        onClick: function onClick() {
+          return form.addCol(item.id, rowIndex);
+        },
+        icon: "plus"
+      }, "\u6DFB\u52A0\u5217"));
+    }));
+  };
+
+  var renderTextExtraAttrs = function renderTextExtraAttrs(item) {
+    var id = item.id,
+        content = item.content,
+        fontSize = item.fontSize,
+        lineHeight = item.lineHeight,
+        textAlign = item.textAlign;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u6587\u5B57\u5185\u5BB9"), /*#__PURE__*/_react.default.createElement(_input.default.TextArea, {
+      value: content,
+      onChange: function onChange(e) {
+        return form.updateTextItem(id, e.target.value, fontSize, lineHeight, textAlign);
+      }
+    })), /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u6587\u5B57\u5927\u5C0F"), /*#__PURE__*/_react.default.createElement(_inputNumber.default, {
+      className: "input",
+      value: fontSize,
+      min: 12,
+      max: 100,
+      step: 1,
+      onChange: function onChange(newFontSize) {
+        return form.updateTextItem(id, content, Number(newFontSize), lineHeight, textAlign);
+      }
+    })), /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u6587\u5B57\u884C\u9AD8"), /*#__PURE__*/_react.default.createElement(_inputNumber.default, {
+      className: "input",
+      value: lineHeight,
+      min: 12,
+      max: 100,
+      step: 1,
+      onChange: function onChange(newLineHeight) {
+        return form.updateTextItem(id, content, fontSize, Number(newLineHeight), textAlign);
+      }
+    })), /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u5BF9\u9F50\u65B9\u5F0F"), /*#__PURE__*/_react.default.createElement(_select.default, {
+      style: {
+        width: '100%'
+      },
+      value: textAlign,
+      onChange: function onChange(newTextAlign) {
+        return form.updateTextItem(id, content, fontSize, lineHeight, newTextAlign);
+      }
+    }, /*#__PURE__*/_react.default.createElement(_select.default.Option, {
+      value: 'left'
+    }, "\u5DE6\u5BF9\u9F50"), /*#__PURE__*/_react.default.createElement(_select.default.Option, {
+      value: 'right'
+    }, "\u53F3\u5BF9\u9F50"), /*#__PURE__*/_react.default.createElement(_select.default.Option, {
+      value: 'center'
+    }, "\u5C45\u4E2D"))));
+  };
+
+  var renderValidationAttrs = function renderValidationAttrs(item) {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "attr-item"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "label"
+    }, "\u662F\u5426\u5FC5\u586B"), /*#__PURE__*/_react.default.createElement(_radio.default.Group, {
+      value: item.required,
+      onChange: function onChange(e) {
+        return form.setRequired(item.id, e.target.value);
+      }
+    }, /*#__PURE__*/_react.default.createElement(_radio.default, {
+      value: true
+    }, "\u5FC5\u586B"), /*#__PURE__*/_react.default.createElement(_radio.default, {
+      value: false
+    }, "\u9009\u586B"))));
+  };
+
+  var hasLabelText = [FormItemType.INPUT, FormItemType.NUMBER, FormItemType.TEXTAREA, FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(itemType) > -1;
+  var hasValidationAttrs = [FormItemType.INPUT, FormItemType.TEXTAREA, FormItemType.CHECKBOX, FormItemType.RADIO].indexOf(itemType) > -1;
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "attrs"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "attr-item"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "label"
+  }, "\u6807\u8BC6"), /*#__PURE__*/_react.default.createElement(_input.default, {
+    className: "input",
+    value: id,
+    disabled: true
+  })), hasLabelText ? /*#__PURE__*/_react.default.createElement("div", {
+    className: "attr-item"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "label"
+  }, "\u6807\u7B7E\u6587\u5B57"), /*#__PURE__*/_react.default.createElement(_input.default, {
+    className: "input",
+    value: labelText,
+    onChange: function onChange(e) {
+      return onChangeAttrs(_objectSpread2({}, form.activeItem, {}, labelText ? {} : {}));
+    }
+  })) : null, itemType === FormItemType.INPUT ? renderInputExtraAttrs(form.activeItem) : null, itemType === FormItemType.NUMBER ? renderNumberExtraAttrs(form.activeItem) : null, itemType === FormItemType.TEXTAREA ? renderInputExtraAttrs(form.activeItem) : null, itemType === FormItemType.CHECKBOX ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.CHECKBOX ? renderCheckboxExtraAttrs(form.activeItem) : null, itemType === FormItemType.RADIO ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.RADIO ? renderRadioExtraAttrs(form.activeItem) : null, itemType === FormItemType.SELECT ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.SELECT ? renderSelectExtraAttrs(form.activeItem) : null, itemType === FormItemType.LAYOUT ? renderLayoutExtraAttrs(form.activeItem) : null, itemType === FormItemType.TEXT ? renderTextExtraAttrs(form.activeItem) : null, hasValidationAttrs ? renderValidationAttrs(form.activeItem) : null);
+}
+
+var FieldAttrs$1 = (0, _mobxReact.observer)(FieldAttrs);
+var TabPane = _tabs.default.TabPane;
+
+var AttrsPanel = /*#__PURE__*/function (_React$Component) {
+  _inherits(AttrsPanel, _React$Component);
+
+  var _super = _createSuper(AttrsPanel);
+
+  function AttrsPanel() {
+    var _this;
+
+    _classCallCheck(this, AttrsPanel);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _this.onChangeTab = function (activeTab) {// console.log(activeTab)
+    };
+
+    return _this;
+  }
+
+  _createClass(AttrsPanel, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/_react.default.createElement(_tabs.default, {
+        onChange: this.onChangeTab,
+        animated: false
+      }, /*#__PURE__*/_react.default.createElement(TabPane, {
+        tab: "\u5B57\u6BB5\u5C5E\u6027",
+        key: "field-attrs"
+      }, /*#__PURE__*/_react.default.createElement(FieldAttrs$1, {
+        form: formStore
+      })), /*#__PURE__*/_react.default.createElement(TabPane, {
+        tab: "\u8868\u5355\u5C5E\u6027",
+        key: "form-attrs"
+      }, /*#__PURE__*/_react.default.createElement(FormAttrs, {
+        formAttrs: formAttrsStore
+      })));
+    }
+  }]);
+
+  return AttrsPanel;
+}(_react.default.Component);
 
 function EditableField(props) {
   var formItem = props.formItem,
@@ -91426,8 +91776,8 @@ function EditableField(props) {
       moveFormItem = props.moveFormItem;
   var ref = (0, _react.useRef)(null);
 
-  var _a = (0, _reactDnd.useDrop)({
-    accept: [_ItemTypes.default.EDITABLE_FIELD],
+  var _useDrop = (0, _reactDnd.useDrop)({
+    accept: [ItemTypes.EDITABLE_FIELD],
     hover: function hover(item, monitor) {
       if (ref.current === null) {
         return;
@@ -91463,16 +91813,21 @@ function EditableField(props) {
       } // Time to actually perform the action
 
 
-      moveFormItem(dragIndex, hoverIndex);
+      moveFormItem(dragIndex, hoverIndex) // Note: we're mutating the monitor item here!
+      // Generally it's better to avoid mutations,
+      // but it's good here for the sake of performance
+      // to avoid expensive index searches.
+      ;
       item.index = hoverIndex;
     }
   }),
-      drop = _a[1];
+      _useDrop2 = _slicedToArray(_useDrop, 2),
+      drop = _useDrop2[1];
 
-  var _b = (0, _reactDnd.useDrag)({
+  var _useDrag = (0, _reactDnd.useDrag)({
     item: {
       index: formItemIndex,
-      type: _ItemTypes.default.EDITABLE_FIELD
+      type: ItemTypes.EDITABLE_FIELD
     },
     collect: function collect(monitor) {
       return {
@@ -91480,8 +91835,9 @@ function EditableField(props) {
       };
     }
   }),
-      isDragging = _b[0].isDragging,
-      drag = _b[1];
+      _useDrag2 = _slicedToArray(_useDrag, 2),
+      isDragging = _useDrag2[0].isDragging,
+      drag = _useDrag2[1];
 
   drag(drop(ref));
 
@@ -91489,207 +91845,182 @@ function EditableField(props) {
     var itemType = formItem.itemType;
 
     switch (itemType) {
-      case _FormStore.FormItemType.RESULT:
+      case FormItemType.RESULT:
         // const resultItem = formItem as (ResultItem & { isActive: boolean })
-        return _react.default.createElement("div", null, _react.default.createElement(_radio.default.Group, {
+        return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_radio.default.Group, {
           value: "\u5408\u683C",
           style: {
             height: 32,
             lineHeight: '32px',
             marginBottom: 16
           }
-        }, _react.default.createElement(_radio.default, {
+        }, /*#__PURE__*/_react.default.createElement(_radio.default, {
           value: "\u5408\u683C"
-        }, "\u5408\u683C"), _react.default.createElement(_radio.default, {
+        }, "\u5408\u683C"), /*#__PURE__*/_react.default.createElement(_radio.default, {
           value: "\u4E0D\u5408\u683C"
-        }, "\u4E0D\u5408\u683C")), _react.default.createElement(_input.default.TextArea, {
+        }, "\u4E0D\u5408\u683C")), /*#__PURE__*/_react.default.createElement(_input.default.TextArea, {
           value: "",
           placeholder: "\u5907\u6CE8"
         }));
 
-      case _FormStore.FormItemType.SELECT:
+      case FormItemType.SELECT:
         var selectItem = formItem;
-        return _react.default.createElement(_select.default, {
+        return /*#__PURE__*/_react.default.createElement(_select.default, {
           value: selectItem.defaultValue,
           style: {
             width: '100%'
           }
         }, selectItem.options.map(function (option, optionIndex) {
-          return _react.default.createElement(_select.default.Option, {
+          return /*#__PURE__*/_react.default.createElement(_select.default.Option, {
             key: optionIndex,
             value: option.value
           }, option.text);
         }));
 
-      case _FormStore.FormItemType.CHECKBOX:
+      case FormItemType.CHECKBOX:
         var checkboxItem = formItem;
-        return _react.default.createElement(_checkbox.default.Group, {
+        return /*#__PURE__*/_react.default.createElement(_checkbox.default.Group, {
           value: checkboxItem.defaultValue
         }, checkboxItem.options.map(function (option, optionIndex) {
-          return _react.default.createElement(_checkbox.default, {
+          return /*#__PURE__*/_react.default.createElement(_checkbox.default, {
             key: optionIndex,
             value: option.value
           }, option.text);
         }));
 
-      case _FormStore.FormItemType.RADIO:
+      case FormItemType.RADIO:
         var radioItem = formItem;
-        return _react.default.createElement(_radio.default.Group, {
+        return /*#__PURE__*/_react.default.createElement(_radio.default.Group, {
           value: radioItem.defaultValue,
           buttonStyle: radioItem.buttonStyle
         }, radioItem.options.map(function (option, optionIndex) {
-          return _react.default.createElement(_radio.default.Button, {
+          return /*#__PURE__*/_react.default.createElement(_radio.default.Button, {
             key: optionIndex,
             value: option.value
           }, option.text);
         }));
 
-      case _FormStore.FormItemType.TEXTAREA:
+      case FormItemType.TEXTAREA:
         var textareaItem = formItem;
-        return _react.default.createElement(_input.default.TextArea, {
+        return /*#__PURE__*/_react.default.createElement(_input.default.TextArea, {
           value: textareaItem.defaultValue,
           placeholder: textareaItem.placeholder
         });
 
-      case _FormStore.FormItemType.NUMBER:
-        var numberItem_1 = formItem;
-        return _react.default.createElement(_inputNumber.default, {
+      case FormItemType.NUMBER:
+        var numberItem = formItem;
+        return /*#__PURE__*/_react.default.createElement(_inputNumber.default, {
           style: {
             width: '100%'
           },
-          value: numberItem_1.defaultValue,
+          value: numberItem.defaultValue,
           formatter: function formatter(value) {
-            if (!value) return numberItem_1.min + " " + numberItem_1.unit;
-            return value + " " + numberItem_1.unit;
+            if (!value) return "".concat(numberItem.min, " ").concat(numberItem.unit);
+            return "".concat(value, " ").concat(numberItem.unit);
           },
           parser: function parser(value) {
-            if (!value) return Number(numberItem_1.min);
-            return Number(value.replace(" " + numberItem_1.unit, ''));
+            if (!value) return Number(numberItem.min);
+            return Number(value.replace(" ".concat(numberItem.unit), ''));
           }
         });
 
       default:
         var inputItem = formItem;
-        return _react.default.createElement(_input.default, {
+        return /*#__PURE__*/_react.default.createElement(_input.default, {
           value: inputItem.defaultValue || '',
           placeholder: inputItem.placeholder
         });
     }
   };
 
-  if (formItem.itemType === _FormStore.FormItemType.LAYOUT) {
-    return _react.default.createElement("div", {
+  if (formItem.itemType === FormItemType.LAYOUT) {
+    return /*#__PURE__*/_react.default.createElement("div", {
       ref: ref,
       className: (0, _classnames.default)('field-editable field-editable-layout', formItem.isActive ? 'field-editable-active' : ''),
       style: {
         opacity: isDragging ? 0.4 : 1
       },
       onMouseDown: function onMouseDown() {
-        return _FormStore.default.activate(formItem.id);
+        return formStore.activate(formItem.id);
       }
     }, formItem.rows.map(function (row, rowIndex) {
-      return _react.default.createElement(_row.default, {
+      return /*#__PURE__*/_react.default.createElement(_row.default, {
         key: rowIndex,
         gutter: 5
       }, row.map(function (col, colIndex) {
-        return _react.default.createElement(_col.default, {
+        return /*#__PURE__*/_react.default.createElement(_col.default, {
           key: colIndex,
           span: col.span
         });
       }));
-    }), _react.default.createElement(_button.default, {
+    }), /*#__PURE__*/_react.default.createElement(_button.default, {
       className: "btn-delete",
       type: "danger",
       size: "small",
       icon: "delete",
       onClick: function onClick() {
-        return _FormStore.default.delete(formItem.id);
+        return formStore["delete"](formItem.id);
       }
     }, "\u5220\u9664"));
   }
 
-  if (formItem.itemType === _FormStore.FormItemType.TEXT) {
-    return _react.default.createElement("div", {
+  if (formItem.itemType === FormItemType.TEXT) {
+    return /*#__PURE__*/_react.default.createElement("div", {
       ref: ref,
       className: (0, _classnames.default)('field-editable field-editable-text', formItem.isActive ? 'field-editable-active' : ''),
       style: {
         opacity: isDragging ? 0.4 : 1
       },
       onMouseDown: function onMouseDown() {
-        return _FormStore.default.activate(formItem.id);
+        return formStore.activate(formItem.id);
       }
-    }, _react.default.createElement("div", {
+    }, /*#__PURE__*/_react.default.createElement("div", {
       style: {
         fontSize: formItem.fontSize,
-        lineHeight: formItem.lineHeight + "px",
+        lineHeight: "".concat(formItem.lineHeight, "px"),
         textAlign: formItem.textAlign
       }
-    }, formItem.content), _react.default.createElement(_button.default, {
+    }, formItem.content), /*#__PURE__*/_react.default.createElement(_button.default, {
       className: "btn-delete",
       type: "danger",
       size: "small",
       icon: "delete",
       onClick: function onClick() {
-        return _FormStore.default.delete(formItem.id);
+        return formStore["delete"](formItem.id);
       }
     }, "\u5220\u9664"));
   }
 
-  return _react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     ref: ref,
-    className: (0, _classnames.default)('field-editable', _FormAttrsStore.default.labelAlign === 'top' ? 'label-standalone' : '', formItem.isActive ? 'field-editable-active' : ''),
+    className: (0, _classnames.default)('field-editable', formAttrsStore.labelAlign === 'top' ? 'label-standalone' : '', formItem.isActive ? 'field-editable-active' : ''),
     style: {
       opacity: isDragging ? 0.4 : 1
     },
     onMouseDown: function onMouseDown() {
-      return _FormStore.default.activate(formItem.id);
+      return formStore.activate(formItem.id);
     }
-  }, _react.default.createElement("div", {
-    className: (0, _classnames.default)('field-editable-label', _FormAttrsStore.default.labelAlign === 'top' ? 'field-standalone' : ''),
-    style: __assign({
-      width: _FormAttrsStore.default.labelWidth
-    }, _FormAttrsStore.default.labelAlign !== 'top' ? {
-      textAlign: _FormAttrsStore.default.labelAlign
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: (0, _classnames.default)('field-editable-label', formAttrsStore.labelAlign === 'top' ? 'field-standalone' : ''),
+    style: _objectSpread2({
+      width: formAttrsStore.labelWidth
+    }, formAttrsStore.labelAlign !== 'top' ? {
+      textAlign: formAttrsStore.labelAlign
     } : {})
-  }, formItem.labelText), _react.default.createElement("div", {
-    className: 'field-editable-content'
-  }, renderFormItem(formItem)), _react.default.createElement(_button.default, {
+  }, formItem.labelText), /*#__PURE__*/_react.default.createElement("div", {
+    className: "field-editable-content"
+  }, renderFormItem(formItem)), /*#__PURE__*/_react.default.createElement(_button.default, {
     className: "btn-delete",
     type: "danger",
     size: "small",
     icon: "delete",
     onClick: function onClick() {
-      return _FormStore.default.delete(formItem.id);
+      return formStore["delete"](formItem.id);
     }
   }, "\u5220\u9664"));
 }
 
-var _default = (0, _mobxReact.observer)(EditableField);
-
-exports.default = _default;
-},{"antd/es/button/style/css":"../node_modules/antd/es/button/style/css.js","antd/es/button":"../node_modules/antd/es/button/index.js","antd/es/col/style/css":"../node_modules/antd/es/col/style/css.js","antd/es/col":"../node_modules/antd/es/col/index.js","antd/es/row/style/css":"../node_modules/antd/es/row/style/css.js","antd/es/row":"../node_modules/antd/es/row/index.js","antd/es/input-number/style/css":"../node_modules/antd/es/input-number/style/css.js","antd/es/input-number":"../node_modules/antd/es/input-number/index.js","antd/es/checkbox/style/css":"../node_modules/antd/es/checkbox/style/css.js","antd/es/checkbox":"../node_modules/antd/es/checkbox/index.js","antd/es/select/style/css":"../node_modules/antd/es/select/style/css.js","antd/es/select":"../node_modules/antd/es/select/index.js","antd/es/input/style/css":"../node_modules/antd/es/input/style/css.js","antd/es/input":"../node_modules/antd/es/input/index.js","antd/es/radio/style/css":"../node_modules/antd/es/radio/style/css.js","antd/es/radio":"../node_modules/antd/es/radio/index.js","react":"../node_modules/react/index.js","react-dnd":"../node_modules/react-dnd/dist/esm/index.js","../ItemTypes":"../src/ItemTypes.ts","../stores/FormAttrsStore":"../src/stores/FormAttrsStore.ts","../stores/FormStore":"../src/stores/FormStore.ts","mobx-react":"../node_modules/mobx-react/dist/mobxreact.esm.js","classnames":"../node_modules/classnames/index.js"}],"../src/components/EditableForm.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _mobxReact = require("mobx-react");
-
-var _reactDnd = require("react-dnd");
-
-var _ItemTypes = _interopRequireDefault(require("../ItemTypes"));
-
-var _EditableField = _interopRequireDefault(require("./EditableField"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var EditableField$1 = (0, _mobxReact.observer)(EditableField);
 
 function EditableForm(props) {
   var formAttrs = props.formAttrs,
@@ -91698,10 +92029,10 @@ function EditableForm(props) {
     return form.move(dragIndex, hoverIndex);
   }, [form.formItems]);
 
-  var _a = (0, _reactDnd.useDrop)({
-    accept: [_ItemTypes.default.FIELD],
+  var _useDrop = (0, _reactDnd.useDrop)({
+    accept: [ItemTypes.FIELD],
     drop: function drop(item, monitor) {
-      if (item.type === _ItemTypes.default.FIELD) {
+      if (item.type === ItemTypes.FIELD) {
         form.add(item.name);
       }
     },
@@ -91712,19 +92043,20 @@ function EditableForm(props) {
       };
     }
   }),
-      _b = _a[0],
-      isOver = _b.isOver,
-      canDrop = _b.canDrop,
-      drop = _a[1];
+      _useDrop2 = _slicedToArray(_useDrop, 2),
+      _useDrop2$ = _useDrop2[0],
+      isOver = _useDrop2$.isOver,
+      canDrop = _useDrop2$.canDrop,
+      drop = _useDrop2[1];
 
-  return _react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     ref: drop,
     className: "editable-form",
     style: {
       width: formAttrs.formWidthString
     }
   }, form.formItems.map(function (formItem, index) {
-    return _react.default.createElement(_EditableField.default, {
+    return /*#__PURE__*/_react.default.createElement(EditableField$1, {
       key: formItem.id,
       formItem: formItem,
       formItemIndex: index,
@@ -91733,97 +92065,59 @@ function EditableForm(props) {
   }));
 }
 
-var _default = (0, _mobxReact.observer)(EditableForm);
+var EditableForm$1 = (0, _mobxReact.observer)(EditableForm); // import 'mobx-react-lite/batchingForReactDom'
 
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","mobx-react":"../node_modules/mobx-react/dist/mobxreact.esm.js","react-dnd":"../node_modules/react-dnd/dist/esm/index.js","../ItemTypes":"../src/ItemTypes.ts","./EditableField":"../src/components/EditableField.tsx"}],"../src/index.tsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = FormEditor;
-
-require("antd/es/layout/style/css");
-
-var _layout = _interopRequireDefault(require("antd/es/layout"));
-
-require("./index.less");
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _reactDnd = require("react-dnd");
-
-var _reactDndHtml5Backend = _interopRequireDefault(require("react-dnd-html5-backend"));
-
-var _Toolbar = _interopRequireDefault(require("./components/Toolbar"));
-
-var _FieldList = _interopRequireDefault(require("./components/FieldList"));
-
-var _AttrsPanel = _interopRequireDefault(require("./components/AttrsPanel"));
-
-var _EditableForm = _interopRequireDefault(require("./components/EditableForm"));
-
-var _FormAttrsStore = _interopRequireDefault(require("./stores/FormAttrsStore"));
-
-var _FormStore = _interopRequireDefault(require("./stores/FormStore"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// https://github.com/mobxjs/mobx-react-lite/#observer-batching
-// import 'mobx-react-lite/batchingForReactDom'
 var Header = _layout.default.Header,
     Content = _layout.default.Content,
     Sider = _layout.default.Sider;
 
 function FormEditor(props) {
   var style = props.style,
-      _a = props.defaultFormItems,
-      defaultFormItems = _a === void 0 ? [] : _a,
+      _props$defaultFormIte = props.defaultFormItems,
+      defaultFormItems = _props$defaultFormIte === void 0 ? [] : _props$defaultFormIte,
       defaultFormAttrs = props.defaultFormAttrs,
-      _b = props.onSave,
-      onSave = _b === void 0 ? console.log : _b;
+      _props$onSave = props.onSave,
+      onSave = _props$onSave === void 0 ? console.log : _props$onSave;
   (0, _react.useEffect)(function () {
-    _FormStore.default.setItems(defaultFormItems);
+    formStore.setItems(defaultFormItems);
 
     if (defaultFormAttrs) {
-      _FormAttrsStore.default.reset(defaultFormAttrs);
+      formAttrsStore.reset(defaultFormAttrs);
     }
   }, []);
-  return _react.default.createElement(_reactDnd.DndProvider, {
+  return /*#__PURE__*/_react.default.createElement(_reactDnd.DndProvider, {
     backend: _reactDndHtml5Backend.default
-  }, _react.default.createElement(_layout.default, {
+  }, /*#__PURE__*/_react.default.createElement(_layout.default, {
     className: "form-editor",
     style: style
-  }, _react.default.createElement(Sider, {
-    theme: 'light',
+  }, /*#__PURE__*/_react.default.createElement(Sider, {
+    theme: "light",
     className: "form-editor-components"
-  }, _react.default.createElement(_FieldList.default, null)), _react.default.createElement(_layout.default, {
+  }, /*#__PURE__*/_react.default.createElement(FieldList, null)), /*#__PURE__*/_react.default.createElement(_layout.default, {
     className: "form-editor-content"
-  }, _react.default.createElement(_layout.default, {
+  }, /*#__PURE__*/_react.default.createElement(_layout.default, {
     className: "form-editor-content-main"
-  }, _react.default.createElement(Header, {
+  }, /*#__PURE__*/_react.default.createElement(Header, {
     className: "form-editor-toolbar"
-  }, _react.default.createElement(_Toolbar.default, {
-    formAttrs: _FormAttrsStore.default,
-    form: _FormStore.default,
+  }, /*#__PURE__*/_react.default.createElement(Toolbar$1, {
+    formAttrs: formAttrsStore,
+    form: formStore,
     onSave: onSave
-  })), _react.default.createElement(Content, {
+  })), /*#__PURE__*/_react.default.createElement(Content, {
     className: "form-editor-editarea"
-  }, _react.default.createElement(_EditableForm.default, {
-    formAttrs: _FormAttrsStore.default,
-    form: _FormStore.default
-  }))), _react.default.createElement(Sider, {
-    theme: 'light',
+  }, /*#__PURE__*/_react.default.createElement(EditableForm$1, {
+    formAttrs: formAttrsStore,
+    form: formStore
+  }))), /*#__PURE__*/_react.default.createElement(Sider, {
+    theme: "light",
     width: 300,
     className: "form-editor-content-attrs"
-  }, _react.default.createElement(_AttrsPanel.default, null)))));
+  }, /*#__PURE__*/_react.default.createElement(AttrsPanel, null)))));
 }
-},{"antd/es/layout/style/css":"../node_modules/antd/es/layout/style/css.js","antd/es/layout":"../node_modules/antd/es/layout/index.js","./index.less":"../src/index.less","react":"../node_modules/react/index.js","react-dnd":"../node_modules/react-dnd/dist/esm/index.js","react-dnd-html5-backend":"../node_modules/react-dnd-html5-backend/dist/esm/index.js","./components/Toolbar":"../src/components/Toolbar.tsx","./components/FieldList":"../src/components/FieldList.tsx","./components/AttrsPanel":"../src/components/AttrsPanel.tsx","./components/EditableForm":"../src/components/EditableForm.tsx","./stores/FormAttrsStore":"../src/stores/FormAttrsStore.ts","./stores/FormStore":"../src/stores/FormStore.ts"}],"App.tsx":[function(require,module,exports) {
+
+var _default = FormEditor;
+exports.default = _default;
+},{"antd/es/layout/style/css":"../node_modules/antd/es/layout/style/css.js","antd/es/layout":"../node_modules/antd/es/layout/index.js","react":"../node_modules/react/index.js","react-dnd":"../node_modules/react-dnd/dist/esm/index.js","react-dnd-html5-backend":"../node_modules/react-dnd-html5-backend/dist/esm/index.js","antd/es/modal/style/css":"../node_modules/antd/es/modal/style/css.js","antd/es/modal":"../node_modules/antd/es/modal/index.js","antd/es/button/style/css":"../node_modules/antd/es/button/style/css.js","antd/es/button":"../node_modules/antd/es/button/index.js","mobx-react":"../node_modules/mobx-react/dist/mobxreact.esm.js","antd/es/divider/style/css":"../node_modules/antd/es/divider/style/css.js","antd/es/divider":"../node_modules/antd/es/divider/index.js","antd/es/empty/style/css":"../node_modules/antd/es/empty/style/css.js","antd/es/empty":"../node_modules/antd/es/empty/index.js","antd/es/input-number/style/css":"../node_modules/antd/es/input-number/style/css.js","antd/es/input-number":"../node_modules/antd/es/input-number/index.js","antd/es/checkbox/style/css":"../node_modules/antd/es/checkbox/style/css.js","antd/es/checkbox":"../node_modules/antd/es/checkbox/index.js","antd/es/select/style/css":"../node_modules/antd/es/select/style/css.js","antd/es/select":"../node_modules/antd/es/select/index.js","antd/es/input/style/css":"../node_modules/antd/es/input/style/css.js","antd/es/input":"../node_modules/antd/es/input/index.js","antd/es/radio/style/css":"../node_modules/antd/es/radio/style/css.js","antd/es/radio":"../node_modules/antd/es/radio/index.js","antd/es/message/style/css":"../node_modules/antd/es/message/style/css.js","antd/es/message":"../node_modules/antd/es/message/index.js","mobx":"../node_modules/mobx/lib/mobx.module.js","shortid":"../node_modules/shortid/index.js","immutability-helper":"../node_modules/immutability-helper/index.js","classnames":"../node_modules/classnames/index.js","antd/es/row/style/css":"../node_modules/antd/es/row/style/css.js","antd/es/row":"../node_modules/antd/es/row/index.js","antd/es/col/style/css":"../node_modules/antd/es/col/style/css.js","antd/es/col":"../node_modules/antd/es/col/index.js","antd/es/tabs/style/css":"../node_modules/antd/es/tabs/style/css.js","antd/es/tabs":"../node_modules/antd/es/tabs/index.js","antd/es/list/style/css":"../node_modules/antd/es/list/style/css.js","antd/es/list":"../node_modules/antd/es/list/index.js"}],"App.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -91833,22 +92127,23 @@ exports.default = App;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _src = _interopRequireDefault(require("../src"));
-
 var _FormStore = require("../src/stores/FormStore");
+
+var _dist = _interopRequireDefault(require("../dist"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import FormEditor from '../src'
 function App(props) {
   var items = [(0, _FormStore.createFormItem)(_FormStore.FormItemType.INPUT), (0, _FormStore.createFormItem)(_FormStore.FormItemType.NUMBER), (0, _FormStore.createFormItem)(_FormStore.FormItemType.TEXTAREA), (0, _FormStore.createFormItem)(_FormStore.FormItemType.CHECKBOX), (0, _FormStore.createFormItem)(_FormStore.FormItemType.RADIO), (0, _FormStore.createFormItem)(_FormStore.FormItemType.SELECT), (0, _FormStore.createFormItem)(_FormStore.FormItemType.TEXT), (0, _FormStore.createFormItem)(_FormStore.FormItemType.RESULT)];
-  return _react.default.createElement("div", null, _react.default.createElement(_src.default, {
+  return _react.default.createElement("div", null, _react.default.createElement(_dist.default, {
     style: {
       height: '100vh'
     },
     defaultFormItems: items
   }));
 }
-},{"react":"../node_modules/react/index.js","../src":"../src/index.tsx","../src/stores/FormStore":"../src/stores/FormStore.ts"}],"../node_modules/rc-calendar/es/locale/zh_CN.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../src/stores/FormStore":"../src/stores/FormStore.ts","../dist":"../dist/index.js"}],"../node_modules/rc-calendar/es/locale/zh_CN.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -92577,7 +92872,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49360" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51704" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

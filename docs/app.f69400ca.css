@@ -26658,6 +26658,96 @@ html {
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.ant-message {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  -webkit-font-feature-settings: 'tnum';
+          font-feature-settings: 'tnum';
+  position: fixed;
+  top: 16px;
+  left: 0;
+  z-index: 1010;
+  width: 100%;
+  pointer-events: none;
+}
+.ant-message-notice {
+  padding: 8px;
+  text-align: center;
+}
+.ant-message-notice:first-child {
+  margin-top: -8px;
+}
+.ant-message-notice-content {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: all;
+}
+.ant-message-success .anticon {
+  color: #52c41a;
+}
+.ant-message-error .anticon {
+  color: #f5222d;
+}
+.ant-message-warning .anticon {
+  color: #faad14;
+}
+.ant-message-info .anticon,
+.ant-message-loading .anticon {
+  color: #1890ff;
+}
+.ant-message .anticon {
+  position: relative;
+  top: 1px;
+  margin-right: 8px;
+  font-size: 16px;
+}
+.ant-message-notice.move-up-leave.move-up-leave-active {
+  overflow: hidden;
+  -webkit-animation-name: MessageMoveOut;
+          animation-name: MessageMoveOut;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+}
+@-webkit-keyframes MessageMoveOut {
+  0% {
+    max-height: 150px;
+    padding: 8px;
+    opacity: 1;
+  }
+  100% {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+  }
+}
+@keyframes MessageMoveOut {
+  0% {
+    max-height: 150px;
+    padding: 8px;
+    opacity: 1;
+  }
+  100% {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+  }
+}
+
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
 .ant-layout {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26784,180 +26874,6 @@ html {
 .ant-layout-sider-light .ant-layout-sider-zero-width-trigger {
   color: rgba(0, 0, 0, 0.65);
   background: #fff;
-}
-
-.form-editor * {
-  box-sizing: border-box;
-}
-.form-editor-components > .ant-layout-sider-children {
-  padding: 0 16px;
-}
-.form-editor-components div.label {
-  font-size: 16px;
-  line-height: 44px;
-}
-.form-editor-components .ant-row {
-  margin-bottom: 10px;
-}
-.form-editor-components .ant-row .field {
-  box-sizing: border-box;
-  font-size: 12px;
-  line-height: 30px;
-  height: 30px;
-  width: 100%;
-  text-align: center;
-  border: 1px dashed rgba(0, 0, 0, 0);
-  background-color: #f4f6fc;
-}
-.form-editor-components .ant-row .field:hover {
-  border: 1px dashed #1890ff;
-  color: #1890ff;
-}
-.form-editor-content-main .form-editor-toolbar {
-  background: #fff;
-  height: 44px;
-  line-height: 44px;
-  border-bottom: 1px solid #eee;
-  padding: 0 16px;
-}
-.form-editor-content-main .form-editor-toolbar-content {
-  text-align: right;
-}
-.form-editor-content-main .form-editor-editarea {
-  padding: 10px 10px 0 10px;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form {
-  min-height: 100%;
-  border: 1px dashed #ddd;
-  background-color: #fff;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable {
-  position: relative;
-  display: flex;
-  padding: 16px;
-  margin: 4px;
-  border: 1px dashed #ddd;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-active {
-  border: 1px solid #1890ff;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.label-standalone {
-  flex-direction: column;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.label-standalone .field-editable-label {
-  flex: 1;
-  text-align: left;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-label {
-  font-size: 14px;
-  line-height: 32px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-label:after {
-  content: '：';
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-content {
-  flex: 1;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable-content > .ant-checkbox-group {
-  line-height: 32px;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable .btn-delete {
-  position: absolute;
-  right: 4px;
-  bottom: 4px;
-  z-index: 2;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-layout {
-  display: block;
-  padding: 0;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-layout .ant-row > .ant-col {
-  padding: 10px;
-  border: 1px dashed #ddd;
-  min-height: 64px;
-  box-sizing: border-box;
-}
-.form-editor-content-main .form-editor-editarea > .editable-form .field-editable.field-editable-text {
-  display: block;
-}
-.form-editor-content-attrs .attrs {
-  padding: 0 16px;
-}
-.form-editor-content-attrs .attrs .attr-item {
-  margin-bottom: 16px;
-}
-.form-editor-content-attrs .attrs .attr-item .label {
-  font-size: 14px;
-  line-height: 21px;
-  height: 30px;
-}
-.form-editor-content-attrs .attrs .attr-item .label::after {
-  content: '：';
-}
-.form-editor-content-attrs .attrs .attr-item .input {
-  display: inline-block;
-  width: 100%;
-}
-.form-editor-content-attrs .attrs .attr-item .input .ant-radio-button-wrapper {
-  width: 80px;
-  padding: 0;
-}
-.form-editor-content-attrs .attrs .attr-item .input .ant-radio-button-wrapper > span:last-child {
-  display: inline-block;
-  width: 80px;
-  text-align: center;
-}
-.form-editor-content-attrs .attrs .attr-item-option {
-  display: flex;
-}
-.form-editor-content-attrs .attrs .attr-item-option .ant-input {
-  flex: 1;
-}
-.form-editor-content-attrs .attrs .attr-item-option .btn-delete-option {
-  margin-left: 10px;
-}
-.generated-form {
-  min-height: 100%;
-  background-color: #fff;
-}
-.generated-form .form-item {
-  display: flex;
-  margin: 0 0 5px 0;
-}
-.generated-form .form-item.label-standalone {
-  flex-direction: column;
-}
-.generated-form .form-item.label-standalone .form-item-label {
-  flex: 1;
-  text-align: left;
-}
-.generated-form .form-item-label {
-  font-size: 14px;
-  line-height: 32px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.generated-form .form-item-label:after {
-  content: '：';
-}
-.generated-form .form-item-content {
-  flex: 1;
-}
-.generated-form .form-item-content > .ant-checkbox-group {
-  line-height: 32px;
-}
-.generated-form .form-item.form-item-text {
-  display: block;
-}
-.generated-form .form-item .err-msg {
-  padding: 3px 0 0 1px;
-  height: 20px;
-  line-height: 14px;
-  color: #f5222d;
 }
 
 /* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
@@ -30799,96 +30715,6 @@ span.ant-radio + * {
 @supports (-moz-appearance: meterbar) and (background-blend-mode: difference, normal) {
   .ant-radio {
     vertical-align: text-bottom;
-  }
-}
-
-/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
-/* stylelint-disable no-duplicate-selectors */
-/* stylelint-disable */
-/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
-.ant-message {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  color: rgba(0, 0, 0, 0.65);
-  font-size: 14px;
-  font-variant: tabular-nums;
-  line-height: 1.5;
-  list-style: none;
-  -webkit-font-feature-settings: 'tnum';
-          font-feature-settings: 'tnum';
-  position: fixed;
-  top: 16px;
-  left: 0;
-  z-index: 1010;
-  width: 100%;
-  pointer-events: none;
-}
-.ant-message-notice {
-  padding: 8px;
-  text-align: center;
-}
-.ant-message-notice:first-child {
-  margin-top: -8px;
-}
-.ant-message-notice-content {
-  display: inline-block;
-  padding: 10px 16px;
-  background: #fff;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  pointer-events: all;
-}
-.ant-message-success .anticon {
-  color: #52c41a;
-}
-.ant-message-error .anticon {
-  color: #f5222d;
-}
-.ant-message-warning .anticon {
-  color: #faad14;
-}
-.ant-message-info .anticon,
-.ant-message-loading .anticon {
-  color: #1890ff;
-}
-.ant-message .anticon {
-  position: relative;
-  top: 1px;
-  margin-right: 8px;
-  font-size: 16px;
-}
-.ant-message-notice.move-up-leave.move-up-leave-active {
-  overflow: hidden;
-  -webkit-animation-name: MessageMoveOut;
-          animation-name: MessageMoveOut;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-}
-@-webkit-keyframes MessageMoveOut {
-  0% {
-    max-height: 150px;
-    padding: 8px;
-    opacity: 1;
-  }
-  100% {
-    max-height: 0;
-    padding: 0;
-    opacity: 0;
-  }
-}
-@keyframes MessageMoveOut {
-  0% {
-    max-height: 150px;
-    padding: 8px;
-    opacity: 1;
-  }
-  100% {
-    max-height: 0;
-    padding: 0;
-    opacity: 0;
   }
 }
 
