@@ -1,16 +1,45 @@
-const nodeResolve = require('@rollup/plugin-node-resolve')
-const typescript = require('rollup-plugin-typescript2')
-const postcss = require('rollup-plugin-postcss')
-const { terser } = require('rollup-plugin-terser')
-const autoprefixer = require('autoprefixer')
-const { resolve } = require('path')
+import nodeResolve from '@rollup/plugin-node-resolve'
+import babel from '@rollup/plugin-babel'
+import postcss from 'rollup-plugin-postcss'
+import { terser } from 'rollup-plugin-terser'
+import autoprefixer from 'autoprefixer'
 
-module.exports = [
+const input = './src/index.tsx'
+
+const external = [
+    'antd',
+    'classnames',
+    'immutability-helper',
+    'mobx',
+    'mobx-react',
+    'react',
+    'react-dnd',
+    'react-dnd-html5-backend',
+    'react-dom',
+    'shortid'
+]
+
+const extensions = [ '.js', '.jsx', '.ts', '.tsx' ]
+
+const plugins = [
+    nodeResolve({
+        customResolveOptions: {
+            moduleDirectory: 'src',
+        },
+        extensions,
+    }),
+    babel({
+        exclude: 'node_modules/**',
+        extensions,
+    }),
+]
+
+export default [
     {
-        input: './src/index.tsx',
+        input,
         output: [
             {
-                dir: 'dist',
+                dir: 'dist/umd',
                 format: 'umd',
                 name: 'ReactFormEditor',
                 globals: {
@@ -26,7 +55,7 @@ module.exports = [
             }
         ],
         plugins: [
-            typescript(),
+            ...plugins,
             postcss({
                 extensions: ['.less'],
                 minimize: true,
@@ -37,50 +66,27 @@ module.exports = [
             }),
             terser()
         ],
-        external: [
-            'antd',
-            'classnames',
-            'immutability-helper',
-            'mobx',
-            'mobx-react',
-            'react',
-            'react-dnd',
-            'react-dnd-html5-backend',
-            'react-dom',
-            'shortid'
-        ],
+        external
     },
     {
-        input: './src/index.tsx',
+        input,
         output: [
             {
-                dir: 'dist/esm',
+                dir: 'dist',
                 format: 'es'
             }
         ],
         plugins: [
-            nodeResolve(),
-            typescript(),
+            ...plugins,
             postcss({
                 extensions: ['.less'],
-                minimize: true,
-                extract: true,
+                minimize: false,
+                extract: false,
                 plugins: [
                     autoprefixer()
                 ]
             }),
         ],
-        external: [
-            'antd',
-            'classnames',
-            'immutability-helper',
-            'mobx',
-            'mobx-react',
-            'react',
-            'react-dnd',
-            'react-dnd-html5-backend',
-            'react-dom',
-            'shortid'
-        ]
+        external
     }
 ]

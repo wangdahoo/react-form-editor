@@ -2,8 +2,7 @@ import React from 'react'
 import FormEditor from '../src'
 import { createFormItem, FormItemType } from '../src/stores/FormStore'
 
-// import  '../dist/esm/index.css'
-// import FormEditor from '../dist/esm'
+// import FormEditor from '../dist'
 
 interface Props {
    name: string
