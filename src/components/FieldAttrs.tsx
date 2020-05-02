@@ -293,9 +293,7 @@ function FieldAttrs (props: FieldAttrsProps) {
                     <div className="label">标签文字</div>
                     <Input className="input" value={labelText} onChange={e => onChangeAttrs({
                         ...form.activeItem,
-                        ...(labelText ? {
-
-                        } : {})
+                        ...({ labelText: e.target.value })
                     })} />
                 </div>
             ) : null}

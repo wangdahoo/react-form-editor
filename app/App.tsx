@@ -1,8 +1,7 @@
 import React from 'react'
-// import FormEditor from '../src'
+// import FormEditor from '../dist'
+import FormEditor from '../src'
 import { createFormItem, FormItemType } from '../src/stores/FormStore'
-
-import FormEditor from '../dist'
 
 interface Props {
    name: string

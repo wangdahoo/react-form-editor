@@ -1614,7 +1614,9 @@ function FieldAttrs(props) {
     className: "input",
     value: labelText,
     onChange: function onChange(e) {
-      return onChangeAttrs(_objectSpread2({}, form.activeItem, {}, labelText ? {} : {}));
+      return onChangeAttrs(_objectSpread2({}, form.activeItem, {}, {
+        labelText: e.target.value
+      }));
     }
   })) : null, itemType === FormItemType.INPUT ? renderInputExtraAttrs(form.activeItem) : null, itemType === FormItemType.NUMBER ? renderNumberExtraAttrs(form.activeItem) : null, itemType === FormItemType.TEXTAREA ? renderInputExtraAttrs(form.activeItem) : null, itemType === FormItemType.CHECKBOX ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.CHECKBOX ? renderCheckboxExtraAttrs(form.activeItem) : null, itemType === FormItemType.RADIO ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.RADIO ? renderRadioExtraAttrs(form.activeItem) : null, itemType === FormItemType.SELECT ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.SELECT ? renderSelectExtraAttrs(form.activeItem) : null, itemType === FormItemType.LAYOUT ? renderLayoutExtraAttrs(form.activeItem) : null, itemType === FormItemType.TEXT ? renderTextExtraAttrs(form.activeItem) : null, hasValidationAttrs ? renderValidationAttrs(form.activeItem) : null);
 }

@@ -1,6 +1,6 @@
 {
     "name": "@wangdahoo/react-form-editor",
-    "version": "0.1.13",
+    "version": "0.1.14",
     "main": "dist/index.js",
     "module": "dist/index.js",
     "umd": "dist/umd/index.js",
@@ -45,7 +45,7 @@
         "typescript": "^3.8.3"
     },
     "scripts": {
-        "start": "parcel serve -d docs app/index.html --public-url=./",
+        "start": "parcel serve -d docs app/index.html",
         "build": "rollup -c"
     },
     "peerDependencies": {
