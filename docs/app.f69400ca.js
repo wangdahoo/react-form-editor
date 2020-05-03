@@ -83110,7 +83110,8 @@ function GeneratedForm(props) {
   var formWidth = attrs.formWidth,
       formWidthUnit = attrs.formWidthUnit,
       labelAlign = attrs.labelAlign,
-      labelWidth = attrs.labelWidth;
+      labelWidth = attrs.labelWidth,
+      labelWidthUnit = attrs.labelWidthUnit;
 
   var _b = (0, _react.useState)(createFormValues(items)),
       formValues = _b[0],
@@ -83126,6 +83127,8 @@ function GeneratedForm(props) {
   var _d = (0, _react.useState)(0),
       validateCount = _d[0],
       setValidateCount = _d[1];
+
+  console.log(attrs);
 
   function onSubmit() {
     console.log('form items =>', items);
@@ -83368,7 +83371,7 @@ function GeneratedForm(props) {
       }, _react.default.createElement("div", {
         className: 'form-item-label',
         style: __assign({
-          width: labelWidth
+          width: "" + labelWidth + labelWidthUnit
         }, labelAlign !== 'top' ? {
           textAlign: labelAlign
         } : {})
@@ -83382,7 +83385,7 @@ function GeneratedForm(props) {
     return null;
   }), _react.default.createElement(_divider.default, null), _react.default.createElement("div", {
     style: {
-      paddingLeft: labelWidth
+      paddingLeft: labelAlign !== 'top' ? labelWidth : 0
     }
   }, _react.default.createElement(_button.default, {
     type: "primary",
@@ -91371,7 +91374,7 @@ function EditableField(props) {
   }, _react.default.createElement("div", {
     className: (0, _classnames.default)('field-editable-label', _FormAttrsStore.default.labelAlign === 'top' ? 'field-standalone' : ''),
     style: __assign({
-      width: _FormAttrsStore.default.labelWidth
+      width: "" + _FormAttrsStore.default.labelWidth + _FormAttrsStore.default.labelWidthUnit
     }, _FormAttrsStore.default.labelAlign !== 'top' ? {
       textAlign: _FormAttrsStore.default.labelAlign
     } : {})
@@ -92298,7 +92301,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58437" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64074" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

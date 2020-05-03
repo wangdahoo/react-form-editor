@@ -254,7 +254,7 @@ function EditableField (props: EditableFieldProps) {
             onMouseDown={() => form.activate(formItem.id)}
         >
             <div className={classnames('field-editable-label', formAttrs.labelAlign === 'top' ? 'field-standalone' : '')} style={{
-                width: formAttrs.labelWidth,
+                width: `${formAttrs.labelWidth}${formAttrs.labelWidthUnit}`,
                 ...(formAttrs.labelAlign !== 'top' ? {
                     textAlign: formAttrs.labelAlign
                 } : {})

@@ -64,10 +64,12 @@ const shouldValidateRequired = (item: FormItem) => [
 
 function GeneratedForm (props: GeneratedFormProps) {
     const { items, attrs } = props.form
-    const { formWidth, formWidthUnit, labelAlign, labelWidth } = attrs
+    const { formWidth, formWidthUnit, labelAlign, labelWidth, labelWidthUnit } = attrs
     const [formValues, setFormValues] = useState(createFormValues(items))
     const [validationResult, setValidationResult] = useState({ result: false, errors: {} })
     const [validateCount, setValidateCount] = useState(0)
+
+    console.log(attrs)
 
     function onSubmit () {
         console.log('form items =>', items)
@@ -355,7 +357,7 @@ function GeneratedForm (props: GeneratedFormProps) {
                     return (
                         <div className={classnames('form-item', labelAlign === 'top' ? 'label-standalone' : '')} key={index}>
                             <div className='form-item-label' style={{
-                                width: labelWidth,
+                                width: `${labelWidth}${labelWidthUnit}`,
                                 ...(labelAlign !== 'top' ? {
                                     textAlign: labelAlign
                                 } : {})
@@ -377,7 +379,7 @@ function GeneratedForm (props: GeneratedFormProps) {
 
             <Divider />
 
-            <div style={{ paddingLeft: labelWidth }}>
+            <div style={{ paddingLeft: labelAlign !== 'top' ? labelWidth : 0 }}>
                 <Button type="primary" onClick={onSubmit} style={{ width: 90, marginRight: 16 }}>提 交</Button>
                 <Button type="default" onClick={() => setFormValues(createFormValues(items))} style={{ width: 90 }}>重 置</Button>
             </div>

@@ -671,7 +671,8 @@ function GeneratedForm(props) {
   var formWidth = attrs.formWidth,
       formWidthUnit = attrs.formWidthUnit,
       labelAlign = attrs.labelAlign,
-      labelWidth = attrs.labelWidth;
+      labelWidth = attrs.labelWidth,
+      labelWidthUnit = attrs.labelWidthUnit;
 
   var _useState = useState(createFormValues(items)),
       _useState2 = _slicedToArray(_useState, 2),
@@ -690,6 +691,8 @@ function GeneratedForm(props) {
       _useState6 = _slicedToArray(_useState5, 2),
       validateCount = _useState6[0],
       setValidateCount = _useState6[1];
+
+  console.log(attrs);
 
   function onSubmit() {
     console.log('form items =>', items);
@@ -919,7 +922,7 @@ function GeneratedForm(props) {
       }, /*#__PURE__*/React.createElement("div", {
         className: "form-item-label",
         style: _objectSpread2({
-          width: labelWidth
+          width: "".concat(labelWidth).concat(labelWidthUnit)
         }, labelAlign !== 'top' ? {
           textAlign: labelAlign
         } : {})
@@ -933,7 +936,7 @@ function GeneratedForm(props) {
     return null;
   }), /*#__PURE__*/React.createElement(_Divider, null), /*#__PURE__*/React.createElement("div", {
     style: {
-      paddingLeft: labelWidth
+      paddingLeft: labelAlign !== 'top' ? labelWidth : 0
     }
   }, /*#__PURE__*/React.createElement(_Button, {
     type: "primary",
@@ -1903,7 +1906,7 @@ function EditableField(props) {
   }, /*#__PURE__*/React.createElement("div", {
     className: classnames('field-editable-label', formAttrsStore.labelAlign === 'top' ? 'field-standalone' : ''),
     style: _objectSpread2({
-      width: formAttrsStore.labelWidth
+      width: "".concat(formAttrsStore.labelWidth).concat(formAttrsStore.labelWidthUnit)
     }, formAttrsStore.labelAlign !== 'top' ? {
       textAlign: formAttrsStore.labelAlign
     } : {})

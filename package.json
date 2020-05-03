@@ -1,6 +1,6 @@
 {
     "name": "@wangdahoo/react-form-editor",
-    "version": "0.1.15",
+    "version": "0.1.16",
     "main": "dist/index.js",
     "module": "dist/index.js",
     "umd": "dist/umd/index.js",
