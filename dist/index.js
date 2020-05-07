@@ -956,11 +956,6 @@ function GeneratedForm(props) {
   }, "\u91CD \u7F6E")));
 }
 
-var _GeneratedForm = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': GeneratedForm
-});
-
 function Toolbar(props) {
   var form = props.form,
       formAttrs = props.formAttrs,
@@ -2021,7 +2016,6 @@ function FormEditor(props) {
     className: "form-editor-content-attrs"
   }, /*#__PURE__*/React.createElement(AttrsPanel, null)))));
 }
-var GeneratedForm$1 = _GeneratedForm;
 
 export default FormEditor;
-export { GeneratedForm$1 as GeneratedForm };
+export { GeneratedForm };

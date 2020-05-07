@@ -62,7 +62,7 @@ const shouldValidateRequired = (item: FormItem) => [
     FormItemType.RADIO
 ].indexOf(item.itemType) > -1
 
-function GeneratedForm (props: GeneratedFormProps) {
+export function GeneratedForm (props: GeneratedFormProps) {
     const { items, attrs } = props.form
     const { formWidth, formWidthUnit, labelAlign, labelWidth, labelWidthUnit } = attrs
     const [formValues, setFormValues] = useState(createFormValues(items))
@@ -387,4 +387,3 @@ function GeneratedForm (props: GeneratedFormProps) {
     )
 }
 
-export default GeneratedForm

@@ -12,7 +12,7 @@ import formStore, { FormItem } from './stores/FormStore'
 // https://github.com/mobxjs/mobx-react-lite/#observer-batching
 // import 'mobx-react-lite/batchingForReactDom'
 
-import * as _GeneratedForm from './components/GeneratedForm'
+export * from './components/GeneratedForm'
 
 const { Header, Content, Sider } = Layout
 
@@ -56,5 +56,3 @@ export default function FormEditor (props: FormEditorProps) {
         </DndProvider>
     )
 }
-
-export const GeneratedForm = _GeneratedForm

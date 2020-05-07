@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 import { Button, Modal } from 'antd'
 import { FormStore } from '../stores/FormStore'
 import { FormAttrsStore } from '../stores/FormAttrsStore'
-import GeneratedForm from './GeneratedForm'
+import { GeneratedForm } from './GeneratedForm'
 
 interface ToolbarProps {
     form: FormStore
