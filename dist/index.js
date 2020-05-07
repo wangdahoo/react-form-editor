@@ -1986,7 +1986,7 @@ function FormEditor(props) {
     if (defaultFormAttrs) {
       formAttrsStore.reset(defaultFormAttrs);
     }
-  }, []);
+  }, [props]);
   return /*#__PURE__*/React.createElement(DndProvider, {
     backend: Backend
   }, /*#__PURE__*/React.createElement(_Layout, {

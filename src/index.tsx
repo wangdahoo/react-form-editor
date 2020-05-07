@@ -31,7 +31,7 @@ export default function FormEditor (props: FormEditorProps) {
         if (defaultFormAttrs) {
             formAttrsStore.reset(defaultFormAttrs)
         }
-    }, [])
+    }, [props])
 
     return (
         <DndProvider backend={Backend}>
