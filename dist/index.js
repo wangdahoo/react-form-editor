@@ -956,6 +956,11 @@ function GeneratedForm(props) {
   }, "\u91CD \u7F6E")));
 }
 
+var _GeneratedForm = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': GeneratedForm
+});
+
 function Toolbar(props) {
   var form = props.form,
       formAttrs = props.formAttrs,
@@ -1970,8 +1975,6 @@ function EditableForm(props) {
 
 var EditableForm$1 = observer(EditableForm);
 
-// import 'mobx-react-lite/batchingForReactDom'
-
 var Header = _Layout.Header,
     Content = _Layout.Content,
     Sider = _Layout.Sider;
@@ -2018,5 +2021,7 @@ function FormEditor(props) {
     className: "form-editor-content-attrs"
   }, /*#__PURE__*/React.createElement(AttrsPanel, null)))));
 }
+var GeneratedForm$1 = _GeneratedForm;
 
 export default FormEditor;
+export { GeneratedForm$1 as GeneratedForm };
