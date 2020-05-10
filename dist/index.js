@@ -690,15 +690,13 @@ function GeneratedForm(props) {
   var _useState5 = useState(0),
       _useState6 = _slicedToArray(_useState5, 2),
       validateCount = _useState6[0],
-      setValidateCount = _useState6[1];
+      setValidateCount = _useState6[1]; // console.log(attrs)
 
-  console.log(attrs);
 
   function onSubmit() {
-    console.log('form items =>', items);
-    console.log('form values =>', formValues);
-    var newValidationResult = validate(items, formValues);
-    console.log(newValidationResult);
+    // console.log('form items =>', items)
+    // console.log('form values =>', formValues)
+    var newValidationResult = validate(items, formValues); // console.log(newValidationResult)
 
     if (newValidationResult.result) {
       if (props.onSubmit) props.onSubmit(formValues);

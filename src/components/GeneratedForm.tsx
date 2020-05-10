@@ -69,14 +69,14 @@ export function GeneratedForm (props: GeneratedFormProps) {
     const [validationResult, setValidationResult] = useState({ result: false, errors: {} })
     const [validateCount, setValidateCount] = useState(0)
 
-    console.log(attrs)
+    // console.log(attrs)
 
     function onSubmit () {
-        console.log('form items =>', items)
-        console.log('form values =>', formValues)
+        // console.log('form items =>', items)
+        // console.log('form values =>', formValues)
 
         const newValidationResult = validate(items, formValues)
-        console.log(newValidationResult)
+        // console.log(newValidationResult)
 
         if (newValidationResult.result) {
             if (props.onSubmit) props.onSubmit(formValues)
