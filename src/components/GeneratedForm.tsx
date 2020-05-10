@@ -15,6 +15,7 @@ interface GeneratedFormProps {
         }
     },
     onSubmit?: (formValue: GeneratedFormValues) => void
+    resetAfterSubmit?: boolean
 }
 
 type GeneratedFormValues = {
@@ -80,8 +81,10 @@ export function GeneratedForm (props: GeneratedFormProps) {
 
         if (newValidationResult.result) {
             if (props.onSubmit) props.onSubmit(formValues)
+            console.log(createFormValues(items))
             setValidationResult({ result: false, errors: {} })
-            setFormValues(createFormValues(items))
+
+            if (props.resetAfterSubmit) setFormValues(createFormValues(items))
         } else {
             setValidationResult(newValidationResult)
         }
@@ -119,7 +122,7 @@ export function GeneratedForm (props: GeneratedFormProps) {
                 errors
             }
         }, {
-            result: false,
+            result: true,
             errors: {}
         })
     }

@@ -35583,517 +35583,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/antd/es/layout/layout.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.LayoutContext = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _createReactContext = _interopRequireDefault(require("@ant-design/create-react-context"));
-
-var _configProvider = require("../config-provider");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(n);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _createSuper(Derived) {
-  return function () {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (_isNativeReflectConstruct()) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn(this, result);
-  };
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-var __rest = void 0 && (void 0).__rest || function (s, e) {
-  var t = {};
-
-  for (var p in s) {
-    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
-  }
-
-  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
-  }
-  return t;
-};
-
-var LayoutContext = (0, _createReactContext.default)({
-  siderHook: {
-    addSider: function addSider() {
-      return null;
-    },
-    removeSider: function removeSider() {
-      return null;
-    }
-  }
-});
-exports.LayoutContext = LayoutContext;
-
-function generator(_ref) {
-  var suffixCls = _ref.suffixCls,
-      tagName = _ref.tagName,
-      displayName = _ref.displayName;
-  return function (BasicComponent) {
-    var _a;
-
-    return _a = /*#__PURE__*/function (_React$Component) {
-      _inherits(Adapter, _React$Component);
-
-      var _super = _createSuper(Adapter);
-
-      function Adapter() {
-        var _this;
-
-        _classCallCheck(this, Adapter);
-
-        _this = _super.apply(this, arguments);
-
-        _this.renderComponent = function (_ref2) {
-          var getPrefixCls = _ref2.getPrefixCls;
-          var customizePrefixCls = _this.props.prefixCls;
-          var prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
-          return /*#__PURE__*/React.createElement(BasicComponent, _extends({
-            prefixCls: prefixCls,
-            tagName: tagName
-          }, _this.props));
-        };
-
-        return _this;
-      }
-
-      _createClass(Adapter, [{
-        key: "render",
-        value: function render() {
-          return /*#__PURE__*/React.createElement(_configProvider.ConfigConsumer, null, this.renderComponent);
-        }
-      }]);
-
-      return Adapter;
-    }(React.Component), _a.displayName = displayName, _a;
-  };
-}
-
-var Basic = function Basic(props) {
-  var prefixCls = props.prefixCls,
-      className = props.className,
-      children = props.children,
-      tagName = props.tagName,
-      others = __rest(props, ["prefixCls", "className", "children", "tagName"]);
-
-  var classString = (0, _classnames.default)(className, prefixCls);
-  return React.createElement(tagName, _extends({
-    className: classString
-  }, others), children);
-};
-
-var BasicLayout = /*#__PURE__*/function (_React$Component2) {
-  _inherits(BasicLayout, _React$Component2);
-
-  var _super2 = _createSuper(BasicLayout);
-
-  function BasicLayout() {
-    var _this2;
-
-    _classCallCheck(this, BasicLayout);
-
-    _this2 = _super2.apply(this, arguments);
-    _this2.state = {
-      siders: []
-    };
-    return _this2;
-  }
-
-  _createClass(BasicLayout, [{
-    key: "getSiderHook",
-    value: function getSiderHook() {
-      var _this3 = this;
-
-      return {
-        addSider: function addSider(id) {
-          _this3.setState(function (state) {
-            return {
-              siders: [].concat(_toConsumableArray(state.siders), [id])
-            };
-          });
-        },
-        removeSider: function removeSider(id) {
-          _this3.setState(function (state) {
-            return {
-              siders: state.siders.filter(function (currentId) {
-                return currentId !== id;
-              })
-            };
-          });
-        }
-      };
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _a = this.props,
-          prefixCls = _a.prefixCls,
-          className = _a.className,
-          children = _a.children,
-          hasSider = _a.hasSider,
-          Tag = _a.tagName,
-          others = __rest(_a, ["prefixCls", "className", "children", "hasSider", "tagName"]);
-
-      var classString = (0, _classnames.default)(className, prefixCls, _defineProperty({}, "".concat(prefixCls, "-has-sider"), typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0));
-      return /*#__PURE__*/React.createElement(LayoutContext.Provider, {
-        value: {
-          siderHook: this.getSiderHook()
-        }
-      }, /*#__PURE__*/React.createElement(Tag, _extends({
-        className: classString
-      }, others), children));
-    }
-  }]);
-
-  return BasicLayout;
-}(React.Component);
-
-var Layout = generator({
-  suffixCls: 'layout',
-  tagName: 'section',
-  displayName: 'Layout'
-})(BasicLayout);
-var Header = generator({
-  suffixCls: 'layout-header',
-  tagName: 'header',
-  displayName: 'Header'
-})(Basic);
-var Footer = generator({
-  suffixCls: 'layout-footer',
-  tagName: 'footer',
-  displayName: 'Footer'
-})(Basic);
-var Content = generator({
-  suffixCls: 'layout-content',
-  tagName: 'main',
-  displayName: 'Content'
-})(Basic);
-Layout.Header = Header;
-Layout.Footer = Footer;
-Layout.Content = Content;
-var _default = Layout;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","@ant-design/create-react-context":"../node_modules/@ant-design/create-react-context/lib/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js"}],"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.polyfill = polyfill;
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-function componentWillMount() {
-  // Call this.constructor.gDSFP to support sub-classes.
-  var state = this.constructor.getDerivedStateFromProps(this.props, this.state);
-
-  if (state !== null && state !== undefined) {
-    this.setState(state);
-  }
-}
-
-function componentWillReceiveProps(nextProps) {
-  // Call this.constructor.gDSFP to support sub-classes.
-  // Use the setState() updater to ensure state isn't stale in certain edge cases.
-  function updater(prevState) {
-    var state = this.constructor.getDerivedStateFromProps(nextProps, prevState);
-    return state !== null && state !== undefined ? state : null;
-  } // Binding "this" is important for shallow renderer support.
-
-
-  this.setState(updater.bind(this));
-}
-
-function componentWillUpdate(nextProps, nextState) {
-  try {
-    var prevProps = this.props;
-    var prevState = this.state;
-    this.props = nextProps;
-    this.state = nextState;
-    this.__reactInternalSnapshotFlag = true;
-    this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(prevProps, prevState);
-  } finally {
-    this.props = prevProps;
-    this.state = prevState;
-  }
-} // React may warn about cWM/cWRP/cWU methods being deprecated.
-// Add a flag to suppress these warnings for this special case.
-
-
-componentWillMount.__suppressDeprecationWarning = true;
-componentWillReceiveProps.__suppressDeprecationWarning = true;
-componentWillUpdate.__suppressDeprecationWarning = true;
-
-function polyfill(Component) {
-  var prototype = Component.prototype;
-
-  if (!prototype || !prototype.isReactComponent) {
-    throw new Error('Can only polyfill class components');
-  }
-
-  if (typeof Component.getDerivedStateFromProps !== 'function' && typeof prototype.getSnapshotBeforeUpdate !== 'function') {
-    return Component;
-  } // If new component APIs are defined, "unsafe" lifecycles won't be called.
-  // Error if any of these lifecycles are present,
-  // Because they would work differently between older and newer (16.3+) versions of React.
-
-
-  var foundWillMountName = null;
-  var foundWillReceivePropsName = null;
-  var foundWillUpdateName = null;
-
-  if (typeof prototype.componentWillMount === 'function') {
-    foundWillMountName = 'componentWillMount';
-  } else if (typeof prototype.UNSAFE_componentWillMount === 'function') {
-    foundWillMountName = 'UNSAFE_componentWillMount';
-  }
-
-  if (typeof prototype.componentWillReceiveProps === 'function') {
-    foundWillReceivePropsName = 'componentWillReceiveProps';
-  } else if (typeof prototype.UNSAFE_componentWillReceiveProps === 'function') {
-    foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
-  }
-
-  if (typeof prototype.componentWillUpdate === 'function') {
-    foundWillUpdateName = 'componentWillUpdate';
-  } else if (typeof prototype.UNSAFE_componentWillUpdate === 'function') {
-    foundWillUpdateName = 'UNSAFE_componentWillUpdate';
-  }
-
-  if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
-    var componentName = Component.displayName || Component.name;
-    var newApiName = typeof Component.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
-    throw Error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + componentName + ' uses ' + newApiName + ' but also contains the following legacy lifecycles:' + (foundWillMountName !== null ? '\n  ' + foundWillMountName : '') + (foundWillReceivePropsName !== null ? '\n  ' + foundWillReceivePropsName : '') + (foundWillUpdateName !== null ? '\n  ' + foundWillUpdateName : '') + '\n\nThe above lifecycles should be removed. Learn more about this warning here:\n' + 'https://fb.me/react-async-component-lifecycle-hooks');
-  } // React <= 16.2 does not support static getDerivedStateFromProps.
-  // As a workaround, use cWM and cWRP to invoke the new static lifecycle.
-  // Newer versions of React will ignore these lifecycles if gDSFP exists.
-
-
-  if (typeof Component.getDerivedStateFromProps === 'function') {
-    prototype.componentWillMount = componentWillMount;
-    prototype.componentWillReceiveProps = componentWillReceiveProps;
-  } // React <= 16.2 does not support getSnapshotBeforeUpdate.
-  // As a workaround, use cWU to invoke the new lifecycle.
-  // Newer versions of React will ignore that lifecycle if gSBU exists.
-
-
-  if (typeof prototype.getSnapshotBeforeUpdate === 'function') {
-    if (typeof prototype.componentDidUpdate !== 'function') {
-      throw new Error('Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype');
-    }
-
-    prototype.componentWillUpdate = componentWillUpdate;
-    var componentDidUpdate = prototype.componentDidUpdate;
-
-    prototype.componentDidUpdate = function componentDidUpdatePolyfill(prevProps, prevState, maybeSnapshot) {
-      // 16.3+ will not execute our will-update method;
-      // It will pass a snapshot value to did-update though.
-      // Older versions will require our polyfilled will-update value.
-      // We need to handle both cases, but can't just check for the presence of "maybeSnapshot",
-      // Because for <= 15.x versions this might be a "prevContext" object.
-      // We also can't just check "__reactInternalSnapshot",
-      // Because get-snapshot might return a falsy value.
-      // So check for the explicit __reactInternalSnapshotFlag flag to determine behavior.
-      var snapshot = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : maybeSnapshot;
-      componentDidUpdate.call(this, prevProps, prevState, snapshot);
-    };
-  }
-
-  return Component;
-}
-},{}],"../node_modules/core-js/library/modules/_global.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/core-js/library/modules/_global.js":[function(require,module,exports) {
 
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 var global = module.exports = typeof window != 'undefined' && window.Math == Math
@@ -36533,7 +36023,2929 @@ exports.default = _assign2.default || function (target) {
 
   return target;
 };
-},{"../core-js/object/assign":"../node_modules/babel-runtime/core-js/object/assign.js"}],"../node_modules/omit.js/es/index.js":[function(require,module,exports) {
+},{"../core-js/object/assign":"../node_modules/babel-runtime/core-js/object/assign.js"}],"../node_modules/core-js/library/modules/es6.object.define-property.js":[function(require,module,exports) {
+var $export = require('./_export');
+// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+$export($export.S + $export.F * !require('./_descriptors'), 'Object', { defineProperty: require('./_object-dp').f });
+
+},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js"}],"../node_modules/core-js/library/fn/object/define-property.js":[function(require,module,exports) {
+require('../../modules/es6.object.define-property');
+var $Object = require('../../modules/_core').Object;
+module.exports = function defineProperty(it, key, desc) {
+  return $Object.defineProperty(it, key, desc);
+};
+
+},{"../../modules/es6.object.define-property":"../node_modules/core-js/library/modules/es6.object.define-property.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/define-property.js":[function(require,module,exports) {
+module.exports = { "default": require("core-js/library/fn/object/define-property"), __esModule: true };
+},{"core-js/library/fn/object/define-property":"../node_modules/core-js/library/fn/object/define-property.js"}],"../node_modules/babel-runtime/helpers/defineProperty.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var _defineProperty = require("../core-js/object/define-property");
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (obj, key, value) {
+  if (key in obj) {
+    (0, _defineProperty2.default)(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+};
+},{"../core-js/object/define-property":"../node_modules/babel-runtime/core-js/object/define-property.js"}],"../node_modules/babel-runtime/helpers/objectWithoutProperties.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+exports.default = function (obj, keys) {
+  var target = {};
+
+  for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;
+    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+    target[i] = obj[i];
+  }
+
+  return target;
+};
+},{}],"../node_modules/babel-runtime/helpers/classCallCheck.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+exports.default = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+},{}],"../node_modules/babel-runtime/helpers/createClass.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var _defineProperty = require("../core-js/object/define-property");
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+},{"../core-js/object/define-property":"../node_modules/babel-runtime/core-js/object/define-property.js"}],"../node_modules/core-js/library/modules/_string-at.js":[function(require,module,exports) {
+var toInteger = require('./_to-integer');
+var defined = require('./_defined');
+// true  -> String#at
+// false -> String#codePointAt
+module.exports = function (TO_STRING) {
+  return function (that, pos) {
+    var s = String(defined(that));
+    var i = toInteger(pos);
+    var l = s.length;
+    var a, b;
+    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
+    a = s.charCodeAt(i);
+    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
+      ? TO_STRING ? s.charAt(i) : a
+      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
+  };
+};
+
+},{"./_to-integer":"../node_modules/core-js/library/modules/_to-integer.js","./_defined":"../node_modules/core-js/library/modules/_defined.js"}],"../node_modules/core-js/library/modules/_redefine.js":[function(require,module,exports) {
+module.exports = require('./_hide');
+
+},{"./_hide":"../node_modules/core-js/library/modules/_hide.js"}],"../node_modules/core-js/library/modules/_iterators.js":[function(require,module,exports) {
+module.exports = {};
+
+},{}],"../node_modules/core-js/library/modules/_object-dps.js":[function(require,module,exports) {
+var dP = require('./_object-dp');
+var anObject = require('./_an-object');
+var getKeys = require('./_object-keys');
+
+module.exports = require('./_descriptors') ? Object.defineProperties : function defineProperties(O, Properties) {
+  anObject(O);
+  var keys = getKeys(Properties);
+  var length = keys.length;
+  var i = 0;
+  var P;
+  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
+  return O;
+};
+
+},{"./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js"}],"../node_modules/core-js/library/modules/_html.js":[function(require,module,exports) {
+var document = require('./_global').document;
+module.exports = document && document.documentElement;
+
+},{"./_global":"../node_modules/core-js/library/modules/_global.js"}],"../node_modules/core-js/library/modules/_object-create.js":[function(require,module,exports) {
+// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+var anObject = require('./_an-object');
+var dPs = require('./_object-dps');
+var enumBugKeys = require('./_enum-bug-keys');
+var IE_PROTO = require('./_shared-key')('IE_PROTO');
+var Empty = function () { /* empty */ };
+var PROTOTYPE = 'prototype';
+
+// Create object with fake `null` prototype: use iframe Object with cleared prototype
+var createDict = function () {
+  // Thrash, waste and sodomy: IE GC bug
+  var iframe = require('./_dom-create')('iframe');
+  var i = enumBugKeys.length;
+  var lt = '<';
+  var gt = '>';
+  var iframeDocument;
+  iframe.style.display = 'none';
+  require('./_html').appendChild(iframe);
+  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
+  // createDict = iframe.contentWindow.Object;
+  // html.removeChild(iframe);
+  iframeDocument = iframe.contentWindow.document;
+  iframeDocument.open();
+  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
+  iframeDocument.close();
+  createDict = iframeDocument.F;
+  while (i--) delete createDict[PROTOTYPE][enumBugKeys[i]];
+  return createDict();
+};
+
+module.exports = Object.create || function create(O, Properties) {
+  var result;
+  if (O !== null) {
+    Empty[PROTOTYPE] = anObject(O);
+    result = new Empty();
+    Empty[PROTOTYPE] = null;
+    // add "__proto__" for Object.getPrototypeOf polyfill
+    result[IE_PROTO] = O;
+  } else result = createDict();
+  return Properties === undefined ? result : dPs(result, Properties);
+};
+
+},{"./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_object-dps":"../node_modules/core-js/library/modules/_object-dps.js","./_enum-bug-keys":"../node_modules/core-js/library/modules/_enum-bug-keys.js","./_shared-key":"../node_modules/core-js/library/modules/_shared-key.js","./_dom-create":"../node_modules/core-js/library/modules/_dom-create.js","./_html":"../node_modules/core-js/library/modules/_html.js"}],"../node_modules/core-js/library/modules/_wks.js":[function(require,module,exports) {
+var store = require('./_shared')('wks');
+var uid = require('./_uid');
+var Symbol = require('./_global').Symbol;
+var USE_SYMBOL = typeof Symbol == 'function';
+
+var $exports = module.exports = function (name) {
+  return store[name] || (store[name] =
+    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
+};
+
+$exports.store = store;
+
+},{"./_shared":"../node_modules/core-js/library/modules/_shared.js","./_uid":"../node_modules/core-js/library/modules/_uid.js","./_global":"../node_modules/core-js/library/modules/_global.js"}],"../node_modules/core-js/library/modules/_set-to-string-tag.js":[function(require,module,exports) {
+var def = require('./_object-dp').f;
+var has = require('./_has');
+var TAG = require('./_wks')('toStringTag');
+
+module.exports = function (it, tag, stat) {
+  if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
+};
+
+},{"./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_iter-create.js":[function(require,module,exports) {
+'use strict';
+var create = require('./_object-create');
+var descriptor = require('./_property-desc');
+var setToStringTag = require('./_set-to-string-tag');
+var IteratorPrototype = {};
+
+// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
+require('./_hide')(IteratorPrototype, require('./_wks')('iterator'), function () { return this; });
+
+module.exports = function (Constructor, NAME, next) {
+  Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
+  setToStringTag(Constructor, NAME + ' Iterator');
+};
+
+},{"./_object-create":"../node_modules/core-js/library/modules/_object-create.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_object-gpo.js":[function(require,module,exports) {
+// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
+var has = require('./_has');
+var toObject = require('./_to-object');
+var IE_PROTO = require('./_shared-key')('IE_PROTO');
+var ObjectProto = Object.prototype;
+
+module.exports = Object.getPrototypeOf || function (O) {
+  O = toObject(O);
+  if (has(O, IE_PROTO)) return O[IE_PROTO];
+  if (typeof O.constructor == 'function' && O instanceof O.constructor) {
+    return O.constructor.prototype;
+  } return O instanceof Object ? ObjectProto : null;
+};
+
+},{"./_has":"../node_modules/core-js/library/modules/_has.js","./_to-object":"../node_modules/core-js/library/modules/_to-object.js","./_shared-key":"../node_modules/core-js/library/modules/_shared-key.js"}],"../node_modules/core-js/library/modules/_iter-define.js":[function(require,module,exports) {
+'use strict';
+var LIBRARY = require('./_library');
+var $export = require('./_export');
+var redefine = require('./_redefine');
+var hide = require('./_hide');
+var Iterators = require('./_iterators');
+var $iterCreate = require('./_iter-create');
+var setToStringTag = require('./_set-to-string-tag');
+var getPrototypeOf = require('./_object-gpo');
+var ITERATOR = require('./_wks')('iterator');
+var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
+var FF_ITERATOR = '@@iterator';
+var KEYS = 'keys';
+var VALUES = 'values';
+
+var returnThis = function () { return this; };
+
+module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED) {
+  $iterCreate(Constructor, NAME, next);
+  var getMethod = function (kind) {
+    if (!BUGGY && kind in proto) return proto[kind];
+    switch (kind) {
+      case KEYS: return function keys() { return new Constructor(this, kind); };
+      case VALUES: return function values() { return new Constructor(this, kind); };
+    } return function entries() { return new Constructor(this, kind); };
+  };
+  var TAG = NAME + ' Iterator';
+  var DEF_VALUES = DEFAULT == VALUES;
+  var VALUES_BUG = false;
+  var proto = Base.prototype;
+  var $native = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT];
+  var $default = $native || getMethod(DEFAULT);
+  var $entries = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined;
+  var $anyNative = NAME == 'Array' ? proto.entries || $native : $native;
+  var methods, key, IteratorPrototype;
+  // Fix native
+  if ($anyNative) {
+    IteratorPrototype = getPrototypeOf($anyNative.call(new Base()));
+    if (IteratorPrototype !== Object.prototype && IteratorPrototype.next) {
+      // Set @@toStringTag to native iterators
+      setToStringTag(IteratorPrototype, TAG, true);
+      // fix for some old engines
+      if (!LIBRARY && typeof IteratorPrototype[ITERATOR] != 'function') hide(IteratorPrototype, ITERATOR, returnThis);
+    }
+  }
+  // fix Array#{values, @@iterator}.name in V8 / FF
+  if (DEF_VALUES && $native && $native.name !== VALUES) {
+    VALUES_BUG = true;
+    $default = function values() { return $native.call(this); };
+  }
+  // Define iterator
+  if ((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])) {
+    hide(proto, ITERATOR, $default);
+  }
+  // Plug for library
+  Iterators[NAME] = $default;
+  Iterators[TAG] = returnThis;
+  if (DEFAULT) {
+    methods = {
+      values: DEF_VALUES ? $default : getMethod(VALUES),
+      keys: IS_SET ? $default : getMethod(KEYS),
+      entries: $entries
+    };
+    if (FORCED) for (key in methods) {
+      if (!(key in proto)) redefine(proto, key, methods[key]);
+    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
+  }
+  return methods;
+};
+
+},{"./_library":"../node_modules/core-js/library/modules/_library.js","./_export":"../node_modules/core-js/library/modules/_export.js","./_redefine":"../node_modules/core-js/library/modules/_redefine.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_iter-create":"../node_modules/core-js/library/modules/_iter-create.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_object-gpo":"../node_modules/core-js/library/modules/_object-gpo.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/es6.string.iterator.js":[function(require,module,exports) {
+'use strict';
+var $at = require('./_string-at')(true);
+
+// 21.1.3.27 String.prototype[@@iterator]()
+require('./_iter-define')(String, 'String', function (iterated) {
+  this._t = String(iterated); // target
+  this._i = 0;                // next index
+// 21.1.5.2.1 %StringIteratorPrototype%.next()
+}, function () {
+  var O = this._t;
+  var index = this._i;
+  var point;
+  if (index >= O.length) return { value: undefined, done: true };
+  point = $at(O, index);
+  this._i += point.length;
+  return { value: point, done: false };
+});
+
+},{"./_string-at":"../node_modules/core-js/library/modules/_string-at.js","./_iter-define":"../node_modules/core-js/library/modules/_iter-define.js"}],"../node_modules/core-js/library/modules/_add-to-unscopables.js":[function(require,module,exports) {
+module.exports = function () { /* empty */ };
+
+},{}],"../node_modules/core-js/library/modules/_iter-step.js":[function(require,module,exports) {
+module.exports = function (done, value) {
+  return { value: value, done: !!done };
+};
+
+},{}],"../node_modules/core-js/library/modules/es6.array.iterator.js":[function(require,module,exports) {
+'use strict';
+var addToUnscopables = require('./_add-to-unscopables');
+var step = require('./_iter-step');
+var Iterators = require('./_iterators');
+var toIObject = require('./_to-iobject');
+
+// 22.1.3.4 Array.prototype.entries()
+// 22.1.3.13 Array.prototype.keys()
+// 22.1.3.29 Array.prototype.values()
+// 22.1.3.30 Array.prototype[@@iterator]()
+module.exports = require('./_iter-define')(Array, 'Array', function (iterated, kind) {
+  this._t = toIObject(iterated); // target
+  this._i = 0;                   // next index
+  this._k = kind;                // kind
+// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
+}, function () {
+  var O = this._t;
+  var kind = this._k;
+  var index = this._i++;
+  if (!O || index >= O.length) {
+    this._t = undefined;
+    return step(1);
+  }
+  if (kind == 'keys') return step(0, index);
+  if (kind == 'values') return step(0, O[index]);
+  return step(0, [index, O[index]]);
+}, 'values');
+
+// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
+Iterators.Arguments = Iterators.Array;
+
+addToUnscopables('keys');
+addToUnscopables('values');
+addToUnscopables('entries');
+
+},{"./_add-to-unscopables":"../node_modules/core-js/library/modules/_add-to-unscopables.js","./_iter-step":"../node_modules/core-js/library/modules/_iter-step.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_iter-define":"../node_modules/core-js/library/modules/_iter-define.js"}],"../node_modules/core-js/library/modules/web.dom.iterable.js":[function(require,module,exports) {
+
+require('./es6.array.iterator');
+var global = require('./_global');
+var hide = require('./_hide');
+var Iterators = require('./_iterators');
+var TO_STRING_TAG = require('./_wks')('toStringTag');
+
+var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
+  'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
+  'MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,' +
+  'SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,' +
+  'TextTrackList,TouchList').split(',');
+
+for (var i = 0; i < DOMIterables.length; i++) {
+  var NAME = DOMIterables[i];
+  var Collection = global[NAME];
+  var proto = Collection && Collection.prototype;
+  if (proto && !proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
+  Iterators[NAME] = Iterators.Array;
+}
+
+},{"./es6.array.iterator":"../node_modules/core-js/library/modules/es6.array.iterator.js","./_global":"../node_modules/core-js/library/modules/_global.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_wks-ext.js":[function(require,module,exports) {
+exports.f = require('./_wks');
+
+},{"./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/fn/symbol/iterator.js":[function(require,module,exports) {
+require('../../modules/es6.string.iterator');
+require('../../modules/web.dom.iterable');
+module.exports = require('../../modules/_wks-ext').f('iterator');
+
+},{"../../modules/es6.string.iterator":"../node_modules/core-js/library/modules/es6.string.iterator.js","../../modules/web.dom.iterable":"../node_modules/core-js/library/modules/web.dom.iterable.js","../../modules/_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js"}],"../node_modules/babel-runtime/core-js/symbol/iterator.js":[function(require,module,exports) {
+module.exports = { "default": require("core-js/library/fn/symbol/iterator"), __esModule: true };
+},{"core-js/library/fn/symbol/iterator":"../node_modules/core-js/library/fn/symbol/iterator.js"}],"../node_modules/core-js/library/modules/_meta.js":[function(require,module,exports) {
+var META = require('./_uid')('meta');
+var isObject = require('./_is-object');
+var has = require('./_has');
+var setDesc = require('./_object-dp').f;
+var id = 0;
+var isExtensible = Object.isExtensible || function () {
+  return true;
+};
+var FREEZE = !require('./_fails')(function () {
+  return isExtensible(Object.preventExtensions({}));
+});
+var setMeta = function (it) {
+  setDesc(it, META, { value: {
+    i: 'O' + ++id, // object ID
+    w: {}          // weak collections IDs
+  } });
+};
+var fastKey = function (it, create) {
+  // return primitive with prefix
+  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
+  if (!has(it, META)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return 'F';
+    // not necessary to add metadata
+    if (!create) return 'E';
+    // add missing metadata
+    setMeta(it);
+  // return object ID
+  } return it[META].i;
+};
+var getWeak = function (it, create) {
+  if (!has(it, META)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return true;
+    // not necessary to add metadata
+    if (!create) return false;
+    // add missing metadata
+    setMeta(it);
+  // return hash weak collections IDs
+  } return it[META].w;
+};
+// add metadata on freeze-family methods calling
+var onFreeze = function (it) {
+  if (FREEZE && meta.NEED && isExtensible(it) && !has(it, META)) setMeta(it);
+  return it;
+};
+var meta = module.exports = {
+  KEY: META,
+  NEED: false,
+  fastKey: fastKey,
+  getWeak: getWeak,
+  onFreeze: onFreeze
+};
+
+},{"./_uid":"../node_modules/core-js/library/modules/_uid.js","./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_fails":"../node_modules/core-js/library/modules/_fails.js"}],"../node_modules/core-js/library/modules/_wks-define.js":[function(require,module,exports) {
+
+var global = require('./_global');
+var core = require('./_core');
+var LIBRARY = require('./_library');
+var wksExt = require('./_wks-ext');
+var defineProperty = require('./_object-dp').f;
+module.exports = function (name) {
+  var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
+  if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
+};
+
+},{"./_global":"../node_modules/core-js/library/modules/_global.js","./_core":"../node_modules/core-js/library/modules/_core.js","./_library":"../node_modules/core-js/library/modules/_library.js","./_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js"}],"../node_modules/core-js/library/modules/_enum-keys.js":[function(require,module,exports) {
+// all enumerable object keys, includes symbols
+var getKeys = require('./_object-keys');
+var gOPS = require('./_object-gops');
+var pIE = require('./_object-pie');
+module.exports = function (it) {
+  var result = getKeys(it);
+  var getSymbols = gOPS.f;
+  if (getSymbols) {
+    var symbols = getSymbols(it);
+    var isEnum = pIE.f;
+    var i = 0;
+    var key;
+    while (symbols.length > i) if (isEnum.call(it, key = symbols[i++])) result.push(key);
+  } return result;
+};
+
+},{"./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_object-gops":"../node_modules/core-js/library/modules/_object-gops.js","./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js"}],"../node_modules/core-js/library/modules/_is-array.js":[function(require,module,exports) {
+// 7.2.2 IsArray(argument)
+var cof = require('./_cof');
+module.exports = Array.isArray || function isArray(arg) {
+  return cof(arg) == 'Array';
+};
+
+},{"./_cof":"../node_modules/core-js/library/modules/_cof.js"}],"../node_modules/core-js/library/modules/_object-gopn.js":[function(require,module,exports) {
+// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
+var $keys = require('./_object-keys-internal');
+var hiddenKeys = require('./_enum-bug-keys').concat('length', 'prototype');
+
+exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
+  return $keys(O, hiddenKeys);
+};
+
+},{"./_object-keys-internal":"../node_modules/core-js/library/modules/_object-keys-internal.js","./_enum-bug-keys":"../node_modules/core-js/library/modules/_enum-bug-keys.js"}],"../node_modules/core-js/library/modules/_object-gopn-ext.js":[function(require,module,exports) {
+// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
+var toIObject = require('./_to-iobject');
+var gOPN = require('./_object-gopn').f;
+var toString = {}.toString;
+
+var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
+  ? Object.getOwnPropertyNames(window) : [];
+
+var getWindowNames = function (it) {
+  try {
+    return gOPN(it);
+  } catch (e) {
+    return windowNames.slice();
+  }
+};
+
+module.exports.f = function getOwnPropertyNames(it) {
+  return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
+};
+
+},{"./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_object-gopn":"../node_modules/core-js/library/modules/_object-gopn.js"}],"../node_modules/core-js/library/modules/_object-gopd.js":[function(require,module,exports) {
+var pIE = require('./_object-pie');
+var createDesc = require('./_property-desc');
+var toIObject = require('./_to-iobject');
+var toPrimitive = require('./_to-primitive');
+var has = require('./_has');
+var IE8_DOM_DEFINE = require('./_ie8-dom-define');
+var gOPD = Object.getOwnPropertyDescriptor;
+
+exports.f = require('./_descriptors') ? gOPD : function getOwnPropertyDescriptor(O, P) {
+  O = toIObject(O);
+  P = toPrimitive(P, true);
+  if (IE8_DOM_DEFINE) try {
+    return gOPD(O, P);
+  } catch (e) { /* empty */ }
+  if (has(O, P)) return createDesc(!pIE.f.call(O, P), O[P]);
+};
+
+},{"./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_to-primitive":"../node_modules/core-js/library/modules/_to-primitive.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_ie8-dom-define":"../node_modules/core-js/library/modules/_ie8-dom-define.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js"}],"../node_modules/core-js/library/modules/es6.symbol.js":[function(require,module,exports) {
+
+'use strict';
+// ECMAScript 6 symbols shim
+var global = require('./_global');
+var has = require('./_has');
+var DESCRIPTORS = require('./_descriptors');
+var $export = require('./_export');
+var redefine = require('./_redefine');
+var META = require('./_meta').KEY;
+var $fails = require('./_fails');
+var shared = require('./_shared');
+var setToStringTag = require('./_set-to-string-tag');
+var uid = require('./_uid');
+var wks = require('./_wks');
+var wksExt = require('./_wks-ext');
+var wksDefine = require('./_wks-define');
+var enumKeys = require('./_enum-keys');
+var isArray = require('./_is-array');
+var anObject = require('./_an-object');
+var isObject = require('./_is-object');
+var toObject = require('./_to-object');
+var toIObject = require('./_to-iobject');
+var toPrimitive = require('./_to-primitive');
+var createDesc = require('./_property-desc');
+var _create = require('./_object-create');
+var gOPNExt = require('./_object-gopn-ext');
+var $GOPD = require('./_object-gopd');
+var $GOPS = require('./_object-gops');
+var $DP = require('./_object-dp');
+var $keys = require('./_object-keys');
+var gOPD = $GOPD.f;
+var dP = $DP.f;
+var gOPN = gOPNExt.f;
+var $Symbol = global.Symbol;
+var $JSON = global.JSON;
+var _stringify = $JSON && $JSON.stringify;
+var PROTOTYPE = 'prototype';
+var HIDDEN = wks('_hidden');
+var TO_PRIMITIVE = wks('toPrimitive');
+var isEnum = {}.propertyIsEnumerable;
+var SymbolRegistry = shared('symbol-registry');
+var AllSymbols = shared('symbols');
+var OPSymbols = shared('op-symbols');
+var ObjectProto = Object[PROTOTYPE];
+var USE_NATIVE = typeof $Symbol == 'function' && !!$GOPS.f;
+var QObject = global.QObject;
+// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
+var setter = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
+
+// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
+var setSymbolDesc = DESCRIPTORS && $fails(function () {
+  return _create(dP({}, 'a', {
+    get: function () { return dP(this, 'a', { value: 7 }).a; }
+  })).a != 7;
+}) ? function (it, key, D) {
+  var protoDesc = gOPD(ObjectProto, key);
+  if (protoDesc) delete ObjectProto[key];
+  dP(it, key, D);
+  if (protoDesc && it !== ObjectProto) dP(ObjectProto, key, protoDesc);
+} : dP;
+
+var wrap = function (tag) {
+  var sym = AllSymbols[tag] = _create($Symbol[PROTOTYPE]);
+  sym._k = tag;
+  return sym;
+};
+
+var isSymbol = USE_NATIVE && typeof $Symbol.iterator == 'symbol' ? function (it) {
+  return typeof it == 'symbol';
+} : function (it) {
+  return it instanceof $Symbol;
+};
+
+var $defineProperty = function defineProperty(it, key, D) {
+  if (it === ObjectProto) $defineProperty(OPSymbols, key, D);
+  anObject(it);
+  key = toPrimitive(key, true);
+  anObject(D);
+  if (has(AllSymbols, key)) {
+    if (!D.enumerable) {
+      if (!has(it, HIDDEN)) dP(it, HIDDEN, createDesc(1, {}));
+      it[HIDDEN][key] = true;
+    } else {
+      if (has(it, HIDDEN) && it[HIDDEN][key]) it[HIDDEN][key] = false;
+      D = _create(D, { enumerable: createDesc(0, false) });
+    } return setSymbolDesc(it, key, D);
+  } return dP(it, key, D);
+};
+var $defineProperties = function defineProperties(it, P) {
+  anObject(it);
+  var keys = enumKeys(P = toIObject(P));
+  var i = 0;
+  var l = keys.length;
+  var key;
+  while (l > i) $defineProperty(it, key = keys[i++], P[key]);
+  return it;
+};
+var $create = function create(it, P) {
+  return P === undefined ? _create(it) : $defineProperties(_create(it), P);
+};
+var $propertyIsEnumerable = function propertyIsEnumerable(key) {
+  var E = isEnum.call(this, key = toPrimitive(key, true));
+  if (this === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return false;
+  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key] ? E : true;
+};
+var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(it, key) {
+  it = toIObject(it);
+  key = toPrimitive(key, true);
+  if (it === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return;
+  var D = gOPD(it, key);
+  if (D && has(AllSymbols, key) && !(has(it, HIDDEN) && it[HIDDEN][key])) D.enumerable = true;
+  return D;
+};
+var $getOwnPropertyNames = function getOwnPropertyNames(it) {
+  var names = gOPN(toIObject(it));
+  var result = [];
+  var i = 0;
+  var key;
+  while (names.length > i) {
+    if (!has(AllSymbols, key = names[i++]) && key != HIDDEN && key != META) result.push(key);
+  } return result;
+};
+var $getOwnPropertySymbols = function getOwnPropertySymbols(it) {
+  var IS_OP = it === ObjectProto;
+  var names = gOPN(IS_OP ? OPSymbols : toIObject(it));
+  var result = [];
+  var i = 0;
+  var key;
+  while (names.length > i) {
+    if (has(AllSymbols, key = names[i++]) && (IS_OP ? has(ObjectProto, key) : true)) result.push(AllSymbols[key]);
+  } return result;
+};
+
+// 19.4.1.1 Symbol([description])
+if (!USE_NATIVE) {
+  $Symbol = function Symbol() {
+    if (this instanceof $Symbol) throw TypeError('Symbol is not a constructor!');
+    var tag = uid(arguments.length > 0 ? arguments[0] : undefined);
+    var $set = function (value) {
+      if (this === ObjectProto) $set.call(OPSymbols, value);
+      if (has(this, HIDDEN) && has(this[HIDDEN], tag)) this[HIDDEN][tag] = false;
+      setSymbolDesc(this, tag, createDesc(1, value));
+    };
+    if (DESCRIPTORS && setter) setSymbolDesc(ObjectProto, tag, { configurable: true, set: $set });
+    return wrap(tag);
+  };
+  redefine($Symbol[PROTOTYPE], 'toString', function toString() {
+    return this._k;
+  });
+
+  $GOPD.f = $getOwnPropertyDescriptor;
+  $DP.f = $defineProperty;
+  require('./_object-gopn').f = gOPNExt.f = $getOwnPropertyNames;
+  require('./_object-pie').f = $propertyIsEnumerable;
+  $GOPS.f = $getOwnPropertySymbols;
+
+  if (DESCRIPTORS && !require('./_library')) {
+    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
+  }
+
+  wksExt.f = function (name) {
+    return wrap(wks(name));
+  };
+}
+
+$export($export.G + $export.W + $export.F * !USE_NATIVE, { Symbol: $Symbol });
+
+for (var es6Symbols = (
+  // 19.4.2.2, 19.4.2.3, 19.4.2.4, 19.4.2.6, 19.4.2.8, 19.4.2.9, 19.4.2.10, 19.4.2.11, 19.4.2.12, 19.4.2.13, 19.4.2.14
+  'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'
+).split(','), j = 0; es6Symbols.length > j;)wks(es6Symbols[j++]);
+
+for (var wellKnownSymbols = $keys(wks.store), k = 0; wellKnownSymbols.length > k;) wksDefine(wellKnownSymbols[k++]);
+
+$export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
+  // 19.4.2.1 Symbol.for(key)
+  'for': function (key) {
+    return has(SymbolRegistry, key += '')
+      ? SymbolRegistry[key]
+      : SymbolRegistry[key] = $Symbol(key);
+  },
+  // 19.4.2.5 Symbol.keyFor(sym)
+  keyFor: function keyFor(sym) {
+    if (!isSymbol(sym)) throw TypeError(sym + ' is not a symbol!');
+    for (var key in SymbolRegistry) if (SymbolRegistry[key] === sym) return key;
+  },
+  useSetter: function () { setter = true; },
+  useSimple: function () { setter = false; }
+});
+
+$export($export.S + $export.F * !USE_NATIVE, 'Object', {
+  // 19.1.2.2 Object.create(O [, Properties])
+  create: $create,
+  // 19.1.2.4 Object.defineProperty(O, P, Attributes)
+  defineProperty: $defineProperty,
+  // 19.1.2.3 Object.defineProperties(O, Properties)
+  defineProperties: $defineProperties,
+  // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
+  getOwnPropertyDescriptor: $getOwnPropertyDescriptor,
+  // 19.1.2.7 Object.getOwnPropertyNames(O)
+  getOwnPropertyNames: $getOwnPropertyNames,
+  // 19.1.2.8 Object.getOwnPropertySymbols(O)
+  getOwnPropertySymbols: $getOwnPropertySymbols
+});
+
+// Chrome 38 and 39 `Object.getOwnPropertySymbols` fails on primitives
+// https://bugs.chromium.org/p/v8/issues/detail?id=3443
+var FAILS_ON_PRIMITIVES = $fails(function () { $GOPS.f(1); });
+
+$export($export.S + $export.F * FAILS_ON_PRIMITIVES, 'Object', {
+  getOwnPropertySymbols: function getOwnPropertySymbols(it) {
+    return $GOPS.f(toObject(it));
+  }
+});
+
+// 24.3.2 JSON.stringify(value [, replacer [, space]])
+$JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
+  var S = $Symbol();
+  // MS Edge converts symbol values to JSON as {}
+  // WebKit converts symbol values to JSON as null
+  // V8 throws on boxed symbols
+  return _stringify([S]) != '[null]' || _stringify({ a: S }) != '{}' || _stringify(Object(S)) != '{}';
+})), 'JSON', {
+  stringify: function stringify(it) {
+    var args = [it];
+    var i = 1;
+    var replacer, $replacer;
+    while (arguments.length > i) args.push(arguments[i++]);
+    $replacer = replacer = args[1];
+    if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
+    if (!isArray(replacer)) replacer = function (key, value) {
+      if (typeof $replacer == 'function') value = $replacer.call(this, key, value);
+      if (!isSymbol(value)) return value;
+    };
+    args[1] = replacer;
+    return _stringify.apply($JSON, args);
+  }
+});
+
+// 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
+$Symbol[PROTOTYPE][TO_PRIMITIVE] || require('./_hide')($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
+// 19.4.3.5 Symbol.prototype[@@toStringTag]
+setToStringTag($Symbol, 'Symbol');
+// 20.2.1.9 Math[@@toStringTag]
+setToStringTag(Math, 'Math', true);
+// 24.3.3 JSON[@@toStringTag]
+setToStringTag(global.JSON, 'JSON', true);
+
+},{"./_global":"../node_modules/core-js/library/modules/_global.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js","./_export":"../node_modules/core-js/library/modules/_export.js","./_redefine":"../node_modules/core-js/library/modules/_redefine.js","./_meta":"../node_modules/core-js/library/modules/_meta.js","./_fails":"../node_modules/core-js/library/modules/_fails.js","./_shared":"../node_modules/core-js/library/modules/_shared.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_uid":"../node_modules/core-js/library/modules/_uid.js","./_wks":"../node_modules/core-js/library/modules/_wks.js","./_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js","./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js","./_enum-keys":"../node_modules/core-js/library/modules/_enum-keys.js","./_is-array":"../node_modules/core-js/library/modules/_is-array.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_to-object":"../node_modules/core-js/library/modules/_to-object.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_to-primitive":"../node_modules/core-js/library/modules/_to-primitive.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_object-create":"../node_modules/core-js/library/modules/_object-create.js","./_object-gopn-ext":"../node_modules/core-js/library/modules/_object-gopn-ext.js","./_object-gopd":"../node_modules/core-js/library/modules/_object-gopd.js","./_object-gops":"../node_modules/core-js/library/modules/_object-gops.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_object-gopn":"../node_modules/core-js/library/modules/_object-gopn.js","./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js","./_library":"../node_modules/core-js/library/modules/_library.js","./_hide":"../node_modules/core-js/library/modules/_hide.js"}],"../node_modules/core-js/library/modules/es6.object.to-string.js":[function(require,module,exports) {
+
+},{}],"../node_modules/core-js/library/modules/es7.symbol.async-iterator.js":[function(require,module,exports) {
+require('./_wks-define')('asyncIterator');
+
+},{"./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js"}],"../node_modules/core-js/library/modules/es7.symbol.observable.js":[function(require,module,exports) {
+require('./_wks-define')('observable');
+
+},{"./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js"}],"../node_modules/core-js/library/fn/symbol/index.js":[function(require,module,exports) {
+require('../../modules/es6.symbol');
+require('../../modules/es6.object.to-string');
+require('../../modules/es7.symbol.async-iterator');
+require('../../modules/es7.symbol.observable');
+module.exports = require('../../modules/_core').Symbol;
+
+},{"../../modules/es6.symbol":"../node_modules/core-js/library/modules/es6.symbol.js","../../modules/es6.object.to-string":"../node_modules/core-js/library/modules/es6.object.to-string.js","../../modules/es7.symbol.async-iterator":"../node_modules/core-js/library/modules/es7.symbol.async-iterator.js","../../modules/es7.symbol.observable":"../node_modules/core-js/library/modules/es7.symbol.observable.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/symbol.js":[function(require,module,exports) {
+module.exports = { "default": require("core-js/library/fn/symbol"), __esModule: true };
+},{"core-js/library/fn/symbol":"../node_modules/core-js/library/fn/symbol/index.js"}],"../node_modules/babel-runtime/helpers/typeof.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var _iterator = require("../core-js/symbol/iterator");
+
+var _iterator2 = _interopRequireDefault(_iterator);
+
+var _symbol = require("../core-js/symbol");
+
+var _symbol2 = _interopRequireDefault(_symbol);
+
+var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
+} : function (obj) {
+  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
+};
+},{"../core-js/symbol/iterator":"../node_modules/babel-runtime/core-js/symbol/iterator.js","../core-js/symbol":"../node_modules/babel-runtime/core-js/symbol.js"}],"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var _typeof2 = require("../helpers/typeof");
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && ((typeof call === "undefined" ? "undefined" : (0, _typeof3.default)(call)) === "object" || typeof call === "function") ? call : self;
+};
+},{"../helpers/typeof":"../node_modules/babel-runtime/helpers/typeof.js"}],"../node_modules/core-js/library/modules/_set-proto.js":[function(require,module,exports) {
+// Works with __proto__ only. Old v8 can't work with null proto objects.
+/* eslint-disable no-proto */
+var isObject = require('./_is-object');
+var anObject = require('./_an-object');
+var check = function (O, proto) {
+  anObject(O);
+  if (!isObject(proto) && proto !== null) throw TypeError(proto + ": can't set as prototype!");
+};
+module.exports = {
+  set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
+    function (test, buggy, set) {
+      try {
+        set = require('./_ctx')(Function.call, require('./_object-gopd').f(Object.prototype, '__proto__').set, 2);
+        set(test, []);
+        buggy = !(test instanceof Array);
+      } catch (e) { buggy = true; }
+      return function setPrototypeOf(O, proto) {
+        check(O, proto);
+        if (buggy) O.__proto__ = proto;
+        else set(O, proto);
+        return O;
+      };
+    }({}, false) : undefined),
+  check: check
+};
+
+},{"./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_ctx":"../node_modules/core-js/library/modules/_ctx.js","./_object-gopd":"../node_modules/core-js/library/modules/_object-gopd.js"}],"../node_modules/core-js/library/modules/es6.object.set-prototype-of.js":[function(require,module,exports) {
+// 19.1.3.19 Object.setPrototypeOf(O, proto)
+var $export = require('./_export');
+$export($export.S, 'Object', { setPrototypeOf: require('./_set-proto').set });
+
+},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_set-proto":"../node_modules/core-js/library/modules/_set-proto.js"}],"../node_modules/core-js/library/fn/object/set-prototype-of.js":[function(require,module,exports) {
+require('../../modules/es6.object.set-prototype-of');
+module.exports = require('../../modules/_core').Object.setPrototypeOf;
+
+},{"../../modules/es6.object.set-prototype-of":"../node_modules/core-js/library/modules/es6.object.set-prototype-of.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/set-prototype-of.js":[function(require,module,exports) {
+module.exports = { "default": require("core-js/library/fn/object/set-prototype-of"), __esModule: true };
+},{"core-js/library/fn/object/set-prototype-of":"../node_modules/core-js/library/fn/object/set-prototype-of.js"}],"../node_modules/core-js/library/modules/es6.object.create.js":[function(require,module,exports) {
+var $export = require('./_export');
+// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+$export($export.S, 'Object', { create: require('./_object-create') });
+
+},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_object-create":"../node_modules/core-js/library/modules/_object-create.js"}],"../node_modules/core-js/library/fn/object/create.js":[function(require,module,exports) {
+require('../../modules/es6.object.create');
+var $Object = require('../../modules/_core').Object;
+module.exports = function create(P, D) {
+  return $Object.create(P, D);
+};
+
+},{"../../modules/es6.object.create":"../node_modules/core-js/library/modules/es6.object.create.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/create.js":[function(require,module,exports) {
+module.exports = { "default": require("core-js/library/fn/object/create"), __esModule: true };
+},{"core-js/library/fn/object/create":"../node_modules/core-js/library/fn/object/create.js"}],"../node_modules/babel-runtime/helpers/inherits.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+
+var _setPrototypeOf = require("../core-js/object/set-prototype-of");
+
+var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
+
+var _create = require("../core-js/object/create");
+
+var _create2 = _interopRequireDefault(_create);
+
+var _typeof2 = require("../helpers/typeof");
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : (0, _typeof3.default)(superClass)));
+  }
+
+  subClass.prototype = (0, _create2.default)(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf2.default ? (0, _setPrototypeOf2.default)(subClass, superClass) : subClass.__proto__ = superClass;
+};
+},{"../core-js/object/set-prototype-of":"../node_modules/babel-runtime/core-js/object/set-prototype-of.js","../core-js/object/create":"../node_modules/babel-runtime/core-js/object/create.js","../helpers/typeof":"../node_modules/babel-runtime/helpers/typeof.js"}],"../node_modules/process/browser.js":[function(require,module,exports) {
+
+// shim for using process in browser
+var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+  throw new Error('setTimeout has not been defined');
+}
+
+function defaultClearTimeout() {
+  throw new Error('clearTimeout has not been defined');
+}
+
+(function () {
+  try {
+    if (typeof setTimeout === 'function') {
+      cachedSetTimeout = setTimeout;
+    } else {
+      cachedSetTimeout = defaultSetTimout;
+    }
+  } catch (e) {
+    cachedSetTimeout = defaultSetTimout;
+  }
+
+  try {
+    if (typeof clearTimeout === 'function') {
+      cachedClearTimeout = clearTimeout;
+    } else {
+      cachedClearTimeout = defaultClearTimeout;
+    }
+  } catch (e) {
+    cachedClearTimeout = defaultClearTimeout;
+  }
+})();
+
+function runTimeout(fun) {
+  if (cachedSetTimeout === setTimeout) {
+    //normal enviroments in sane situations
+    return setTimeout(fun, 0);
+  } // if setTimeout wasn't available but was latter defined
+
+
+  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+    cachedSetTimeout = setTimeout;
+    return setTimeout(fun, 0);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedSetTimeout(fun, 0);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+      return cachedSetTimeout.call(null, fun, 0);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+      return cachedSetTimeout.call(this, fun, 0);
+    }
+  }
+}
+
+function runClearTimeout(marker) {
+  if (cachedClearTimeout === clearTimeout) {
+    //normal enviroments in sane situations
+    return clearTimeout(marker);
+  } // if clearTimeout wasn't available but was latter defined
+
+
+  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+    cachedClearTimeout = clearTimeout;
+    return clearTimeout(marker);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedClearTimeout(marker);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+      return cachedClearTimeout.call(null, marker);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+      return cachedClearTimeout.call(this, marker);
+    }
+  }
+}
+
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+  if (!draining || !currentQueue) {
+    return;
+  }
+
+  draining = false;
+
+  if (currentQueue.length) {
+    queue = currentQueue.concat(queue);
+  } else {
+    queueIndex = -1;
+  }
+
+  if (queue.length) {
+    drainQueue();
+  }
+}
+
+function drainQueue() {
+  if (draining) {
+    return;
+  }
+
+  var timeout = runTimeout(cleanUpNextTick);
+  draining = true;
+  var len = queue.length;
+
+  while (len) {
+    currentQueue = queue;
+    queue = [];
+
+    while (++queueIndex < len) {
+      if (currentQueue) {
+        currentQueue[queueIndex].run();
+      }
+    }
+
+    queueIndex = -1;
+    len = queue.length;
+  }
+
+  currentQueue = null;
+  draining = false;
+  runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+  var args = new Array(arguments.length - 1);
+
+  if (arguments.length > 1) {
+    for (var i = 1; i < arguments.length; i++) {
+      args[i - 1] = arguments[i];
+    }
+  }
+
+  queue.push(new Item(fun, args));
+
+  if (queue.length === 1 && !draining) {
+    runTimeout(drainQueue);
+  }
+}; // v8 likes predictible objects
+
+
+function Item(fun, array) {
+  this.fun = fun;
+  this.array = array;
+}
+
+Item.prototype.run = function () {
+  this.fun.apply(null, this.array);
+};
+
+process.title = 'browser';
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) {
+  return [];
+};
+
+process.binding = function (name) {
+  throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () {
+  return '/';
+};
+
+process.chdir = function (dir) {
+  throw new Error('process.chdir is not supported');
+};
+
+process.umask = function () {
+  return 0;
+};
+},{}],"../node_modules/performance-now/lib/performance-now.js":[function(require,module,exports) {
+var process = require("process");
+// Generated by CoffeeScript 1.12.2
+(function() {
+  var getNanoSeconds, hrtime, loadTime, moduleLoadTime, nodeLoadTime, upTime;
+
+  if ((typeof performance !== "undefined" && performance !== null) && performance.now) {
+    module.exports = function() {
+      return performance.now();
+    };
+  } else if ((typeof process !== "undefined" && process !== null) && process.hrtime) {
+    module.exports = function() {
+      return (getNanoSeconds() - nodeLoadTime) / 1e6;
+    };
+    hrtime = process.hrtime;
+    getNanoSeconds = function() {
+      var hr;
+      hr = hrtime();
+      return hr[0] * 1e9 + hr[1];
+    };
+    moduleLoadTime = getNanoSeconds();
+    upTime = process.uptime() * 1e9;
+    nodeLoadTime = moduleLoadTime - upTime;
+  } else if (Date.now) {
+    module.exports = function() {
+      return Date.now() - loadTime;
+    };
+    loadTime = Date.now();
+  } else {
+    module.exports = function() {
+      return new Date().getTime() - loadTime;
+    };
+    loadTime = new Date().getTime();
+  }
+
+}).call(this);
+
+
+
+},{"process":"../node_modules/process/browser.js"}],"../node_modules/raf/index.js":[function(require,module,exports) {
+var global = arguments[3];
+var now = require('performance-now')
+  , root = typeof window === 'undefined' ? global : window
+  , vendors = ['moz', 'webkit']
+  , suffix = 'AnimationFrame'
+  , raf = root['request' + suffix]
+  , caf = root['cancel' + suffix] || root['cancelRequest' + suffix]
+
+for(var i = 0; !raf && i < vendors.length; i++) {
+  raf = root[vendors[i] + 'Request' + suffix]
+  caf = root[vendors[i] + 'Cancel' + suffix]
+      || root[vendors[i] + 'CancelRequest' + suffix]
+}
+
+// Some versions of FF have rAF but not cAF
+if(!raf || !caf) {
+  var last = 0
+    , id = 0
+    , queue = []
+    , frameDuration = 1000 / 60
+
+  raf = function(callback) {
+    if(queue.length === 0) {
+      var _now = now()
+        , next = Math.max(0, frameDuration - (_now - last))
+      last = next + _now
+      setTimeout(function() {
+        var cp = queue.slice(0)
+        // Clear queue here to prevent
+        // callbacks from appending listeners
+        // to the current frame's queue
+        queue.length = 0
+        for(var i = 0; i < cp.length; i++) {
+          if(!cp[i].cancelled) {
+            try{
+              cp[i].callback(last)
+            } catch(e) {
+              setTimeout(function() { throw e }, 0)
+            }
+          }
+        }
+      }, Math.round(next))
+    }
+    queue.push({
+      handle: ++id,
+      callback: callback,
+      cancelled: false
+    })
+    return id
+  }
+
+  caf = function(handle) {
+    for(var i = 0; i < queue.length; i++) {
+      if(queue[i].handle === handle) {
+        queue[i].cancelled = true
+      }
+    }
+  }
+}
+
+module.exports = function(fn) {
+  // Wrap in a new function to prevent
+  // `cancel` potentially being assigned
+  // to the native rAF function
+  return raf.call(root, fn)
+}
+module.exports.cancel = function() {
+  caf.apply(root, arguments)
+}
+module.exports.polyfill = function(object) {
+  if (!object) {
+    object = root;
+  }
+  object.requestAnimationFrame = raf
+  object.cancelAnimationFrame = caf
+}
+
+},{"performance-now":"../node_modules/performance-now/lib/performance-now.js"}],"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.polyfill = polyfill;
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+function componentWillMount() {
+  // Call this.constructor.gDSFP to support sub-classes.
+  var state = this.constructor.getDerivedStateFromProps(this.props, this.state);
+
+  if (state !== null && state !== undefined) {
+    this.setState(state);
+  }
+}
+
+function componentWillReceiveProps(nextProps) {
+  // Call this.constructor.gDSFP to support sub-classes.
+  // Use the setState() updater to ensure state isn't stale in certain edge cases.
+  function updater(prevState) {
+    var state = this.constructor.getDerivedStateFromProps(nextProps, prevState);
+    return state !== null && state !== undefined ? state : null;
+  } // Binding "this" is important for shallow renderer support.
+
+
+  this.setState(updater.bind(this));
+}
+
+function componentWillUpdate(nextProps, nextState) {
+  try {
+    var prevProps = this.props;
+    var prevState = this.state;
+    this.props = nextProps;
+    this.state = nextState;
+    this.__reactInternalSnapshotFlag = true;
+    this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(prevProps, prevState);
+  } finally {
+    this.props = prevProps;
+    this.state = prevState;
+  }
+} // React may warn about cWM/cWRP/cWU methods being deprecated.
+// Add a flag to suppress these warnings for this special case.
+
+
+componentWillMount.__suppressDeprecationWarning = true;
+componentWillReceiveProps.__suppressDeprecationWarning = true;
+componentWillUpdate.__suppressDeprecationWarning = true;
+
+function polyfill(Component) {
+  var prototype = Component.prototype;
+
+  if (!prototype || !prototype.isReactComponent) {
+    throw new Error('Can only polyfill class components');
+  }
+
+  if (typeof Component.getDerivedStateFromProps !== 'function' && typeof prototype.getSnapshotBeforeUpdate !== 'function') {
+    return Component;
+  } // If new component APIs are defined, "unsafe" lifecycles won't be called.
+  // Error if any of these lifecycles are present,
+  // Because they would work differently between older and newer (16.3+) versions of React.
+
+
+  var foundWillMountName = null;
+  var foundWillReceivePropsName = null;
+  var foundWillUpdateName = null;
+
+  if (typeof prototype.componentWillMount === 'function') {
+    foundWillMountName = 'componentWillMount';
+  } else if (typeof prototype.UNSAFE_componentWillMount === 'function') {
+    foundWillMountName = 'UNSAFE_componentWillMount';
+  }
+
+  if (typeof prototype.componentWillReceiveProps === 'function') {
+    foundWillReceivePropsName = 'componentWillReceiveProps';
+  } else if (typeof prototype.UNSAFE_componentWillReceiveProps === 'function') {
+    foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
+  }
+
+  if (typeof prototype.componentWillUpdate === 'function') {
+    foundWillUpdateName = 'componentWillUpdate';
+  } else if (typeof prototype.UNSAFE_componentWillUpdate === 'function') {
+    foundWillUpdateName = 'UNSAFE_componentWillUpdate';
+  }
+
+  if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
+    var componentName = Component.displayName || Component.name;
+    var newApiName = typeof Component.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
+    throw Error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + componentName + ' uses ' + newApiName + ' but also contains the following legacy lifecycles:' + (foundWillMountName !== null ? '\n  ' + foundWillMountName : '') + (foundWillReceivePropsName !== null ? '\n  ' + foundWillReceivePropsName : '') + (foundWillUpdateName !== null ? '\n  ' + foundWillUpdateName : '') + '\n\nThe above lifecycles should be removed. Learn more about this warning here:\n' + 'https://fb.me/react-async-component-lifecycle-hooks');
+  } // React <= 16.2 does not support static getDerivedStateFromProps.
+  // As a workaround, use cWM and cWRP to invoke the new static lifecycle.
+  // Newer versions of React will ignore these lifecycles if gDSFP exists.
+
+
+  if (typeof Component.getDerivedStateFromProps === 'function') {
+    prototype.componentWillMount = componentWillMount;
+    prototype.componentWillReceiveProps = componentWillReceiveProps;
+  } // React <= 16.2 does not support getSnapshotBeforeUpdate.
+  // As a workaround, use cWU to invoke the new lifecycle.
+  // Newer versions of React will ignore that lifecycle if gSBU exists.
+
+
+  if (typeof prototype.getSnapshotBeforeUpdate === 'function') {
+    if (typeof prototype.componentDidUpdate !== 'function') {
+      throw new Error('Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype');
+    }
+
+    prototype.componentWillUpdate = componentWillUpdate;
+    var componentDidUpdate = prototype.componentDidUpdate;
+
+    prototype.componentDidUpdate = function componentDidUpdatePolyfill(prevProps, prevState, maybeSnapshot) {
+      // 16.3+ will not execute our will-update method;
+      // It will pass a snapshot value to did-update though.
+      // Older versions will require our polyfilled will-update value.
+      // We need to handle both cases, but can't just check for the presence of "maybeSnapshot",
+      // Because for <= 15.x versions this might be a "prevContext" object.
+      // We also can't just check "__reactInternalSnapshot",
+      // Because get-snapshot might return a falsy value.
+      // So check for the explicit __reactInternalSnapshotFlag flag to determine behavior.
+      var snapshot = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : maybeSnapshot;
+      componentDidUpdate.call(this, prevProps, prevState, snapshot);
+    };
+  }
+
+  return Component;
+}
+},{}],"../node_modules/rc-tabs/es/KeyCode.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  /**
+   * LEFT
+   */
+  LEFT: 37,
+  // also NUM_WEST
+
+  /**
+   * UP
+   */
+  UP: 38,
+  // also NUM_NORTH
+
+  /**
+   * RIGHT
+   */
+  RIGHT: 39,
+  // also NUM_EAST
+
+  /**
+   * DOWN
+   */
+  DOWN: 40 // also NUM_SOUTH
+
+};
+exports.default = _default;
+},{}],"../node_modules/rc-tabs/es/utils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.toArray = toArray;
+exports.getActiveIndex = getActiveIndex;
+exports.getActiveKey = getActiveKey;
+exports.setTransform = setTransform;
+exports.isTransform3dSupported = isTransform3dSupported;
+exports.setTransition = setTransition;
+exports.getTransformPropValue = getTransformPropValue;
+exports.isVertical = isVertical;
+exports.getTransformByIndex = getTransformByIndex;
+exports.getMarginStyle = getMarginStyle;
+exports.getStyle = getStyle;
+exports.setPxStyle = setPxStyle;
+exports.getDataAttr = getDataAttr;
+exports.getLeft = getLeft;
+exports.getTop = getTop;
+
+var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function toArray(children) {
+  // allow [c,[a,b]]
+  var c = [];
+
+  _react.default.Children.forEach(children, function (child) {
+    if (child) {
+      c.push(child);
+    }
+  });
+
+  return c;
+}
+
+function getActiveIndex(children, activeKey) {
+  var c = toArray(children);
+
+  for (var i = 0; i < c.length; i++) {
+    if (c[i].key === activeKey) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+function getActiveKey(children, index) {
+  var c = toArray(children);
+  return c[index].key;
+}
+
+function setTransform(style, v) {
+  style.transform = v;
+  style.webkitTransform = v;
+  style.mozTransform = v;
+}
+
+function isTransform3dSupported(style) {
+  return ('transform' in style || 'webkitTransform' in style || 'MozTransform' in style) && window.atob;
+}
+
+function setTransition(style, v) {
+  style.transition = v;
+  style.webkitTransition = v;
+  style.MozTransition = v;
+}
+
+function getTransformPropValue(v) {
+  return {
+    transform: v,
+    WebkitTransform: v,
+    MozTransform: v
+  };
+}
+
+function isVertical(tabBarPosition) {
+  return tabBarPosition === 'left' || tabBarPosition === 'right';
+}
+
+function getTransformByIndex(index, tabBarPosition) {
+  var direction = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'ltr';
+  var translate = isVertical(tabBarPosition) ? 'translateY' : 'translateX';
+
+  if (!isVertical(tabBarPosition) && direction === 'rtl') {
+    return translate + '(' + index * 100 + '%) translateZ(0)';
+  }
+
+  return translate + '(' + -index * 100 + '%) translateZ(0)';
+}
+
+function getMarginStyle(index, tabBarPosition) {
+  var marginDirection = isVertical(tabBarPosition) ? 'marginTop' : 'marginLeft';
+  return (0, _defineProperty2.default)({}, marginDirection, -index * 100 + '%');
+}
+
+function getStyle(el, property) {
+  return +window.getComputedStyle(el).getPropertyValue(property).replace('px', '');
+}
+
+function setPxStyle(el, value, vertical) {
+  value = vertical ? '0px, ' + value + 'px, 0px' : value + 'px, 0px, 0px';
+  setTransform(el.style, 'translate3d(' + value + ')');
+}
+
+function getDataAttr(props) {
+  return Object.keys(props).reduce(function (prev, key) {
+    if (key.substr(0, 5) === 'aria-' || key.substr(0, 5) === 'data-' || key === 'role') {
+      prev[key] = props[key];
+    }
+
+    return prev;
+  }, {});
+}
+
+function toNum(style, property) {
+  return +style.getPropertyValue(property).replace('px', '');
+}
+
+function getTypeValue(start, current, end, tabNode, wrapperNode) {
+  var total = getStyle(wrapperNode, 'padding-' + start);
+
+  if (!tabNode || !tabNode.parentNode) {
+    return total;
+  }
+
+  var childNodes = tabNode.parentNode.childNodes;
+  Array.prototype.some.call(childNodes, function (node) {
+    var style = window.getComputedStyle(node);
+
+    if (node !== tabNode) {
+      total += toNum(style, 'margin-' + start);
+      total += node[current];
+      total += toNum(style, 'margin-' + end);
+
+      if (style.boxSizing === 'content-box') {
+        total += toNum(style, 'border-' + start + '-width') + toNum(style, 'border-' + end + '-width');
+      }
+
+      return false;
+    } // We need count current node margin
+    // ref: https://github.com/react-component/tabs/pull/139#issuecomment-431005262
+
+
+    total += toNum(style, 'margin-' + start);
+    return true;
+  });
+  return total;
+}
+
+function getLeft(tabNode, wrapperNode) {
+  return getTypeValue('left', 'offsetWidth', 'right', tabNode, wrapperNode);
+}
+
+function getTop(tabNode, wrapperNode) {
+  return getTypeValue('top', 'offsetHeight', 'bottom', tabNode, wrapperNode);
+}
+},{"babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js"}],"../node_modules/rc-util/es/KeyCode.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * @ignore
+ * some key-codes definition and utils from closure-library
+ * @author yiminghe@gmail.com
+ */
+var KeyCode = {
+  /**
+   * MAC_ENTER
+   */
+  MAC_ENTER: 3,
+
+  /**
+   * BACKSPACE
+   */
+  BACKSPACE: 8,
+
+  /**
+   * TAB
+   */
+  TAB: 9,
+
+  /**
+   * NUMLOCK on FF/Safari Mac
+   */
+  NUM_CENTER: 12,
+
+  /**
+   * ENTER
+   */
+  ENTER: 13,
+
+  /**
+   * SHIFT
+   */
+  SHIFT: 16,
+
+  /**
+   * CTRL
+   */
+  CTRL: 17,
+
+  /**
+   * ALT
+   */
+  ALT: 18,
+
+  /**
+   * PAUSE
+   */
+  PAUSE: 19,
+
+  /**
+   * CAPS_LOCK
+   */
+  CAPS_LOCK: 20,
+
+  /**
+   * ESC
+   */
+  ESC: 27,
+
+  /**
+   * SPACE
+   */
+  SPACE: 32,
+
+  /**
+   * PAGE_UP
+   */
+  PAGE_UP: 33,
+
+  /**
+   * PAGE_DOWN
+   */
+  PAGE_DOWN: 34,
+
+  /**
+   * END
+   */
+  END: 35,
+
+  /**
+   * HOME
+   */
+  HOME: 36,
+
+  /**
+   * LEFT
+   */
+  LEFT: 37,
+
+  /**
+   * UP
+   */
+  UP: 38,
+
+  /**
+   * RIGHT
+   */
+  RIGHT: 39,
+
+  /**
+   * DOWN
+   */
+  DOWN: 40,
+
+  /**
+   * PRINT_SCREEN
+   */
+  PRINT_SCREEN: 44,
+
+  /**
+   * INSERT
+   */
+  INSERT: 45,
+
+  /**
+   * DELETE
+   */
+  DELETE: 46,
+
+  /**
+   * ZERO
+   */
+  ZERO: 48,
+
+  /**
+   * ONE
+   */
+  ONE: 49,
+
+  /**
+   * TWO
+   */
+  TWO: 50,
+
+  /**
+   * THREE
+   */
+  THREE: 51,
+
+  /**
+   * FOUR
+   */
+  FOUR: 52,
+
+  /**
+   * FIVE
+   */
+  FIVE: 53,
+
+  /**
+   * SIX
+   */
+  SIX: 54,
+
+  /**
+   * SEVEN
+   */
+  SEVEN: 55,
+
+  /**
+   * EIGHT
+   */
+  EIGHT: 56,
+
+  /**
+   * NINE
+   */
+  NINE: 57,
+
+  /**
+   * QUESTION_MARK
+   */
+  QUESTION_MARK: 63,
+
+  /**
+   * A
+   */
+  A: 65,
+
+  /**
+   * B
+   */
+  B: 66,
+
+  /**
+   * C
+   */
+  C: 67,
+
+  /**
+   * D
+   */
+  D: 68,
+
+  /**
+   * E
+   */
+  E: 69,
+
+  /**
+   * F
+   */
+  F: 70,
+
+  /**
+   * G
+   */
+  G: 71,
+
+  /**
+   * H
+   */
+  H: 72,
+
+  /**
+   * I
+   */
+  I: 73,
+
+  /**
+   * J
+   */
+  J: 74,
+
+  /**
+   * K
+   */
+  K: 75,
+
+  /**
+   * L
+   */
+  L: 76,
+
+  /**
+   * M
+   */
+  M: 77,
+
+  /**
+   * N
+   */
+  N: 78,
+
+  /**
+   * O
+   */
+  O: 79,
+
+  /**
+   * P
+   */
+  P: 80,
+
+  /**
+   * Q
+   */
+  Q: 81,
+
+  /**
+   * R
+   */
+  R: 82,
+
+  /**
+   * S
+   */
+  S: 83,
+
+  /**
+   * T
+   */
+  T: 84,
+
+  /**
+   * U
+   */
+  U: 85,
+
+  /**
+   * V
+   */
+  V: 86,
+
+  /**
+   * W
+   */
+  W: 87,
+
+  /**
+   * X
+   */
+  X: 88,
+
+  /**
+   * Y
+   */
+  Y: 89,
+
+  /**
+   * Z
+   */
+  Z: 90,
+
+  /**
+   * META
+   */
+  META: 91,
+
+  /**
+   * WIN_KEY_RIGHT
+   */
+  WIN_KEY_RIGHT: 92,
+
+  /**
+   * CONTEXT_MENU
+   */
+  CONTEXT_MENU: 93,
+
+  /**
+   * NUM_ZERO
+   */
+  NUM_ZERO: 96,
+
+  /**
+   * NUM_ONE
+   */
+  NUM_ONE: 97,
+
+  /**
+   * NUM_TWO
+   */
+  NUM_TWO: 98,
+
+  /**
+   * NUM_THREE
+   */
+  NUM_THREE: 99,
+
+  /**
+   * NUM_FOUR
+   */
+  NUM_FOUR: 100,
+
+  /**
+   * NUM_FIVE
+   */
+  NUM_FIVE: 101,
+
+  /**
+   * NUM_SIX
+   */
+  NUM_SIX: 102,
+
+  /**
+   * NUM_SEVEN
+   */
+  NUM_SEVEN: 103,
+
+  /**
+   * NUM_EIGHT
+   */
+  NUM_EIGHT: 104,
+
+  /**
+   * NUM_NINE
+   */
+  NUM_NINE: 105,
+
+  /**
+   * NUM_MULTIPLY
+   */
+  NUM_MULTIPLY: 106,
+
+  /**
+   * NUM_PLUS
+   */
+  NUM_PLUS: 107,
+
+  /**
+   * NUM_MINUS
+   */
+  NUM_MINUS: 109,
+
+  /**
+   * NUM_PERIOD
+   */
+  NUM_PERIOD: 110,
+
+  /**
+   * NUM_DIVISION
+   */
+  NUM_DIVISION: 111,
+
+  /**
+   * F1
+   */
+  F1: 112,
+
+  /**
+   * F2
+   */
+  F2: 113,
+
+  /**
+   * F3
+   */
+  F3: 114,
+
+  /**
+   * F4
+   */
+  F4: 115,
+
+  /**
+   * F5
+   */
+  F5: 116,
+
+  /**
+   * F6
+   */
+  F6: 117,
+
+  /**
+   * F7
+   */
+  F7: 118,
+
+  /**
+   * F8
+   */
+  F8: 119,
+
+  /**
+   * F9
+   */
+  F9: 120,
+
+  /**
+   * F10
+   */
+  F10: 121,
+
+  /**
+   * F11
+   */
+  F11: 122,
+
+  /**
+   * F12
+   */
+  F12: 123,
+
+  /**
+   * NUMLOCK
+   */
+  NUMLOCK: 144,
+
+  /**
+   * SEMICOLON
+   */
+  SEMICOLON: 186,
+
+  /**
+   * DASH
+   */
+  DASH: 189,
+
+  /**
+   * EQUALS
+   */
+  EQUALS: 187,
+
+  /**
+   * COMMA
+   */
+  COMMA: 188,
+
+  /**
+   * PERIOD
+   */
+  PERIOD: 190,
+
+  /**
+   * SLASH
+   */
+  SLASH: 191,
+
+  /**
+   * APOSTROPHE
+   */
+  APOSTROPHE: 192,
+
+  /**
+   * SINGLE_QUOTE
+   */
+  SINGLE_QUOTE: 222,
+
+  /**
+   * OPEN_SQUARE_BRACKET
+   */
+  OPEN_SQUARE_BRACKET: 219,
+
+  /**
+   * BACKSLASH
+   */
+  BACKSLASH: 220,
+
+  /**
+   * CLOSE_SQUARE_BRACKET
+   */
+  CLOSE_SQUARE_BRACKET: 221,
+
+  /**
+   * WIN_KEY
+   */
+  WIN_KEY: 224,
+
+  /**
+   * MAC_FF_META
+   */
+  MAC_FF_META: 224,
+
+  /**
+   * WIN_IME
+   */
+  WIN_IME: 229,
+  // ======================== Function ========================
+
+  /**
+   * whether text and modified key is entered at the same time.
+   */
+  isTextModifyingKeyEvent: function isTextModifyingKeyEvent(e) {
+    var keyCode = e.keyCode;
+
+    if (e.altKey && !e.ctrlKey || e.metaKey || // Function keys don't generate text
+    keyCode >= KeyCode.F1 && keyCode <= KeyCode.F12) {
+      return false;
+    } // The following keys are quite harmless, even in combination with
+    // CTRL, ALT or SHIFT.
+
+
+    switch (keyCode) {
+      case KeyCode.ALT:
+      case KeyCode.CAPS_LOCK:
+      case KeyCode.CONTEXT_MENU:
+      case KeyCode.CTRL:
+      case KeyCode.DOWN:
+      case KeyCode.END:
+      case KeyCode.ESC:
+      case KeyCode.HOME:
+      case KeyCode.INSERT:
+      case KeyCode.LEFT:
+      case KeyCode.MAC_FF_META:
+      case KeyCode.META:
+      case KeyCode.NUMLOCK:
+      case KeyCode.NUM_CENTER:
+      case KeyCode.PAGE_DOWN:
+      case KeyCode.PAGE_UP:
+      case KeyCode.PAUSE:
+      case KeyCode.PRINT_SCREEN:
+      case KeyCode.RIGHT:
+      case KeyCode.SHIFT:
+      case KeyCode.UP:
+      case KeyCode.WIN_KEY:
+      case KeyCode.WIN_KEY_RIGHT:
+        return false;
+
+      default:
+        return true;
+    }
+  },
+
+  /**
+   * whether character is entered.
+   */
+  isCharacterKey: function isCharacterKey(keyCode) {
+    if (keyCode >= KeyCode.ZERO && keyCode <= KeyCode.NINE) {
+      return true;
+    }
+
+    if (keyCode >= KeyCode.NUM_ZERO && keyCode <= KeyCode.NUM_MULTIPLY) {
+      return true;
+    }
+
+    if (keyCode >= KeyCode.A && keyCode <= KeyCode.Z) {
+      return true;
+    } // Safari sends zero key code for non-latin characters.
+
+
+    if (window.navigator.userAgent.indexOf('WebKit') !== -1 && keyCode === 0) {
+      return true;
+    }
+
+    switch (keyCode) {
+      case KeyCode.SPACE:
+      case KeyCode.QUESTION_MARK:
+      case KeyCode.NUM_PLUS:
+      case KeyCode.NUM_MINUS:
+      case KeyCode.NUM_PERIOD:
+      case KeyCode.NUM_DIVISION:
+      case KeyCode.SEMICOLON:
+      case KeyCode.DASH:
+      case KeyCode.EQUALS:
+      case KeyCode.COMMA:
+      case KeyCode.PERIOD:
+      case KeyCode.SLASH:
+      case KeyCode.APOSTROPHE:
+      case KeyCode.SINGLE_QUOTE:
+      case KeyCode.OPEN_SQUARE_BRACKET:
+      case KeyCode.BACKSLASH:
+      case KeyCode.CLOSE_SQUARE_BRACKET:
+        return true;
+
+      default:
+        return false;
+    }
+  }
+};
+var _default = KeyCode;
+exports.default = _default;
+},{}],"../node_modules/rc-tabs/es/Sentinel.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.SentinelConsumer = exports.SentinelProvider = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _KeyCode = _interopRequireDefault(require("rc-util/es/KeyCode"));
+
+var _createReactContext = _interopRequireDefault(require("@ant-design/create-react-context"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+var SentinelContext = (0, _createReactContext.default)({});
+var SentinelProvider = SentinelContext.Provider;
+exports.SentinelProvider = SentinelProvider;
+var SentinelConsumer = SentinelContext.Consumer;
+exports.SentinelConsumer = SentinelConsumer;
+var sentinelStyle = {
+  width: 0,
+  height: 0,
+  overflow: 'hidden',
+  position: 'absolute'
+};
+
+var Sentinel = function (_React$Component) {
+  (0, _inherits2.default)(Sentinel, _React$Component);
+
+  function Sentinel() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck2.default)(this, Sentinel);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn2.default)(this, (_ref = Sentinel.__proto__ || Object.getPrototypeOf(Sentinel)).call.apply(_ref, [this].concat(args))), _this), _this.onKeyDown = function (_ref2) {
+      var target = _ref2.target,
+          which = _ref2.which,
+          shiftKey = _ref2.shiftKey;
+      var _this$props = _this.props,
+          nextElement = _this$props.nextElement,
+          prevElement = _this$props.prevElement;
+      if (which !== _KeyCode.default.TAB || document.activeElement !== target) return; // Tab next
+
+      if (!shiftKey && nextElement) {
+        nextElement.focus();
+      } // Tab prev
+
+
+      if (shiftKey && prevElement) {
+        prevElement.focus();
+      }
+    }, _temp), (0, _possibleConstructorReturn2.default)(_this, _ret);
+  }
+
+  (0, _createClass2.default)(Sentinel, [{
+    key: 'render',
+    value: function render() {
+      var setRef = this.props.setRef;
+      return _react.default.createElement('div', {
+        tabIndex: 0,
+        ref: setRef,
+        style: sentinelStyle,
+        onKeyDown: this.onKeyDown,
+        role: 'presentation'
+      });
+    }
+  }]);
+  return Sentinel;
+}(_react.default.Component);
+
+Sentinel.propTypes = {
+  setRef: _propTypes.default.func,
+  prevElement: _propTypes.default.object,
+  nextElement: _propTypes.default.object
+};
+var _default = Sentinel;
+exports.default = _default;
+},{"babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","rc-util/es/KeyCode":"../node_modules/rc-util/es/KeyCode.js","@ant-design/create-react-context":"../node_modules/@ant-design/create-react-context/lib/index.js"}],"../node_modules/rc-tabs/es/TabPane.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames2 = _interopRequireDefault(require("classnames"));
+
+var _utils = require("./utils");
+
+var _Sentinel = _interopRequireWildcard(require("./Sentinel"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TabPane = function (_React$Component) {
+  (0, _inherits2.default)(TabPane, _React$Component);
+
+  function TabPane() {
+    (0, _classCallCheck2.default)(this, TabPane);
+    return (0, _possibleConstructorReturn2.default)(this, (TabPane.__proto__ || Object.getPrototypeOf(TabPane)).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(TabPane, [{
+    key: 'render',
+    value: function render() {
+      var _classnames;
+
+      var _props = this.props,
+          id = _props.id,
+          className = _props.className,
+          destroyInactiveTabPane = _props.destroyInactiveTabPane,
+          active = _props.active,
+          forceRender = _props.forceRender,
+          rootPrefixCls = _props.rootPrefixCls,
+          style = _props.style,
+          children = _props.children,
+          placeholder = _props.placeholder,
+          restProps = (0, _objectWithoutProperties2.default)(_props, ['id', 'className', 'destroyInactiveTabPane', 'active', 'forceRender', 'rootPrefixCls', 'style', 'children', 'placeholder']);
+      this._isActived = this._isActived || active;
+      var prefixCls = rootPrefixCls + '-tabpane';
+      var cls = (0, _classnames2.default)((_classnames = {}, (0, _defineProperty2.default)(_classnames, prefixCls, 1), (0, _defineProperty2.default)(_classnames, prefixCls + '-inactive', !active), (0, _defineProperty2.default)(_classnames, prefixCls + '-active', active), (0, _defineProperty2.default)(_classnames, className, className), _classnames));
+      var isRender = destroyInactiveTabPane ? active : this._isActived;
+      var shouldRender = isRender || forceRender;
+      return _react.default.createElement(_Sentinel.SentinelConsumer, null, function (_ref) {
+        var sentinelStart = _ref.sentinelStart,
+            sentinelEnd = _ref.sentinelEnd,
+            setPanelSentinelStart = _ref.setPanelSentinelStart,
+            setPanelSentinelEnd = _ref.setPanelSentinelEnd; // Create sentinel
+
+        var panelSentinelStart = void 0;
+        var panelSentinelEnd = void 0;
+
+        if (active && shouldRender) {
+          panelSentinelStart = _react.default.createElement(_Sentinel.default, {
+            setRef: setPanelSentinelStart,
+            prevElement: sentinelStart
+          });
+          panelSentinelEnd = _react.default.createElement(_Sentinel.default, {
+            setRef: setPanelSentinelEnd,
+            nextElement: sentinelEnd
+          });
+        }
+
+        return _react.default.createElement('div', (0, _extends2.default)({
+          style: style,
+          role: 'tabpanel',
+          'aria-hidden': active ? 'false' : 'true',
+          className: cls,
+          id: id
+        }, (0, _utils.getDataAttr)(restProps)), panelSentinelStart, shouldRender ? children : placeholder, panelSentinelEnd);
+      });
+    }
+  }]);
+  return TabPane;
+}(_react.default.Component);
+
+var _default = TabPane;
+exports.default = _default;
+TabPane.propTypes = {
+  className: _propTypes.default.string,
+  active: _propTypes.default.bool,
+  style: _propTypes.default.any,
+  destroyInactiveTabPane: _propTypes.default.bool,
+  forceRender: _propTypes.default.bool,
+  placeholder: _propTypes.default.node,
+  rootPrefixCls: _propTypes.default.string,
+  children: _propTypes.default.node,
+  id: _propTypes.default.string
+};
+TabPane.defaultProps = {
+  placeholder: null
+};
+},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","./utils":"../node_modules/rc-tabs/es/utils.js","./Sentinel":"../node_modules/rc-tabs/es/Sentinel.js"}],"../node_modules/rc-tabs/es/Tabs.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames2 = _interopRequireDefault(require("classnames"));
+
+var _raf = _interopRequireDefault(require("raf"));
+
+var _reactLifecyclesCompat = require("react-lifecycles-compat");
+
+var _KeyCode = _interopRequireDefault(require("./KeyCode"));
+
+var _TabPane = _interopRequireDefault(require("./TabPane"));
+
+var _utils = require("./utils");
+
+var _Sentinel = _interopRequireWildcard(require("./Sentinel"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function noop() {}
+
+function getDefaultActiveKey(props) {
+  var activeKey = void 0;
+
+  _react.default.Children.forEach(props.children, function (child) {
+    if (child && !activeKey && !child.props.disabled) {
+      activeKey = child.key;
+    }
+  });
+
+  return activeKey;
+}
+
+function activeKeyIsValid(props, key) {
+  var keys = _react.default.Children.map(props.children, function (child) {
+    return child && child.key;
+  });
+
+  return keys.indexOf(key) >= 0;
+}
+
+var Tabs = function (_React$Component) {
+  (0, _inherits2.default)(Tabs, _React$Component);
+
+  function Tabs(props) {
+    (0, _classCallCheck2.default)(this, Tabs);
+
+    var _this = (0, _possibleConstructorReturn2.default)(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
+
+    _initialiseProps.call(_this);
+
+    var activeKey = void 0;
+
+    if ('activeKey' in props) {
+      activeKey = props.activeKey;
+    } else if ('defaultActiveKey' in props) {
+      activeKey = props.defaultActiveKey;
+    } else {
+      activeKey = getDefaultActiveKey(props);
+    }
+
+    _this.state = {
+      activeKey: activeKey
+    };
+    return _this;
+  }
+
+  (0, _createClass2.default)(Tabs, [{
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.destroy = true;
+
+      _raf.default.cancel(this.sentinelId);
+    } // Sentinel for tab index
+
+  }, {
+    key: 'updateSentinelContext',
+    value: function updateSentinelContext() {
+      var _this2 = this;
+
+      if (this.destroy) return;
+
+      _raf.default.cancel(this.sentinelId);
+
+      this.sentinelId = (0, _raf.default)(function () {
+        if (_this2.destroy) return;
+
+        _this2.forceUpdate();
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _classnames;
+
+      var props = this.props;
+      var prefixCls = props.prefixCls,
+          navWrapper = props.navWrapper,
+          tabBarPosition = props.tabBarPosition,
+          className = props.className,
+          renderTabContent = props.renderTabContent,
+          renderTabBar = props.renderTabBar,
+          destroyInactiveTabPane = props.destroyInactiveTabPane,
+          direction = props.direction,
+          restProps = (0, _objectWithoutProperties2.default)(props, ['prefixCls', 'navWrapper', 'tabBarPosition', 'className', 'renderTabContent', 'renderTabBar', 'destroyInactiveTabPane', 'direction']);
+      var cls = (0, _classnames2.default)((_classnames = {}, (0, _defineProperty2.default)(_classnames, prefixCls, 1), (0, _defineProperty2.default)(_classnames, prefixCls + '-' + tabBarPosition, 1), (0, _defineProperty2.default)(_classnames, className, !!className), (0, _defineProperty2.default)(_classnames, prefixCls + '-rtl', direction === 'rtl'), _classnames));
+      this.tabBar = renderTabBar();
+
+      var tabBar = _react.default.cloneElement(this.tabBar, {
+        prefixCls: prefixCls,
+        navWrapper: navWrapper,
+        key: 'tabBar',
+        onKeyDown: this.onNavKeyDown,
+        tabBarPosition: tabBarPosition,
+        onTabClick: this.onTabClick,
+        panels: props.children,
+        activeKey: this.state.activeKey,
+        direction: this.props.direction
+      });
+
+      var tabContent = _react.default.cloneElement(renderTabContent(), {
+        prefixCls: prefixCls,
+        tabBarPosition: tabBarPosition,
+        activeKey: this.state.activeKey,
+        destroyInactiveTabPane: destroyInactiveTabPane,
+        children: props.children,
+        onChange: this.setActiveKey,
+        key: 'tabContent',
+        direction: this.props.direction
+      });
+
+      var sentinelStart = _react.default.createElement(_Sentinel.default, {
+        key: 'sentinelStart',
+        setRef: this.setSentinelStart,
+        nextElement: this.panelSentinelStart
+      });
+
+      var sentinelEnd = _react.default.createElement(_Sentinel.default, {
+        key: 'sentinelEnd',
+        setRef: this.setSentinelEnd,
+        prevElement: this.panelSentinelEnd
+      });
+
+      var contents = [];
+
+      if (tabBarPosition === 'bottom') {
+        contents.push(sentinelStart, tabContent, sentinelEnd, tabBar);
+      } else {
+        contents.push(tabBar, sentinelStart, tabContent, sentinelEnd);
+      }
+
+      return _react.default.createElement(_Sentinel.SentinelProvider, {
+        value: {
+          sentinelStart: this.sentinelStart,
+          sentinelEnd: this.sentinelEnd,
+          setPanelSentinelStart: this.setPanelSentinelStart,
+          setPanelSentinelEnd: this.setPanelSentinelEnd
+        }
+      }, _react.default.createElement('div', (0, _extends2.default)({
+        className: cls,
+        style: props.style
+      }, (0, _utils.getDataAttr)(restProps), {
+        onScroll: this.onScroll
+      }), contents));
+    }
+  }], [{
+    key: 'getDerivedStateFromProps',
+    value: function getDerivedStateFromProps(props, state) {
+      var newState = {};
+
+      if ('activeKey' in props) {
+        newState.activeKey = props.activeKey;
+      } else if (!activeKeyIsValid(props, state.activeKey)) {
+        newState.activeKey = getDefaultActiveKey(props);
+      }
+
+      if (Object.keys(newState).length > 0) {
+        return newState;
+      }
+
+      return null;
+    }
+  }]);
+  return Tabs;
+}(_react.default.Component);
+
+var _initialiseProps = function _initialiseProps() {
+  var _this3 = this;
+
+  this.onTabClick = function (activeKey, e) {
+    if (_this3.tabBar.props.onTabClick) {
+      _this3.tabBar.props.onTabClick(activeKey, e);
+    }
+
+    _this3.setActiveKey(activeKey);
+  };
+
+  this.onNavKeyDown = function (e) {
+    var eventKeyCode = e.keyCode;
+
+    if (eventKeyCode === _KeyCode.default.RIGHT || eventKeyCode === _KeyCode.default.DOWN) {
+      e.preventDefault();
+
+      var nextKey = _this3.getNextActiveKey(true);
+
+      _this3.onTabClick(nextKey);
+    } else if (eventKeyCode === _KeyCode.default.LEFT || eventKeyCode === _KeyCode.default.UP) {
+      e.preventDefault();
+
+      var previousKey = _this3.getNextActiveKey(false);
+
+      _this3.onTabClick(previousKey);
+    }
+  };
+
+  this.onScroll = function (_ref) {
+    var target = _ref.target,
+        currentTarget = _ref.currentTarget;
+
+    if (target === currentTarget && target.scrollLeft > 0) {
+      target.scrollLeft = 0;
+    }
+  };
+
+  this.setSentinelStart = function (node) {
+    _this3.sentinelStart = node;
+  };
+
+  this.setSentinelEnd = function (node) {
+    _this3.sentinelEnd = node;
+  };
+
+  this.setPanelSentinelStart = function (node) {
+    if (node !== _this3.panelSentinelStart) {
+      _this3.updateSentinelContext();
+    }
+
+    _this3.panelSentinelStart = node;
+  };
+
+  this.setPanelSentinelEnd = function (node) {
+    if (node !== _this3.panelSentinelEnd) {
+      _this3.updateSentinelContext();
+    }
+
+    _this3.panelSentinelEnd = node;
+  };
+
+  this.setActiveKey = function (activeKey) {
+    if (_this3.state.activeKey !== activeKey) {
+      if (!('activeKey' in _this3.props)) {
+        _this3.setState({
+          activeKey: activeKey
+        });
+      }
+
+      _this3.props.onChange(activeKey);
+    }
+  };
+
+  this.getNextActiveKey = function (next) {
+    var activeKey = _this3.state.activeKey;
+    var children = [];
+
+    _react.default.Children.forEach(_this3.props.children, function (c) {
+      if (c && !c.props.disabled) {
+        if (next) {
+          children.push(c);
+        } else {
+          children.unshift(c);
+        }
+      }
+    });
+
+    var length = children.length;
+    var ret = length && children[0].key;
+    children.forEach(function (child, i) {
+      if (child.key === activeKey) {
+        if (i === length - 1) {
+          ret = children[0].key;
+        } else {
+          ret = children[i + 1].key;
+        }
+      }
+    });
+    return ret;
+  };
+};
+
+Tabs.propTypes = {
+  destroyInactiveTabPane: _propTypes.default.bool,
+  renderTabBar: _propTypes.default.func.isRequired,
+  renderTabContent: _propTypes.default.func.isRequired,
+  navWrapper: _propTypes.default.func,
+  onChange: _propTypes.default.func,
+  children: _propTypes.default.node,
+  prefixCls: _propTypes.default.string,
+  className: _propTypes.default.string,
+  tabBarPosition: _propTypes.default.string,
+  style: _propTypes.default.object,
+  activeKey: _propTypes.default.string,
+  defaultActiveKey: _propTypes.default.string,
+  direction: _propTypes.default.string
+};
+Tabs.defaultProps = {
+  prefixCls: 'rc-tabs',
+  destroyInactiveTabPane: false,
+  onChange: noop,
+  navWrapper: function navWrapper(arg) {
+    return arg;
+  },
+  tabBarPosition: 'top',
+  children: null,
+  style: {},
+  direction: 'ltr'
+};
+Tabs.TabPane = _TabPane.default;
+(0, _reactLifecyclesCompat.polyfill)(Tabs);
+var _default = Tabs;
+exports.default = _default;
+},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","raf":"../node_modules/raf/index.js","react-lifecycles-compat":"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js","./KeyCode":"../node_modules/rc-tabs/es/KeyCode.js","./TabPane":"../node_modules/rc-tabs/es/TabPane.js","./utils":"../node_modules/rc-tabs/es/utils.js","./Sentinel":"../node_modules/rc-tabs/es/Sentinel.js"}],"../node_modules/rc-tabs/es/TabContent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames2 = _interopRequireDefault(require("classnames"));
+
+var _utils = require("./utils");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TabContent = function (_React$Component) {
+  (0, _inherits2.default)(TabContent, _React$Component);
+
+  function TabContent() {
+    (0, _classCallCheck2.default)(this, TabContent);
+    return (0, _possibleConstructorReturn2.default)(this, (TabContent.__proto__ || Object.getPrototypeOf(TabContent)).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(TabContent, [{
+    key: 'getTabPanes',
+    value: function getTabPanes() {
+      var props = this.props;
+      var activeKey = props.activeKey;
+      var children = props.children;
+      var newChildren = [];
+
+      _react.default.Children.forEach(children, function (child) {
+        if (!child) {
+          return;
+        }
+
+        var key = child.key;
+        var active = activeKey === key;
+        newChildren.push(_react.default.cloneElement(child, {
+          active: active,
+          destroyInactiveTabPane: props.destroyInactiveTabPane,
+          rootPrefixCls: props.prefixCls
+        }));
+      });
+
+      return newChildren;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _classnames;
+
+      var props = this.props;
+      var prefixCls = props.prefixCls,
+          children = props.children,
+          activeKey = props.activeKey,
+          className = props.className,
+          tabBarPosition = props.tabBarPosition,
+          animated = props.animated,
+          animatedWithMargin = props.animatedWithMargin,
+          direction = props.direction;
+      var style = props.style;
+      var classes = (0, _classnames2.default)((_classnames = {}, (0, _defineProperty2.default)(_classnames, prefixCls + '-content', true), (0, _defineProperty2.default)(_classnames, animated ? prefixCls + '-content-animated' : prefixCls + '-content-no-animated', true), _classnames), className);
+
+      if (animated) {
+        var activeIndex = (0, _utils.getActiveIndex)(children, activeKey);
+
+        if (activeIndex !== -1) {
+          var animatedStyle = animatedWithMargin ? (0, _utils.getMarginStyle)(activeIndex, tabBarPosition) : (0, _utils.getTransformPropValue)((0, _utils.getTransformByIndex)(activeIndex, tabBarPosition, direction));
+          style = (0, _extends2.default)({}, style, animatedStyle);
+        } else {
+          style = (0, _extends2.default)({}, style, {
+            display: 'none'
+          });
+        }
+      }
+
+      return _react.default.createElement('div', {
+        className: classes,
+        style: style
+      }, this.getTabPanes());
+    }
+  }]);
+  return TabContent;
+}(_react.default.Component);
+
+var _default = TabContent;
+exports.default = _default;
+TabContent.propTypes = {
+  animated: _propTypes.default.bool,
+  animatedWithMargin: _propTypes.default.bool,
+  prefixCls: _propTypes.default.string,
+  children: _propTypes.default.node,
+  activeKey: _propTypes.default.string,
+  style: _propTypes.default.any,
+  tabBarPosition: _propTypes.default.string,
+  className: _propTypes.default.string,
+  destroyInactiveTabPane: _propTypes.default.bool,
+  direction: _propTypes.default.string
+};
+TabContent.defaultProps = {
+  animated: true
+};
+},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","./utils":"../node_modules/rc-tabs/es/utils.js"}],"../node_modules/rc-tabs/es/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "TabPane", {
+  enumerable: true,
+  get: function () {
+    return _TabPane.default;
+  }
+});
+Object.defineProperty(exports, "TabContent", {
+  enumerable: true,
+  get: function () {
+    return _TabContent.default;
+  }
+});
+exports.default = void 0;
+
+var _Tabs = _interopRequireDefault(require("./Tabs"));
+
+var _TabPane = _interopRequireDefault(require("./TabPane"));
+
+var _TabContent = _interopRequireDefault(require("./TabContent"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = _Tabs.default;
+exports.default = _default;
+},{"./Tabs":"../node_modules/rc-tabs/es/Tabs.js","./TabPane":"../node_modules/rc-tabs/es/TabPane.js","./TabContent":"../node_modules/rc-tabs/es/TabContent.js"}],"../node_modules/omit.js/es/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36558,7 +38970,2607 @@ function omit(obj, fields) {
 
 var _default = omit;
 exports.default = _default;
-},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js"}],"../node_modules/@ant-design/icons/lib/dist.js":[function(require,module,exports) {
+},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js"}],"../node_modules/rc-tabs/es/InkTabBarNode.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames2 = _interopRequireDefault(require("classnames"));
+
+var _utils = require("./utils");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _componentDidUpdate(component, init) {
+  var _component$props = component.props,
+      styles = _component$props.styles,
+      panels = _component$props.panels,
+      activeKey = _component$props.activeKey,
+      direction = _component$props.direction;
+  var rootNode = component.props.getRef('root');
+  var wrapNode = component.props.getRef('nav') || rootNode;
+  var inkBarNode = component.props.getRef('inkBar');
+  var activeTab = component.props.getRef('activeTab');
+  var inkBarNodeStyle = inkBarNode.style;
+  var tabBarPosition = component.props.tabBarPosition;
+  var activeIndex = (0, _utils.getActiveIndex)(panels, activeKey);
+
+  if (init) {
+    // prevent mount animation
+    inkBarNodeStyle.display = 'none';
+  }
+
+  if (activeTab) {
+    var tabNode = activeTab;
+    var transformSupported = (0, _utils.isTransform3dSupported)(inkBarNodeStyle); // Reset current style
+
+    (0, _utils.setTransform)(inkBarNodeStyle, '');
+    inkBarNodeStyle.width = '';
+    inkBarNodeStyle.height = '';
+    inkBarNodeStyle.left = '';
+    inkBarNodeStyle.top = '';
+    inkBarNodeStyle.bottom = '';
+    inkBarNodeStyle.right = '';
+
+    if (tabBarPosition === 'top' || tabBarPosition === 'bottom') {
+      var left = (0, _utils.getLeft)(tabNode, wrapNode);
+      var width = tabNode.offsetWidth; // If tabNode'width width equal to wrapNode'width when tabBarPosition is top or bottom
+      // It means no css working, then ink bar should not have width until css is loaded
+      // Fix https://github.com/ant-design/ant-design/issues/7564
+
+      if (width === rootNode.offsetWidth) {
+        width = 0;
+      } else if (styles.inkBar && styles.inkBar.width !== undefined) {
+        width = parseFloat(styles.inkBar.width, 10);
+
+        if (width) {
+          left += (tabNode.offsetWidth - width) / 2;
+        }
+      }
+
+      if (direction === 'rtl') {
+        left = (0, _utils.getStyle)(tabNode, 'margin-left') - left;
+      } // use 3d gpu to optimize render
+
+
+      if (transformSupported) {
+        (0, _utils.setTransform)(inkBarNodeStyle, 'translate3d(' + left + 'px,0,0)');
+      } else {
+        inkBarNodeStyle.left = left + 'px';
+      }
+
+      inkBarNodeStyle.width = width + 'px';
+    } else {
+      var top = (0, _utils.getTop)(tabNode, wrapNode, true);
+      var height = tabNode.offsetHeight;
+
+      if (styles.inkBar && styles.inkBar.height !== undefined) {
+        height = parseFloat(styles.inkBar.height, 10);
+
+        if (height) {
+          top += (tabNode.offsetHeight - height) / 2;
+        }
+      }
+
+      if (transformSupported) {
+        (0, _utils.setTransform)(inkBarNodeStyle, 'translate3d(0,' + top + 'px,0)');
+        inkBarNodeStyle.top = '0';
+      } else {
+        inkBarNodeStyle.top = top + 'px';
+      }
+
+      inkBarNodeStyle.height = height + 'px';
+    }
+  }
+
+  inkBarNodeStyle.display = activeIndex !== -1 ? 'block' : 'none';
+}
+
+var InkTabBarNode = function (_React$Component) {
+  (0, _inherits2.default)(InkTabBarNode, _React$Component);
+
+  function InkTabBarNode() {
+    (0, _classCallCheck2.default)(this, InkTabBarNode);
+    return (0, _possibleConstructorReturn2.default)(this, (InkTabBarNode.__proto__ || Object.getPrototypeOf(InkTabBarNode)).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(InkTabBarNode, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this; // ref https://github.com/ant-design/ant-design/issues/8678
+      // ref https://github.com/react-component/tabs/issues/135
+      // InkTabBarNode need parent/root ref for calculating position
+      // since parent componentDidMount triggered after child componentDidMount
+      // we're doing a quick fix here to use setTimeout to calculate position
+      // after parent/root component mounted
+
+
+      this.timeout = setTimeout(function () {
+        _componentDidUpdate(_this2, true);
+      }, 0);
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      _componentDidUpdate(this);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      clearTimeout(this.timeout);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _classnames;
+
+      var _props = this.props,
+          prefixCls = _props.prefixCls,
+          styles = _props.styles,
+          inkBarAnimated = _props.inkBarAnimated;
+      var className = prefixCls + '-ink-bar';
+      var classes = (0, _classnames2.default)((_classnames = {}, (0, _defineProperty2.default)(_classnames, className, true), (0, _defineProperty2.default)(_classnames, inkBarAnimated ? className + '-animated' : className + '-no-animated', true), _classnames));
+      return _react.default.createElement('div', {
+        style: styles.inkBar,
+        className: classes,
+        key: 'inkBar',
+        ref: this.props.saveRef('inkBar')
+      });
+    }
+  }]);
+  return InkTabBarNode;
+}(_react.default.Component);
+
+var _default = InkTabBarNode;
+exports.default = _default;
+InkTabBarNode.propTypes = {
+  prefixCls: _propTypes.default.string,
+  styles: _propTypes.default.object,
+  inkBarAnimated: _propTypes.default.bool,
+  saveRef: _propTypes.default.func,
+  direction: _propTypes.default.string
+};
+InkTabBarNode.defaultProps = {
+  prefixCls: '',
+  inkBarAnimated: true,
+  styles: {},
+  saveRef: function saveRef() {}
+};
+},{"babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","./utils":"../node_modules/rc-tabs/es/utils.js"}],"../node_modules/rc-tabs/es/TabBarTabsNode.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _warning = _interopRequireDefault(require("warning"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _utils = require("./utils");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TabBarTabsNode = function (_React$Component) {
+  (0, _inherits2.default)(TabBarTabsNode, _React$Component);
+
+  function TabBarTabsNode() {
+    (0, _classCallCheck2.default)(this, TabBarTabsNode);
+    return (0, _possibleConstructorReturn2.default)(this, (TabBarTabsNode.__proto__ || Object.getPrototypeOf(TabBarTabsNode)).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(TabBarTabsNode, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var _props = this.props,
+          children = _props.panels,
+          activeKey = _props.activeKey,
+          prefixCls = _props.prefixCls,
+          tabBarGutter = _props.tabBarGutter,
+          saveRef = _props.saveRef,
+          tabBarPosition = _props.tabBarPosition,
+          renderTabBarNode = _props.renderTabBarNode,
+          direction = _props.direction;
+      var rst = [];
+
+      _react.default.Children.forEach(children, function (child, index) {
+        if (!child) {
+          return;
+        }
+
+        var key = child.key;
+        var cls = activeKey === key ? prefixCls + '-tab-active' : '';
+        cls += ' ' + prefixCls + '-tab';
+        var events = {};
+
+        if (child.props.disabled) {
+          cls += ' ' + prefixCls + '-tab-disabled';
+        } else {
+          events = {
+            onClick: _this2.props.onTabClick.bind(_this2, key)
+          };
+        }
+
+        var ref = {};
+
+        if (activeKey === key) {
+          ref.ref = saveRef('activeTab');
+        }
+
+        var gutter = tabBarGutter && index === children.length - 1 ? 0 : tabBarGutter;
+        var marginProperty = direction === 'rtl' ? 'marginLeft' : 'marginRight';
+        var style = (0, _defineProperty2.default)({}, (0, _utils.isVertical)(tabBarPosition) ? 'marginBottom' : marginProperty, gutter);
+        (0, _warning.default)('tab' in child.props, 'There must be `tab` property on children of Tabs.');
+
+        var node = _react.default.createElement('div', (0, _extends2.default)({
+          role: 'tab',
+          'aria-disabled': child.props.disabled ? 'true' : 'false',
+          'aria-selected': activeKey === key ? 'true' : 'false'
+        }, events, {
+          className: cls,
+          key: key,
+          style: style
+        }, ref), child.props.tab);
+
+        if (renderTabBarNode) {
+          node = renderTabBarNode(node);
+        }
+
+        rst.push(node);
+      });
+
+      return _react.default.createElement('div', {
+        ref: saveRef('navTabsContainer')
+      }, rst);
+    }
+  }]);
+  return TabBarTabsNode;
+}(_react.default.Component);
+
+var _default = TabBarTabsNode;
+exports.default = _default;
+TabBarTabsNode.propTypes = {
+  activeKey: _propTypes.default.string,
+  panels: _propTypes.default.node,
+  prefixCls: _propTypes.default.string,
+  tabBarGutter: _propTypes.default.number,
+  onTabClick: _propTypes.default.func,
+  saveRef: _propTypes.default.func,
+  renderTabBarNode: _propTypes.default.func,
+  tabBarPosition: _propTypes.default.string,
+  direction: _propTypes.default.string
+};
+TabBarTabsNode.defaultProps = {
+  panels: [],
+  prefixCls: [],
+  tabBarGutter: null,
+  onTabClick: function onTabClick() {},
+  saveRef: function saveRef() {}
+};
+},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","warning":"../node_modules/warning/warning.js","prop-types":"../node_modules/prop-types/index.js","./utils":"../node_modules/rc-tabs/es/utils.js"}],"../node_modules/rc-tabs/es/TabBarRootNode.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
+
+var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _utils = require("./utils");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TabBarRootNode = function (_React$Component) {
+  (0, _inherits2.default)(TabBarRootNode, _React$Component);
+
+  function TabBarRootNode() {
+    (0, _classCallCheck2.default)(this, TabBarRootNode);
+    return (0, _possibleConstructorReturn2.default)(this, (TabBarRootNode.__proto__ || Object.getPrototypeOf(TabBarRootNode)).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(TabBarRootNode, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          prefixCls = _props.prefixCls,
+          onKeyDown = _props.onKeyDown,
+          className = _props.className,
+          extraContent = _props.extraContent,
+          style = _props.style,
+          tabBarPosition = _props.tabBarPosition,
+          children = _props.children,
+          restProps = (0, _objectWithoutProperties2.default)(_props, ['prefixCls', 'onKeyDown', 'className', 'extraContent', 'style', 'tabBarPosition', 'children']);
+      var cls = (0, _classnames.default)(prefixCls + '-bar', (0, _defineProperty2.default)({}, className, !!className));
+      var topOrBottom = tabBarPosition === 'top' || tabBarPosition === 'bottom';
+      var tabBarExtraContentStyle = topOrBottom ? {
+        float: 'right'
+      } : {};
+      var extraContentStyle = extraContent && extraContent.props ? extraContent.props.style : {};
+      var newChildren = children;
+
+      if (extraContent) {
+        newChildren = [(0, _react.cloneElement)(extraContent, {
+          key: 'extra',
+          style: (0, _extends2.default)({}, tabBarExtraContentStyle, extraContentStyle)
+        }), (0, _react.cloneElement)(children, {
+          key: 'content'
+        })];
+        newChildren = topOrBottom ? newChildren : newChildren.reverse();
+      }
+
+      return _react.default.createElement('div', (0, _extends2.default)({
+        role: 'tablist',
+        className: cls,
+        tabIndex: '0',
+        ref: this.props.saveRef('root'),
+        onKeyDown: onKeyDown,
+        style: style
+      }, (0, _utils.getDataAttr)(restProps)), newChildren);
+    }
+  }]);
+  return TabBarRootNode;
+}(_react.default.Component);
+
+var _default = TabBarRootNode;
+exports.default = _default;
+TabBarRootNode.propTypes = {
+  prefixCls: _propTypes.default.string,
+  className: _propTypes.default.string,
+  style: _propTypes.default.object,
+  tabBarPosition: _propTypes.default.oneOf(['left', 'right', 'top', 'bottom']),
+  children: _propTypes.default.node,
+  extraContent: _propTypes.default.node,
+  onKeyDown: _propTypes.default.func,
+  saveRef: _propTypes.default.func
+};
+TabBarRootNode.defaultProps = {
+  prefixCls: '',
+  className: '',
+  style: {},
+  tabBarPosition: 'top',
+  extraContent: null,
+  children: null,
+  onKeyDown: function onKeyDown() {},
+  saveRef: function saveRef() {}
+};
+},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","./utils":"../node_modules/rc-tabs/es/utils.js"}],"../node_modules/lodash/isObject.js":[function(require,module,exports) {
+/**
+ * Checks if `value` is the
+ * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+ * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(_.noop);
+ * // => true
+ *
+ * _.isObject(null);
+ * // => false
+ */
+function isObject(value) {
+  var type = typeof value;
+  return value != null && (type == 'object' || type == 'function');
+}
+
+module.exports = isObject;
+
+},{}],"../node_modules/lodash/_freeGlobal.js":[function(require,module,exports) {
+var global = arguments[3];
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+
+module.exports = freeGlobal;
+
+},{}],"../node_modules/lodash/_root.js":[function(require,module,exports) {
+var freeGlobal = require('./_freeGlobal');
+
+/** Detect free variable `self`. */
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = freeGlobal || freeSelf || Function('return this')();
+
+module.exports = root;
+
+},{"./_freeGlobal":"../node_modules/lodash/_freeGlobal.js"}],"../node_modules/lodash/now.js":[function(require,module,exports) {
+var root = require('./_root');
+
+/**
+ * Gets the timestamp of the number of milliseconds that have elapsed since
+ * the Unix epoch (1 January 1970 00:00:00 UTC).
+ *
+ * @static
+ * @memberOf _
+ * @since 2.4.0
+ * @category Date
+ * @returns {number} Returns the timestamp.
+ * @example
+ *
+ * _.defer(function(stamp) {
+ *   console.log(_.now() - stamp);
+ * }, _.now());
+ * // => Logs the number of milliseconds it took for the deferred invocation.
+ */
+var now = function() {
+  return root.Date.now();
+};
+
+module.exports = now;
+
+},{"./_root":"../node_modules/lodash/_root.js"}],"../node_modules/lodash/_Symbol.js":[function(require,module,exports) {
+var root = require('./_root');
+
+/** Built-in value references. */
+var Symbol = root.Symbol;
+
+module.exports = Symbol;
+
+},{"./_root":"../node_modules/lodash/_root.js"}],"../node_modules/lodash/_getRawTag.js":[function(require,module,exports) {
+var Symbol = require('./_Symbol');
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/** Built-in value references. */
+var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+
+/**
+ * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the raw `toStringTag`.
+ */
+function getRawTag(value) {
+  var isOwn = hasOwnProperty.call(value, symToStringTag),
+      tag = value[symToStringTag];
+
+  try {
+    value[symToStringTag] = undefined;
+    var unmasked = true;
+  } catch (e) {}
+
+  var result = nativeObjectToString.call(value);
+  if (unmasked) {
+    if (isOwn) {
+      value[symToStringTag] = tag;
+    } else {
+      delete value[symToStringTag];
+    }
+  }
+  return result;
+}
+
+module.exports = getRawTag;
+
+},{"./_Symbol":"../node_modules/lodash/_Symbol.js"}],"../node_modules/lodash/_objectToString.js":[function(require,module,exports) {
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/**
+ * Converts `value` to a string using `Object.prototype.toString`.
+ *
+ * @private
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ */
+function objectToString(value) {
+  return nativeObjectToString.call(value);
+}
+
+module.exports = objectToString;
+
+},{}],"../node_modules/lodash/_baseGetTag.js":[function(require,module,exports) {
+var Symbol = require('./_Symbol'),
+    getRawTag = require('./_getRawTag'),
+    objectToString = require('./_objectToString');
+
+/** `Object#toString` result references. */
+var nullTag = '[object Null]',
+    undefinedTag = '[object Undefined]';
+
+/** Built-in value references. */
+var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+
+/**
+ * The base implementation of `getTag` without fallbacks for buggy environments.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+function baseGetTag(value) {
+  if (value == null) {
+    return value === undefined ? undefinedTag : nullTag;
+  }
+  return (symToStringTag && symToStringTag in Object(value))
+    ? getRawTag(value)
+    : objectToString(value);
+}
+
+module.exports = baseGetTag;
+
+},{"./_Symbol":"../node_modules/lodash/_Symbol.js","./_getRawTag":"../node_modules/lodash/_getRawTag.js","./_objectToString":"../node_modules/lodash/_objectToString.js"}],"../node_modules/lodash/isObjectLike.js":[function(require,module,exports) {
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return value != null && typeof value == 'object';
+}
+
+module.exports = isObjectLike;
+
+},{}],"../node_modules/lodash/isSymbol.js":[function(require,module,exports) {
+var baseGetTag = require('./_baseGetTag'),
+    isObjectLike = require('./isObjectLike');
+
+/** `Object#toString` result references. */
+var symbolTag = '[object Symbol]';
+
+/**
+ * Checks if `value` is classified as a `Symbol` primitive or object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+ * @example
+ *
+ * _.isSymbol(Symbol.iterator);
+ * // => true
+ *
+ * _.isSymbol('abc');
+ * // => false
+ */
+function isSymbol(value) {
+  return typeof value == 'symbol' ||
+    (isObjectLike(value) && baseGetTag(value) == symbolTag);
+}
+
+module.exports = isSymbol;
+
+},{"./_baseGetTag":"../node_modules/lodash/_baseGetTag.js","./isObjectLike":"../node_modules/lodash/isObjectLike.js"}],"../node_modules/lodash/toNumber.js":[function(require,module,exports) {
+var isObject = require('./isObject'),
+    isSymbol = require('./isSymbol');
+
+/** Used as references for various `Number` constants. */
+var NAN = 0 / 0;
+
+/** Used to match leading and trailing whitespace. */
+var reTrim = /^\s+|\s+$/g;
+
+/** Used to detect bad signed hexadecimal string values. */
+var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+/** Used to detect binary string values. */
+var reIsBinary = /^0b[01]+$/i;
+
+/** Used to detect octal string values. */
+var reIsOctal = /^0o[0-7]+$/i;
+
+/** Built-in method references without a dependency on `root`. */
+var freeParseInt = parseInt;
+
+/**
+ * Converts `value` to a number.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to process.
+ * @returns {number} Returns the number.
+ * @example
+ *
+ * _.toNumber(3.2);
+ * // => 3.2
+ *
+ * _.toNumber(Number.MIN_VALUE);
+ * // => 5e-324
+ *
+ * _.toNumber(Infinity);
+ * // => Infinity
+ *
+ * _.toNumber('3.2');
+ * // => 3.2
+ */
+function toNumber(value) {
+  if (typeof value == 'number') {
+    return value;
+  }
+  if (isSymbol(value)) {
+    return NAN;
+  }
+  if (isObject(value)) {
+    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+    value = isObject(other) ? (other + '') : other;
+  }
+  if (typeof value != 'string') {
+    return value === 0 ? value : +value;
+  }
+  value = value.replace(reTrim, '');
+  var isBinary = reIsBinary.test(value);
+  return (isBinary || reIsOctal.test(value))
+    ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
+    : (reIsBadHex.test(value) ? NAN : +value);
+}
+
+module.exports = toNumber;
+
+},{"./isObject":"../node_modules/lodash/isObject.js","./isSymbol":"../node_modules/lodash/isSymbol.js"}],"../node_modules/lodash/debounce.js":[function(require,module,exports) {
+var isObject = require('./isObject'),
+    now = require('./now'),
+    toNumber = require('./toNumber');
+
+/** Error message constants. */
+var FUNC_ERROR_TEXT = 'Expected a function';
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMax = Math.max,
+    nativeMin = Math.min;
+
+/**
+ * Creates a debounced function that delays invoking `func` until after `wait`
+ * milliseconds have elapsed since the last time the debounced function was
+ * invoked. The debounced function comes with a `cancel` method to cancel
+ * delayed `func` invocations and a `flush` method to immediately invoke them.
+ * Provide `options` to indicate whether `func` should be invoked on the
+ * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+ * with the last arguments provided to the debounced function. Subsequent
+ * calls to the debounced function return the result of the last `func`
+ * invocation.
+ *
+ * **Note:** If `leading` and `trailing` options are `true`, `func` is
+ * invoked on the trailing edge of the timeout only if the debounced function
+ * is invoked more than once during the `wait` timeout.
+ *
+ * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+ * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+ *
+ * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+ * for details over the differences between `_.debounce` and `_.throttle`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Function
+ * @param {Function} func The function to debounce.
+ * @param {number} [wait=0] The number of milliseconds to delay.
+ * @param {Object} [options={}] The options object.
+ * @param {boolean} [options.leading=false]
+ *  Specify invoking on the leading edge of the timeout.
+ * @param {number} [options.maxWait]
+ *  The maximum time `func` is allowed to be delayed before it's invoked.
+ * @param {boolean} [options.trailing=true]
+ *  Specify invoking on the trailing edge of the timeout.
+ * @returns {Function} Returns the new debounced function.
+ * @example
+ *
+ * // Avoid costly calculations while the window size is in flux.
+ * jQuery(window).on('resize', _.debounce(calculateLayout, 150));
+ *
+ * // Invoke `sendMail` when clicked, debouncing subsequent calls.
+ * jQuery(element).on('click', _.debounce(sendMail, 300, {
+ *   'leading': true,
+ *   'trailing': false
+ * }));
+ *
+ * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
+ * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
+ * var source = new EventSource('/stream');
+ * jQuery(source).on('message', debounced);
+ *
+ * // Cancel the trailing debounced invocation.
+ * jQuery(window).on('popstate', debounced.cancel);
+ */
+function debounce(func, wait, options) {
+  var lastArgs,
+      lastThis,
+      maxWait,
+      result,
+      timerId,
+      lastCallTime,
+      lastInvokeTime = 0,
+      leading = false,
+      maxing = false,
+      trailing = true;
+
+  if (typeof func != 'function') {
+    throw new TypeError(FUNC_ERROR_TEXT);
+  }
+  wait = toNumber(wait) || 0;
+  if (isObject(options)) {
+    leading = !!options.leading;
+    maxing = 'maxWait' in options;
+    maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
+    trailing = 'trailing' in options ? !!options.trailing : trailing;
+  }
+
+  function invokeFunc(time) {
+    var args = lastArgs,
+        thisArg = lastThis;
+
+    lastArgs = lastThis = undefined;
+    lastInvokeTime = time;
+    result = func.apply(thisArg, args);
+    return result;
+  }
+
+  function leadingEdge(time) {
+    // Reset any `maxWait` timer.
+    lastInvokeTime = time;
+    // Start the timer for the trailing edge.
+    timerId = setTimeout(timerExpired, wait);
+    // Invoke the leading edge.
+    return leading ? invokeFunc(time) : result;
+  }
+
+  function remainingWait(time) {
+    var timeSinceLastCall = time - lastCallTime,
+        timeSinceLastInvoke = time - lastInvokeTime,
+        timeWaiting = wait - timeSinceLastCall;
+
+    return maxing
+      ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke)
+      : timeWaiting;
+  }
+
+  function shouldInvoke(time) {
+    var timeSinceLastCall = time - lastCallTime,
+        timeSinceLastInvoke = time - lastInvokeTime;
+
+    // Either this is the first call, activity has stopped and we're at the
+    // trailing edge, the system time has gone backwards and we're treating
+    // it as the trailing edge, or we've hit the `maxWait` limit.
+    return (lastCallTime === undefined || (timeSinceLastCall >= wait) ||
+      (timeSinceLastCall < 0) || (maxing && timeSinceLastInvoke >= maxWait));
+  }
+
+  function timerExpired() {
+    var time = now();
+    if (shouldInvoke(time)) {
+      return trailingEdge(time);
+    }
+    // Restart the timer.
+    timerId = setTimeout(timerExpired, remainingWait(time));
+  }
+
+  function trailingEdge(time) {
+    timerId = undefined;
+
+    // Only invoke if we have `lastArgs` which means `func` has been
+    // debounced at least once.
+    if (trailing && lastArgs) {
+      return invokeFunc(time);
+    }
+    lastArgs = lastThis = undefined;
+    return result;
+  }
+
+  function cancel() {
+    if (timerId !== undefined) {
+      clearTimeout(timerId);
+    }
+    lastInvokeTime = 0;
+    lastArgs = lastCallTime = lastThis = timerId = undefined;
+  }
+
+  function flush() {
+    return timerId === undefined ? result : trailingEdge(now());
+  }
+
+  function debounced() {
+    var time = now(),
+        isInvoking = shouldInvoke(time);
+
+    lastArgs = arguments;
+    lastThis = this;
+    lastCallTime = time;
+
+    if (isInvoking) {
+      if (timerId === undefined) {
+        return leadingEdge(lastCallTime);
+      }
+      if (maxing) {
+        // Handle invocations in a tight loop.
+        clearTimeout(timerId);
+        timerId = setTimeout(timerExpired, wait);
+        return invokeFunc(lastCallTime);
+      }
+    }
+    if (timerId === undefined) {
+      timerId = setTimeout(timerExpired, wait);
+    }
+    return result;
+  }
+  debounced.cancel = cancel;
+  debounced.flush = flush;
+  return debounced;
+}
+
+module.exports = debounce;
+
+},{"./isObject":"../node_modules/lodash/isObject.js","./now":"../node_modules/lodash/now.js","./toNumber":"../node_modules/lodash/toNumber.js"}],"../node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js":[function(require,module,exports) {
+var global = arguments[3];
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/**
+ * A collection of shims that provide minimal functionality of the ES6 collections.
+ *
+ * These implementations are not meant to be used outside of the ResizeObserver
+ * modules as they cover only a limited range of use cases.
+ */
+
+/* eslint-disable require-jsdoc, valid-jsdoc */
+var MapShim = function () {
+  if (typeof Map !== 'undefined') {
+    return Map;
+  }
+  /**
+   * Returns index in provided array that matches the specified key.
+   *
+   * @param {Array<Array>} arr
+   * @param {*} key
+   * @returns {number}
+   */
+
+
+  function getIndex(arr, key) {
+    var result = -1;
+    arr.some(function (entry, index) {
+      if (entry[0] === key) {
+        result = index;
+        return true;
+      }
+
+      return false;
+    });
+    return result;
+  }
+
+  return (
+    /** @class */
+    function () {
+      function class_1() {
+        this.__entries__ = [];
+      }
+
+      Object.defineProperty(class_1.prototype, "size", {
+        /**
+         * @returns {boolean}
+         */
+        get: function () {
+          return this.__entries__.length;
+        },
+        enumerable: true,
+        configurable: true
+      });
+      /**
+       * @param {*} key
+       * @returns {*}
+       */
+
+      class_1.prototype.get = function (key) {
+        var index = getIndex(this.__entries__, key);
+        var entry = this.__entries__[index];
+        return entry && entry[1];
+      };
+      /**
+       * @param {*} key
+       * @param {*} value
+       * @returns {void}
+       */
+
+
+      class_1.prototype.set = function (key, value) {
+        var index = getIndex(this.__entries__, key);
+
+        if (~index) {
+          this.__entries__[index][1] = value;
+        } else {
+          this.__entries__.push([key, value]);
+        }
+      };
+      /**
+       * @param {*} key
+       * @returns {void}
+       */
+
+
+      class_1.prototype.delete = function (key) {
+        var entries = this.__entries__;
+        var index = getIndex(entries, key);
+
+        if (~index) {
+          entries.splice(index, 1);
+        }
+      };
+      /**
+       * @param {*} key
+       * @returns {void}
+       */
+
+
+      class_1.prototype.has = function (key) {
+        return !!~getIndex(this.__entries__, key);
+      };
+      /**
+       * @returns {void}
+       */
+
+
+      class_1.prototype.clear = function () {
+        this.__entries__.splice(0);
+      };
+      /**
+       * @param {Function} callback
+       * @param {*} [ctx=null]
+       * @returns {void}
+       */
+
+
+      class_1.prototype.forEach = function (callback, ctx) {
+        if (ctx === void 0) {
+          ctx = null;
+        }
+
+        for (var _i = 0, _a = this.__entries__; _i < _a.length; _i++) {
+          var entry = _a[_i];
+          callback.call(ctx, entry[1], entry[0]);
+        }
+      };
+
+      return class_1;
+    }()
+  );
+}();
+/**
+ * Detects whether window and document objects are available in current environment.
+ */
+
+
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined' && window.document === document; // Returns global object of a current environment.
+
+var global$1 = function () {
+  if (typeof global !== 'undefined' && global.Math === Math) {
+    return global;
+  }
+
+  if (typeof self !== 'undefined' && self.Math === Math) {
+    return self;
+  }
+
+  if (typeof window !== 'undefined' && window.Math === Math) {
+    return window;
+  } // eslint-disable-next-line no-new-func
+
+
+  return Function('return this')();
+}();
+/**
+ * A shim for the requestAnimationFrame which falls back to the setTimeout if
+ * first one is not supported.
+ *
+ * @returns {number} Requests' identifier.
+ */
+
+
+var requestAnimationFrame$1 = function () {
+  if (typeof requestAnimationFrame === 'function') {
+    // It's required to use a bounded function because IE sometimes throws
+    // an "Invalid calling object" error if rAF is invoked without the global
+    // object on the left hand side.
+    return requestAnimationFrame.bind(global$1);
+  }
+
+  return function (callback) {
+    return setTimeout(function () {
+      return callback(Date.now());
+    }, 1000 / 60);
+  };
+}(); // Defines minimum timeout before adding a trailing call.
+
+
+var trailingTimeout = 2;
+/**
+ * Creates a wrapper function which ensures that provided callback will be
+ * invoked only once during the specified delay period.
+ *
+ * @param {Function} callback - Function to be invoked after the delay period.
+ * @param {number} delay - Delay after which to invoke callback.
+ * @returns {Function}
+ */
+
+function throttle(callback, delay) {
+  var leadingCall = false,
+      trailingCall = false,
+      lastCallTime = 0;
+  /**
+   * Invokes the original callback function and schedules new invocation if
+   * the "proxy" was called during current request.
+   *
+   * @returns {void}
+   */
+
+  function resolvePending() {
+    if (leadingCall) {
+      leadingCall = false;
+      callback();
+    }
+
+    if (trailingCall) {
+      proxy();
+    }
+  }
+  /**
+   * Callback invoked after the specified delay. It will further postpone
+   * invocation of the original function delegating it to the
+   * requestAnimationFrame.
+   *
+   * @returns {void}
+   */
+
+
+  function timeoutCallback() {
+    requestAnimationFrame$1(resolvePending);
+  }
+  /**
+   * Schedules invocation of the original function.
+   *
+   * @returns {void}
+   */
+
+
+  function proxy() {
+    var timeStamp = Date.now();
+
+    if (leadingCall) {
+      // Reject immediately following calls.
+      if (timeStamp - lastCallTime < trailingTimeout) {
+        return;
+      } // Schedule new call to be in invoked when the pending one is resolved.
+      // This is important for "transitions" which never actually start
+      // immediately so there is a chance that we might miss one if change
+      // happens amids the pending invocation.
+
+
+      trailingCall = true;
+    } else {
+      leadingCall = true;
+      trailingCall = false;
+      setTimeout(timeoutCallback, delay);
+    }
+
+    lastCallTime = timeStamp;
+  }
+
+  return proxy;
+} // Minimum delay before invoking the update of observers.
+
+
+var REFRESH_DELAY = 20; // A list of substrings of CSS properties used to find transition events that
+// might affect dimensions of observed elements.
+
+var transitionKeys = ['top', 'right', 'bottom', 'left', 'width', 'height', 'size', 'weight']; // Check if MutationObserver is available.
+
+var mutationObserverSupported = typeof MutationObserver !== 'undefined';
+/**
+ * Singleton controller class which handles updates of ResizeObserver instances.
+ */
+
+var ResizeObserverController =
+/** @class */
+function () {
+  /**
+   * Creates a new instance of ResizeObserverController.
+   *
+   * @private
+   */
+  function ResizeObserverController() {
+    /**
+     * Indicates whether DOM listeners have been added.
+     *
+     * @private {boolean}
+     */
+    this.connected_ = false;
+    /**
+     * Tells that controller has subscribed for Mutation Events.
+     *
+     * @private {boolean}
+     */
+
+    this.mutationEventsAdded_ = false;
+    /**
+     * Keeps reference to the instance of MutationObserver.
+     *
+     * @private {MutationObserver}
+     */
+
+    this.mutationsObserver_ = null;
+    /**
+     * A list of connected observers.
+     *
+     * @private {Array<ResizeObserverSPI>}
+     */
+
+    this.observers_ = [];
+    this.onTransitionEnd_ = this.onTransitionEnd_.bind(this);
+    this.refresh = throttle(this.refresh.bind(this), REFRESH_DELAY);
+  }
+  /**
+   * Adds observer to observers list.
+   *
+   * @param {ResizeObserverSPI} observer - Observer to be added.
+   * @returns {void}
+   */
+
+
+  ResizeObserverController.prototype.addObserver = function (observer) {
+    if (!~this.observers_.indexOf(observer)) {
+      this.observers_.push(observer);
+    } // Add listeners if they haven't been added yet.
+
+
+    if (!this.connected_) {
+      this.connect_();
+    }
+  };
+  /**
+   * Removes observer from observers list.
+   *
+   * @param {ResizeObserverSPI} observer - Observer to be removed.
+   * @returns {void}
+   */
+
+
+  ResizeObserverController.prototype.removeObserver = function (observer) {
+    var observers = this.observers_;
+    var index = observers.indexOf(observer); // Remove observer if it's present in registry.
+
+    if (~index) {
+      observers.splice(index, 1);
+    } // Remove listeners if controller has no connected observers.
+
+
+    if (!observers.length && this.connected_) {
+      this.disconnect_();
+    }
+  };
+  /**
+   * Invokes the update of observers. It will continue running updates insofar
+   * it detects changes.
+   *
+   * @returns {void}
+   */
+
+
+  ResizeObserverController.prototype.refresh = function () {
+    var changesDetected = this.updateObservers_(); // Continue running updates if changes have been detected as there might
+    // be future ones caused by CSS transitions.
+
+    if (changesDetected) {
+      this.refresh();
+    }
+  };
+  /**
+   * Updates every observer from observers list and notifies them of queued
+   * entries.
+   *
+   * @private
+   * @returns {boolean} Returns "true" if any observer has detected changes in
+   *      dimensions of it's elements.
+   */
+
+
+  ResizeObserverController.prototype.updateObservers_ = function () {
+    // Collect observers that have active observations.
+    var activeObservers = this.observers_.filter(function (observer) {
+      return observer.gatherActive(), observer.hasActive();
+    }); // Deliver notifications in a separate cycle in order to avoid any
+    // collisions between observers, e.g. when multiple instances of
+    // ResizeObserver are tracking the same element and the callback of one
+    // of them changes content dimensions of the observed target. Sometimes
+    // this may result in notifications being blocked for the rest of observers.
+
+    activeObservers.forEach(function (observer) {
+      return observer.broadcastActive();
+    });
+    return activeObservers.length > 0;
+  };
+  /**
+   * Initializes DOM listeners.
+   *
+   * @private
+   * @returns {void}
+   */
+
+
+  ResizeObserverController.prototype.connect_ = function () {
+    // Do nothing if running in a non-browser environment or if listeners
+    // have been already added.
+    if (!isBrowser || this.connected_) {
+      return;
+    } // Subscription to the "Transitionend" event is used as a workaround for
+    // delayed transitions. This way it's possible to capture at least the
+    // final state of an element.
+
+
+    document.addEventListener('transitionend', this.onTransitionEnd_);
+    window.addEventListener('resize', this.refresh);
+
+    if (mutationObserverSupported) {
+      this.mutationsObserver_ = new MutationObserver(this.refresh);
+      this.mutationsObserver_.observe(document, {
+        attributes: true,
+        childList: true,
+        characterData: true,
+        subtree: true
+      });
+    } else {
+      document.addEventListener('DOMSubtreeModified', this.refresh);
+      this.mutationEventsAdded_ = true;
+    }
+
+    this.connected_ = true;
+  };
+  /**
+   * Removes DOM listeners.
+   *
+   * @private
+   * @returns {void}
+   */
+
+
+  ResizeObserverController.prototype.disconnect_ = function () {
+    // Do nothing if running in a non-browser environment or if listeners
+    // have been already removed.
+    if (!isBrowser || !this.connected_) {
+      return;
+    }
+
+    document.removeEventListener('transitionend', this.onTransitionEnd_);
+    window.removeEventListener('resize', this.refresh);
+
+    if (this.mutationsObserver_) {
+      this.mutationsObserver_.disconnect();
+    }
+
+    if (this.mutationEventsAdded_) {
+      document.removeEventListener('DOMSubtreeModified', this.refresh);
+    }
+
+    this.mutationsObserver_ = null;
+    this.mutationEventsAdded_ = false;
+    this.connected_ = false;
+  };
+  /**
+   * "Transitionend" event handler.
+   *
+   * @private
+   * @param {TransitionEvent} event
+   * @returns {void}
+   */
+
+
+  ResizeObserverController.prototype.onTransitionEnd_ = function (_a) {
+    var _b = _a.propertyName,
+        propertyName = _b === void 0 ? '' : _b; // Detect whether transition may affect dimensions of an element.
+
+    var isReflowProperty = transitionKeys.some(function (key) {
+      return !!~propertyName.indexOf(key);
+    });
+
+    if (isReflowProperty) {
+      this.refresh();
+    }
+  };
+  /**
+   * Returns instance of the ResizeObserverController.
+   *
+   * @returns {ResizeObserverController}
+   */
+
+
+  ResizeObserverController.getInstance = function () {
+    if (!this.instance_) {
+      this.instance_ = new ResizeObserverController();
+    }
+
+    return this.instance_;
+  };
+  /**
+   * Holds reference to the controller's instance.
+   *
+   * @private {ResizeObserverController}
+   */
+
+
+  ResizeObserverController.instance_ = null;
+  return ResizeObserverController;
+}();
+/**
+ * Defines non-writable/enumerable properties of the provided target object.
+ *
+ * @param {Object} target - Object for which to define properties.
+ * @param {Object} props - Properties to be defined.
+ * @returns {Object} Target object.
+ */
+
+
+var defineConfigurable = function (target, props) {
+  for (var _i = 0, _a = Object.keys(props); _i < _a.length; _i++) {
+    var key = _a[_i];
+    Object.defineProperty(target, key, {
+      value: props[key],
+      enumerable: false,
+      writable: false,
+      configurable: true
+    });
+  }
+
+  return target;
+};
+/**
+ * Returns the global object associated with provided element.
+ *
+ * @param {Object} target
+ * @returns {Object}
+ */
+
+
+var getWindowOf = function (target) {
+  // Assume that the element is an instance of Node, which means that it
+  // has the "ownerDocument" property from which we can retrieve a
+  // corresponding global object.
+  var ownerGlobal = target && target.ownerDocument && target.ownerDocument.defaultView; // Return the local global object if it's not possible extract one from
+  // provided element.
+
+  return ownerGlobal || global$1;
+}; // Placeholder of an empty content rectangle.
+
+
+var emptyRect = createRectInit(0, 0, 0, 0);
+/**
+ * Converts provided string to a number.
+ *
+ * @param {number|string} value
+ * @returns {number}
+ */
+
+function toFloat(value) {
+  return parseFloat(value) || 0;
+}
+/**
+ * Extracts borders size from provided styles.
+ *
+ * @param {CSSStyleDeclaration} styles
+ * @param {...string} positions - Borders positions (top, right, ...)
+ * @returns {number}
+ */
+
+
+function getBordersSize(styles) {
+  var positions = [];
+
+  for (var _i = 1; _i < arguments.length; _i++) {
+    positions[_i - 1] = arguments[_i];
+  }
+
+  return positions.reduce(function (size, position) {
+    var value = styles['border-' + position + '-width'];
+    return size + toFloat(value);
+  }, 0);
+}
+/**
+ * Extracts paddings sizes from provided styles.
+ *
+ * @param {CSSStyleDeclaration} styles
+ * @returns {Object} Paddings box.
+ */
+
+
+function getPaddings(styles) {
+  var positions = ['top', 'right', 'bottom', 'left'];
+  var paddings = {};
+
+  for (var _i = 0, positions_1 = positions; _i < positions_1.length; _i++) {
+    var position = positions_1[_i];
+    var value = styles['padding-' + position];
+    paddings[position] = toFloat(value);
+  }
+
+  return paddings;
+}
+/**
+ * Calculates content rectangle of provided SVG element.
+ *
+ * @param {SVGGraphicsElement} target - Element content rectangle of which needs
+ *      to be calculated.
+ * @returns {DOMRectInit}
+ */
+
+
+function getSVGContentRect(target) {
+  var bbox = target.getBBox();
+  return createRectInit(0, 0, bbox.width, bbox.height);
+}
+/**
+ * Calculates content rectangle of provided HTMLElement.
+ *
+ * @param {HTMLElement} target - Element for which to calculate the content rectangle.
+ * @returns {DOMRectInit}
+ */
+
+
+function getHTMLElementContentRect(target) {
+  // Client width & height properties can't be
+  // used exclusively as they provide rounded values.
+  var clientWidth = target.clientWidth,
+      clientHeight = target.clientHeight; // By this condition we can catch all non-replaced inline, hidden and
+  // detached elements. Though elements with width & height properties less
+  // than 0.5 will be discarded as well.
+  //
+  // Without it we would need to implement separate methods for each of
+  // those cases and it's not possible to perform a precise and performance
+  // effective test for hidden elements. E.g. even jQuery's ':visible' filter
+  // gives wrong results for elements with width & height less than 0.5.
+
+  if (!clientWidth && !clientHeight) {
+    return emptyRect;
+  }
+
+  var styles = getWindowOf(target).getComputedStyle(target);
+  var paddings = getPaddings(styles);
+  var horizPad = paddings.left + paddings.right;
+  var vertPad = paddings.top + paddings.bottom; // Computed styles of width & height are being used because they are the
+  // only dimensions available to JS that contain non-rounded values. It could
+  // be possible to utilize the getBoundingClientRect if only it's data wasn't
+  // affected by CSS transformations let alone paddings, borders and scroll bars.
+
+  var width = toFloat(styles.width),
+      height = toFloat(styles.height); // Width & height include paddings and borders when the 'border-box' box
+  // model is applied (except for IE).
+
+  if (styles.boxSizing === 'border-box') {
+    // Following conditions are required to handle Internet Explorer which
+    // doesn't include paddings and borders to computed CSS dimensions.
+    //
+    // We can say that if CSS dimensions + paddings are equal to the "client"
+    // properties then it's either IE, and thus we don't need to subtract
+    // anything, or an element merely doesn't have paddings/borders styles.
+    if (Math.round(width + horizPad) !== clientWidth) {
+      width -= getBordersSize(styles, 'left', 'right') + horizPad;
+    }
+
+    if (Math.round(height + vertPad) !== clientHeight) {
+      height -= getBordersSize(styles, 'top', 'bottom') + vertPad;
+    }
+  } // Following steps can't be applied to the document's root element as its
+  // client[Width/Height] properties represent viewport area of the window.
+  // Besides, it's as well not necessary as the <html> itself neither has
+  // rendered scroll bars nor it can be clipped.
+
+
+  if (!isDocumentElement(target)) {
+    // In some browsers (only in Firefox, actually) CSS width & height
+    // include scroll bars size which can be removed at this step as scroll
+    // bars are the only difference between rounded dimensions + paddings
+    // and "client" properties, though that is not always true in Chrome.
+    var vertScrollbar = Math.round(width + horizPad) - clientWidth;
+    var horizScrollbar = Math.round(height + vertPad) - clientHeight; // Chrome has a rather weird rounding of "client" properties.
+    // E.g. for an element with content width of 314.2px it sometimes gives
+    // the client width of 315px and for the width of 314.7px it may give
+    // 314px. And it doesn't happen all the time. So just ignore this delta
+    // as a non-relevant.
+
+    if (Math.abs(vertScrollbar) !== 1) {
+      width -= vertScrollbar;
+    }
+
+    if (Math.abs(horizScrollbar) !== 1) {
+      height -= horizScrollbar;
+    }
+  }
+
+  return createRectInit(paddings.left, paddings.top, width, height);
+}
+/**
+ * Checks whether provided element is an instance of the SVGGraphicsElement.
+ *
+ * @param {Element} target - Element to be checked.
+ * @returns {boolean}
+ */
+
+
+var isSVGGraphicsElement = function () {
+  // Some browsers, namely IE and Edge, don't have the SVGGraphicsElement
+  // interface.
+  if (typeof SVGGraphicsElement !== 'undefined') {
+    return function (target) {
+      return target instanceof getWindowOf(target).SVGGraphicsElement;
+    };
+  } // If it's so, then check that element is at least an instance of the
+  // SVGElement and that it has the "getBBox" method.
+  // eslint-disable-next-line no-extra-parens
+
+
+  return function (target) {
+    return target instanceof getWindowOf(target).SVGElement && typeof target.getBBox === 'function';
+  };
+}();
+/**
+ * Checks whether provided element is a document element (<html>).
+ *
+ * @param {Element} target - Element to be checked.
+ * @returns {boolean}
+ */
+
+
+function isDocumentElement(target) {
+  return target === getWindowOf(target).document.documentElement;
+}
+/**
+ * Calculates an appropriate content rectangle for provided html or svg element.
+ *
+ * @param {Element} target - Element content rectangle of which needs to be calculated.
+ * @returns {DOMRectInit}
+ */
+
+
+function getContentRect(target) {
+  if (!isBrowser) {
+    return emptyRect;
+  }
+
+  if (isSVGGraphicsElement(target)) {
+    return getSVGContentRect(target);
+  }
+
+  return getHTMLElementContentRect(target);
+}
+/**
+ * Creates rectangle with an interface of the DOMRectReadOnly.
+ * Spec: https://drafts.fxtf.org/geometry/#domrectreadonly
+ *
+ * @param {DOMRectInit} rectInit - Object with rectangle's x/y coordinates and dimensions.
+ * @returns {DOMRectReadOnly}
+ */
+
+
+function createReadOnlyRect(_a) {
+  var x = _a.x,
+      y = _a.y,
+      width = _a.width,
+      height = _a.height; // If DOMRectReadOnly is available use it as a prototype for the rectangle.
+
+  var Constr = typeof DOMRectReadOnly !== 'undefined' ? DOMRectReadOnly : Object;
+  var rect = Object.create(Constr.prototype); // Rectangle's properties are not writable and non-enumerable.
+
+  defineConfigurable(rect, {
+    x: x,
+    y: y,
+    width: width,
+    height: height,
+    top: y,
+    right: x + width,
+    bottom: height + y,
+    left: x
+  });
+  return rect;
+}
+/**
+ * Creates DOMRectInit object based on the provided dimensions and the x/y coordinates.
+ * Spec: https://drafts.fxtf.org/geometry/#dictdef-domrectinit
+ *
+ * @param {number} x - X coordinate.
+ * @param {number} y - Y coordinate.
+ * @param {number} width - Rectangle's width.
+ * @param {number} height - Rectangle's height.
+ * @returns {DOMRectInit}
+ */
+
+
+function createRectInit(x, y, width, height) {
+  return {
+    x: x,
+    y: y,
+    width: width,
+    height: height
+  };
+}
+/**
+ * Class that is responsible for computations of the content rectangle of
+ * provided DOM element and for keeping track of it's changes.
+ */
+
+
+var ResizeObservation =
+/** @class */
+function () {
+  /**
+   * Creates an instance of ResizeObservation.
+   *
+   * @param {Element} target - Element to be observed.
+   */
+  function ResizeObservation(target) {
+    /**
+     * Broadcasted width of content rectangle.
+     *
+     * @type {number}
+     */
+    this.broadcastWidth = 0;
+    /**
+     * Broadcasted height of content rectangle.
+     *
+     * @type {number}
+     */
+
+    this.broadcastHeight = 0;
+    /**
+     * Reference to the last observed content rectangle.
+     *
+     * @private {DOMRectInit}
+     */
+
+    this.contentRect_ = createRectInit(0, 0, 0, 0);
+    this.target = target;
+  }
+  /**
+   * Updates content rectangle and tells whether it's width or height properties
+   * have changed since the last broadcast.
+   *
+   * @returns {boolean}
+   */
+
+
+  ResizeObservation.prototype.isActive = function () {
+    var rect = getContentRect(this.target);
+    this.contentRect_ = rect;
+    return rect.width !== this.broadcastWidth || rect.height !== this.broadcastHeight;
+  };
+  /**
+   * Updates 'broadcastWidth' and 'broadcastHeight' properties with a data
+   * from the corresponding properties of the last observed content rectangle.
+   *
+   * @returns {DOMRectInit} Last observed content rectangle.
+   */
+
+
+  ResizeObservation.prototype.broadcastRect = function () {
+    var rect = this.contentRect_;
+    this.broadcastWidth = rect.width;
+    this.broadcastHeight = rect.height;
+    return rect;
+  };
+
+  return ResizeObservation;
+}();
+
+var ResizeObserverEntry =
+/** @class */
+function () {
+  /**
+   * Creates an instance of ResizeObserverEntry.
+   *
+   * @param {Element} target - Element that is being observed.
+   * @param {DOMRectInit} rectInit - Data of the element's content rectangle.
+   */
+  function ResizeObserverEntry(target, rectInit) {
+    var contentRect = createReadOnlyRect(rectInit); // According to the specification following properties are not writable
+    // and are also not enumerable in the native implementation.
+    //
+    // Property accessors are not being used as they'd require to define a
+    // private WeakMap storage which may cause memory leaks in browsers that
+    // don't support this type of collections.
+
+    defineConfigurable(this, {
+      target: target,
+      contentRect: contentRect
+    });
+  }
+
+  return ResizeObserverEntry;
+}();
+
+var ResizeObserverSPI =
+/** @class */
+function () {
+  /**
+   * Creates a new instance of ResizeObserver.
+   *
+   * @param {ResizeObserverCallback} callback - Callback function that is invoked
+   *      when one of the observed elements changes it's content dimensions.
+   * @param {ResizeObserverController} controller - Controller instance which
+   *      is responsible for the updates of observer.
+   * @param {ResizeObserver} callbackCtx - Reference to the public
+   *      ResizeObserver instance which will be passed to callback function.
+   */
+  function ResizeObserverSPI(callback, controller, callbackCtx) {
+    /**
+     * Collection of resize observations that have detected changes in dimensions
+     * of elements.
+     *
+     * @private {Array<ResizeObservation>}
+     */
+    this.activeObservations_ = [];
+    /**
+     * Registry of the ResizeObservation instances.
+     *
+     * @private {Map<Element, ResizeObservation>}
+     */
+
+    this.observations_ = new MapShim();
+
+    if (typeof callback !== 'function') {
+      throw new TypeError('The callback provided as parameter 1 is not a function.');
+    }
+
+    this.callback_ = callback;
+    this.controller_ = controller;
+    this.callbackCtx_ = callbackCtx;
+  }
+  /**
+   * Starts observing provided element.
+   *
+   * @param {Element} target - Element to be observed.
+   * @returns {void}
+   */
+
+
+  ResizeObserverSPI.prototype.observe = function (target) {
+    if (!arguments.length) {
+      throw new TypeError('1 argument required, but only 0 present.');
+    } // Do nothing if current environment doesn't have the Element interface.
+
+
+    if (typeof Element === 'undefined' || !(Element instanceof Object)) {
+      return;
+    }
+
+    if (!(target instanceof getWindowOf(target).Element)) {
+      throw new TypeError('parameter 1 is not of type "Element".');
+    }
+
+    var observations = this.observations_; // Do nothing if element is already being observed.
+
+    if (observations.has(target)) {
+      return;
+    }
+
+    observations.set(target, new ResizeObservation(target));
+    this.controller_.addObserver(this); // Force the update of observations.
+
+    this.controller_.refresh();
+  };
+  /**
+   * Stops observing provided element.
+   *
+   * @param {Element} target - Element to stop observing.
+   * @returns {void}
+   */
+
+
+  ResizeObserverSPI.prototype.unobserve = function (target) {
+    if (!arguments.length) {
+      throw new TypeError('1 argument required, but only 0 present.');
+    } // Do nothing if current environment doesn't have the Element interface.
+
+
+    if (typeof Element === 'undefined' || !(Element instanceof Object)) {
+      return;
+    }
+
+    if (!(target instanceof getWindowOf(target).Element)) {
+      throw new TypeError('parameter 1 is not of type "Element".');
+    }
+
+    var observations = this.observations_; // Do nothing if element is not being observed.
+
+    if (!observations.has(target)) {
+      return;
+    }
+
+    observations.delete(target);
+
+    if (!observations.size) {
+      this.controller_.removeObserver(this);
+    }
+  };
+  /**
+   * Stops observing all elements.
+   *
+   * @returns {void}
+   */
+
+
+  ResizeObserverSPI.prototype.disconnect = function () {
+    this.clearActive();
+    this.observations_.clear();
+    this.controller_.removeObserver(this);
+  };
+  /**
+   * Collects observation instances the associated element of which has changed
+   * it's content rectangle.
+   *
+   * @returns {void}
+   */
+
+
+  ResizeObserverSPI.prototype.gatherActive = function () {
+    var _this = this;
+
+    this.clearActive();
+    this.observations_.forEach(function (observation) {
+      if (observation.isActive()) {
+        _this.activeObservations_.push(observation);
+      }
+    });
+  };
+  /**
+   * Invokes initial callback function with a list of ResizeObserverEntry
+   * instances collected from active resize observations.
+   *
+   * @returns {void}
+   */
+
+
+  ResizeObserverSPI.prototype.broadcastActive = function () {
+    // Do nothing if observer doesn't have active observations.
+    if (!this.hasActive()) {
+      return;
+    }
+
+    var ctx = this.callbackCtx_; // Create ResizeObserverEntry instance for every active observation.
+
+    var entries = this.activeObservations_.map(function (observation) {
+      return new ResizeObserverEntry(observation.target, observation.broadcastRect());
+    });
+    this.callback_.call(ctx, entries, ctx);
+    this.clearActive();
+  };
+  /**
+   * Clears the collection of active observations.
+   *
+   * @returns {void}
+   */
+
+
+  ResizeObserverSPI.prototype.clearActive = function () {
+    this.activeObservations_.splice(0);
+  };
+  /**
+   * Tells whether observer has active observations.
+   *
+   * @returns {boolean}
+   */
+
+
+  ResizeObserverSPI.prototype.hasActive = function () {
+    return this.activeObservations_.length > 0;
+  };
+
+  return ResizeObserverSPI;
+}(); // Registry of internal observers. If WeakMap is not available use current shim
+// for the Map collection as it has all required methods and because WeakMap
+// can't be fully polyfilled anyway.
+
+
+var observers = typeof WeakMap !== 'undefined' ? new WeakMap() : new MapShim();
+/**
+ * ResizeObserver API. Encapsulates the ResizeObserver SPI implementation
+ * exposing only those methods and properties that are defined in the spec.
+ */
+
+var ResizeObserver =
+/** @class */
+function () {
+  /**
+   * Creates a new instance of ResizeObserver.
+   *
+   * @param {ResizeObserverCallback} callback - Callback that is invoked when
+   *      dimensions of the observed elements change.
+   */
+  function ResizeObserver(callback) {
+    if (!(this instanceof ResizeObserver)) {
+      throw new TypeError('Cannot call a class as a function.');
+    }
+
+    if (!arguments.length) {
+      throw new TypeError('1 argument required, but only 0 present.');
+    }
+
+    var controller = ResizeObserverController.getInstance();
+    var observer = new ResizeObserverSPI(callback, controller, this);
+    observers.set(this, observer);
+  }
+
+  return ResizeObserver;
+}(); // Expose public methods of ResizeObserver.
+
+
+['observe', 'unobserve', 'disconnect'].forEach(function (method) {
+  ResizeObserver.prototype[method] = function () {
+    var _a;
+
+    return (_a = observers.get(this))[method].apply(_a, arguments);
+  };
+});
+
+var index = function () {
+  // Export existing implementation if available.
+  if (typeof global$1.ResizeObserver !== 'undefined') {
+    return global$1.ResizeObserver;
+  }
+
+  return ResizeObserver;
+}();
+
+var _default = index;
+exports.default = _default;
+},{}],"../node_modules/rc-tabs/es/ScrollableTabBarNode.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames5 = _interopRequireDefault(require("classnames"));
+
+var _debounce = _interopRequireDefault(require("lodash/debounce"));
+
+var _resizeObserverPolyfill = _interopRequireDefault(require("resize-observer-polyfill"));
+
+var _utils = require("./utils");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ScrollableTabBarNode = function (_React$Component) {
+  (0, _inherits2.default)(ScrollableTabBarNode, _React$Component);
+
+  function ScrollableTabBarNode(props) {
+    (0, _classCallCheck2.default)(this, ScrollableTabBarNode);
+
+    var _this = (0, _possibleConstructorReturn2.default)(this, (ScrollableTabBarNode.__proto__ || Object.getPrototypeOf(ScrollableTabBarNode)).call(this, props));
+
+    _this.prevTransitionEnd = function (e) {
+      if (e.propertyName !== 'opacity') {
+        return;
+      }
+
+      var container = _this.props.getRef('container');
+
+      _this.scrollToActiveTab({
+        target: container,
+        currentTarget: container
+      });
+    };
+
+    _this.scrollToActiveTab = function (e) {
+      var activeTab = _this.props.getRef('activeTab');
+
+      var navWrap = _this.props.getRef('navWrap');
+
+      if (e && e.target !== e.currentTarget || !activeTab) {
+        return;
+      } // when not scrollable or enter scrollable first time, don't emit scrolling
+
+
+      var needToSroll = _this.isNextPrevShown() && _this.lastNextPrevShown;
+
+      _this.lastNextPrevShown = _this.isNextPrevShown();
+
+      if (!needToSroll) {
+        return;
+      }
+
+      var activeTabWH = _this.getScrollWH(activeTab);
+
+      var navWrapNodeWH = _this.getOffsetWH(navWrap);
+
+      var offset = _this.offset;
+
+      var wrapOffset = _this.getOffsetLT(navWrap);
+
+      var activeTabOffset = _this.getOffsetLT(activeTab);
+
+      if (wrapOffset > activeTabOffset) {
+        offset += wrapOffset - activeTabOffset;
+
+        _this.setOffset(offset);
+      } else if (wrapOffset + navWrapNodeWH < activeTabOffset + activeTabWH) {
+        offset -= activeTabOffset + activeTabWH - (wrapOffset + navWrapNodeWH);
+
+        _this.setOffset(offset);
+      }
+    };
+
+    _this.prev = function (e) {
+      _this.props.onPrevClick(e);
+
+      var navWrapNode = _this.props.getRef('navWrap');
+
+      var navWrapNodeWH = _this.getOffsetWH(navWrapNode);
+
+      var offset = _this.offset;
+
+      _this.setOffset(offset + navWrapNodeWH);
+    };
+
+    _this.next = function (e) {
+      _this.props.onNextClick(e);
+
+      var navWrapNode = _this.props.getRef('navWrap');
+
+      var navWrapNodeWH = _this.getOffsetWH(navWrapNode);
+
+      var offset = _this.offset;
+
+      _this.setOffset(offset - navWrapNodeWH);
+    };
+
+    _this.offset = 0;
+    _this.state = {
+      next: false,
+      prev: false
+    };
+    return _this;
+  }
+
+  (0, _createClass2.default)(ScrollableTabBarNode, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.componentDidUpdate();
+      this.debouncedResize = (0, _debounce.default)(function () {
+        _this2.setNextPrev();
+
+        _this2.scrollToActiveTab();
+      }, 200);
+      this.resizeObserver = new _resizeObserverPolyfill.default(this.debouncedResize);
+      this.resizeObserver.observe(this.props.getRef('container'));
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps) {
+      var props = this.props;
+
+      if (prevProps && prevProps.tabBarPosition !== props.tabBarPosition) {
+        this.setOffset(0);
+        return;
+      }
+
+      var nextPrev = this.setNextPrev(); // wait next, prev show hide
+
+      /* eslint react/no-did-update-set-state:0 */
+
+      if (this.isNextPrevShown(this.state) !== this.isNextPrevShown(nextPrev)) {
+        this.setState({}, this.scrollToActiveTab);
+      } else if (!prevProps || props.activeKey !== prevProps.activeKey) {
+        // can not use props.activeKey
+        this.scrollToActiveTab();
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      if (this.resizeObserver) {
+        this.resizeObserver.disconnect();
+      }
+
+      if (this.debouncedResize && this.debouncedResize.cancel) {
+        this.debouncedResize.cancel();
+      }
+    }
+  }, {
+    key: 'setNextPrev',
+    value: function setNextPrev() {
+      var navNode = this.props.getRef('nav');
+      var navTabsContainer = this.props.getRef('navTabsContainer');
+      var navNodeWH = this.getScrollWH(navTabsContainer || navNode); // Add 1px to fix `offsetWidth` with decimal in Chrome not correct handle
+      // https://github.com/ant-design/ant-design/issues/13423
+
+      var containerWH = this.getOffsetWH(this.props.getRef('container')) + 1;
+      var navWrapNodeWH = this.getOffsetWH(this.props.getRef('navWrap'));
+      var offset = this.offset;
+      var minOffset = containerWH - navNodeWH;
+      var _state = this.state,
+          next = _state.next,
+          prev = _state.prev;
+
+      if (minOffset >= 0) {
+        next = false;
+        this.setOffset(0, false);
+        offset = 0;
+      } else if (minOffset < offset) {
+        next = true;
+      } else {
+        next = false; // Fix https://github.com/ant-design/ant-design/issues/8861
+        // Test with container offset which is stable
+        // and set the offset of the nav wrap node
+
+        var realOffset = navWrapNodeWH - navNodeWH;
+        this.setOffset(realOffset, false);
+        offset = realOffset;
+      }
+
+      if (offset < 0) {
+        prev = true;
+      } else {
+        prev = false;
+      }
+
+      this.setNext(next);
+      this.setPrev(prev);
+      return {
+        next: next,
+        prev: prev
+      };
+    }
+  }, {
+    key: 'getOffsetWH',
+    value: function getOffsetWH(node) {
+      var tabBarPosition = this.props.tabBarPosition;
+      var prop = 'offsetWidth';
+
+      if (tabBarPosition === 'left' || tabBarPosition === 'right') {
+        prop = 'offsetHeight';
+      }
+
+      return node[prop];
+    }
+  }, {
+    key: 'getScrollWH',
+    value: function getScrollWH(node) {
+      var tabBarPosition = this.props.tabBarPosition;
+      var prop = 'scrollWidth';
+
+      if (tabBarPosition === 'left' || tabBarPosition === 'right') {
+        prop = 'scrollHeight';
+      }
+
+      return node[prop];
+    }
+  }, {
+    key: 'getOffsetLT',
+    value: function getOffsetLT(node) {
+      var tabBarPosition = this.props.tabBarPosition;
+      var prop = 'left';
+
+      if (tabBarPosition === 'left' || tabBarPosition === 'right') {
+        prop = 'top';
+      }
+
+      return node.getBoundingClientRect()[prop];
+    }
+  }, {
+    key: 'setOffset',
+    value: function setOffset(offset) {
+      var checkNextPrev = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      var target = Math.min(0, offset);
+
+      if (this.offset !== target) {
+        this.offset = target;
+        var navOffset = {};
+        var tabBarPosition = this.props.tabBarPosition;
+        var navStyle = this.props.getRef('nav').style;
+        var transformSupported = (0, _utils.isTransform3dSupported)(navStyle);
+
+        if (tabBarPosition === 'left' || tabBarPosition === 'right') {
+          if (transformSupported) {
+            navOffset = {
+              value: 'translate3d(0,' + target + 'px,0)'
+            };
+          } else {
+            navOffset = {
+              name: 'top',
+              value: target + 'px'
+            };
+          }
+        } else if (transformSupported) {
+          if (this.props.direction === 'rtl') {
+            target = -target;
+          }
+
+          navOffset = {
+            value: 'translate3d(' + target + 'px,0,0)'
+          };
+        } else {
+          navOffset = {
+            name: 'left',
+            value: target + 'px'
+          };
+        }
+
+        if (transformSupported) {
+          (0, _utils.setTransform)(navStyle, navOffset.value);
+        } else {
+          navStyle[navOffset.name] = navOffset.value;
+        }
+
+        if (checkNextPrev) {
+          this.setNextPrev();
+        }
+      }
+    }
+  }, {
+    key: 'setPrev',
+    value: function setPrev(v) {
+      if (this.state.prev !== v) {
+        this.setState({
+          prev: v
+        });
+      }
+    }
+  }, {
+    key: 'setNext',
+    value: function setNext(v) {
+      if (this.state.next !== v) {
+        this.setState({
+          next: v
+        });
+      }
+    }
+  }, {
+    key: 'isNextPrevShown',
+    value: function isNextPrevShown(state) {
+      if (state) {
+        return state.next || state.prev;
+      }
+
+      return this.state.next || this.state.prev;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _classnames, _classnames2, _classnames3, _classnames4;
+
+      var _state2 = this.state,
+          next = _state2.next,
+          prev = _state2.prev;
+      var _props = this.props,
+          prefixCls = _props.prefixCls,
+          scrollAnimated = _props.scrollAnimated,
+          navWrapper = _props.navWrapper,
+          prevIcon = _props.prevIcon,
+          nextIcon = _props.nextIcon;
+      var showNextPrev = prev || next;
+
+      var prevButton = _react.default.createElement('span', {
+        onClick: prev ? this.prev : null,
+        unselectable: 'unselectable',
+        className: (0, _classnames5.default)((_classnames = {}, (0, _defineProperty2.default)(_classnames, prefixCls + '-tab-prev', 1), (0, _defineProperty2.default)(_classnames, prefixCls + '-tab-btn-disabled', !prev), (0, _defineProperty2.default)(_classnames, prefixCls + '-tab-arrow-show', showNextPrev), _classnames)),
+        onTransitionEnd: this.prevTransitionEnd
+      }, prevIcon || _react.default.createElement('span', {
+        className: prefixCls + '-tab-prev-icon'
+      }));
+
+      var nextButton = _react.default.createElement('span', {
+        onClick: next ? this.next : null,
+        unselectable: 'unselectable',
+        className: (0, _classnames5.default)((_classnames2 = {}, (0, _defineProperty2.default)(_classnames2, prefixCls + '-tab-next', 1), (0, _defineProperty2.default)(_classnames2, prefixCls + '-tab-btn-disabled', !next), (0, _defineProperty2.default)(_classnames2, prefixCls + '-tab-arrow-show', showNextPrev), _classnames2))
+      }, nextIcon || _react.default.createElement('span', {
+        className: prefixCls + '-tab-next-icon'
+      }));
+
+      var navClassName = prefixCls + '-nav';
+      var navClasses = (0, _classnames5.default)((_classnames3 = {}, (0, _defineProperty2.default)(_classnames3, navClassName, true), (0, _defineProperty2.default)(_classnames3, scrollAnimated ? navClassName + '-animated' : navClassName + '-no-animated', true), _classnames3));
+      return _react.default.createElement('div', {
+        className: (0, _classnames5.default)((_classnames4 = {}, (0, _defineProperty2.default)(_classnames4, prefixCls + '-nav-container', 1), (0, _defineProperty2.default)(_classnames4, prefixCls + '-nav-container-scrolling', showNextPrev), _classnames4)),
+        key: 'container',
+        ref: this.props.saveRef('container')
+      }, prevButton, nextButton, _react.default.createElement('div', {
+        className: prefixCls + '-nav-wrap',
+        ref: this.props.saveRef('navWrap')
+      }, _react.default.createElement('div', {
+        className: prefixCls + '-nav-scroll'
+      }, _react.default.createElement('div', {
+        className: navClasses,
+        ref: this.props.saveRef('nav')
+      }, navWrapper(this.props.children)))));
+    }
+  }]);
+  return ScrollableTabBarNode;
+}(_react.default.Component);
+
+var _default = ScrollableTabBarNode;
+exports.default = _default;
+ScrollableTabBarNode.propTypes = {
+  activeKey: _propTypes.default.string,
+  getRef: _propTypes.default.func.isRequired,
+  saveRef: _propTypes.default.func.isRequired,
+  tabBarPosition: _propTypes.default.oneOf(['left', 'right', 'top', 'bottom']),
+  prefixCls: _propTypes.default.string,
+  scrollAnimated: _propTypes.default.bool,
+  onPrevClick: _propTypes.default.func,
+  onNextClick: _propTypes.default.func,
+  navWrapper: _propTypes.default.func,
+  children: _propTypes.default.node,
+  prevIcon: _propTypes.default.node,
+  nextIcon: _propTypes.default.node,
+  direction: _propTypes.default.node
+};
+ScrollableTabBarNode.defaultProps = {
+  tabBarPosition: 'left',
+  prefixCls: '',
+  scrollAnimated: true,
+  onPrevClick: function onPrevClick() {},
+  onNextClick: function onNextClick() {},
+  navWrapper: function navWrapper(ele) {
+    return ele;
+  }
+};
+},{"babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","lodash/debounce":"../node_modules/lodash/debounce.js","resize-observer-polyfill":"../node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js","./utils":"../node_modules/rc-tabs/es/utils.js"}],"../node_modules/rc-tabs/es/SaveRef.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var SaveRef = function (_React$Component) {
+  (0, _inherits2.default)(SaveRef, _React$Component);
+
+  function SaveRef() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck2.default)(this, SaveRef);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn2.default)(this, (_ref = SaveRef.__proto__ || Object.getPrototypeOf(SaveRef)).call.apply(_ref, [this].concat(args))), _this), _this.getRef = function (name) {
+      return _this[name];
+    }, _this.saveRef = function (name) {
+      return function (node) {
+        if (node) {
+          _this[name] = node;
+        }
+      };
+    }, _temp), (0, _possibleConstructorReturn2.default)(_this, _ret);
+  }
+
+  (0, _createClass2.default)(SaveRef, [{
+    key: 'render',
+    value: function render() {
+      return this.props.children(this.saveRef, this.getRef);
+    }
+  }]);
+  return SaveRef;
+}(_react.default.Component);
+
+var _default = SaveRef;
+exports.default = _default;
+SaveRef.propTypes = {
+  children: _propTypes.default.func
+};
+SaveRef.defaultProps = {
+  children: function children() {
+    return null;
+  }
+};
+},{"babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js"}],"../node_modules/rc-tabs/es/ScrollableInkTabBar.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _InkTabBarNode = _interopRequireDefault(require("./InkTabBarNode"));
+
+var _TabBarTabsNode = _interopRequireDefault(require("./TabBarTabsNode"));
+
+var _TabBarRootNode = _interopRequireDefault(require("./TabBarRootNode"));
+
+var _ScrollableTabBarNode = _interopRequireDefault(require("./ScrollableTabBarNode"));
+
+var _SaveRef = _interopRequireDefault(require("./SaveRef"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* eslint-disable react/prefer-stateless-function */
+var ScrollableInkTabBar = function (_React$Component) {
+  (0, _inherits2.default)(ScrollableInkTabBar, _React$Component);
+
+  function ScrollableInkTabBar() {
+    (0, _classCallCheck2.default)(this, ScrollableInkTabBar);
+    return (0, _possibleConstructorReturn2.default)(this, (ScrollableInkTabBar.__proto__ || Object.getPrototypeOf(ScrollableInkTabBar)).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(ScrollableInkTabBar, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          renderTabBarNode = _props.children,
+          restProps = (0, _objectWithoutProperties2.default)(_props, ['children']);
+      return _react.default.createElement(_SaveRef.default, null, function (saveRef, getRef) {
+        return _react.default.createElement(_TabBarRootNode.default, (0, _extends2.default)({
+          saveRef: saveRef
+        }, restProps), _react.default.createElement(_ScrollableTabBarNode.default, (0, _extends2.default)({
+          saveRef: saveRef,
+          getRef: getRef
+        }, restProps), _react.default.createElement(_TabBarTabsNode.default, (0, _extends2.default)({
+          saveRef: saveRef,
+          renderTabBarNode: renderTabBarNode
+        }, restProps)), _react.default.createElement(_InkTabBarNode.default, (0, _extends2.default)({
+          saveRef: saveRef,
+          getRef: getRef
+        }, restProps))));
+      });
+    }
+  }]);
+  return ScrollableInkTabBar;
+}(_react.default.Component);
+
+var _default = ScrollableInkTabBar;
+exports.default = _default;
+ScrollableInkTabBar.propTypes = {
+  children: _propTypes.default.func
+};
+},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./InkTabBarNode":"../node_modules/rc-tabs/es/InkTabBarNode.js","./TabBarTabsNode":"../node_modules/rc-tabs/es/TabBarTabsNode.js","./TabBarRootNode":"../node_modules/rc-tabs/es/TabBarRootNode.js","./ScrollableTabBarNode":"../node_modules/rc-tabs/es/ScrollableTabBarNode.js","./SaveRef":"../node_modules/rc-tabs/es/SaveRef.js"}],"../node_modules/@ant-design/icons/lib/dist.js":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var normalViewBox = '0 0 1024 1024';
@@ -38835,936 +43847,7 @@ exports.CanlendarTwoTone = getIcon('canlendar', twotone, function (primaryColor,
     ]);
 });
 
-},{}],"../node_modules/core-js/library/modules/es6.object.define-property.js":[function(require,module,exports) {
-var $export = require('./_export');
-// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-$export($export.S + $export.F * !require('./_descriptors'), 'Object', { defineProperty: require('./_object-dp').f });
-
-},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js"}],"../node_modules/core-js/library/fn/object/define-property.js":[function(require,module,exports) {
-require('../../modules/es6.object.define-property');
-var $Object = require('../../modules/_core').Object;
-module.exports = function defineProperty(it, key, desc) {
-  return $Object.defineProperty(it, key, desc);
-};
-
-},{"../../modules/es6.object.define-property":"../node_modules/core-js/library/modules/es6.object.define-property.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/define-property.js":[function(require,module,exports) {
-module.exports = { "default": require("core-js/library/fn/object/define-property"), __esModule: true };
-},{"core-js/library/fn/object/define-property":"../node_modules/core-js/library/fn/object/define-property.js"}],"../node_modules/babel-runtime/helpers/defineProperty.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-var _defineProperty = require("../core-js/object/define-property");
-
-var _defineProperty2 = _interopRequireDefault(_defineProperty);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (obj, key, value) {
-  if (key in obj) {
-    (0, _defineProperty2.default)(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-};
-},{"../core-js/object/define-property":"../node_modules/babel-runtime/core-js/object/define-property.js"}],"../node_modules/babel-runtime/helpers/objectWithoutProperties.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-exports.default = function (obj, keys) {
-  var target = {};
-
-  for (var i in obj) {
-    if (keys.indexOf(i) >= 0) continue;
-    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
-    target[i] = obj[i];
-  }
-
-  return target;
-};
-},{}],"../node_modules/babel-runtime/helpers/classCallCheck.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-exports.default = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-},{}],"../node_modules/babel-runtime/helpers/createClass.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-var _defineProperty = require("../core-js/object/define-property");
-
-var _defineProperty2 = _interopRequireDefault(_defineProperty);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-},{"../core-js/object/define-property":"../node_modules/babel-runtime/core-js/object/define-property.js"}],"../node_modules/core-js/library/modules/_string-at.js":[function(require,module,exports) {
-var toInteger = require('./_to-integer');
-var defined = require('./_defined');
-// true  -> String#at
-// false -> String#codePointAt
-module.exports = function (TO_STRING) {
-  return function (that, pos) {
-    var s = String(defined(that));
-    var i = toInteger(pos);
-    var l = s.length;
-    var a, b;
-    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
-    a = s.charCodeAt(i);
-    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
-      ? TO_STRING ? s.charAt(i) : a
-      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
-  };
-};
-
-},{"./_to-integer":"../node_modules/core-js/library/modules/_to-integer.js","./_defined":"../node_modules/core-js/library/modules/_defined.js"}],"../node_modules/core-js/library/modules/_redefine.js":[function(require,module,exports) {
-module.exports = require('./_hide');
-
-},{"./_hide":"../node_modules/core-js/library/modules/_hide.js"}],"../node_modules/core-js/library/modules/_iterators.js":[function(require,module,exports) {
-module.exports = {};
-
-},{}],"../node_modules/core-js/library/modules/_object-dps.js":[function(require,module,exports) {
-var dP = require('./_object-dp');
-var anObject = require('./_an-object');
-var getKeys = require('./_object-keys');
-
-module.exports = require('./_descriptors') ? Object.defineProperties : function defineProperties(O, Properties) {
-  anObject(O);
-  var keys = getKeys(Properties);
-  var length = keys.length;
-  var i = 0;
-  var P;
-  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
-  return O;
-};
-
-},{"./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js"}],"../node_modules/core-js/library/modules/_html.js":[function(require,module,exports) {
-var document = require('./_global').document;
-module.exports = document && document.documentElement;
-
-},{"./_global":"../node_modules/core-js/library/modules/_global.js"}],"../node_modules/core-js/library/modules/_object-create.js":[function(require,module,exports) {
-// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-var anObject = require('./_an-object');
-var dPs = require('./_object-dps');
-var enumBugKeys = require('./_enum-bug-keys');
-var IE_PROTO = require('./_shared-key')('IE_PROTO');
-var Empty = function () { /* empty */ };
-var PROTOTYPE = 'prototype';
-
-// Create object with fake `null` prototype: use iframe Object with cleared prototype
-var createDict = function () {
-  // Thrash, waste and sodomy: IE GC bug
-  var iframe = require('./_dom-create')('iframe');
-  var i = enumBugKeys.length;
-  var lt = '<';
-  var gt = '>';
-  var iframeDocument;
-  iframe.style.display = 'none';
-  require('./_html').appendChild(iframe);
-  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
-  // createDict = iframe.contentWindow.Object;
-  // html.removeChild(iframe);
-  iframeDocument = iframe.contentWindow.document;
-  iframeDocument.open();
-  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
-  iframeDocument.close();
-  createDict = iframeDocument.F;
-  while (i--) delete createDict[PROTOTYPE][enumBugKeys[i]];
-  return createDict();
-};
-
-module.exports = Object.create || function create(O, Properties) {
-  var result;
-  if (O !== null) {
-    Empty[PROTOTYPE] = anObject(O);
-    result = new Empty();
-    Empty[PROTOTYPE] = null;
-    // add "__proto__" for Object.getPrototypeOf polyfill
-    result[IE_PROTO] = O;
-  } else result = createDict();
-  return Properties === undefined ? result : dPs(result, Properties);
-};
-
-},{"./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_object-dps":"../node_modules/core-js/library/modules/_object-dps.js","./_enum-bug-keys":"../node_modules/core-js/library/modules/_enum-bug-keys.js","./_shared-key":"../node_modules/core-js/library/modules/_shared-key.js","./_dom-create":"../node_modules/core-js/library/modules/_dom-create.js","./_html":"../node_modules/core-js/library/modules/_html.js"}],"../node_modules/core-js/library/modules/_wks.js":[function(require,module,exports) {
-var store = require('./_shared')('wks');
-var uid = require('./_uid');
-var Symbol = require('./_global').Symbol;
-var USE_SYMBOL = typeof Symbol == 'function';
-
-var $exports = module.exports = function (name) {
-  return store[name] || (store[name] =
-    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
-};
-
-$exports.store = store;
-
-},{"./_shared":"../node_modules/core-js/library/modules/_shared.js","./_uid":"../node_modules/core-js/library/modules/_uid.js","./_global":"../node_modules/core-js/library/modules/_global.js"}],"../node_modules/core-js/library/modules/_set-to-string-tag.js":[function(require,module,exports) {
-var def = require('./_object-dp').f;
-var has = require('./_has');
-var TAG = require('./_wks')('toStringTag');
-
-module.exports = function (it, tag, stat) {
-  if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
-};
-
-},{"./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_iter-create.js":[function(require,module,exports) {
-'use strict';
-var create = require('./_object-create');
-var descriptor = require('./_property-desc');
-var setToStringTag = require('./_set-to-string-tag');
-var IteratorPrototype = {};
-
-// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-require('./_hide')(IteratorPrototype, require('./_wks')('iterator'), function () { return this; });
-
-module.exports = function (Constructor, NAME, next) {
-  Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
-  setToStringTag(Constructor, NAME + ' Iterator');
-};
-
-},{"./_object-create":"../node_modules/core-js/library/modules/_object-create.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_object-gpo.js":[function(require,module,exports) {
-// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-var has = require('./_has');
-var toObject = require('./_to-object');
-var IE_PROTO = require('./_shared-key')('IE_PROTO');
-var ObjectProto = Object.prototype;
-
-module.exports = Object.getPrototypeOf || function (O) {
-  O = toObject(O);
-  if (has(O, IE_PROTO)) return O[IE_PROTO];
-  if (typeof O.constructor == 'function' && O instanceof O.constructor) {
-    return O.constructor.prototype;
-  } return O instanceof Object ? ObjectProto : null;
-};
-
-},{"./_has":"../node_modules/core-js/library/modules/_has.js","./_to-object":"../node_modules/core-js/library/modules/_to-object.js","./_shared-key":"../node_modules/core-js/library/modules/_shared-key.js"}],"../node_modules/core-js/library/modules/_iter-define.js":[function(require,module,exports) {
-'use strict';
-var LIBRARY = require('./_library');
-var $export = require('./_export');
-var redefine = require('./_redefine');
-var hide = require('./_hide');
-var Iterators = require('./_iterators');
-var $iterCreate = require('./_iter-create');
-var setToStringTag = require('./_set-to-string-tag');
-var getPrototypeOf = require('./_object-gpo');
-var ITERATOR = require('./_wks')('iterator');
-var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
-var FF_ITERATOR = '@@iterator';
-var KEYS = 'keys';
-var VALUES = 'values';
-
-var returnThis = function () { return this; };
-
-module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED) {
-  $iterCreate(Constructor, NAME, next);
-  var getMethod = function (kind) {
-    if (!BUGGY && kind in proto) return proto[kind];
-    switch (kind) {
-      case KEYS: return function keys() { return new Constructor(this, kind); };
-      case VALUES: return function values() { return new Constructor(this, kind); };
-    } return function entries() { return new Constructor(this, kind); };
-  };
-  var TAG = NAME + ' Iterator';
-  var DEF_VALUES = DEFAULT == VALUES;
-  var VALUES_BUG = false;
-  var proto = Base.prototype;
-  var $native = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT];
-  var $default = $native || getMethod(DEFAULT);
-  var $entries = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined;
-  var $anyNative = NAME == 'Array' ? proto.entries || $native : $native;
-  var methods, key, IteratorPrototype;
-  // Fix native
-  if ($anyNative) {
-    IteratorPrototype = getPrototypeOf($anyNative.call(new Base()));
-    if (IteratorPrototype !== Object.prototype && IteratorPrototype.next) {
-      // Set @@toStringTag to native iterators
-      setToStringTag(IteratorPrototype, TAG, true);
-      // fix for some old engines
-      if (!LIBRARY && typeof IteratorPrototype[ITERATOR] != 'function') hide(IteratorPrototype, ITERATOR, returnThis);
-    }
-  }
-  // fix Array#{values, @@iterator}.name in V8 / FF
-  if (DEF_VALUES && $native && $native.name !== VALUES) {
-    VALUES_BUG = true;
-    $default = function values() { return $native.call(this); };
-  }
-  // Define iterator
-  if ((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])) {
-    hide(proto, ITERATOR, $default);
-  }
-  // Plug for library
-  Iterators[NAME] = $default;
-  Iterators[TAG] = returnThis;
-  if (DEFAULT) {
-    methods = {
-      values: DEF_VALUES ? $default : getMethod(VALUES),
-      keys: IS_SET ? $default : getMethod(KEYS),
-      entries: $entries
-    };
-    if (FORCED) for (key in methods) {
-      if (!(key in proto)) redefine(proto, key, methods[key]);
-    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
-  }
-  return methods;
-};
-
-},{"./_library":"../node_modules/core-js/library/modules/_library.js","./_export":"../node_modules/core-js/library/modules/_export.js","./_redefine":"../node_modules/core-js/library/modules/_redefine.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_iter-create":"../node_modules/core-js/library/modules/_iter-create.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_object-gpo":"../node_modules/core-js/library/modules/_object-gpo.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/es6.string.iterator.js":[function(require,module,exports) {
-'use strict';
-var $at = require('./_string-at')(true);
-
-// 21.1.3.27 String.prototype[@@iterator]()
-require('./_iter-define')(String, 'String', function (iterated) {
-  this._t = String(iterated); // target
-  this._i = 0;                // next index
-// 21.1.5.2.1 %StringIteratorPrototype%.next()
-}, function () {
-  var O = this._t;
-  var index = this._i;
-  var point;
-  if (index >= O.length) return { value: undefined, done: true };
-  point = $at(O, index);
-  this._i += point.length;
-  return { value: point, done: false };
-});
-
-},{"./_string-at":"../node_modules/core-js/library/modules/_string-at.js","./_iter-define":"../node_modules/core-js/library/modules/_iter-define.js"}],"../node_modules/core-js/library/modules/_add-to-unscopables.js":[function(require,module,exports) {
-module.exports = function () { /* empty */ };
-
-},{}],"../node_modules/core-js/library/modules/_iter-step.js":[function(require,module,exports) {
-module.exports = function (done, value) {
-  return { value: value, done: !!done };
-};
-
-},{}],"../node_modules/core-js/library/modules/es6.array.iterator.js":[function(require,module,exports) {
-'use strict';
-var addToUnscopables = require('./_add-to-unscopables');
-var step = require('./_iter-step');
-var Iterators = require('./_iterators');
-var toIObject = require('./_to-iobject');
-
-// 22.1.3.4 Array.prototype.entries()
-// 22.1.3.13 Array.prototype.keys()
-// 22.1.3.29 Array.prototype.values()
-// 22.1.3.30 Array.prototype[@@iterator]()
-module.exports = require('./_iter-define')(Array, 'Array', function (iterated, kind) {
-  this._t = toIObject(iterated); // target
-  this._i = 0;                   // next index
-  this._k = kind;                // kind
-// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
-}, function () {
-  var O = this._t;
-  var kind = this._k;
-  var index = this._i++;
-  if (!O || index >= O.length) {
-    this._t = undefined;
-    return step(1);
-  }
-  if (kind == 'keys') return step(0, index);
-  if (kind == 'values') return step(0, O[index]);
-  return step(0, [index, O[index]]);
-}, 'values');
-
-// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
-Iterators.Arguments = Iterators.Array;
-
-addToUnscopables('keys');
-addToUnscopables('values');
-addToUnscopables('entries');
-
-},{"./_add-to-unscopables":"../node_modules/core-js/library/modules/_add-to-unscopables.js","./_iter-step":"../node_modules/core-js/library/modules/_iter-step.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_iter-define":"../node_modules/core-js/library/modules/_iter-define.js"}],"../node_modules/core-js/library/modules/web.dom.iterable.js":[function(require,module,exports) {
-
-require('./es6.array.iterator');
-var global = require('./_global');
-var hide = require('./_hide');
-var Iterators = require('./_iterators');
-var TO_STRING_TAG = require('./_wks')('toStringTag');
-
-var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
-  'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
-  'MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,' +
-  'SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,' +
-  'TextTrackList,TouchList').split(',');
-
-for (var i = 0; i < DOMIterables.length; i++) {
-  var NAME = DOMIterables[i];
-  var Collection = global[NAME];
-  var proto = Collection && Collection.prototype;
-  if (proto && !proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
-  Iterators[NAME] = Iterators.Array;
-}
-
-},{"./es6.array.iterator":"../node_modules/core-js/library/modules/es6.array.iterator.js","./_global":"../node_modules/core-js/library/modules/_global.js","./_hide":"../node_modules/core-js/library/modules/_hide.js","./_iterators":"../node_modules/core-js/library/modules/_iterators.js","./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/modules/_wks-ext.js":[function(require,module,exports) {
-exports.f = require('./_wks');
-
-},{"./_wks":"../node_modules/core-js/library/modules/_wks.js"}],"../node_modules/core-js/library/fn/symbol/iterator.js":[function(require,module,exports) {
-require('../../modules/es6.string.iterator');
-require('../../modules/web.dom.iterable');
-module.exports = require('../../modules/_wks-ext').f('iterator');
-
-},{"../../modules/es6.string.iterator":"../node_modules/core-js/library/modules/es6.string.iterator.js","../../modules/web.dom.iterable":"../node_modules/core-js/library/modules/web.dom.iterable.js","../../modules/_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js"}],"../node_modules/babel-runtime/core-js/symbol/iterator.js":[function(require,module,exports) {
-module.exports = { "default": require("core-js/library/fn/symbol/iterator"), __esModule: true };
-},{"core-js/library/fn/symbol/iterator":"../node_modules/core-js/library/fn/symbol/iterator.js"}],"../node_modules/core-js/library/modules/_meta.js":[function(require,module,exports) {
-var META = require('./_uid')('meta');
-var isObject = require('./_is-object');
-var has = require('./_has');
-var setDesc = require('./_object-dp').f;
-var id = 0;
-var isExtensible = Object.isExtensible || function () {
-  return true;
-};
-var FREEZE = !require('./_fails')(function () {
-  return isExtensible(Object.preventExtensions({}));
-});
-var setMeta = function (it) {
-  setDesc(it, META, { value: {
-    i: 'O' + ++id, // object ID
-    w: {}          // weak collections IDs
-  } });
-};
-var fastKey = function (it, create) {
-  // return primitive with prefix
-  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
-  if (!has(it, META)) {
-    // can't set metadata to uncaught frozen object
-    if (!isExtensible(it)) return 'F';
-    // not necessary to add metadata
-    if (!create) return 'E';
-    // add missing metadata
-    setMeta(it);
-  // return object ID
-  } return it[META].i;
-};
-var getWeak = function (it, create) {
-  if (!has(it, META)) {
-    // can't set metadata to uncaught frozen object
-    if (!isExtensible(it)) return true;
-    // not necessary to add metadata
-    if (!create) return false;
-    // add missing metadata
-    setMeta(it);
-  // return hash weak collections IDs
-  } return it[META].w;
-};
-// add metadata on freeze-family methods calling
-var onFreeze = function (it) {
-  if (FREEZE && meta.NEED && isExtensible(it) && !has(it, META)) setMeta(it);
-  return it;
-};
-var meta = module.exports = {
-  KEY: META,
-  NEED: false,
-  fastKey: fastKey,
-  getWeak: getWeak,
-  onFreeze: onFreeze
-};
-
-},{"./_uid":"../node_modules/core-js/library/modules/_uid.js","./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_fails":"../node_modules/core-js/library/modules/_fails.js"}],"../node_modules/core-js/library/modules/_wks-define.js":[function(require,module,exports) {
-
-var global = require('./_global');
-var core = require('./_core');
-var LIBRARY = require('./_library');
-var wksExt = require('./_wks-ext');
-var defineProperty = require('./_object-dp').f;
-module.exports = function (name) {
-  var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
-  if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
-};
-
-},{"./_global":"../node_modules/core-js/library/modules/_global.js","./_core":"../node_modules/core-js/library/modules/_core.js","./_library":"../node_modules/core-js/library/modules/_library.js","./_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js"}],"../node_modules/core-js/library/modules/_enum-keys.js":[function(require,module,exports) {
-// all enumerable object keys, includes symbols
-var getKeys = require('./_object-keys');
-var gOPS = require('./_object-gops');
-var pIE = require('./_object-pie');
-module.exports = function (it) {
-  var result = getKeys(it);
-  var getSymbols = gOPS.f;
-  if (getSymbols) {
-    var symbols = getSymbols(it);
-    var isEnum = pIE.f;
-    var i = 0;
-    var key;
-    while (symbols.length > i) if (isEnum.call(it, key = symbols[i++])) result.push(key);
-  } return result;
-};
-
-},{"./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_object-gops":"../node_modules/core-js/library/modules/_object-gops.js","./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js"}],"../node_modules/core-js/library/modules/_is-array.js":[function(require,module,exports) {
-// 7.2.2 IsArray(argument)
-var cof = require('./_cof');
-module.exports = Array.isArray || function isArray(arg) {
-  return cof(arg) == 'Array';
-};
-
-},{"./_cof":"../node_modules/core-js/library/modules/_cof.js"}],"../node_modules/core-js/library/modules/_object-gopn.js":[function(require,module,exports) {
-// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-var $keys = require('./_object-keys-internal');
-var hiddenKeys = require('./_enum-bug-keys').concat('length', 'prototype');
-
-exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
-  return $keys(O, hiddenKeys);
-};
-
-},{"./_object-keys-internal":"../node_modules/core-js/library/modules/_object-keys-internal.js","./_enum-bug-keys":"../node_modules/core-js/library/modules/_enum-bug-keys.js"}],"../node_modules/core-js/library/modules/_object-gopn-ext.js":[function(require,module,exports) {
-// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-var toIObject = require('./_to-iobject');
-var gOPN = require('./_object-gopn').f;
-var toString = {}.toString;
-
-var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
-  ? Object.getOwnPropertyNames(window) : [];
-
-var getWindowNames = function (it) {
-  try {
-    return gOPN(it);
-  } catch (e) {
-    return windowNames.slice();
-  }
-};
-
-module.exports.f = function getOwnPropertyNames(it) {
-  return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
-};
-
-},{"./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_object-gopn":"../node_modules/core-js/library/modules/_object-gopn.js"}],"../node_modules/core-js/library/modules/_object-gopd.js":[function(require,module,exports) {
-var pIE = require('./_object-pie');
-var createDesc = require('./_property-desc');
-var toIObject = require('./_to-iobject');
-var toPrimitive = require('./_to-primitive');
-var has = require('./_has');
-var IE8_DOM_DEFINE = require('./_ie8-dom-define');
-var gOPD = Object.getOwnPropertyDescriptor;
-
-exports.f = require('./_descriptors') ? gOPD : function getOwnPropertyDescriptor(O, P) {
-  O = toIObject(O);
-  P = toPrimitive(P, true);
-  if (IE8_DOM_DEFINE) try {
-    return gOPD(O, P);
-  } catch (e) { /* empty */ }
-  if (has(O, P)) return createDesc(!pIE.f.call(O, P), O[P]);
-};
-
-},{"./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_to-primitive":"../node_modules/core-js/library/modules/_to-primitive.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_ie8-dom-define":"../node_modules/core-js/library/modules/_ie8-dom-define.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js"}],"../node_modules/core-js/library/modules/es6.symbol.js":[function(require,module,exports) {
-
-'use strict';
-// ECMAScript 6 symbols shim
-var global = require('./_global');
-var has = require('./_has');
-var DESCRIPTORS = require('./_descriptors');
-var $export = require('./_export');
-var redefine = require('./_redefine');
-var META = require('./_meta').KEY;
-var $fails = require('./_fails');
-var shared = require('./_shared');
-var setToStringTag = require('./_set-to-string-tag');
-var uid = require('./_uid');
-var wks = require('./_wks');
-var wksExt = require('./_wks-ext');
-var wksDefine = require('./_wks-define');
-var enumKeys = require('./_enum-keys');
-var isArray = require('./_is-array');
-var anObject = require('./_an-object');
-var isObject = require('./_is-object');
-var toObject = require('./_to-object');
-var toIObject = require('./_to-iobject');
-var toPrimitive = require('./_to-primitive');
-var createDesc = require('./_property-desc');
-var _create = require('./_object-create');
-var gOPNExt = require('./_object-gopn-ext');
-var $GOPD = require('./_object-gopd');
-var $GOPS = require('./_object-gops');
-var $DP = require('./_object-dp');
-var $keys = require('./_object-keys');
-var gOPD = $GOPD.f;
-var dP = $DP.f;
-var gOPN = gOPNExt.f;
-var $Symbol = global.Symbol;
-var $JSON = global.JSON;
-var _stringify = $JSON && $JSON.stringify;
-var PROTOTYPE = 'prototype';
-var HIDDEN = wks('_hidden');
-var TO_PRIMITIVE = wks('toPrimitive');
-var isEnum = {}.propertyIsEnumerable;
-var SymbolRegistry = shared('symbol-registry');
-var AllSymbols = shared('symbols');
-var OPSymbols = shared('op-symbols');
-var ObjectProto = Object[PROTOTYPE];
-var USE_NATIVE = typeof $Symbol == 'function' && !!$GOPS.f;
-var QObject = global.QObject;
-// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
-var setter = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
-
-// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
-var setSymbolDesc = DESCRIPTORS && $fails(function () {
-  return _create(dP({}, 'a', {
-    get: function () { return dP(this, 'a', { value: 7 }).a; }
-  })).a != 7;
-}) ? function (it, key, D) {
-  var protoDesc = gOPD(ObjectProto, key);
-  if (protoDesc) delete ObjectProto[key];
-  dP(it, key, D);
-  if (protoDesc && it !== ObjectProto) dP(ObjectProto, key, protoDesc);
-} : dP;
-
-var wrap = function (tag) {
-  var sym = AllSymbols[tag] = _create($Symbol[PROTOTYPE]);
-  sym._k = tag;
-  return sym;
-};
-
-var isSymbol = USE_NATIVE && typeof $Symbol.iterator == 'symbol' ? function (it) {
-  return typeof it == 'symbol';
-} : function (it) {
-  return it instanceof $Symbol;
-};
-
-var $defineProperty = function defineProperty(it, key, D) {
-  if (it === ObjectProto) $defineProperty(OPSymbols, key, D);
-  anObject(it);
-  key = toPrimitive(key, true);
-  anObject(D);
-  if (has(AllSymbols, key)) {
-    if (!D.enumerable) {
-      if (!has(it, HIDDEN)) dP(it, HIDDEN, createDesc(1, {}));
-      it[HIDDEN][key] = true;
-    } else {
-      if (has(it, HIDDEN) && it[HIDDEN][key]) it[HIDDEN][key] = false;
-      D = _create(D, { enumerable: createDesc(0, false) });
-    } return setSymbolDesc(it, key, D);
-  } return dP(it, key, D);
-};
-var $defineProperties = function defineProperties(it, P) {
-  anObject(it);
-  var keys = enumKeys(P = toIObject(P));
-  var i = 0;
-  var l = keys.length;
-  var key;
-  while (l > i) $defineProperty(it, key = keys[i++], P[key]);
-  return it;
-};
-var $create = function create(it, P) {
-  return P === undefined ? _create(it) : $defineProperties(_create(it), P);
-};
-var $propertyIsEnumerable = function propertyIsEnumerable(key) {
-  var E = isEnum.call(this, key = toPrimitive(key, true));
-  if (this === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return false;
-  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key] ? E : true;
-};
-var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(it, key) {
-  it = toIObject(it);
-  key = toPrimitive(key, true);
-  if (it === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return;
-  var D = gOPD(it, key);
-  if (D && has(AllSymbols, key) && !(has(it, HIDDEN) && it[HIDDEN][key])) D.enumerable = true;
-  return D;
-};
-var $getOwnPropertyNames = function getOwnPropertyNames(it) {
-  var names = gOPN(toIObject(it));
-  var result = [];
-  var i = 0;
-  var key;
-  while (names.length > i) {
-    if (!has(AllSymbols, key = names[i++]) && key != HIDDEN && key != META) result.push(key);
-  } return result;
-};
-var $getOwnPropertySymbols = function getOwnPropertySymbols(it) {
-  var IS_OP = it === ObjectProto;
-  var names = gOPN(IS_OP ? OPSymbols : toIObject(it));
-  var result = [];
-  var i = 0;
-  var key;
-  while (names.length > i) {
-    if (has(AllSymbols, key = names[i++]) && (IS_OP ? has(ObjectProto, key) : true)) result.push(AllSymbols[key]);
-  } return result;
-};
-
-// 19.4.1.1 Symbol([description])
-if (!USE_NATIVE) {
-  $Symbol = function Symbol() {
-    if (this instanceof $Symbol) throw TypeError('Symbol is not a constructor!');
-    var tag = uid(arguments.length > 0 ? arguments[0] : undefined);
-    var $set = function (value) {
-      if (this === ObjectProto) $set.call(OPSymbols, value);
-      if (has(this, HIDDEN) && has(this[HIDDEN], tag)) this[HIDDEN][tag] = false;
-      setSymbolDesc(this, tag, createDesc(1, value));
-    };
-    if (DESCRIPTORS && setter) setSymbolDesc(ObjectProto, tag, { configurable: true, set: $set });
-    return wrap(tag);
-  };
-  redefine($Symbol[PROTOTYPE], 'toString', function toString() {
-    return this._k;
-  });
-
-  $GOPD.f = $getOwnPropertyDescriptor;
-  $DP.f = $defineProperty;
-  require('./_object-gopn').f = gOPNExt.f = $getOwnPropertyNames;
-  require('./_object-pie').f = $propertyIsEnumerable;
-  $GOPS.f = $getOwnPropertySymbols;
-
-  if (DESCRIPTORS && !require('./_library')) {
-    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
-  }
-
-  wksExt.f = function (name) {
-    return wrap(wks(name));
-  };
-}
-
-$export($export.G + $export.W + $export.F * !USE_NATIVE, { Symbol: $Symbol });
-
-for (var es6Symbols = (
-  // 19.4.2.2, 19.4.2.3, 19.4.2.4, 19.4.2.6, 19.4.2.8, 19.4.2.9, 19.4.2.10, 19.4.2.11, 19.4.2.12, 19.4.2.13, 19.4.2.14
-  'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'
-).split(','), j = 0; es6Symbols.length > j;)wks(es6Symbols[j++]);
-
-for (var wellKnownSymbols = $keys(wks.store), k = 0; wellKnownSymbols.length > k;) wksDefine(wellKnownSymbols[k++]);
-
-$export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
-  // 19.4.2.1 Symbol.for(key)
-  'for': function (key) {
-    return has(SymbolRegistry, key += '')
-      ? SymbolRegistry[key]
-      : SymbolRegistry[key] = $Symbol(key);
-  },
-  // 19.4.2.5 Symbol.keyFor(sym)
-  keyFor: function keyFor(sym) {
-    if (!isSymbol(sym)) throw TypeError(sym + ' is not a symbol!');
-    for (var key in SymbolRegistry) if (SymbolRegistry[key] === sym) return key;
-  },
-  useSetter: function () { setter = true; },
-  useSimple: function () { setter = false; }
-});
-
-$export($export.S + $export.F * !USE_NATIVE, 'Object', {
-  // 19.1.2.2 Object.create(O [, Properties])
-  create: $create,
-  // 19.1.2.4 Object.defineProperty(O, P, Attributes)
-  defineProperty: $defineProperty,
-  // 19.1.2.3 Object.defineProperties(O, Properties)
-  defineProperties: $defineProperties,
-  // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
-  getOwnPropertyDescriptor: $getOwnPropertyDescriptor,
-  // 19.1.2.7 Object.getOwnPropertyNames(O)
-  getOwnPropertyNames: $getOwnPropertyNames,
-  // 19.1.2.8 Object.getOwnPropertySymbols(O)
-  getOwnPropertySymbols: $getOwnPropertySymbols
-});
-
-// Chrome 38 and 39 `Object.getOwnPropertySymbols` fails on primitives
-// https://bugs.chromium.org/p/v8/issues/detail?id=3443
-var FAILS_ON_PRIMITIVES = $fails(function () { $GOPS.f(1); });
-
-$export($export.S + $export.F * FAILS_ON_PRIMITIVES, 'Object', {
-  getOwnPropertySymbols: function getOwnPropertySymbols(it) {
-    return $GOPS.f(toObject(it));
-  }
-});
-
-// 24.3.2 JSON.stringify(value [, replacer [, space]])
-$JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
-  var S = $Symbol();
-  // MS Edge converts symbol values to JSON as {}
-  // WebKit converts symbol values to JSON as null
-  // V8 throws on boxed symbols
-  return _stringify([S]) != '[null]' || _stringify({ a: S }) != '{}' || _stringify(Object(S)) != '{}';
-})), 'JSON', {
-  stringify: function stringify(it) {
-    var args = [it];
-    var i = 1;
-    var replacer, $replacer;
-    while (arguments.length > i) args.push(arguments[i++]);
-    $replacer = replacer = args[1];
-    if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
-    if (!isArray(replacer)) replacer = function (key, value) {
-      if (typeof $replacer == 'function') value = $replacer.call(this, key, value);
-      if (!isSymbol(value)) return value;
-    };
-    args[1] = replacer;
-    return _stringify.apply($JSON, args);
-  }
-});
-
-// 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
-$Symbol[PROTOTYPE][TO_PRIMITIVE] || require('./_hide')($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
-// 19.4.3.5 Symbol.prototype[@@toStringTag]
-setToStringTag($Symbol, 'Symbol');
-// 20.2.1.9 Math[@@toStringTag]
-setToStringTag(Math, 'Math', true);
-// 24.3.3 JSON[@@toStringTag]
-setToStringTag(global.JSON, 'JSON', true);
-
-},{"./_global":"../node_modules/core-js/library/modules/_global.js","./_has":"../node_modules/core-js/library/modules/_has.js","./_descriptors":"../node_modules/core-js/library/modules/_descriptors.js","./_export":"../node_modules/core-js/library/modules/_export.js","./_redefine":"../node_modules/core-js/library/modules/_redefine.js","./_meta":"../node_modules/core-js/library/modules/_meta.js","./_fails":"../node_modules/core-js/library/modules/_fails.js","./_shared":"../node_modules/core-js/library/modules/_shared.js","./_set-to-string-tag":"../node_modules/core-js/library/modules/_set-to-string-tag.js","./_uid":"../node_modules/core-js/library/modules/_uid.js","./_wks":"../node_modules/core-js/library/modules/_wks.js","./_wks-ext":"../node_modules/core-js/library/modules/_wks-ext.js","./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js","./_enum-keys":"../node_modules/core-js/library/modules/_enum-keys.js","./_is-array":"../node_modules/core-js/library/modules/_is-array.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_to-object":"../node_modules/core-js/library/modules/_to-object.js","./_to-iobject":"../node_modules/core-js/library/modules/_to-iobject.js","./_to-primitive":"../node_modules/core-js/library/modules/_to-primitive.js","./_property-desc":"../node_modules/core-js/library/modules/_property-desc.js","./_object-create":"../node_modules/core-js/library/modules/_object-create.js","./_object-gopn-ext":"../node_modules/core-js/library/modules/_object-gopn-ext.js","./_object-gopd":"../node_modules/core-js/library/modules/_object-gopd.js","./_object-gops":"../node_modules/core-js/library/modules/_object-gops.js","./_object-dp":"../node_modules/core-js/library/modules/_object-dp.js","./_object-keys":"../node_modules/core-js/library/modules/_object-keys.js","./_object-gopn":"../node_modules/core-js/library/modules/_object-gopn.js","./_object-pie":"../node_modules/core-js/library/modules/_object-pie.js","./_library":"../node_modules/core-js/library/modules/_library.js","./_hide":"../node_modules/core-js/library/modules/_hide.js"}],"../node_modules/core-js/library/modules/es6.object.to-string.js":[function(require,module,exports) {
-
-},{}],"../node_modules/core-js/library/modules/es7.symbol.async-iterator.js":[function(require,module,exports) {
-require('./_wks-define')('asyncIterator');
-
-},{"./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js"}],"../node_modules/core-js/library/modules/es7.symbol.observable.js":[function(require,module,exports) {
-require('./_wks-define')('observable');
-
-},{"./_wks-define":"../node_modules/core-js/library/modules/_wks-define.js"}],"../node_modules/core-js/library/fn/symbol/index.js":[function(require,module,exports) {
-require('../../modules/es6.symbol');
-require('../../modules/es6.object.to-string');
-require('../../modules/es7.symbol.async-iterator');
-require('../../modules/es7.symbol.observable');
-module.exports = require('../../modules/_core').Symbol;
-
-},{"../../modules/es6.symbol":"../node_modules/core-js/library/modules/es6.symbol.js","../../modules/es6.object.to-string":"../node_modules/core-js/library/modules/es6.object.to-string.js","../../modules/es7.symbol.async-iterator":"../node_modules/core-js/library/modules/es7.symbol.async-iterator.js","../../modules/es7.symbol.observable":"../node_modules/core-js/library/modules/es7.symbol.observable.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/symbol.js":[function(require,module,exports) {
-module.exports = { "default": require("core-js/library/fn/symbol"), __esModule: true };
-},{"core-js/library/fn/symbol":"../node_modules/core-js/library/fn/symbol/index.js"}],"../node_modules/babel-runtime/helpers/typeof.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-var _iterator = require("../core-js/symbol/iterator");
-
-var _iterator2 = _interopRequireDefault(_iterator);
-
-var _symbol = require("../core-js/symbol");
-
-var _symbol2 = _interopRequireDefault(_symbol);
-
-var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
-} : function (obj) {
-  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
-};
-},{"../core-js/symbol/iterator":"../node_modules/babel-runtime/core-js/symbol/iterator.js","../core-js/symbol":"../node_modules/babel-runtime/core-js/symbol.js"}],"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-var _typeof2 = require("../helpers/typeof");
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return call && ((typeof call === "undefined" ? "undefined" : (0, _typeof3.default)(call)) === "object" || typeof call === "function") ? call : self;
-};
-},{"../helpers/typeof":"../node_modules/babel-runtime/helpers/typeof.js"}],"../node_modules/core-js/library/modules/_set-proto.js":[function(require,module,exports) {
-// Works with __proto__ only. Old v8 can't work with null proto objects.
-/* eslint-disable no-proto */
-var isObject = require('./_is-object');
-var anObject = require('./_an-object');
-var check = function (O, proto) {
-  anObject(O);
-  if (!isObject(proto) && proto !== null) throw TypeError(proto + ": can't set as prototype!");
-};
-module.exports = {
-  set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
-    function (test, buggy, set) {
-      try {
-        set = require('./_ctx')(Function.call, require('./_object-gopd').f(Object.prototype, '__proto__').set, 2);
-        set(test, []);
-        buggy = !(test instanceof Array);
-      } catch (e) { buggy = true; }
-      return function setPrototypeOf(O, proto) {
-        check(O, proto);
-        if (buggy) O.__proto__ = proto;
-        else set(O, proto);
-        return O;
-      };
-    }({}, false) : undefined),
-  check: check
-};
-
-},{"./_is-object":"../node_modules/core-js/library/modules/_is-object.js","./_an-object":"../node_modules/core-js/library/modules/_an-object.js","./_ctx":"../node_modules/core-js/library/modules/_ctx.js","./_object-gopd":"../node_modules/core-js/library/modules/_object-gopd.js"}],"../node_modules/core-js/library/modules/es6.object.set-prototype-of.js":[function(require,module,exports) {
-// 19.1.3.19 Object.setPrototypeOf(O, proto)
-var $export = require('./_export');
-$export($export.S, 'Object', { setPrototypeOf: require('./_set-proto').set });
-
-},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_set-proto":"../node_modules/core-js/library/modules/_set-proto.js"}],"../node_modules/core-js/library/fn/object/set-prototype-of.js":[function(require,module,exports) {
-require('../../modules/es6.object.set-prototype-of');
-module.exports = require('../../modules/_core').Object.setPrototypeOf;
-
-},{"../../modules/es6.object.set-prototype-of":"../node_modules/core-js/library/modules/es6.object.set-prototype-of.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/set-prototype-of.js":[function(require,module,exports) {
-module.exports = { "default": require("core-js/library/fn/object/set-prototype-of"), __esModule: true };
-},{"core-js/library/fn/object/set-prototype-of":"../node_modules/core-js/library/fn/object/set-prototype-of.js"}],"../node_modules/core-js/library/modules/es6.object.create.js":[function(require,module,exports) {
-var $export = require('./_export');
-// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-$export($export.S, 'Object', { create: require('./_object-create') });
-
-},{"./_export":"../node_modules/core-js/library/modules/_export.js","./_object-create":"../node_modules/core-js/library/modules/_object-create.js"}],"../node_modules/core-js/library/fn/object/create.js":[function(require,module,exports) {
-require('../../modules/es6.object.create');
-var $Object = require('../../modules/_core').Object;
-module.exports = function create(P, D) {
-  return $Object.create(P, D);
-};
-
-},{"../../modules/es6.object.create":"../node_modules/core-js/library/modules/es6.object.create.js","../../modules/_core":"../node_modules/core-js/library/modules/_core.js"}],"../node_modules/babel-runtime/core-js/object/create.js":[function(require,module,exports) {
-module.exports = { "default": require("core-js/library/fn/object/create"), __esModule: true };
-},{"core-js/library/fn/object/create":"../node_modules/core-js/library/fn/object/create.js"}],"../node_modules/babel-runtime/helpers/inherits.js":[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-
-var _setPrototypeOf = require("../core-js/object/set-prototype-of");
-
-var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
-
-var _create = require("../core-js/object/create");
-
-var _create2 = _interopRequireDefault(_create);
-
-var _typeof2 = require("../helpers/typeof");
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : (0, _typeof3.default)(superClass)));
-  }
-
-  subClass.prototype = (0, _create2.default)(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf2.default ? (0, _setPrototypeOf2.default)(subClass, superClass) : subClass.__proto__ = superClass;
-};
-},{"../core-js/object/set-prototype-of":"../node_modules/babel-runtime/core-js/object/set-prototype-of.js","../core-js/object/create":"../node_modules/babel-runtime/core-js/object/create.js","../helpers/typeof":"../node_modules/babel-runtime/helpers/typeof.js"}],"../node_modules/tinycolor2/tinycolor.js":[function(require,module,exports) {
+},{}],"../node_modules/tinycolor2/tinycolor.js":[function(require,module,exports) {
 var define;
 // TinyColor v1.4.1
 // https://github.com/bgrins/TinyColor
@@ -41110,216 +45193,7 @@ exports.magenta = magenta;
 var grey = presetPalettes.grey;
 exports.grey = grey;
 
-},{"./generate":"../node_modules/@ant-design/colors/lib/generate.js"}],"../node_modules/process/browser.js":[function(require,module,exports) {
-
-// shim for using process in browser
-var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-  throw new Error('setTimeout has not been defined');
-}
-
-function defaultClearTimeout() {
-  throw new Error('clearTimeout has not been defined');
-}
-
-(function () {
-  try {
-    if (typeof setTimeout === 'function') {
-      cachedSetTimeout = setTimeout;
-    } else {
-      cachedSetTimeout = defaultSetTimout;
-    }
-  } catch (e) {
-    cachedSetTimeout = defaultSetTimout;
-  }
-
-  try {
-    if (typeof clearTimeout === 'function') {
-      cachedClearTimeout = clearTimeout;
-    } else {
-      cachedClearTimeout = defaultClearTimeout;
-    }
-  } catch (e) {
-    cachedClearTimeout = defaultClearTimeout;
-  }
-})();
-
-function runTimeout(fun) {
-  if (cachedSetTimeout === setTimeout) {
-    //normal enviroments in sane situations
-    return setTimeout(fun, 0);
-  } // if setTimeout wasn't available but was latter defined
-
-
-  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-    cachedSetTimeout = setTimeout;
-    return setTimeout(fun, 0);
-  }
-
-  try {
-    // when when somebody has screwed with setTimeout but no I.E. maddness
-    return cachedSetTimeout(fun, 0);
-  } catch (e) {
-    try {
-      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-      return cachedSetTimeout.call(null, fun, 0);
-    } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-      return cachedSetTimeout.call(this, fun, 0);
-    }
-  }
-}
-
-function runClearTimeout(marker) {
-  if (cachedClearTimeout === clearTimeout) {
-    //normal enviroments in sane situations
-    return clearTimeout(marker);
-  } // if clearTimeout wasn't available but was latter defined
-
-
-  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-    cachedClearTimeout = clearTimeout;
-    return clearTimeout(marker);
-  }
-
-  try {
-    // when when somebody has screwed with setTimeout but no I.E. maddness
-    return cachedClearTimeout(marker);
-  } catch (e) {
-    try {
-      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-      return cachedClearTimeout.call(null, marker);
-    } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-      return cachedClearTimeout.call(this, marker);
-    }
-  }
-}
-
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-  if (!draining || !currentQueue) {
-    return;
-  }
-
-  draining = false;
-
-  if (currentQueue.length) {
-    queue = currentQueue.concat(queue);
-  } else {
-    queueIndex = -1;
-  }
-
-  if (queue.length) {
-    drainQueue();
-  }
-}
-
-function drainQueue() {
-  if (draining) {
-    return;
-  }
-
-  var timeout = runTimeout(cleanUpNextTick);
-  draining = true;
-  var len = queue.length;
-
-  while (len) {
-    currentQueue = queue;
-    queue = [];
-
-    while (++queueIndex < len) {
-      if (currentQueue) {
-        currentQueue[queueIndex].run();
-      }
-    }
-
-    queueIndex = -1;
-    len = queue.length;
-  }
-
-  currentQueue = null;
-  draining = false;
-  runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-  var args = new Array(arguments.length - 1);
-
-  if (arguments.length > 1) {
-    for (var i = 1; i < arguments.length; i++) {
-      args[i - 1] = arguments[i];
-    }
-  }
-
-  queue.push(new Item(fun, args));
-
-  if (queue.length === 1 && !draining) {
-    runTimeout(drainQueue);
-  }
-}; // v8 likes predictible objects
-
-
-function Item(fun, array) {
-  this.fun = fun;
-  this.array = array;
-}
-
-Item.prototype.run = function () {
-  this.fun.apply(null, this.array);
-};
-
-process.title = 'browser';
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) {
-  return [];
-};
-
-process.binding = function (name) {
-  throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () {
-  return '/';
-};
-
-process.chdir = function (dir) {
-  throw new Error('process.chdir is not supported');
-};
-
-process.umask = function () {
-  return 0;
-};
-},{}],"../node_modules/@ant-design/icons-react/es/utils.js":[function(require,module,exports) {
+},{"./generate":"../node_modules/@ant-design/colors/lib/generate.js"}],"../node_modules/@ant-design/icons-react/es/utils.js":[function(require,module,exports) {
 var process = require("process");
 "use strict";
 
@@ -42062,7 +45936,1008 @@ Icon.getTwoToneColor = _twoTonePrimaryColor.getTwoToneColor;
 Icon.setTwoToneColor = _twoTonePrimaryColor.setTwoToneColor;
 var _default = Icon;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","@ant-design/icons/lib/dist":"../node_modules/@ant-design/icons/lib/dist.js","@ant-design/icons-react":"../node_modules/@ant-design/icons-react/es/index.js","./IconFont":"../node_modules/antd/es/icon/IconFont.js","./utils":"../node_modules/antd/es/icon/utils.js","../_util/warning":"../node_modules/antd/es/_util/warning.js","../locale-provider/LocaleReceiver":"../node_modules/antd/es/locale-provider/LocaleReceiver.js","./twoTonePrimaryColor":"../node_modules/antd/es/icon/twoTonePrimaryColor.js"}],"../node_modules/antd/es/_util/isNumeric.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","@ant-design/icons/lib/dist":"../node_modules/@ant-design/icons/lib/dist.js","@ant-design/icons-react":"../node_modules/@ant-design/icons-react/es/index.js","./IconFont":"../node_modules/antd/es/icon/IconFont.js","./utils":"../node_modules/antd/es/icon/utils.js","../_util/warning":"../node_modules/antd/es/_util/warning.js","../locale-provider/LocaleReceiver":"../node_modules/antd/es/locale-provider/LocaleReceiver.js","./twoTonePrimaryColor":"../node_modules/antd/es/icon/twoTonePrimaryColor.js"}],"../node_modules/antd/es/tabs/TabBar.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _ScrollableInkTabBar = _interopRequireDefault(require("rc-tabs/es/ScrollableInkTabBar"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _icon = _interopRequireDefault(require("../icon"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+var TabBar = /*#__PURE__*/function (_React$Component) {
+  _inherits(TabBar, _React$Component);
+
+  var _super = _createSuper(TabBar);
+
+  function TabBar() {
+    _classCallCheck(this, TabBar);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(TabBar, [{
+    key: "render",
+    value: function render() {
+      var _classNames;
+
+      var _this$props = this.props,
+          tabBarStyle = _this$props.tabBarStyle,
+          animated = _this$props.animated,
+          renderTabBar = _this$props.renderTabBar,
+          tabBarExtraContent = _this$props.tabBarExtraContent,
+          tabPosition = _this$props.tabPosition,
+          prefixCls = _this$props.prefixCls,
+          className = _this$props.className,
+          size = _this$props.size,
+          type = _this$props.type;
+      var inkBarAnimated = _typeof(animated) === 'object' ? animated.inkBar : animated;
+      var isVertical = tabPosition === 'left' || tabPosition === 'right';
+      var prevIconType = isVertical ? 'up' : 'left';
+      var nextIconType = isVertical ? 'down' : 'right';
+      var prevIcon = /*#__PURE__*/React.createElement("span", {
+        className: "".concat(prefixCls, "-tab-prev-icon")
+      }, /*#__PURE__*/React.createElement(_icon.default, {
+        type: prevIconType,
+        className: "".concat(prefixCls, "-tab-prev-icon-target")
+      }));
+      var nextIcon = /*#__PURE__*/React.createElement("span", {
+        className: "".concat(prefixCls, "-tab-next-icon")
+      }, /*#__PURE__*/React.createElement(_icon.default, {
+        type: nextIconType,
+        className: "".concat(prefixCls, "-tab-next-icon-target")
+      })); // Additional className for style usage
+
+      var cls = (0, _classnames.default)("".concat(prefixCls, "-").concat(tabPosition, "-bar"), (_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-").concat(size, "-bar"), !!size), _defineProperty(_classNames, "".concat(prefixCls, "-card-bar"), type && type.indexOf('card') >= 0), _classNames), className);
+
+      var renderProps = _extends(_extends({}, this.props), {
+        children: null,
+        inkBarAnimated: inkBarAnimated,
+        extraContent: tabBarExtraContent,
+        style: tabBarStyle,
+        prevIcon: prevIcon,
+        nextIcon: nextIcon,
+        className: cls
+      });
+
+      var RenderTabBar;
+
+      if (renderTabBar) {
+        RenderTabBar = renderTabBar(renderProps, _ScrollableInkTabBar.default);
+      } else {
+        RenderTabBar = /*#__PURE__*/React.createElement(_ScrollableInkTabBar.default, renderProps);
+      }
+
+      return React.cloneElement(RenderTabBar);
+    }
+  }]);
+
+  return TabBar;
+}(React.Component);
+
+exports.default = TabBar;
+TabBar.defaultProps = {
+  animated: true,
+  type: 'line'
+};
+},{"react":"../node_modules/react/index.js","rc-tabs/es/ScrollableInkTabBar":"../node_modules/rc-tabs/es/ScrollableInkTabBar.js","classnames":"../node_modules/classnames/index.js","../icon":"../node_modules/antd/es/icon/index.js"}],"../node_modules/antd/es/_util/styleChecker.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.isFlexSupported = void 0;
+
+var isStyleSupport = function isStyleSupport(styleName) {
+  if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
+    var styleNameList = Array.isArray(styleName) ? styleName : [styleName];
+    var documentElement = window.document.documentElement;
+    return styleNameList.some(function (name) {
+      return name in documentElement.style;
+    });
+  }
+
+  return false;
+};
+
+var isFlexSupported = isStyleSupport(['flex', 'webkitFlex', 'Flex', 'msFlex']);
+exports.isFlexSupported = isFlexSupported;
+var _default = isStyleSupport;
+exports.default = _default;
+},{}],"../node_modules/antd/es/tabs/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var ReactDOM = _interopRequireWildcard(require("react-dom"));
+
+var _rcTabs = _interopRequireWildcard(require("rc-tabs"));
+
+var _TabContent = _interopRequireDefault(require("rc-tabs/es/TabContent"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _omit = _interopRequireDefault(require("omit.js"));
+
+var _TabBar = _interopRequireDefault(require("./TabBar"));
+
+var _icon = _interopRequireDefault(require("../icon"));
+
+var _configProvider = require("../config-provider");
+
+var _warning = _interopRequireDefault(require("../_util/warning"));
+
+var _styleChecker = require("../_util/styleChecker");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+var __rest = void 0 && (void 0).__rest || function (s, e) {
+  var t = {};
+
+  for (var p in s) {
+    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  }
+
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+  }
+  return t;
+};
+
+var Tabs = /*#__PURE__*/function (_React$Component) {
+  _inherits(Tabs, _React$Component);
+
+  var _super = _createSuper(Tabs);
+
+  function Tabs() {
+    var _this;
+
+    _classCallCheck(this, Tabs);
+
+    _this = _super.apply(this, arguments);
+
+    _this.removeTab = function (targetKey, e) {
+      e.stopPropagation();
+
+      if (!targetKey) {
+        return;
+      }
+
+      var onEdit = _this.props.onEdit;
+
+      if (onEdit) {
+        onEdit(targetKey, 'remove');
+      }
+    };
+
+    _this.handleChange = function (activeKey) {
+      var onChange = _this.props.onChange;
+
+      if (onChange) {
+        onChange(activeKey);
+      }
+    };
+
+    _this.createNewTab = function (targetKey) {
+      var onEdit = _this.props.onEdit;
+
+      if (onEdit) {
+        onEdit(targetKey, 'add');
+      }
+    };
+
+    _this.renderTabs = function (_ref) {
+      var _classNames;
+
+      var getPrefixCls = _ref.getPrefixCls;
+      var _this$props = _this.props,
+          customizePrefixCls = _this$props.prefixCls,
+          _this$props$className = _this$props.className,
+          className = _this$props$className === void 0 ? '' : _this$props$className,
+          size = _this$props.size,
+          _this$props$type = _this$props.type,
+          type = _this$props$type === void 0 ? 'line' : _this$props$type,
+          tabPosition = _this$props.tabPosition,
+          children = _this$props.children,
+          _this$props$animated = _this$props.animated,
+          animated = _this$props$animated === void 0 ? true : _this$props$animated,
+          hideAdd = _this$props.hideAdd;
+      var tabBarExtraContent = _this.props.tabBarExtraContent;
+      var tabPaneAnimated = _typeof(animated) === 'object' ? animated.tabPane : animated; // card tabs should not have animation
+
+      if (type !== 'line') {
+        tabPaneAnimated = 'animated' in _this.props ? tabPaneAnimated : false;
+      }
+
+      (0, _warning.default)(!(type.indexOf('card') >= 0 && (size === 'small' || size === 'large')), 'Tabs', "`type=card|editable-card` doesn't have small or large size, it's by design.");
+      var prefixCls = getPrefixCls('tabs', customizePrefixCls);
+      var cls = (0, _classnames.default)(className, (_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-vertical"), tabPosition === 'left' || tabPosition === 'right'), _defineProperty(_classNames, "".concat(prefixCls, "-").concat(size), !!size), _defineProperty(_classNames, "".concat(prefixCls, "-card"), type.indexOf('card') >= 0), _defineProperty(_classNames, "".concat(prefixCls, "-").concat(type), true), _defineProperty(_classNames, "".concat(prefixCls, "-no-animation"), !tabPaneAnimated), _classNames)); // only card type tabs can be added and closed
+
+      var childrenWithClose = [];
+
+      if (type === 'editable-card') {
+        childrenWithClose = [];
+        React.Children.forEach(children, function (child, index) {
+          if (!React.isValidElement(child)) return child;
+          var closable = child.props.closable;
+          closable = typeof closable === 'undefined' ? true : closable;
+          var closeIcon = closable ? /*#__PURE__*/React.createElement(_icon.default, {
+            type: "close",
+            className: "".concat(prefixCls, "-close-x"),
+            onClick: function onClick(e) {
+              return _this.removeTab(child.key, e);
+            }
+          }) : null;
+          childrenWithClose.push(React.cloneElement(child, {
+            tab: /*#__PURE__*/React.createElement("div", {
+              className: closable ? undefined : "".concat(prefixCls, "-tab-unclosable")
+            }, child.props.tab, closeIcon),
+            key: child.key || index
+          }));
+        }); // Add new tab handler
+
+        if (!hideAdd) {
+          tabBarExtraContent = /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement(_icon.default, {
+            type: "plus",
+            className: "".concat(prefixCls, "-new-tab"),
+            onClick: _this.createNewTab
+          }), tabBarExtraContent);
+        }
+      }
+
+      tabBarExtraContent = tabBarExtraContent ? /*#__PURE__*/React.createElement("div", {
+        className: "".concat(prefixCls, "-extra-content")
+      }, tabBarExtraContent) : null;
+
+      var tabBarProps = __rest(_this.props, []);
+
+      var contentCls = (0, _classnames.default)("".concat(prefixCls, "-").concat(tabPosition, "-content"), type.indexOf('card') >= 0 && "".concat(prefixCls, "-card-content"));
+      return /*#__PURE__*/React.createElement(_rcTabs.default, _extends({}, _this.props, {
+        prefixCls: prefixCls,
+        className: cls,
+        tabBarPosition: tabPosition,
+        renderTabBar: function renderTabBar() {
+          return /*#__PURE__*/React.createElement(_TabBar.default, _extends({}, (0, _omit.default)(tabBarProps, ['className']), {
+            tabBarExtraContent: tabBarExtraContent
+          }));
+        },
+        renderTabContent: function renderTabContent() {
+          return /*#__PURE__*/React.createElement(_TabContent.default, {
+            className: contentCls,
+            animated: tabPaneAnimated,
+            animatedWithMargin: true
+          });
+        },
+        onChange: _this.handleChange
+      }), childrenWithClose.length > 0 ? childrenWithClose : children);
+    };
+
+    return _this;
+  }
+
+  _createClass(Tabs, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var NO_FLEX = ' no-flex';
+      var tabNode = ReactDOM.findDOMNode(this);
+
+      if (tabNode && !_styleChecker.isFlexSupported && tabNode.className.indexOf(NO_FLEX) === -1) {
+        tabNode.className += NO_FLEX;
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement(_configProvider.ConfigConsumer, null, this.renderTabs);
+    }
+  }]);
+
+  return Tabs;
+}(React.Component);
+
+exports.default = Tabs;
+Tabs.TabPane = _rcTabs.TabPane;
+Tabs.defaultProps = {
+  hideAdd: false,
+  tabPosition: 'top'
+};
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","rc-tabs":"../node_modules/rc-tabs/es/index.js","rc-tabs/es/TabContent":"../node_modules/rc-tabs/es/TabContent.js","classnames":"../node_modules/classnames/index.js","omit.js":"../node_modules/omit.js/es/index.js","./TabBar":"../node_modules/antd/es/tabs/TabBar.js","../icon":"../node_modules/antd/es/icon/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js","../_util/warning":"../node_modules/antd/es/_util/warning.js","../_util/styleChecker":"../node_modules/antd/es/_util/styleChecker.js"}],"../node_modules/antd/es/layout/layout.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.LayoutContext = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _createReactContext = _interopRequireDefault(require("@ant-design/create-react-context"));
+
+var _configProvider = require("../config-provider");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+var __rest = void 0 && (void 0).__rest || function (s, e) {
+  var t = {};
+
+  for (var p in s) {
+    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  }
+
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+  }
+  return t;
+};
+
+var LayoutContext = (0, _createReactContext.default)({
+  siderHook: {
+    addSider: function addSider() {
+      return null;
+    },
+    removeSider: function removeSider() {
+      return null;
+    }
+  }
+});
+exports.LayoutContext = LayoutContext;
+
+function generator(_ref) {
+  var suffixCls = _ref.suffixCls,
+      tagName = _ref.tagName,
+      displayName = _ref.displayName;
+  return function (BasicComponent) {
+    var _a;
+
+    return _a = /*#__PURE__*/function (_React$Component) {
+      _inherits(Adapter, _React$Component);
+
+      var _super = _createSuper(Adapter);
+
+      function Adapter() {
+        var _this;
+
+        _classCallCheck(this, Adapter);
+
+        _this = _super.apply(this, arguments);
+
+        _this.renderComponent = function (_ref2) {
+          var getPrefixCls = _ref2.getPrefixCls;
+          var customizePrefixCls = _this.props.prefixCls;
+          var prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
+          return /*#__PURE__*/React.createElement(BasicComponent, _extends({
+            prefixCls: prefixCls,
+            tagName: tagName
+          }, _this.props));
+        };
+
+        return _this;
+      }
+
+      _createClass(Adapter, [{
+        key: "render",
+        value: function render() {
+          return /*#__PURE__*/React.createElement(_configProvider.ConfigConsumer, null, this.renderComponent);
+        }
+      }]);
+
+      return Adapter;
+    }(React.Component), _a.displayName = displayName, _a;
+  };
+}
+
+var Basic = function Basic(props) {
+  var prefixCls = props.prefixCls,
+      className = props.className,
+      children = props.children,
+      tagName = props.tagName,
+      others = __rest(props, ["prefixCls", "className", "children", "tagName"]);
+
+  var classString = (0, _classnames.default)(className, prefixCls);
+  return React.createElement(tagName, _extends({
+    className: classString
+  }, others), children);
+};
+
+var BasicLayout = /*#__PURE__*/function (_React$Component2) {
+  _inherits(BasicLayout, _React$Component2);
+
+  var _super2 = _createSuper(BasicLayout);
+
+  function BasicLayout() {
+    var _this2;
+
+    _classCallCheck(this, BasicLayout);
+
+    _this2 = _super2.apply(this, arguments);
+    _this2.state = {
+      siders: []
+    };
+    return _this2;
+  }
+
+  _createClass(BasicLayout, [{
+    key: "getSiderHook",
+    value: function getSiderHook() {
+      var _this3 = this;
+
+      return {
+        addSider: function addSider(id) {
+          _this3.setState(function (state) {
+            return {
+              siders: [].concat(_toConsumableArray(state.siders), [id])
+            };
+          });
+        },
+        removeSider: function removeSider(id) {
+          _this3.setState(function (state) {
+            return {
+              siders: state.siders.filter(function (currentId) {
+                return currentId !== id;
+              })
+            };
+          });
+        }
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _a = this.props,
+          prefixCls = _a.prefixCls,
+          className = _a.className,
+          children = _a.children,
+          hasSider = _a.hasSider,
+          Tag = _a.tagName,
+          others = __rest(_a, ["prefixCls", "className", "children", "hasSider", "tagName"]);
+
+      var classString = (0, _classnames.default)(className, prefixCls, _defineProperty({}, "".concat(prefixCls, "-has-sider"), typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0));
+      return /*#__PURE__*/React.createElement(LayoutContext.Provider, {
+        value: {
+          siderHook: this.getSiderHook()
+        }
+      }, /*#__PURE__*/React.createElement(Tag, _extends({
+        className: classString
+      }, others), children));
+    }
+  }]);
+
+  return BasicLayout;
+}(React.Component);
+
+var Layout = generator({
+  suffixCls: 'layout',
+  tagName: 'section',
+  displayName: 'Layout'
+})(BasicLayout);
+var Header = generator({
+  suffixCls: 'layout-header',
+  tagName: 'header',
+  displayName: 'Header'
+})(Basic);
+var Footer = generator({
+  suffixCls: 'layout-footer',
+  tagName: 'footer',
+  displayName: 'Footer'
+})(Basic);
+var Content = generator({
+  suffixCls: 'layout-content',
+  tagName: 'main',
+  displayName: 'Content'
+})(Basic);
+Layout.Header = Header;
+Layout.Footer = Footer;
+Layout.Content = Content;
+var _default = Layout;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","@ant-design/create-react-context":"../node_modules/@ant-design/create-react-context/lib/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js"}],"../node_modules/antd/es/_util/isNumeric.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50584,639 +55459,7 @@ var createBackend = function createBackend(manager, context) {
 
 var _default = createBackend;
 exports.default = _default;
-},{"./HTML5Backend":"../node_modules/react-dnd-html5-backend/dist/esm/HTML5Backend.js","./NativeTypes":"../node_modules/react-dnd-html5-backend/dist/esm/NativeTypes.js","./getEmptyImage":"../node_modules/react-dnd-html5-backend/dist/esm/getEmptyImage.js"}],"../node_modules/rc-util/es/KeyCode.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * @ignore
- * some key-codes definition and utils from closure-library
- * @author yiminghe@gmail.com
- */
-var KeyCode = {
-  /**
-   * MAC_ENTER
-   */
-  MAC_ENTER: 3,
-
-  /**
-   * BACKSPACE
-   */
-  BACKSPACE: 8,
-
-  /**
-   * TAB
-   */
-  TAB: 9,
-
-  /**
-   * NUMLOCK on FF/Safari Mac
-   */
-  NUM_CENTER: 12,
-
-  /**
-   * ENTER
-   */
-  ENTER: 13,
-
-  /**
-   * SHIFT
-   */
-  SHIFT: 16,
-
-  /**
-   * CTRL
-   */
-  CTRL: 17,
-
-  /**
-   * ALT
-   */
-  ALT: 18,
-
-  /**
-   * PAUSE
-   */
-  PAUSE: 19,
-
-  /**
-   * CAPS_LOCK
-   */
-  CAPS_LOCK: 20,
-
-  /**
-   * ESC
-   */
-  ESC: 27,
-
-  /**
-   * SPACE
-   */
-  SPACE: 32,
-
-  /**
-   * PAGE_UP
-   */
-  PAGE_UP: 33,
-
-  /**
-   * PAGE_DOWN
-   */
-  PAGE_DOWN: 34,
-
-  /**
-   * END
-   */
-  END: 35,
-
-  /**
-   * HOME
-   */
-  HOME: 36,
-
-  /**
-   * LEFT
-   */
-  LEFT: 37,
-
-  /**
-   * UP
-   */
-  UP: 38,
-
-  /**
-   * RIGHT
-   */
-  RIGHT: 39,
-
-  /**
-   * DOWN
-   */
-  DOWN: 40,
-
-  /**
-   * PRINT_SCREEN
-   */
-  PRINT_SCREEN: 44,
-
-  /**
-   * INSERT
-   */
-  INSERT: 45,
-
-  /**
-   * DELETE
-   */
-  DELETE: 46,
-
-  /**
-   * ZERO
-   */
-  ZERO: 48,
-
-  /**
-   * ONE
-   */
-  ONE: 49,
-
-  /**
-   * TWO
-   */
-  TWO: 50,
-
-  /**
-   * THREE
-   */
-  THREE: 51,
-
-  /**
-   * FOUR
-   */
-  FOUR: 52,
-
-  /**
-   * FIVE
-   */
-  FIVE: 53,
-
-  /**
-   * SIX
-   */
-  SIX: 54,
-
-  /**
-   * SEVEN
-   */
-  SEVEN: 55,
-
-  /**
-   * EIGHT
-   */
-  EIGHT: 56,
-
-  /**
-   * NINE
-   */
-  NINE: 57,
-
-  /**
-   * QUESTION_MARK
-   */
-  QUESTION_MARK: 63,
-
-  /**
-   * A
-   */
-  A: 65,
-
-  /**
-   * B
-   */
-  B: 66,
-
-  /**
-   * C
-   */
-  C: 67,
-
-  /**
-   * D
-   */
-  D: 68,
-
-  /**
-   * E
-   */
-  E: 69,
-
-  /**
-   * F
-   */
-  F: 70,
-
-  /**
-   * G
-   */
-  G: 71,
-
-  /**
-   * H
-   */
-  H: 72,
-
-  /**
-   * I
-   */
-  I: 73,
-
-  /**
-   * J
-   */
-  J: 74,
-
-  /**
-   * K
-   */
-  K: 75,
-
-  /**
-   * L
-   */
-  L: 76,
-
-  /**
-   * M
-   */
-  M: 77,
-
-  /**
-   * N
-   */
-  N: 78,
-
-  /**
-   * O
-   */
-  O: 79,
-
-  /**
-   * P
-   */
-  P: 80,
-
-  /**
-   * Q
-   */
-  Q: 81,
-
-  /**
-   * R
-   */
-  R: 82,
-
-  /**
-   * S
-   */
-  S: 83,
-
-  /**
-   * T
-   */
-  T: 84,
-
-  /**
-   * U
-   */
-  U: 85,
-
-  /**
-   * V
-   */
-  V: 86,
-
-  /**
-   * W
-   */
-  W: 87,
-
-  /**
-   * X
-   */
-  X: 88,
-
-  /**
-   * Y
-   */
-  Y: 89,
-
-  /**
-   * Z
-   */
-  Z: 90,
-
-  /**
-   * META
-   */
-  META: 91,
-
-  /**
-   * WIN_KEY_RIGHT
-   */
-  WIN_KEY_RIGHT: 92,
-
-  /**
-   * CONTEXT_MENU
-   */
-  CONTEXT_MENU: 93,
-
-  /**
-   * NUM_ZERO
-   */
-  NUM_ZERO: 96,
-
-  /**
-   * NUM_ONE
-   */
-  NUM_ONE: 97,
-
-  /**
-   * NUM_TWO
-   */
-  NUM_TWO: 98,
-
-  /**
-   * NUM_THREE
-   */
-  NUM_THREE: 99,
-
-  /**
-   * NUM_FOUR
-   */
-  NUM_FOUR: 100,
-
-  /**
-   * NUM_FIVE
-   */
-  NUM_FIVE: 101,
-
-  /**
-   * NUM_SIX
-   */
-  NUM_SIX: 102,
-
-  /**
-   * NUM_SEVEN
-   */
-  NUM_SEVEN: 103,
-
-  /**
-   * NUM_EIGHT
-   */
-  NUM_EIGHT: 104,
-
-  /**
-   * NUM_NINE
-   */
-  NUM_NINE: 105,
-
-  /**
-   * NUM_MULTIPLY
-   */
-  NUM_MULTIPLY: 106,
-
-  /**
-   * NUM_PLUS
-   */
-  NUM_PLUS: 107,
-
-  /**
-   * NUM_MINUS
-   */
-  NUM_MINUS: 109,
-
-  /**
-   * NUM_PERIOD
-   */
-  NUM_PERIOD: 110,
-
-  /**
-   * NUM_DIVISION
-   */
-  NUM_DIVISION: 111,
-
-  /**
-   * F1
-   */
-  F1: 112,
-
-  /**
-   * F2
-   */
-  F2: 113,
-
-  /**
-   * F3
-   */
-  F3: 114,
-
-  /**
-   * F4
-   */
-  F4: 115,
-
-  /**
-   * F5
-   */
-  F5: 116,
-
-  /**
-   * F6
-   */
-  F6: 117,
-
-  /**
-   * F7
-   */
-  F7: 118,
-
-  /**
-   * F8
-   */
-  F8: 119,
-
-  /**
-   * F9
-   */
-  F9: 120,
-
-  /**
-   * F10
-   */
-  F10: 121,
-
-  /**
-   * F11
-   */
-  F11: 122,
-
-  /**
-   * F12
-   */
-  F12: 123,
-
-  /**
-   * NUMLOCK
-   */
-  NUMLOCK: 144,
-
-  /**
-   * SEMICOLON
-   */
-  SEMICOLON: 186,
-
-  /**
-   * DASH
-   */
-  DASH: 189,
-
-  /**
-   * EQUALS
-   */
-  EQUALS: 187,
-
-  /**
-   * COMMA
-   */
-  COMMA: 188,
-
-  /**
-   * PERIOD
-   */
-  PERIOD: 190,
-
-  /**
-   * SLASH
-   */
-  SLASH: 191,
-
-  /**
-   * APOSTROPHE
-   */
-  APOSTROPHE: 192,
-
-  /**
-   * SINGLE_QUOTE
-   */
-  SINGLE_QUOTE: 222,
-
-  /**
-   * OPEN_SQUARE_BRACKET
-   */
-  OPEN_SQUARE_BRACKET: 219,
-
-  /**
-   * BACKSLASH
-   */
-  BACKSLASH: 220,
-
-  /**
-   * CLOSE_SQUARE_BRACKET
-   */
-  CLOSE_SQUARE_BRACKET: 221,
-
-  /**
-   * WIN_KEY
-   */
-  WIN_KEY: 224,
-
-  /**
-   * MAC_FF_META
-   */
-  MAC_FF_META: 224,
-
-  /**
-   * WIN_IME
-   */
-  WIN_IME: 229,
-  // ======================== Function ========================
-
-  /**
-   * whether text and modified key is entered at the same time.
-   */
-  isTextModifyingKeyEvent: function isTextModifyingKeyEvent(e) {
-    var keyCode = e.keyCode;
-
-    if (e.altKey && !e.ctrlKey || e.metaKey || // Function keys don't generate text
-    keyCode >= KeyCode.F1 && keyCode <= KeyCode.F12) {
-      return false;
-    } // The following keys are quite harmless, even in combination with
-    // CTRL, ALT or SHIFT.
-
-
-    switch (keyCode) {
-      case KeyCode.ALT:
-      case KeyCode.CAPS_LOCK:
-      case KeyCode.CONTEXT_MENU:
-      case KeyCode.CTRL:
-      case KeyCode.DOWN:
-      case KeyCode.END:
-      case KeyCode.ESC:
-      case KeyCode.HOME:
-      case KeyCode.INSERT:
-      case KeyCode.LEFT:
-      case KeyCode.MAC_FF_META:
-      case KeyCode.META:
-      case KeyCode.NUMLOCK:
-      case KeyCode.NUM_CENTER:
-      case KeyCode.PAGE_DOWN:
-      case KeyCode.PAGE_UP:
-      case KeyCode.PAUSE:
-      case KeyCode.PRINT_SCREEN:
-      case KeyCode.RIGHT:
-      case KeyCode.SHIFT:
-      case KeyCode.UP:
-      case KeyCode.WIN_KEY:
-      case KeyCode.WIN_KEY_RIGHT:
-        return false;
-
-      default:
-        return true;
-    }
-  },
-
-  /**
-   * whether character is entered.
-   */
-  isCharacterKey: function isCharacterKey(keyCode) {
-    if (keyCode >= KeyCode.ZERO && keyCode <= KeyCode.NINE) {
-      return true;
-    }
-
-    if (keyCode >= KeyCode.NUM_ZERO && keyCode <= KeyCode.NUM_MULTIPLY) {
-      return true;
-    }
-
-    if (keyCode >= KeyCode.A && keyCode <= KeyCode.Z) {
-      return true;
-    } // Safari sends zero key code for non-latin characters.
-
-
-    if (window.navigator.userAgent.indexOf('WebKit') !== -1 && keyCode === 0) {
-      return true;
-    }
-
-    switch (keyCode) {
-      case KeyCode.SPACE:
-      case KeyCode.QUESTION_MARK:
-      case KeyCode.NUM_PLUS:
-      case KeyCode.NUM_MINUS:
-      case KeyCode.NUM_PERIOD:
-      case KeyCode.NUM_DIVISION:
-      case KeyCode.SEMICOLON:
-      case KeyCode.DASH:
-      case KeyCode.EQUALS:
-      case KeyCode.COMMA:
-      case KeyCode.PERIOD:
-      case KeyCode.SLASH:
-      case KeyCode.APOSTROPHE:
-      case KeyCode.SINGLE_QUOTE:
-      case KeyCode.OPEN_SQUARE_BRACKET:
-      case KeyCode.BACKSLASH:
-      case KeyCode.CLOSE_SQUARE_BRACKET:
-        return true;
-
-      default:
-        return false;
-    }
-  }
-};
-var _default = KeyCode;
-exports.default = _default;
-},{}],"../node_modules/rc-util/es/Dom/contains.js":[function(require,module,exports) {
+},{"./HTML5Backend":"../node_modules/react-dnd-html5-backend/dist/esm/HTML5Backend.js","./NativeTypes":"../node_modules/react-dnd-html5-backend/dist/esm/NativeTypes.js","./getEmptyImage":"../node_modules/react-dnd-html5-backend/dist/esm/getEmptyImage.js"}],"../node_modules/rc-util/es/Dom/contains.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -54453,124 +58696,7 @@ function addEventListenerWrap(target, eventType, cb, option) {
   } : cb;
   return (0, _addDomEventListener.default)(target, eventType, callback, option);
 }
-},{"add-dom-event-listener":"../node_modules/add-dom-event-listener/lib/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../node_modules/performance-now/lib/performance-now.js":[function(require,module,exports) {
-var process = require("process");
-// Generated by CoffeeScript 1.12.2
-(function() {
-  var getNanoSeconds, hrtime, loadTime, moduleLoadTime, nodeLoadTime, upTime;
-
-  if ((typeof performance !== "undefined" && performance !== null) && performance.now) {
-    module.exports = function() {
-      return performance.now();
-    };
-  } else if ((typeof process !== "undefined" && process !== null) && process.hrtime) {
-    module.exports = function() {
-      return (getNanoSeconds() - nodeLoadTime) / 1e6;
-    };
-    hrtime = process.hrtime;
-    getNanoSeconds = function() {
-      var hr;
-      hr = hrtime();
-      return hr[0] * 1e9 + hr[1];
-    };
-    moduleLoadTime = getNanoSeconds();
-    upTime = process.uptime() * 1e9;
-    nodeLoadTime = moduleLoadTime - upTime;
-  } else if (Date.now) {
-    module.exports = function() {
-      return Date.now() - loadTime;
-    };
-    loadTime = Date.now();
-  } else {
-    module.exports = function() {
-      return new Date().getTime() - loadTime;
-    };
-    loadTime = new Date().getTime();
-  }
-
-}).call(this);
-
-
-
-},{"process":"../node_modules/process/browser.js"}],"../node_modules/raf/index.js":[function(require,module,exports) {
-var global = arguments[3];
-var now = require('performance-now')
-  , root = typeof window === 'undefined' ? global : window
-  , vendors = ['moz', 'webkit']
-  , suffix = 'AnimationFrame'
-  , raf = root['request' + suffix]
-  , caf = root['cancel' + suffix] || root['cancelRequest' + suffix]
-
-for(var i = 0; !raf && i < vendors.length; i++) {
-  raf = root[vendors[i] + 'Request' + suffix]
-  caf = root[vendors[i] + 'Cancel' + suffix]
-      || root[vendors[i] + 'CancelRequest' + suffix]
-}
-
-// Some versions of FF have rAF but not cAF
-if(!raf || !caf) {
-  var last = 0
-    , id = 0
-    , queue = []
-    , frameDuration = 1000 / 60
-
-  raf = function(callback) {
-    if(queue.length === 0) {
-      var _now = now()
-        , next = Math.max(0, frameDuration - (_now - last))
-      last = next + _now
-      setTimeout(function() {
-        var cp = queue.slice(0)
-        // Clear queue here to prevent
-        // callbacks from appending listeners
-        // to the current frame's queue
-        queue.length = 0
-        for(var i = 0; i < cp.length; i++) {
-          if(!cp[i].cancelled) {
-            try{
-              cp[i].callback(last)
-            } catch(e) {
-              setTimeout(function() { throw e }, 0)
-            }
-          }
-        }
-      }, Math.round(next))
-    }
-    queue.push({
-      handle: ++id,
-      callback: callback,
-      cancelled: false
-    })
-    return id
-  }
-
-  caf = function(handle) {
-    for(var i = 0; i < queue.length; i++) {
-      if(queue[i].handle === handle) {
-        queue[i].cancelled = true
-      }
-    }
-  }
-}
-
-module.exports = function(fn) {
-  // Wrap in a new function to prevent
-  // `cancel` potentially being assigned
-  // to the native rAF function
-  return raf.call(root, fn)
-}
-module.exports.cancel = function() {
-  caf.apply(root, arguments)
-}
-module.exports.polyfill = function(object) {
-  if (!object) {
-    object = root;
-  }
-  object.requestAnimationFrame = raf
-  object.cancelAnimationFrame = caf
-}
-
-},{"performance-now":"../node_modules/performance-now/lib/performance-now.js"}],"../node_modules/antd/es/_util/raf.js":[function(require,module,exports) {
+},{"add-dom-event-listener":"../node_modules/add-dom-event-listener/lib/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../node_modules/antd/es/_util/raf.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -66548,1129 +70674,7 @@ var isMobileDevice = function isMobileDevice() {
 };
 
 exports.isMobileDevice = isMobileDevice;
-},{"react":"../node_modules/react/index.js","./utils/isMobile":"../node_modules/rc-menu/es/utils/isMobile.js"}],"../node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js":[function(require,module,exports) {
-var global = arguments[3];
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * A collection of shims that provide minimal functionality of the ES6 collections.
- *
- * These implementations are not meant to be used outside of the ResizeObserver
- * modules as they cover only a limited range of use cases.
- */
-
-/* eslint-disable require-jsdoc, valid-jsdoc */
-var MapShim = function () {
-  if (typeof Map !== 'undefined') {
-    return Map;
-  }
-  /**
-   * Returns index in provided array that matches the specified key.
-   *
-   * @param {Array<Array>} arr
-   * @param {*} key
-   * @returns {number}
-   */
-
-
-  function getIndex(arr, key) {
-    var result = -1;
-    arr.some(function (entry, index) {
-      if (entry[0] === key) {
-        result = index;
-        return true;
-      }
-
-      return false;
-    });
-    return result;
-  }
-
-  return (
-    /** @class */
-    function () {
-      function class_1() {
-        this.__entries__ = [];
-      }
-
-      Object.defineProperty(class_1.prototype, "size", {
-        /**
-         * @returns {boolean}
-         */
-        get: function () {
-          return this.__entries__.length;
-        },
-        enumerable: true,
-        configurable: true
-      });
-      /**
-       * @param {*} key
-       * @returns {*}
-       */
-
-      class_1.prototype.get = function (key) {
-        var index = getIndex(this.__entries__, key);
-        var entry = this.__entries__[index];
-        return entry && entry[1];
-      };
-      /**
-       * @param {*} key
-       * @param {*} value
-       * @returns {void}
-       */
-
-
-      class_1.prototype.set = function (key, value) {
-        var index = getIndex(this.__entries__, key);
-
-        if (~index) {
-          this.__entries__[index][1] = value;
-        } else {
-          this.__entries__.push([key, value]);
-        }
-      };
-      /**
-       * @param {*} key
-       * @returns {void}
-       */
-
-
-      class_1.prototype.delete = function (key) {
-        var entries = this.__entries__;
-        var index = getIndex(entries, key);
-
-        if (~index) {
-          entries.splice(index, 1);
-        }
-      };
-      /**
-       * @param {*} key
-       * @returns {void}
-       */
-
-
-      class_1.prototype.has = function (key) {
-        return !!~getIndex(this.__entries__, key);
-      };
-      /**
-       * @returns {void}
-       */
-
-
-      class_1.prototype.clear = function () {
-        this.__entries__.splice(0);
-      };
-      /**
-       * @param {Function} callback
-       * @param {*} [ctx=null]
-       * @returns {void}
-       */
-
-
-      class_1.prototype.forEach = function (callback, ctx) {
-        if (ctx === void 0) {
-          ctx = null;
-        }
-
-        for (var _i = 0, _a = this.__entries__; _i < _a.length; _i++) {
-          var entry = _a[_i];
-          callback.call(ctx, entry[1], entry[0]);
-        }
-      };
-
-      return class_1;
-    }()
-  );
-}();
-/**
- * Detects whether window and document objects are available in current environment.
- */
-
-
-var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined' && window.document === document; // Returns global object of a current environment.
-
-var global$1 = function () {
-  if (typeof global !== 'undefined' && global.Math === Math) {
-    return global;
-  }
-
-  if (typeof self !== 'undefined' && self.Math === Math) {
-    return self;
-  }
-
-  if (typeof window !== 'undefined' && window.Math === Math) {
-    return window;
-  } // eslint-disable-next-line no-new-func
-
-
-  return Function('return this')();
-}();
-/**
- * A shim for the requestAnimationFrame which falls back to the setTimeout if
- * first one is not supported.
- *
- * @returns {number} Requests' identifier.
- */
-
-
-var requestAnimationFrame$1 = function () {
-  if (typeof requestAnimationFrame === 'function') {
-    // It's required to use a bounded function because IE sometimes throws
-    // an "Invalid calling object" error if rAF is invoked without the global
-    // object on the left hand side.
-    return requestAnimationFrame.bind(global$1);
-  }
-
-  return function (callback) {
-    return setTimeout(function () {
-      return callback(Date.now());
-    }, 1000 / 60);
-  };
-}(); // Defines minimum timeout before adding a trailing call.
-
-
-var trailingTimeout = 2;
-/**
- * Creates a wrapper function which ensures that provided callback will be
- * invoked only once during the specified delay period.
- *
- * @param {Function} callback - Function to be invoked after the delay period.
- * @param {number} delay - Delay after which to invoke callback.
- * @returns {Function}
- */
-
-function throttle(callback, delay) {
-  var leadingCall = false,
-      trailingCall = false,
-      lastCallTime = 0;
-  /**
-   * Invokes the original callback function and schedules new invocation if
-   * the "proxy" was called during current request.
-   *
-   * @returns {void}
-   */
-
-  function resolvePending() {
-    if (leadingCall) {
-      leadingCall = false;
-      callback();
-    }
-
-    if (trailingCall) {
-      proxy();
-    }
-  }
-  /**
-   * Callback invoked after the specified delay. It will further postpone
-   * invocation of the original function delegating it to the
-   * requestAnimationFrame.
-   *
-   * @returns {void}
-   */
-
-
-  function timeoutCallback() {
-    requestAnimationFrame$1(resolvePending);
-  }
-  /**
-   * Schedules invocation of the original function.
-   *
-   * @returns {void}
-   */
-
-
-  function proxy() {
-    var timeStamp = Date.now();
-
-    if (leadingCall) {
-      // Reject immediately following calls.
-      if (timeStamp - lastCallTime < trailingTimeout) {
-        return;
-      } // Schedule new call to be in invoked when the pending one is resolved.
-      // This is important for "transitions" which never actually start
-      // immediately so there is a chance that we might miss one if change
-      // happens amids the pending invocation.
-
-
-      trailingCall = true;
-    } else {
-      leadingCall = true;
-      trailingCall = false;
-      setTimeout(timeoutCallback, delay);
-    }
-
-    lastCallTime = timeStamp;
-  }
-
-  return proxy;
-} // Minimum delay before invoking the update of observers.
-
-
-var REFRESH_DELAY = 20; // A list of substrings of CSS properties used to find transition events that
-// might affect dimensions of observed elements.
-
-var transitionKeys = ['top', 'right', 'bottom', 'left', 'width', 'height', 'size', 'weight']; // Check if MutationObserver is available.
-
-var mutationObserverSupported = typeof MutationObserver !== 'undefined';
-/**
- * Singleton controller class which handles updates of ResizeObserver instances.
- */
-
-var ResizeObserverController =
-/** @class */
-function () {
-  /**
-   * Creates a new instance of ResizeObserverController.
-   *
-   * @private
-   */
-  function ResizeObserverController() {
-    /**
-     * Indicates whether DOM listeners have been added.
-     *
-     * @private {boolean}
-     */
-    this.connected_ = false;
-    /**
-     * Tells that controller has subscribed for Mutation Events.
-     *
-     * @private {boolean}
-     */
-
-    this.mutationEventsAdded_ = false;
-    /**
-     * Keeps reference to the instance of MutationObserver.
-     *
-     * @private {MutationObserver}
-     */
-
-    this.mutationsObserver_ = null;
-    /**
-     * A list of connected observers.
-     *
-     * @private {Array<ResizeObserverSPI>}
-     */
-
-    this.observers_ = [];
-    this.onTransitionEnd_ = this.onTransitionEnd_.bind(this);
-    this.refresh = throttle(this.refresh.bind(this), REFRESH_DELAY);
-  }
-  /**
-   * Adds observer to observers list.
-   *
-   * @param {ResizeObserverSPI} observer - Observer to be added.
-   * @returns {void}
-   */
-
-
-  ResizeObserverController.prototype.addObserver = function (observer) {
-    if (!~this.observers_.indexOf(observer)) {
-      this.observers_.push(observer);
-    } // Add listeners if they haven't been added yet.
-
-
-    if (!this.connected_) {
-      this.connect_();
-    }
-  };
-  /**
-   * Removes observer from observers list.
-   *
-   * @param {ResizeObserverSPI} observer - Observer to be removed.
-   * @returns {void}
-   */
-
-
-  ResizeObserverController.prototype.removeObserver = function (observer) {
-    var observers = this.observers_;
-    var index = observers.indexOf(observer); // Remove observer if it's present in registry.
-
-    if (~index) {
-      observers.splice(index, 1);
-    } // Remove listeners if controller has no connected observers.
-
-
-    if (!observers.length && this.connected_) {
-      this.disconnect_();
-    }
-  };
-  /**
-   * Invokes the update of observers. It will continue running updates insofar
-   * it detects changes.
-   *
-   * @returns {void}
-   */
-
-
-  ResizeObserverController.prototype.refresh = function () {
-    var changesDetected = this.updateObservers_(); // Continue running updates if changes have been detected as there might
-    // be future ones caused by CSS transitions.
-
-    if (changesDetected) {
-      this.refresh();
-    }
-  };
-  /**
-   * Updates every observer from observers list and notifies them of queued
-   * entries.
-   *
-   * @private
-   * @returns {boolean} Returns "true" if any observer has detected changes in
-   *      dimensions of it's elements.
-   */
-
-
-  ResizeObserverController.prototype.updateObservers_ = function () {
-    // Collect observers that have active observations.
-    var activeObservers = this.observers_.filter(function (observer) {
-      return observer.gatherActive(), observer.hasActive();
-    }); // Deliver notifications in a separate cycle in order to avoid any
-    // collisions between observers, e.g. when multiple instances of
-    // ResizeObserver are tracking the same element and the callback of one
-    // of them changes content dimensions of the observed target. Sometimes
-    // this may result in notifications being blocked for the rest of observers.
-
-    activeObservers.forEach(function (observer) {
-      return observer.broadcastActive();
-    });
-    return activeObservers.length > 0;
-  };
-  /**
-   * Initializes DOM listeners.
-   *
-   * @private
-   * @returns {void}
-   */
-
-
-  ResizeObserverController.prototype.connect_ = function () {
-    // Do nothing if running in a non-browser environment or if listeners
-    // have been already added.
-    if (!isBrowser || this.connected_) {
-      return;
-    } // Subscription to the "Transitionend" event is used as a workaround for
-    // delayed transitions. This way it's possible to capture at least the
-    // final state of an element.
-
-
-    document.addEventListener('transitionend', this.onTransitionEnd_);
-    window.addEventListener('resize', this.refresh);
-
-    if (mutationObserverSupported) {
-      this.mutationsObserver_ = new MutationObserver(this.refresh);
-      this.mutationsObserver_.observe(document, {
-        attributes: true,
-        childList: true,
-        characterData: true,
-        subtree: true
-      });
-    } else {
-      document.addEventListener('DOMSubtreeModified', this.refresh);
-      this.mutationEventsAdded_ = true;
-    }
-
-    this.connected_ = true;
-  };
-  /**
-   * Removes DOM listeners.
-   *
-   * @private
-   * @returns {void}
-   */
-
-
-  ResizeObserverController.prototype.disconnect_ = function () {
-    // Do nothing if running in a non-browser environment or if listeners
-    // have been already removed.
-    if (!isBrowser || !this.connected_) {
-      return;
-    }
-
-    document.removeEventListener('transitionend', this.onTransitionEnd_);
-    window.removeEventListener('resize', this.refresh);
-
-    if (this.mutationsObserver_) {
-      this.mutationsObserver_.disconnect();
-    }
-
-    if (this.mutationEventsAdded_) {
-      document.removeEventListener('DOMSubtreeModified', this.refresh);
-    }
-
-    this.mutationsObserver_ = null;
-    this.mutationEventsAdded_ = false;
-    this.connected_ = false;
-  };
-  /**
-   * "Transitionend" event handler.
-   *
-   * @private
-   * @param {TransitionEvent} event
-   * @returns {void}
-   */
-
-
-  ResizeObserverController.prototype.onTransitionEnd_ = function (_a) {
-    var _b = _a.propertyName,
-        propertyName = _b === void 0 ? '' : _b; // Detect whether transition may affect dimensions of an element.
-
-    var isReflowProperty = transitionKeys.some(function (key) {
-      return !!~propertyName.indexOf(key);
-    });
-
-    if (isReflowProperty) {
-      this.refresh();
-    }
-  };
-  /**
-   * Returns instance of the ResizeObserverController.
-   *
-   * @returns {ResizeObserverController}
-   */
-
-
-  ResizeObserverController.getInstance = function () {
-    if (!this.instance_) {
-      this.instance_ = new ResizeObserverController();
-    }
-
-    return this.instance_;
-  };
-  /**
-   * Holds reference to the controller's instance.
-   *
-   * @private {ResizeObserverController}
-   */
-
-
-  ResizeObserverController.instance_ = null;
-  return ResizeObserverController;
-}();
-/**
- * Defines non-writable/enumerable properties of the provided target object.
- *
- * @param {Object} target - Object for which to define properties.
- * @param {Object} props - Properties to be defined.
- * @returns {Object} Target object.
- */
-
-
-var defineConfigurable = function (target, props) {
-  for (var _i = 0, _a = Object.keys(props); _i < _a.length; _i++) {
-    var key = _a[_i];
-    Object.defineProperty(target, key, {
-      value: props[key],
-      enumerable: false,
-      writable: false,
-      configurable: true
-    });
-  }
-
-  return target;
-};
-/**
- * Returns the global object associated with provided element.
- *
- * @param {Object} target
- * @returns {Object}
- */
-
-
-var getWindowOf = function (target) {
-  // Assume that the element is an instance of Node, which means that it
-  // has the "ownerDocument" property from which we can retrieve a
-  // corresponding global object.
-  var ownerGlobal = target && target.ownerDocument && target.ownerDocument.defaultView; // Return the local global object if it's not possible extract one from
-  // provided element.
-
-  return ownerGlobal || global$1;
-}; // Placeholder of an empty content rectangle.
-
-
-var emptyRect = createRectInit(0, 0, 0, 0);
-/**
- * Converts provided string to a number.
- *
- * @param {number|string} value
- * @returns {number}
- */
-
-function toFloat(value) {
-  return parseFloat(value) || 0;
-}
-/**
- * Extracts borders size from provided styles.
- *
- * @param {CSSStyleDeclaration} styles
- * @param {...string} positions - Borders positions (top, right, ...)
- * @returns {number}
- */
-
-
-function getBordersSize(styles) {
-  var positions = [];
-
-  for (var _i = 1; _i < arguments.length; _i++) {
-    positions[_i - 1] = arguments[_i];
-  }
-
-  return positions.reduce(function (size, position) {
-    var value = styles['border-' + position + '-width'];
-    return size + toFloat(value);
-  }, 0);
-}
-/**
- * Extracts paddings sizes from provided styles.
- *
- * @param {CSSStyleDeclaration} styles
- * @returns {Object} Paddings box.
- */
-
-
-function getPaddings(styles) {
-  var positions = ['top', 'right', 'bottom', 'left'];
-  var paddings = {};
-
-  for (var _i = 0, positions_1 = positions; _i < positions_1.length; _i++) {
-    var position = positions_1[_i];
-    var value = styles['padding-' + position];
-    paddings[position] = toFloat(value);
-  }
-
-  return paddings;
-}
-/**
- * Calculates content rectangle of provided SVG element.
- *
- * @param {SVGGraphicsElement} target - Element content rectangle of which needs
- *      to be calculated.
- * @returns {DOMRectInit}
- */
-
-
-function getSVGContentRect(target) {
-  var bbox = target.getBBox();
-  return createRectInit(0, 0, bbox.width, bbox.height);
-}
-/**
- * Calculates content rectangle of provided HTMLElement.
- *
- * @param {HTMLElement} target - Element for which to calculate the content rectangle.
- * @returns {DOMRectInit}
- */
-
-
-function getHTMLElementContentRect(target) {
-  // Client width & height properties can't be
-  // used exclusively as they provide rounded values.
-  var clientWidth = target.clientWidth,
-      clientHeight = target.clientHeight; // By this condition we can catch all non-replaced inline, hidden and
-  // detached elements. Though elements with width & height properties less
-  // than 0.5 will be discarded as well.
-  //
-  // Without it we would need to implement separate methods for each of
-  // those cases and it's not possible to perform a precise and performance
-  // effective test for hidden elements. E.g. even jQuery's ':visible' filter
-  // gives wrong results for elements with width & height less than 0.5.
-
-  if (!clientWidth && !clientHeight) {
-    return emptyRect;
-  }
-
-  var styles = getWindowOf(target).getComputedStyle(target);
-  var paddings = getPaddings(styles);
-  var horizPad = paddings.left + paddings.right;
-  var vertPad = paddings.top + paddings.bottom; // Computed styles of width & height are being used because they are the
-  // only dimensions available to JS that contain non-rounded values. It could
-  // be possible to utilize the getBoundingClientRect if only it's data wasn't
-  // affected by CSS transformations let alone paddings, borders and scroll bars.
-
-  var width = toFloat(styles.width),
-      height = toFloat(styles.height); // Width & height include paddings and borders when the 'border-box' box
-  // model is applied (except for IE).
-
-  if (styles.boxSizing === 'border-box') {
-    // Following conditions are required to handle Internet Explorer which
-    // doesn't include paddings and borders to computed CSS dimensions.
-    //
-    // We can say that if CSS dimensions + paddings are equal to the "client"
-    // properties then it's either IE, and thus we don't need to subtract
-    // anything, or an element merely doesn't have paddings/borders styles.
-    if (Math.round(width + horizPad) !== clientWidth) {
-      width -= getBordersSize(styles, 'left', 'right') + horizPad;
-    }
-
-    if (Math.round(height + vertPad) !== clientHeight) {
-      height -= getBordersSize(styles, 'top', 'bottom') + vertPad;
-    }
-  } // Following steps can't be applied to the document's root element as its
-  // client[Width/Height] properties represent viewport area of the window.
-  // Besides, it's as well not necessary as the <html> itself neither has
-  // rendered scroll bars nor it can be clipped.
-
-
-  if (!isDocumentElement(target)) {
-    // In some browsers (only in Firefox, actually) CSS width & height
-    // include scroll bars size which can be removed at this step as scroll
-    // bars are the only difference between rounded dimensions + paddings
-    // and "client" properties, though that is not always true in Chrome.
-    var vertScrollbar = Math.round(width + horizPad) - clientWidth;
-    var horizScrollbar = Math.round(height + vertPad) - clientHeight; // Chrome has a rather weird rounding of "client" properties.
-    // E.g. for an element with content width of 314.2px it sometimes gives
-    // the client width of 315px and for the width of 314.7px it may give
-    // 314px. And it doesn't happen all the time. So just ignore this delta
-    // as a non-relevant.
-
-    if (Math.abs(vertScrollbar) !== 1) {
-      width -= vertScrollbar;
-    }
-
-    if (Math.abs(horizScrollbar) !== 1) {
-      height -= horizScrollbar;
-    }
-  }
-
-  return createRectInit(paddings.left, paddings.top, width, height);
-}
-/**
- * Checks whether provided element is an instance of the SVGGraphicsElement.
- *
- * @param {Element} target - Element to be checked.
- * @returns {boolean}
- */
-
-
-var isSVGGraphicsElement = function () {
-  // Some browsers, namely IE and Edge, don't have the SVGGraphicsElement
-  // interface.
-  if (typeof SVGGraphicsElement !== 'undefined') {
-    return function (target) {
-      return target instanceof getWindowOf(target).SVGGraphicsElement;
-    };
-  } // If it's so, then check that element is at least an instance of the
-  // SVGElement and that it has the "getBBox" method.
-  // eslint-disable-next-line no-extra-parens
-
-
-  return function (target) {
-    return target instanceof getWindowOf(target).SVGElement && typeof target.getBBox === 'function';
-  };
-}();
-/**
- * Checks whether provided element is a document element (<html>).
- *
- * @param {Element} target - Element to be checked.
- * @returns {boolean}
- */
-
-
-function isDocumentElement(target) {
-  return target === getWindowOf(target).document.documentElement;
-}
-/**
- * Calculates an appropriate content rectangle for provided html or svg element.
- *
- * @param {Element} target - Element content rectangle of which needs to be calculated.
- * @returns {DOMRectInit}
- */
-
-
-function getContentRect(target) {
-  if (!isBrowser) {
-    return emptyRect;
-  }
-
-  if (isSVGGraphicsElement(target)) {
-    return getSVGContentRect(target);
-  }
-
-  return getHTMLElementContentRect(target);
-}
-/**
- * Creates rectangle with an interface of the DOMRectReadOnly.
- * Spec: https://drafts.fxtf.org/geometry/#domrectreadonly
- *
- * @param {DOMRectInit} rectInit - Object with rectangle's x/y coordinates and dimensions.
- * @returns {DOMRectReadOnly}
- */
-
-
-function createReadOnlyRect(_a) {
-  var x = _a.x,
-      y = _a.y,
-      width = _a.width,
-      height = _a.height; // If DOMRectReadOnly is available use it as a prototype for the rectangle.
-
-  var Constr = typeof DOMRectReadOnly !== 'undefined' ? DOMRectReadOnly : Object;
-  var rect = Object.create(Constr.prototype); // Rectangle's properties are not writable and non-enumerable.
-
-  defineConfigurable(rect, {
-    x: x,
-    y: y,
-    width: width,
-    height: height,
-    top: y,
-    right: x + width,
-    bottom: height + y,
-    left: x
-  });
-  return rect;
-}
-/**
- * Creates DOMRectInit object based on the provided dimensions and the x/y coordinates.
- * Spec: https://drafts.fxtf.org/geometry/#dictdef-domrectinit
- *
- * @param {number} x - X coordinate.
- * @param {number} y - Y coordinate.
- * @param {number} width - Rectangle's width.
- * @param {number} height - Rectangle's height.
- * @returns {DOMRectInit}
- */
-
-
-function createRectInit(x, y, width, height) {
-  return {
-    x: x,
-    y: y,
-    width: width,
-    height: height
-  };
-}
-/**
- * Class that is responsible for computations of the content rectangle of
- * provided DOM element and for keeping track of it's changes.
- */
-
-
-var ResizeObservation =
-/** @class */
-function () {
-  /**
-   * Creates an instance of ResizeObservation.
-   *
-   * @param {Element} target - Element to be observed.
-   */
-  function ResizeObservation(target) {
-    /**
-     * Broadcasted width of content rectangle.
-     *
-     * @type {number}
-     */
-    this.broadcastWidth = 0;
-    /**
-     * Broadcasted height of content rectangle.
-     *
-     * @type {number}
-     */
-
-    this.broadcastHeight = 0;
-    /**
-     * Reference to the last observed content rectangle.
-     *
-     * @private {DOMRectInit}
-     */
-
-    this.contentRect_ = createRectInit(0, 0, 0, 0);
-    this.target = target;
-  }
-  /**
-   * Updates content rectangle and tells whether it's width or height properties
-   * have changed since the last broadcast.
-   *
-   * @returns {boolean}
-   */
-
-
-  ResizeObservation.prototype.isActive = function () {
-    var rect = getContentRect(this.target);
-    this.contentRect_ = rect;
-    return rect.width !== this.broadcastWidth || rect.height !== this.broadcastHeight;
-  };
-  /**
-   * Updates 'broadcastWidth' and 'broadcastHeight' properties with a data
-   * from the corresponding properties of the last observed content rectangle.
-   *
-   * @returns {DOMRectInit} Last observed content rectangle.
-   */
-
-
-  ResizeObservation.prototype.broadcastRect = function () {
-    var rect = this.contentRect_;
-    this.broadcastWidth = rect.width;
-    this.broadcastHeight = rect.height;
-    return rect;
-  };
-
-  return ResizeObservation;
-}();
-
-var ResizeObserverEntry =
-/** @class */
-function () {
-  /**
-   * Creates an instance of ResizeObserverEntry.
-   *
-   * @param {Element} target - Element that is being observed.
-   * @param {DOMRectInit} rectInit - Data of the element's content rectangle.
-   */
-  function ResizeObserverEntry(target, rectInit) {
-    var contentRect = createReadOnlyRect(rectInit); // According to the specification following properties are not writable
-    // and are also not enumerable in the native implementation.
-    //
-    // Property accessors are not being used as they'd require to define a
-    // private WeakMap storage which may cause memory leaks in browsers that
-    // don't support this type of collections.
-
-    defineConfigurable(this, {
-      target: target,
-      contentRect: contentRect
-    });
-  }
-
-  return ResizeObserverEntry;
-}();
-
-var ResizeObserverSPI =
-/** @class */
-function () {
-  /**
-   * Creates a new instance of ResizeObserver.
-   *
-   * @param {ResizeObserverCallback} callback - Callback function that is invoked
-   *      when one of the observed elements changes it's content dimensions.
-   * @param {ResizeObserverController} controller - Controller instance which
-   *      is responsible for the updates of observer.
-   * @param {ResizeObserver} callbackCtx - Reference to the public
-   *      ResizeObserver instance which will be passed to callback function.
-   */
-  function ResizeObserverSPI(callback, controller, callbackCtx) {
-    /**
-     * Collection of resize observations that have detected changes in dimensions
-     * of elements.
-     *
-     * @private {Array<ResizeObservation>}
-     */
-    this.activeObservations_ = [];
-    /**
-     * Registry of the ResizeObservation instances.
-     *
-     * @private {Map<Element, ResizeObservation>}
-     */
-
-    this.observations_ = new MapShim();
-
-    if (typeof callback !== 'function') {
-      throw new TypeError('The callback provided as parameter 1 is not a function.');
-    }
-
-    this.callback_ = callback;
-    this.controller_ = controller;
-    this.callbackCtx_ = callbackCtx;
-  }
-  /**
-   * Starts observing provided element.
-   *
-   * @param {Element} target - Element to be observed.
-   * @returns {void}
-   */
-
-
-  ResizeObserverSPI.prototype.observe = function (target) {
-    if (!arguments.length) {
-      throw new TypeError('1 argument required, but only 0 present.');
-    } // Do nothing if current environment doesn't have the Element interface.
-
-
-    if (typeof Element === 'undefined' || !(Element instanceof Object)) {
-      return;
-    }
-
-    if (!(target instanceof getWindowOf(target).Element)) {
-      throw new TypeError('parameter 1 is not of type "Element".');
-    }
-
-    var observations = this.observations_; // Do nothing if element is already being observed.
-
-    if (observations.has(target)) {
-      return;
-    }
-
-    observations.set(target, new ResizeObservation(target));
-    this.controller_.addObserver(this); // Force the update of observations.
-
-    this.controller_.refresh();
-  };
-  /**
-   * Stops observing provided element.
-   *
-   * @param {Element} target - Element to stop observing.
-   * @returns {void}
-   */
-
-
-  ResizeObserverSPI.prototype.unobserve = function (target) {
-    if (!arguments.length) {
-      throw new TypeError('1 argument required, but only 0 present.');
-    } // Do nothing if current environment doesn't have the Element interface.
-
-
-    if (typeof Element === 'undefined' || !(Element instanceof Object)) {
-      return;
-    }
-
-    if (!(target instanceof getWindowOf(target).Element)) {
-      throw new TypeError('parameter 1 is not of type "Element".');
-    }
-
-    var observations = this.observations_; // Do nothing if element is not being observed.
-
-    if (!observations.has(target)) {
-      return;
-    }
-
-    observations.delete(target);
-
-    if (!observations.size) {
-      this.controller_.removeObserver(this);
-    }
-  };
-  /**
-   * Stops observing all elements.
-   *
-   * @returns {void}
-   */
-
-
-  ResizeObserverSPI.prototype.disconnect = function () {
-    this.clearActive();
-    this.observations_.clear();
-    this.controller_.removeObserver(this);
-  };
-  /**
-   * Collects observation instances the associated element of which has changed
-   * it's content rectangle.
-   *
-   * @returns {void}
-   */
-
-
-  ResizeObserverSPI.prototype.gatherActive = function () {
-    var _this = this;
-
-    this.clearActive();
-    this.observations_.forEach(function (observation) {
-      if (observation.isActive()) {
-        _this.activeObservations_.push(observation);
-      }
-    });
-  };
-  /**
-   * Invokes initial callback function with a list of ResizeObserverEntry
-   * instances collected from active resize observations.
-   *
-   * @returns {void}
-   */
-
-
-  ResizeObserverSPI.prototype.broadcastActive = function () {
-    // Do nothing if observer doesn't have active observations.
-    if (!this.hasActive()) {
-      return;
-    }
-
-    var ctx = this.callbackCtx_; // Create ResizeObserverEntry instance for every active observation.
-
-    var entries = this.activeObservations_.map(function (observation) {
-      return new ResizeObserverEntry(observation.target, observation.broadcastRect());
-    });
-    this.callback_.call(ctx, entries, ctx);
-    this.clearActive();
-  };
-  /**
-   * Clears the collection of active observations.
-   *
-   * @returns {void}
-   */
-
-
-  ResizeObserverSPI.prototype.clearActive = function () {
-    this.activeObservations_.splice(0);
-  };
-  /**
-   * Tells whether observer has active observations.
-   *
-   * @returns {boolean}
-   */
-
-
-  ResizeObserverSPI.prototype.hasActive = function () {
-    return this.activeObservations_.length > 0;
-  };
-
-  return ResizeObserverSPI;
-}(); // Registry of internal observers. If WeakMap is not available use current shim
-// for the Map collection as it has all required methods and because WeakMap
-// can't be fully polyfilled anyway.
-
-
-var observers = typeof WeakMap !== 'undefined' ? new WeakMap() : new MapShim();
-/**
- * ResizeObserver API. Encapsulates the ResizeObserver SPI implementation
- * exposing only those methods and properties that are defined in the spec.
- */
-
-var ResizeObserver =
-/** @class */
-function () {
-  /**
-   * Creates a new instance of ResizeObserver.
-   *
-   * @param {ResizeObserverCallback} callback - Callback that is invoked when
-   *      dimensions of the observed elements change.
-   */
-  function ResizeObserver(callback) {
-    if (!(this instanceof ResizeObserver)) {
-      throw new TypeError('Cannot call a class as a function.');
-    }
-
-    if (!arguments.length) {
-      throw new TypeError('1 argument required, but only 0 present.');
-    }
-
-    var controller = ResizeObserverController.getInstance();
-    var observer = new ResizeObserverSPI(callback, controller, this);
-    observers.set(this, observer);
-  }
-
-  return ResizeObserver;
-}(); // Expose public methods of ResizeObserver.
-
-
-['observe', 'unobserve', 'disconnect'].forEach(function (method) {
-  ResizeObserver.prototype[method] = function () {
-    var _a;
-
-    return (_a = observers.get(this))[method].apply(_a, arguments);
-  };
-});
-
-var index = function () {
-  // Export existing implementation if available.
-  if (typeof global$1.ResizeObserver !== 'undefined') {
-    return global$1.ResizeObserver;
-  }
-
-  return ResizeObserver;
-}();
-
-var _default = index;
-exports.default = _default;
-},{}],"../node_modules/rc-trigger/es/utils.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./utils/isMobile":"../node_modules/rc-menu/es/utils/isMobile.js"}],"../node_modules/rc-trigger/es/utils.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -83036,7 +86040,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.GeneratedForm = GeneratedForm;
 
 var _button = _interopRequireDefault(require("antd/es/button"));
 
@@ -83126,23 +86130,22 @@ function GeneratedForm(props) {
 
   var _d = (0, _react.useState)(0),
       validateCount = _d[0],
-      setValidateCount = _d[1];
+      setValidateCount = _d[1]; // console.log(attrs)
 
-  console.log(attrs);
 
   function onSubmit() {
-    console.log('form items =>', items);
-    console.log('form values =>', formValues);
-    var newValidationResult = validate(items, formValues);
-    console.log(newValidationResult);
+    // console.log('form items =>', items)
+    // console.log('form values =>', formValues)
+    var newValidationResult = validate(items, formValues); // console.log(newValidationResult)
 
     if (newValidationResult.result) {
       if (props.onSubmit) props.onSubmit(formValues);
+      console.log(createFormValues(items));
+      setFormValues(createFormValues(items));
       setValidationResult({
         result: false,
         errors: {}
       });
-      setFormValues(createFormValues(items));
     } else {
       setValidationResult(newValidationResult);
     }
@@ -83180,7 +86183,7 @@ function GeneratedForm(props) {
         errors: errors
       };
     }, {
-      result: false,
+      result: true,
       errors: {}
     });
   }
@@ -83404,9 +86407,6 @@ function GeneratedForm(props) {
     }
   }, "\u91CD \u7F6E")));
 }
-
-var _default = GeneratedForm;
-exports.default = _default;
 },{"antd/es/button":"../node_modules/antd/es/button/index.js","antd/es/divider":"../node_modules/antd/es/divider/index.js","antd/es/empty":"../node_modules/antd/es/empty/index.js","antd/es/input-number":"../node_modules/antd/es/input-number/index.js","antd/es/checkbox":"../node_modules/antd/es/checkbox/index.js","antd/es/select":"../node_modules/antd/es/select/index.js","antd/es/input":"../node_modules/antd/es/input/index.js","antd/es/radio":"../node_modules/antd/es/radio/index.js","react":"../node_modules/react/index.js","../stores/FormStore":"../src/stores/FormStore.ts","classnames":"../node_modules/classnames/index.js"}],"../src/components/Toolbar.tsx":[function(require,module,exports) {
 "use strict";
 
@@ -83423,7 +86423,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _mobxReact = require("mobx-react");
 
-var _GeneratedForm = _interopRequireDefault(require("./GeneratedForm"));
+var _GeneratedForm = require("./GeneratedForm");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -83472,8 +86472,9 @@ function Toolbar(props) {
     },
     footer: null,
     width: 800
-  }, modalVisible ? _react.default.createElement(_GeneratedForm.default, {
-    form: JSON.parse(getJson())
+  }, modalVisible ? _react.default.createElement(_GeneratedForm.GeneratedForm, {
+    form: JSON.parse(getJson()),
+    onSubmit: console.log
   }) : null));
 }
 
@@ -84734,3011 +87735,7 @@ function FieldList() {
 
 var _default = FieldList;
 exports.default = _default;
-},{"antd/es/col":"../node_modules/antd/es/col/index.js","antd/es/row":"../node_modules/antd/es/row/index.js","react":"../node_modules/react/index.js","./Field":"../src/components/Field.tsx"}],"../node_modules/rc-tabs/es/KeyCode.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  /**
-   * LEFT
-   */
-  LEFT: 37,
-  // also NUM_WEST
-
-  /**
-   * UP
-   */
-  UP: 38,
-  // also NUM_NORTH
-
-  /**
-   * RIGHT
-   */
-  RIGHT: 39,
-  // also NUM_EAST
-
-  /**
-   * DOWN
-   */
-  DOWN: 40 // also NUM_SOUTH
-
-};
-exports.default = _default;
-},{}],"../node_modules/rc-tabs/es/utils.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.toArray = toArray;
-exports.getActiveIndex = getActiveIndex;
-exports.getActiveKey = getActiveKey;
-exports.setTransform = setTransform;
-exports.isTransform3dSupported = isTransform3dSupported;
-exports.setTransition = setTransition;
-exports.getTransformPropValue = getTransformPropValue;
-exports.isVertical = isVertical;
-exports.getTransformByIndex = getTransformByIndex;
-exports.getMarginStyle = getMarginStyle;
-exports.getStyle = getStyle;
-exports.setPxStyle = setPxStyle;
-exports.getDataAttr = getDataAttr;
-exports.getLeft = getLeft;
-exports.getTop = getTop;
-
-var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function toArray(children) {
-  // allow [c,[a,b]]
-  var c = [];
-
-  _react.default.Children.forEach(children, function (child) {
-    if (child) {
-      c.push(child);
-    }
-  });
-
-  return c;
-}
-
-function getActiveIndex(children, activeKey) {
-  var c = toArray(children);
-
-  for (var i = 0; i < c.length; i++) {
-    if (c[i].key === activeKey) {
-      return i;
-    }
-  }
-
-  return -1;
-}
-
-function getActiveKey(children, index) {
-  var c = toArray(children);
-  return c[index].key;
-}
-
-function setTransform(style, v) {
-  style.transform = v;
-  style.webkitTransform = v;
-  style.mozTransform = v;
-}
-
-function isTransform3dSupported(style) {
-  return ('transform' in style || 'webkitTransform' in style || 'MozTransform' in style) && window.atob;
-}
-
-function setTransition(style, v) {
-  style.transition = v;
-  style.webkitTransition = v;
-  style.MozTransition = v;
-}
-
-function getTransformPropValue(v) {
-  return {
-    transform: v,
-    WebkitTransform: v,
-    MozTransform: v
-  };
-}
-
-function isVertical(tabBarPosition) {
-  return tabBarPosition === 'left' || tabBarPosition === 'right';
-}
-
-function getTransformByIndex(index, tabBarPosition) {
-  var direction = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'ltr';
-  var translate = isVertical(tabBarPosition) ? 'translateY' : 'translateX';
-
-  if (!isVertical(tabBarPosition) && direction === 'rtl') {
-    return translate + '(' + index * 100 + '%) translateZ(0)';
-  }
-
-  return translate + '(' + -index * 100 + '%) translateZ(0)';
-}
-
-function getMarginStyle(index, tabBarPosition) {
-  var marginDirection = isVertical(tabBarPosition) ? 'marginTop' : 'marginLeft';
-  return (0, _defineProperty2.default)({}, marginDirection, -index * 100 + '%');
-}
-
-function getStyle(el, property) {
-  return +window.getComputedStyle(el).getPropertyValue(property).replace('px', '');
-}
-
-function setPxStyle(el, value, vertical) {
-  value = vertical ? '0px, ' + value + 'px, 0px' : value + 'px, 0px, 0px';
-  setTransform(el.style, 'translate3d(' + value + ')');
-}
-
-function getDataAttr(props) {
-  return Object.keys(props).reduce(function (prev, key) {
-    if (key.substr(0, 5) === 'aria-' || key.substr(0, 5) === 'data-' || key === 'role') {
-      prev[key] = props[key];
-    }
-
-    return prev;
-  }, {});
-}
-
-function toNum(style, property) {
-  return +style.getPropertyValue(property).replace('px', '');
-}
-
-function getTypeValue(start, current, end, tabNode, wrapperNode) {
-  var total = getStyle(wrapperNode, 'padding-' + start);
-
-  if (!tabNode || !tabNode.parentNode) {
-    return total;
-  }
-
-  var childNodes = tabNode.parentNode.childNodes;
-  Array.prototype.some.call(childNodes, function (node) {
-    var style = window.getComputedStyle(node);
-
-    if (node !== tabNode) {
-      total += toNum(style, 'margin-' + start);
-      total += node[current];
-      total += toNum(style, 'margin-' + end);
-
-      if (style.boxSizing === 'content-box') {
-        total += toNum(style, 'border-' + start + '-width') + toNum(style, 'border-' + end + '-width');
-      }
-
-      return false;
-    } // We need count current node margin
-    // ref: https://github.com/react-component/tabs/pull/139#issuecomment-431005262
-
-
-    total += toNum(style, 'margin-' + start);
-    return true;
-  });
-  return total;
-}
-
-function getLeft(tabNode, wrapperNode) {
-  return getTypeValue('left', 'offsetWidth', 'right', tabNode, wrapperNode);
-}
-
-function getTop(tabNode, wrapperNode) {
-  return getTypeValue('top', 'offsetHeight', 'bottom', tabNode, wrapperNode);
-}
-},{"babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","react":"../node_modules/react/index.js"}],"../node_modules/rc-tabs/es/Sentinel.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.SentinelConsumer = exports.SentinelProvider = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _KeyCode = _interopRequireDefault(require("rc-util/es/KeyCode"));
-
-var _createReactContext = _interopRequireDefault(require("@ant-design/create-react-context"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-var SentinelContext = (0, _createReactContext.default)({});
-var SentinelProvider = SentinelContext.Provider;
-exports.SentinelProvider = SentinelProvider;
-var SentinelConsumer = SentinelContext.Consumer;
-exports.SentinelConsumer = SentinelConsumer;
-var sentinelStyle = {
-  width: 0,
-  height: 0,
-  overflow: 'hidden',
-  position: 'absolute'
-};
-
-var Sentinel = function (_React$Component) {
-  (0, _inherits2.default)(Sentinel, _React$Component);
-
-  function Sentinel() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    (0, _classCallCheck2.default)(this, Sentinel);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn2.default)(this, (_ref = Sentinel.__proto__ || Object.getPrototypeOf(Sentinel)).call.apply(_ref, [this].concat(args))), _this), _this.onKeyDown = function (_ref2) {
-      var target = _ref2.target,
-          which = _ref2.which,
-          shiftKey = _ref2.shiftKey;
-      var _this$props = _this.props,
-          nextElement = _this$props.nextElement,
-          prevElement = _this$props.prevElement;
-      if (which !== _KeyCode.default.TAB || document.activeElement !== target) return; // Tab next
-
-      if (!shiftKey && nextElement) {
-        nextElement.focus();
-      } // Tab prev
-
-
-      if (shiftKey && prevElement) {
-        prevElement.focus();
-      }
-    }, _temp), (0, _possibleConstructorReturn2.default)(_this, _ret);
-  }
-
-  (0, _createClass2.default)(Sentinel, [{
-    key: 'render',
-    value: function render() {
-      var setRef = this.props.setRef;
-      return _react.default.createElement('div', {
-        tabIndex: 0,
-        ref: setRef,
-        style: sentinelStyle,
-        onKeyDown: this.onKeyDown,
-        role: 'presentation'
-      });
-    }
-  }]);
-  return Sentinel;
-}(_react.default.Component);
-
-Sentinel.propTypes = {
-  setRef: _propTypes.default.func,
-  prevElement: _propTypes.default.object,
-  nextElement: _propTypes.default.object
-};
-var _default = Sentinel;
-exports.default = _default;
-},{"babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","rc-util/es/KeyCode":"../node_modules/rc-util/es/KeyCode.js","@ant-design/create-react-context":"../node_modules/@ant-design/create-react-context/lib/index.js"}],"../node_modules/rc-tabs/es/TabPane.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
-
-var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
-
-var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _classnames2 = _interopRequireDefault(require("classnames"));
-
-var _utils = require("./utils");
-
-var _Sentinel = _interopRequireWildcard(require("./Sentinel"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var TabPane = function (_React$Component) {
-  (0, _inherits2.default)(TabPane, _React$Component);
-
-  function TabPane() {
-    (0, _classCallCheck2.default)(this, TabPane);
-    return (0, _possibleConstructorReturn2.default)(this, (TabPane.__proto__ || Object.getPrototypeOf(TabPane)).apply(this, arguments));
-  }
-
-  (0, _createClass2.default)(TabPane, [{
-    key: 'render',
-    value: function render() {
-      var _classnames;
-
-      var _props = this.props,
-          id = _props.id,
-          className = _props.className,
-          destroyInactiveTabPane = _props.destroyInactiveTabPane,
-          active = _props.active,
-          forceRender = _props.forceRender,
-          rootPrefixCls = _props.rootPrefixCls,
-          style = _props.style,
-          children = _props.children,
-          placeholder = _props.placeholder,
-          restProps = (0, _objectWithoutProperties2.default)(_props, ['id', 'className', 'destroyInactiveTabPane', 'active', 'forceRender', 'rootPrefixCls', 'style', 'children', 'placeholder']);
-      this._isActived = this._isActived || active;
-      var prefixCls = rootPrefixCls + '-tabpane';
-      var cls = (0, _classnames2.default)((_classnames = {}, (0, _defineProperty2.default)(_classnames, prefixCls, 1), (0, _defineProperty2.default)(_classnames, prefixCls + '-inactive', !active), (0, _defineProperty2.default)(_classnames, prefixCls + '-active', active), (0, _defineProperty2.default)(_classnames, className, className), _classnames));
-      var isRender = destroyInactiveTabPane ? active : this._isActived;
-      var shouldRender = isRender || forceRender;
-      return _react.default.createElement(_Sentinel.SentinelConsumer, null, function (_ref) {
-        var sentinelStart = _ref.sentinelStart,
-            sentinelEnd = _ref.sentinelEnd,
-            setPanelSentinelStart = _ref.setPanelSentinelStart,
-            setPanelSentinelEnd = _ref.setPanelSentinelEnd; // Create sentinel
-
-        var panelSentinelStart = void 0;
-        var panelSentinelEnd = void 0;
-
-        if (active && shouldRender) {
-          panelSentinelStart = _react.default.createElement(_Sentinel.default, {
-            setRef: setPanelSentinelStart,
-            prevElement: sentinelStart
-          });
-          panelSentinelEnd = _react.default.createElement(_Sentinel.default, {
-            setRef: setPanelSentinelEnd,
-            nextElement: sentinelEnd
-          });
-        }
-
-        return _react.default.createElement('div', (0, _extends2.default)({
-          style: style,
-          role: 'tabpanel',
-          'aria-hidden': active ? 'false' : 'true',
-          className: cls,
-          id: id
-        }, (0, _utils.getDataAttr)(restProps)), panelSentinelStart, shouldRender ? children : placeholder, panelSentinelEnd);
-      });
-    }
-  }]);
-  return TabPane;
-}(_react.default.Component);
-
-var _default = TabPane;
-exports.default = _default;
-TabPane.propTypes = {
-  className: _propTypes.default.string,
-  active: _propTypes.default.bool,
-  style: _propTypes.default.any,
-  destroyInactiveTabPane: _propTypes.default.bool,
-  forceRender: _propTypes.default.bool,
-  placeholder: _propTypes.default.node,
-  rootPrefixCls: _propTypes.default.string,
-  children: _propTypes.default.node,
-  id: _propTypes.default.string
-};
-TabPane.defaultProps = {
-  placeholder: null
-};
-},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","./utils":"../node_modules/rc-tabs/es/utils.js","./Sentinel":"../node_modules/rc-tabs/es/Sentinel.js"}],"../node_modules/rc-tabs/es/Tabs.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
-
-var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
-
-var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _classnames2 = _interopRequireDefault(require("classnames"));
-
-var _raf = _interopRequireDefault(require("raf"));
-
-var _reactLifecyclesCompat = require("react-lifecycles-compat");
-
-var _KeyCode = _interopRequireDefault(require("./KeyCode"));
-
-var _TabPane = _interopRequireDefault(require("./TabPane"));
-
-var _utils = require("./utils");
-
-var _Sentinel = _interopRequireWildcard(require("./Sentinel"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function noop() {}
-
-function getDefaultActiveKey(props) {
-  var activeKey = void 0;
-
-  _react.default.Children.forEach(props.children, function (child) {
-    if (child && !activeKey && !child.props.disabled) {
-      activeKey = child.key;
-    }
-  });
-
-  return activeKey;
-}
-
-function activeKeyIsValid(props, key) {
-  var keys = _react.default.Children.map(props.children, function (child) {
-    return child && child.key;
-  });
-
-  return keys.indexOf(key) >= 0;
-}
-
-var Tabs = function (_React$Component) {
-  (0, _inherits2.default)(Tabs, _React$Component);
-
-  function Tabs(props) {
-    (0, _classCallCheck2.default)(this, Tabs);
-
-    var _this = (0, _possibleConstructorReturn2.default)(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
-
-    _initialiseProps.call(_this);
-
-    var activeKey = void 0;
-
-    if ('activeKey' in props) {
-      activeKey = props.activeKey;
-    } else if ('defaultActiveKey' in props) {
-      activeKey = props.defaultActiveKey;
-    } else {
-      activeKey = getDefaultActiveKey(props);
-    }
-
-    _this.state = {
-      activeKey: activeKey
-    };
-    return _this;
-  }
-
-  (0, _createClass2.default)(Tabs, [{
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.destroy = true;
-
-      _raf.default.cancel(this.sentinelId);
-    } // Sentinel for tab index
-
-  }, {
-    key: 'updateSentinelContext',
-    value: function updateSentinelContext() {
-      var _this2 = this;
-
-      if (this.destroy) return;
-
-      _raf.default.cancel(this.sentinelId);
-
-      this.sentinelId = (0, _raf.default)(function () {
-        if (_this2.destroy) return;
-
-        _this2.forceUpdate();
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _classnames;
-
-      var props = this.props;
-      var prefixCls = props.prefixCls,
-          navWrapper = props.navWrapper,
-          tabBarPosition = props.tabBarPosition,
-          className = props.className,
-          renderTabContent = props.renderTabContent,
-          renderTabBar = props.renderTabBar,
-          destroyInactiveTabPane = props.destroyInactiveTabPane,
-          direction = props.direction,
-          restProps = (0, _objectWithoutProperties2.default)(props, ['prefixCls', 'navWrapper', 'tabBarPosition', 'className', 'renderTabContent', 'renderTabBar', 'destroyInactiveTabPane', 'direction']);
-      var cls = (0, _classnames2.default)((_classnames = {}, (0, _defineProperty2.default)(_classnames, prefixCls, 1), (0, _defineProperty2.default)(_classnames, prefixCls + '-' + tabBarPosition, 1), (0, _defineProperty2.default)(_classnames, className, !!className), (0, _defineProperty2.default)(_classnames, prefixCls + '-rtl', direction === 'rtl'), _classnames));
-      this.tabBar = renderTabBar();
-
-      var tabBar = _react.default.cloneElement(this.tabBar, {
-        prefixCls: prefixCls,
-        navWrapper: navWrapper,
-        key: 'tabBar',
-        onKeyDown: this.onNavKeyDown,
-        tabBarPosition: tabBarPosition,
-        onTabClick: this.onTabClick,
-        panels: props.children,
-        activeKey: this.state.activeKey,
-        direction: this.props.direction
-      });
-
-      var tabContent = _react.default.cloneElement(renderTabContent(), {
-        prefixCls: prefixCls,
-        tabBarPosition: tabBarPosition,
-        activeKey: this.state.activeKey,
-        destroyInactiveTabPane: destroyInactiveTabPane,
-        children: props.children,
-        onChange: this.setActiveKey,
-        key: 'tabContent',
-        direction: this.props.direction
-      });
-
-      var sentinelStart = _react.default.createElement(_Sentinel.default, {
-        key: 'sentinelStart',
-        setRef: this.setSentinelStart,
-        nextElement: this.panelSentinelStart
-      });
-
-      var sentinelEnd = _react.default.createElement(_Sentinel.default, {
-        key: 'sentinelEnd',
-        setRef: this.setSentinelEnd,
-        prevElement: this.panelSentinelEnd
-      });
-
-      var contents = [];
-
-      if (tabBarPosition === 'bottom') {
-        contents.push(sentinelStart, tabContent, sentinelEnd, tabBar);
-      } else {
-        contents.push(tabBar, sentinelStart, tabContent, sentinelEnd);
-      }
-
-      return _react.default.createElement(_Sentinel.SentinelProvider, {
-        value: {
-          sentinelStart: this.sentinelStart,
-          sentinelEnd: this.sentinelEnd,
-          setPanelSentinelStart: this.setPanelSentinelStart,
-          setPanelSentinelEnd: this.setPanelSentinelEnd
-        }
-      }, _react.default.createElement('div', (0, _extends2.default)({
-        className: cls,
-        style: props.style
-      }, (0, _utils.getDataAttr)(restProps), {
-        onScroll: this.onScroll
-      }), contents));
-    }
-  }], [{
-    key: 'getDerivedStateFromProps',
-    value: function getDerivedStateFromProps(props, state) {
-      var newState = {};
-
-      if ('activeKey' in props) {
-        newState.activeKey = props.activeKey;
-      } else if (!activeKeyIsValid(props, state.activeKey)) {
-        newState.activeKey = getDefaultActiveKey(props);
-      }
-
-      if (Object.keys(newState).length > 0) {
-        return newState;
-      }
-
-      return null;
-    }
-  }]);
-  return Tabs;
-}(_react.default.Component);
-
-var _initialiseProps = function _initialiseProps() {
-  var _this3 = this;
-
-  this.onTabClick = function (activeKey, e) {
-    if (_this3.tabBar.props.onTabClick) {
-      _this3.tabBar.props.onTabClick(activeKey, e);
-    }
-
-    _this3.setActiveKey(activeKey);
-  };
-
-  this.onNavKeyDown = function (e) {
-    var eventKeyCode = e.keyCode;
-
-    if (eventKeyCode === _KeyCode.default.RIGHT || eventKeyCode === _KeyCode.default.DOWN) {
-      e.preventDefault();
-
-      var nextKey = _this3.getNextActiveKey(true);
-
-      _this3.onTabClick(nextKey);
-    } else if (eventKeyCode === _KeyCode.default.LEFT || eventKeyCode === _KeyCode.default.UP) {
-      e.preventDefault();
-
-      var previousKey = _this3.getNextActiveKey(false);
-
-      _this3.onTabClick(previousKey);
-    }
-  };
-
-  this.onScroll = function (_ref) {
-    var target = _ref.target,
-        currentTarget = _ref.currentTarget;
-
-    if (target === currentTarget && target.scrollLeft > 0) {
-      target.scrollLeft = 0;
-    }
-  };
-
-  this.setSentinelStart = function (node) {
-    _this3.sentinelStart = node;
-  };
-
-  this.setSentinelEnd = function (node) {
-    _this3.sentinelEnd = node;
-  };
-
-  this.setPanelSentinelStart = function (node) {
-    if (node !== _this3.panelSentinelStart) {
-      _this3.updateSentinelContext();
-    }
-
-    _this3.panelSentinelStart = node;
-  };
-
-  this.setPanelSentinelEnd = function (node) {
-    if (node !== _this3.panelSentinelEnd) {
-      _this3.updateSentinelContext();
-    }
-
-    _this3.panelSentinelEnd = node;
-  };
-
-  this.setActiveKey = function (activeKey) {
-    if (_this3.state.activeKey !== activeKey) {
-      if (!('activeKey' in _this3.props)) {
-        _this3.setState({
-          activeKey: activeKey
-        });
-      }
-
-      _this3.props.onChange(activeKey);
-    }
-  };
-
-  this.getNextActiveKey = function (next) {
-    var activeKey = _this3.state.activeKey;
-    var children = [];
-
-    _react.default.Children.forEach(_this3.props.children, function (c) {
-      if (c && !c.props.disabled) {
-        if (next) {
-          children.push(c);
-        } else {
-          children.unshift(c);
-        }
-      }
-    });
-
-    var length = children.length;
-    var ret = length && children[0].key;
-    children.forEach(function (child, i) {
-      if (child.key === activeKey) {
-        if (i === length - 1) {
-          ret = children[0].key;
-        } else {
-          ret = children[i + 1].key;
-        }
-      }
-    });
-    return ret;
-  };
-};
-
-Tabs.propTypes = {
-  destroyInactiveTabPane: _propTypes.default.bool,
-  renderTabBar: _propTypes.default.func.isRequired,
-  renderTabContent: _propTypes.default.func.isRequired,
-  navWrapper: _propTypes.default.func,
-  onChange: _propTypes.default.func,
-  children: _propTypes.default.node,
-  prefixCls: _propTypes.default.string,
-  className: _propTypes.default.string,
-  tabBarPosition: _propTypes.default.string,
-  style: _propTypes.default.object,
-  activeKey: _propTypes.default.string,
-  defaultActiveKey: _propTypes.default.string,
-  direction: _propTypes.default.string
-};
-Tabs.defaultProps = {
-  prefixCls: 'rc-tabs',
-  destroyInactiveTabPane: false,
-  onChange: noop,
-  navWrapper: function navWrapper(arg) {
-    return arg;
-  },
-  tabBarPosition: 'top',
-  children: null,
-  style: {},
-  direction: 'ltr'
-};
-Tabs.TabPane = _TabPane.default;
-(0, _reactLifecyclesCompat.polyfill)(Tabs);
-var _default = Tabs;
-exports.default = _default;
-},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","raf":"../node_modules/raf/index.js","react-lifecycles-compat":"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js","./KeyCode":"../node_modules/rc-tabs/es/KeyCode.js","./TabPane":"../node_modules/rc-tabs/es/TabPane.js","./utils":"../node_modules/rc-tabs/es/utils.js","./Sentinel":"../node_modules/rc-tabs/es/Sentinel.js"}],"../node_modules/rc-tabs/es/TabContent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
-
-var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _classnames2 = _interopRequireDefault(require("classnames"));
-
-var _utils = require("./utils");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var TabContent = function (_React$Component) {
-  (0, _inherits2.default)(TabContent, _React$Component);
-
-  function TabContent() {
-    (0, _classCallCheck2.default)(this, TabContent);
-    return (0, _possibleConstructorReturn2.default)(this, (TabContent.__proto__ || Object.getPrototypeOf(TabContent)).apply(this, arguments));
-  }
-
-  (0, _createClass2.default)(TabContent, [{
-    key: 'getTabPanes',
-    value: function getTabPanes() {
-      var props = this.props;
-      var activeKey = props.activeKey;
-      var children = props.children;
-      var newChildren = [];
-
-      _react.default.Children.forEach(children, function (child) {
-        if (!child) {
-          return;
-        }
-
-        var key = child.key;
-        var active = activeKey === key;
-        newChildren.push(_react.default.cloneElement(child, {
-          active: active,
-          destroyInactiveTabPane: props.destroyInactiveTabPane,
-          rootPrefixCls: props.prefixCls
-        }));
-      });
-
-      return newChildren;
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _classnames;
-
-      var props = this.props;
-      var prefixCls = props.prefixCls,
-          children = props.children,
-          activeKey = props.activeKey,
-          className = props.className,
-          tabBarPosition = props.tabBarPosition,
-          animated = props.animated,
-          animatedWithMargin = props.animatedWithMargin,
-          direction = props.direction;
-      var style = props.style;
-      var classes = (0, _classnames2.default)((_classnames = {}, (0, _defineProperty2.default)(_classnames, prefixCls + '-content', true), (0, _defineProperty2.default)(_classnames, animated ? prefixCls + '-content-animated' : prefixCls + '-content-no-animated', true), _classnames), className);
-
-      if (animated) {
-        var activeIndex = (0, _utils.getActiveIndex)(children, activeKey);
-
-        if (activeIndex !== -1) {
-          var animatedStyle = animatedWithMargin ? (0, _utils.getMarginStyle)(activeIndex, tabBarPosition) : (0, _utils.getTransformPropValue)((0, _utils.getTransformByIndex)(activeIndex, tabBarPosition, direction));
-          style = (0, _extends2.default)({}, style, animatedStyle);
-        } else {
-          style = (0, _extends2.default)({}, style, {
-            display: 'none'
-          });
-        }
-      }
-
-      return _react.default.createElement('div', {
-        className: classes,
-        style: style
-      }, this.getTabPanes());
-    }
-  }]);
-  return TabContent;
-}(_react.default.Component);
-
-var _default = TabContent;
-exports.default = _default;
-TabContent.propTypes = {
-  animated: _propTypes.default.bool,
-  animatedWithMargin: _propTypes.default.bool,
-  prefixCls: _propTypes.default.string,
-  children: _propTypes.default.node,
-  activeKey: _propTypes.default.string,
-  style: _propTypes.default.any,
-  tabBarPosition: _propTypes.default.string,
-  className: _propTypes.default.string,
-  destroyInactiveTabPane: _propTypes.default.bool,
-  direction: _propTypes.default.string
-};
-TabContent.defaultProps = {
-  animated: true
-};
-},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","./utils":"../node_modules/rc-tabs/es/utils.js"}],"../node_modules/rc-tabs/es/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "TabPane", {
-  enumerable: true,
-  get: function () {
-    return _TabPane.default;
-  }
-});
-Object.defineProperty(exports, "TabContent", {
-  enumerable: true,
-  get: function () {
-    return _TabContent.default;
-  }
-});
-exports.default = void 0;
-
-var _Tabs = _interopRequireDefault(require("./Tabs"));
-
-var _TabPane = _interopRequireDefault(require("./TabPane"));
-
-var _TabContent = _interopRequireDefault(require("./TabContent"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = _Tabs.default;
-exports.default = _default;
-},{"./Tabs":"../node_modules/rc-tabs/es/Tabs.js","./TabPane":"../node_modules/rc-tabs/es/TabPane.js","./TabContent":"../node_modules/rc-tabs/es/TabContent.js"}],"../node_modules/rc-tabs/es/InkTabBarNode.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _classnames2 = _interopRequireDefault(require("classnames"));
-
-var _utils = require("./utils");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _componentDidUpdate(component, init) {
-  var _component$props = component.props,
-      styles = _component$props.styles,
-      panels = _component$props.panels,
-      activeKey = _component$props.activeKey,
-      direction = _component$props.direction;
-  var rootNode = component.props.getRef('root');
-  var wrapNode = component.props.getRef('nav') || rootNode;
-  var inkBarNode = component.props.getRef('inkBar');
-  var activeTab = component.props.getRef('activeTab');
-  var inkBarNodeStyle = inkBarNode.style;
-  var tabBarPosition = component.props.tabBarPosition;
-  var activeIndex = (0, _utils.getActiveIndex)(panels, activeKey);
-
-  if (init) {
-    // prevent mount animation
-    inkBarNodeStyle.display = 'none';
-  }
-
-  if (activeTab) {
-    var tabNode = activeTab;
-    var transformSupported = (0, _utils.isTransform3dSupported)(inkBarNodeStyle); // Reset current style
-
-    (0, _utils.setTransform)(inkBarNodeStyle, '');
-    inkBarNodeStyle.width = '';
-    inkBarNodeStyle.height = '';
-    inkBarNodeStyle.left = '';
-    inkBarNodeStyle.top = '';
-    inkBarNodeStyle.bottom = '';
-    inkBarNodeStyle.right = '';
-
-    if (tabBarPosition === 'top' || tabBarPosition === 'bottom') {
-      var left = (0, _utils.getLeft)(tabNode, wrapNode);
-      var width = tabNode.offsetWidth; // If tabNode'width width equal to wrapNode'width when tabBarPosition is top or bottom
-      // It means no css working, then ink bar should not have width until css is loaded
-      // Fix https://github.com/ant-design/ant-design/issues/7564
-
-      if (width === rootNode.offsetWidth) {
-        width = 0;
-      } else if (styles.inkBar && styles.inkBar.width !== undefined) {
-        width = parseFloat(styles.inkBar.width, 10);
-
-        if (width) {
-          left += (tabNode.offsetWidth - width) / 2;
-        }
-      }
-
-      if (direction === 'rtl') {
-        left = (0, _utils.getStyle)(tabNode, 'margin-left') - left;
-      } // use 3d gpu to optimize render
-
-
-      if (transformSupported) {
-        (0, _utils.setTransform)(inkBarNodeStyle, 'translate3d(' + left + 'px,0,0)');
-      } else {
-        inkBarNodeStyle.left = left + 'px';
-      }
-
-      inkBarNodeStyle.width = width + 'px';
-    } else {
-      var top = (0, _utils.getTop)(tabNode, wrapNode, true);
-      var height = tabNode.offsetHeight;
-
-      if (styles.inkBar && styles.inkBar.height !== undefined) {
-        height = parseFloat(styles.inkBar.height, 10);
-
-        if (height) {
-          top += (tabNode.offsetHeight - height) / 2;
-        }
-      }
-
-      if (transformSupported) {
-        (0, _utils.setTransform)(inkBarNodeStyle, 'translate3d(0,' + top + 'px,0)');
-        inkBarNodeStyle.top = '0';
-      } else {
-        inkBarNodeStyle.top = top + 'px';
-      }
-
-      inkBarNodeStyle.height = height + 'px';
-    }
-  }
-
-  inkBarNodeStyle.display = activeIndex !== -1 ? 'block' : 'none';
-}
-
-var InkTabBarNode = function (_React$Component) {
-  (0, _inherits2.default)(InkTabBarNode, _React$Component);
-
-  function InkTabBarNode() {
-    (0, _classCallCheck2.default)(this, InkTabBarNode);
-    return (0, _possibleConstructorReturn2.default)(this, (InkTabBarNode.__proto__ || Object.getPrototypeOf(InkTabBarNode)).apply(this, arguments));
-  }
-
-  (0, _createClass2.default)(InkTabBarNode, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this; // ref https://github.com/ant-design/ant-design/issues/8678
-      // ref https://github.com/react-component/tabs/issues/135
-      // InkTabBarNode need parent/root ref for calculating position
-      // since parent componentDidMount triggered after child componentDidMount
-      // we're doing a quick fix here to use setTimeout to calculate position
-      // after parent/root component mounted
-
-
-      this.timeout = setTimeout(function () {
-        _componentDidUpdate(_this2, true);
-      }, 0);
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
-      _componentDidUpdate(this);
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      clearTimeout(this.timeout);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _classnames;
-
-      var _props = this.props,
-          prefixCls = _props.prefixCls,
-          styles = _props.styles,
-          inkBarAnimated = _props.inkBarAnimated;
-      var className = prefixCls + '-ink-bar';
-      var classes = (0, _classnames2.default)((_classnames = {}, (0, _defineProperty2.default)(_classnames, className, true), (0, _defineProperty2.default)(_classnames, inkBarAnimated ? className + '-animated' : className + '-no-animated', true), _classnames));
-      return _react.default.createElement('div', {
-        style: styles.inkBar,
-        className: classes,
-        key: 'inkBar',
-        ref: this.props.saveRef('inkBar')
-      });
-    }
-  }]);
-  return InkTabBarNode;
-}(_react.default.Component);
-
-var _default = InkTabBarNode;
-exports.default = _default;
-InkTabBarNode.propTypes = {
-  prefixCls: _propTypes.default.string,
-  styles: _propTypes.default.object,
-  inkBarAnimated: _propTypes.default.bool,
-  saveRef: _propTypes.default.func,
-  direction: _propTypes.default.string
-};
-InkTabBarNode.defaultProps = {
-  prefixCls: '',
-  inkBarAnimated: true,
-  styles: {},
-  saveRef: function saveRef() {}
-};
-},{"babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","./utils":"../node_modules/rc-tabs/es/utils.js"}],"../node_modules/rc-tabs/es/TabBarTabsNode.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
-
-var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _warning = _interopRequireDefault(require("warning"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _utils = require("./utils");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var TabBarTabsNode = function (_React$Component) {
-  (0, _inherits2.default)(TabBarTabsNode, _React$Component);
-
-  function TabBarTabsNode() {
-    (0, _classCallCheck2.default)(this, TabBarTabsNode);
-    return (0, _possibleConstructorReturn2.default)(this, (TabBarTabsNode.__proto__ || Object.getPrototypeOf(TabBarTabsNode)).apply(this, arguments));
-  }
-
-  (0, _createClass2.default)(TabBarTabsNode, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      var _props = this.props,
-          children = _props.panels,
-          activeKey = _props.activeKey,
-          prefixCls = _props.prefixCls,
-          tabBarGutter = _props.tabBarGutter,
-          saveRef = _props.saveRef,
-          tabBarPosition = _props.tabBarPosition,
-          renderTabBarNode = _props.renderTabBarNode,
-          direction = _props.direction;
-      var rst = [];
-
-      _react.default.Children.forEach(children, function (child, index) {
-        if (!child) {
-          return;
-        }
-
-        var key = child.key;
-        var cls = activeKey === key ? prefixCls + '-tab-active' : '';
-        cls += ' ' + prefixCls + '-tab';
-        var events = {};
-
-        if (child.props.disabled) {
-          cls += ' ' + prefixCls + '-tab-disabled';
-        } else {
-          events = {
-            onClick: _this2.props.onTabClick.bind(_this2, key)
-          };
-        }
-
-        var ref = {};
-
-        if (activeKey === key) {
-          ref.ref = saveRef('activeTab');
-        }
-
-        var gutter = tabBarGutter && index === children.length - 1 ? 0 : tabBarGutter;
-        var marginProperty = direction === 'rtl' ? 'marginLeft' : 'marginRight';
-        var style = (0, _defineProperty2.default)({}, (0, _utils.isVertical)(tabBarPosition) ? 'marginBottom' : marginProperty, gutter);
-        (0, _warning.default)('tab' in child.props, 'There must be `tab` property on children of Tabs.');
-
-        var node = _react.default.createElement('div', (0, _extends2.default)({
-          role: 'tab',
-          'aria-disabled': child.props.disabled ? 'true' : 'false',
-          'aria-selected': activeKey === key ? 'true' : 'false'
-        }, events, {
-          className: cls,
-          key: key,
-          style: style
-        }, ref), child.props.tab);
-
-        if (renderTabBarNode) {
-          node = renderTabBarNode(node);
-        }
-
-        rst.push(node);
-      });
-
-      return _react.default.createElement('div', {
-        ref: saveRef('navTabsContainer')
-      }, rst);
-    }
-  }]);
-  return TabBarTabsNode;
-}(_react.default.Component);
-
-var _default = TabBarTabsNode;
-exports.default = _default;
-TabBarTabsNode.propTypes = {
-  activeKey: _propTypes.default.string,
-  panels: _propTypes.default.node,
-  prefixCls: _propTypes.default.string,
-  tabBarGutter: _propTypes.default.number,
-  onTabClick: _propTypes.default.func,
-  saveRef: _propTypes.default.func,
-  renderTabBarNode: _propTypes.default.func,
-  tabBarPosition: _propTypes.default.string,
-  direction: _propTypes.default.string
-};
-TabBarTabsNode.defaultProps = {
-  panels: [],
-  prefixCls: [],
-  tabBarGutter: null,
-  onTabClick: function onTabClick() {},
-  saveRef: function saveRef() {}
-};
-},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","warning":"../node_modules/warning/warning.js","prop-types":"../node_modules/prop-types/index.js","./utils":"../node_modules/rc-tabs/es/utils.js"}],"../node_modules/rc-tabs/es/TabBarRootNode.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
-
-var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
-
-var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _utils = require("./utils");
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var TabBarRootNode = function (_React$Component) {
-  (0, _inherits2.default)(TabBarRootNode, _React$Component);
-
-  function TabBarRootNode() {
-    (0, _classCallCheck2.default)(this, TabBarRootNode);
-    return (0, _possibleConstructorReturn2.default)(this, (TabBarRootNode.__proto__ || Object.getPrototypeOf(TabBarRootNode)).apply(this, arguments));
-  }
-
-  (0, _createClass2.default)(TabBarRootNode, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          prefixCls = _props.prefixCls,
-          onKeyDown = _props.onKeyDown,
-          className = _props.className,
-          extraContent = _props.extraContent,
-          style = _props.style,
-          tabBarPosition = _props.tabBarPosition,
-          children = _props.children,
-          restProps = (0, _objectWithoutProperties2.default)(_props, ['prefixCls', 'onKeyDown', 'className', 'extraContent', 'style', 'tabBarPosition', 'children']);
-      var cls = (0, _classnames.default)(prefixCls + '-bar', (0, _defineProperty2.default)({}, className, !!className));
-      var topOrBottom = tabBarPosition === 'top' || tabBarPosition === 'bottom';
-      var tabBarExtraContentStyle = topOrBottom ? {
-        float: 'right'
-      } : {};
-      var extraContentStyle = extraContent && extraContent.props ? extraContent.props.style : {};
-      var newChildren = children;
-
-      if (extraContent) {
-        newChildren = [(0, _react.cloneElement)(extraContent, {
-          key: 'extra',
-          style: (0, _extends2.default)({}, tabBarExtraContentStyle, extraContentStyle)
-        }), (0, _react.cloneElement)(children, {
-          key: 'content'
-        })];
-        newChildren = topOrBottom ? newChildren : newChildren.reverse();
-      }
-
-      return _react.default.createElement('div', (0, _extends2.default)({
-        role: 'tablist',
-        className: cls,
-        tabIndex: '0',
-        ref: this.props.saveRef('root'),
-        onKeyDown: onKeyDown,
-        style: style
-      }, (0, _utils.getDataAttr)(restProps)), newChildren);
-    }
-  }]);
-  return TabBarRootNode;
-}(_react.default.Component);
-
-var _default = TabBarRootNode;
-exports.default = _default;
-TabBarRootNode.propTypes = {
-  prefixCls: _propTypes.default.string,
-  className: _propTypes.default.string,
-  style: _propTypes.default.object,
-  tabBarPosition: _propTypes.default.oneOf(['left', 'right', 'top', 'bottom']),
-  children: _propTypes.default.node,
-  extraContent: _propTypes.default.node,
-  onKeyDown: _propTypes.default.func,
-  saveRef: _propTypes.default.func
-};
-TabBarRootNode.defaultProps = {
-  prefixCls: '',
-  className: '',
-  style: {},
-  tabBarPosition: 'top',
-  extraContent: null,
-  children: null,
-  onKeyDown: function onKeyDown() {},
-  saveRef: function saveRef() {}
-};
-},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","./utils":"../node_modules/rc-tabs/es/utils.js"}],"../node_modules/lodash/isObject.js":[function(require,module,exports) {
-/**
- * Checks if `value` is the
- * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
- * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(_.noop);
- * // => true
- *
- * _.isObject(null);
- * // => false
- */
-function isObject(value) {
-  var type = typeof value;
-  return value != null && (type == 'object' || type == 'function');
-}
-
-module.exports = isObject;
-
-},{}],"../node_modules/lodash/_freeGlobal.js":[function(require,module,exports) {
-var global = arguments[3];
-/** Detect free variable `global` from Node.js. */
-var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
-
-module.exports = freeGlobal;
-
-},{}],"../node_modules/lodash/_root.js":[function(require,module,exports) {
-var freeGlobal = require('./_freeGlobal');
-
-/** Detect free variable `self`. */
-var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-
-/** Used as a reference to the global object. */
-var root = freeGlobal || freeSelf || Function('return this')();
-
-module.exports = root;
-
-},{"./_freeGlobal":"../node_modules/lodash/_freeGlobal.js"}],"../node_modules/lodash/now.js":[function(require,module,exports) {
-var root = require('./_root');
-
-/**
- * Gets the timestamp of the number of milliseconds that have elapsed since
- * the Unix epoch (1 January 1970 00:00:00 UTC).
- *
- * @static
- * @memberOf _
- * @since 2.4.0
- * @category Date
- * @returns {number} Returns the timestamp.
- * @example
- *
- * _.defer(function(stamp) {
- *   console.log(_.now() - stamp);
- * }, _.now());
- * // => Logs the number of milliseconds it took for the deferred invocation.
- */
-var now = function() {
-  return root.Date.now();
-};
-
-module.exports = now;
-
-},{"./_root":"../node_modules/lodash/_root.js"}],"../node_modules/lodash/_Symbol.js":[function(require,module,exports) {
-var root = require('./_root');
-
-/** Built-in value references. */
-var Symbol = root.Symbol;
-
-module.exports = Symbol;
-
-},{"./_root":"../node_modules/lodash/_root.js"}],"../node_modules/lodash/_getRawTag.js":[function(require,module,exports) {
-var Symbol = require('./_Symbol');
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var nativeObjectToString = objectProto.toString;
-
-/** Built-in value references. */
-var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
-
-/**
- * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {string} Returns the raw `toStringTag`.
- */
-function getRawTag(value) {
-  var isOwn = hasOwnProperty.call(value, symToStringTag),
-      tag = value[symToStringTag];
-
-  try {
-    value[symToStringTag] = undefined;
-    var unmasked = true;
-  } catch (e) {}
-
-  var result = nativeObjectToString.call(value);
-  if (unmasked) {
-    if (isOwn) {
-      value[symToStringTag] = tag;
-    } else {
-      delete value[symToStringTag];
-    }
-  }
-  return result;
-}
-
-module.exports = getRawTag;
-
-},{"./_Symbol":"../node_modules/lodash/_Symbol.js"}],"../node_modules/lodash/_objectToString.js":[function(require,module,exports) {
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var nativeObjectToString = objectProto.toString;
-
-/**
- * Converts `value` to a string using `Object.prototype.toString`.
- *
- * @private
- * @param {*} value The value to convert.
- * @returns {string} Returns the converted string.
- */
-function objectToString(value) {
-  return nativeObjectToString.call(value);
-}
-
-module.exports = objectToString;
-
-},{}],"../node_modules/lodash/_baseGetTag.js":[function(require,module,exports) {
-var Symbol = require('./_Symbol'),
-    getRawTag = require('./_getRawTag'),
-    objectToString = require('./_objectToString');
-
-/** `Object#toString` result references. */
-var nullTag = '[object Null]',
-    undefinedTag = '[object Undefined]';
-
-/** Built-in value references. */
-var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
-
-/**
- * The base implementation of `getTag` without fallbacks for buggy environments.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {string} Returns the `toStringTag`.
- */
-function baseGetTag(value) {
-  if (value == null) {
-    return value === undefined ? undefinedTag : nullTag;
-  }
-  return (symToStringTag && symToStringTag in Object(value))
-    ? getRawTag(value)
-    : objectToString(value);
-}
-
-module.exports = baseGetTag;
-
-},{"./_Symbol":"../node_modules/lodash/_Symbol.js","./_getRawTag":"../node_modules/lodash/_getRawTag.js","./_objectToString":"../node_modules/lodash/_objectToString.js"}],"../node_modules/lodash/isObjectLike.js":[function(require,module,exports) {
-/**
- * Checks if `value` is object-like. A value is object-like if it's not `null`
- * and has a `typeof` result of "object".
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- * @example
- *
- * _.isObjectLike({});
- * // => true
- *
- * _.isObjectLike([1, 2, 3]);
- * // => true
- *
- * _.isObjectLike(_.noop);
- * // => false
- *
- * _.isObjectLike(null);
- * // => false
- */
-function isObjectLike(value) {
-  return value != null && typeof value == 'object';
-}
-
-module.exports = isObjectLike;
-
-},{}],"../node_modules/lodash/isSymbol.js":[function(require,module,exports) {
-var baseGetTag = require('./_baseGetTag'),
-    isObjectLike = require('./isObjectLike');
-
-/** `Object#toString` result references. */
-var symbolTag = '[object Symbol]';
-
-/**
- * Checks if `value` is classified as a `Symbol` primitive or object.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
- * @example
- *
- * _.isSymbol(Symbol.iterator);
- * // => true
- *
- * _.isSymbol('abc');
- * // => false
- */
-function isSymbol(value) {
-  return typeof value == 'symbol' ||
-    (isObjectLike(value) && baseGetTag(value) == symbolTag);
-}
-
-module.exports = isSymbol;
-
-},{"./_baseGetTag":"../node_modules/lodash/_baseGetTag.js","./isObjectLike":"../node_modules/lodash/isObjectLike.js"}],"../node_modules/lodash/toNumber.js":[function(require,module,exports) {
-var isObject = require('./isObject'),
-    isSymbol = require('./isSymbol');
-
-/** Used as references for various `Number` constants. */
-var NAN = 0 / 0;
-
-/** Used to match leading and trailing whitespace. */
-var reTrim = /^\s+|\s+$/g;
-
-/** Used to detect bad signed hexadecimal string values. */
-var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
-
-/** Used to detect binary string values. */
-var reIsBinary = /^0b[01]+$/i;
-
-/** Used to detect octal string values. */
-var reIsOctal = /^0o[0-7]+$/i;
-
-/** Built-in method references without a dependency on `root`. */
-var freeParseInt = parseInt;
-
-/**
- * Converts `value` to a number.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to process.
- * @returns {number} Returns the number.
- * @example
- *
- * _.toNumber(3.2);
- * // => 3.2
- *
- * _.toNumber(Number.MIN_VALUE);
- * // => 5e-324
- *
- * _.toNumber(Infinity);
- * // => Infinity
- *
- * _.toNumber('3.2');
- * // => 3.2
- */
-function toNumber(value) {
-  if (typeof value == 'number') {
-    return value;
-  }
-  if (isSymbol(value)) {
-    return NAN;
-  }
-  if (isObject(value)) {
-    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
-    value = isObject(other) ? (other + '') : other;
-  }
-  if (typeof value != 'string') {
-    return value === 0 ? value : +value;
-  }
-  value = value.replace(reTrim, '');
-  var isBinary = reIsBinary.test(value);
-  return (isBinary || reIsOctal.test(value))
-    ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
-    : (reIsBadHex.test(value) ? NAN : +value);
-}
-
-module.exports = toNumber;
-
-},{"./isObject":"../node_modules/lodash/isObject.js","./isSymbol":"../node_modules/lodash/isSymbol.js"}],"../node_modules/lodash/debounce.js":[function(require,module,exports) {
-var isObject = require('./isObject'),
-    now = require('./now'),
-    toNumber = require('./toNumber');
-
-/** Error message constants. */
-var FUNC_ERROR_TEXT = 'Expected a function';
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeMax = Math.max,
-    nativeMin = Math.min;
-
-/**
- * Creates a debounced function that delays invoking `func` until after `wait`
- * milliseconds have elapsed since the last time the debounced function was
- * invoked. The debounced function comes with a `cancel` method to cancel
- * delayed `func` invocations and a `flush` method to immediately invoke them.
- * Provide `options` to indicate whether `func` should be invoked on the
- * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
- * with the last arguments provided to the debounced function. Subsequent
- * calls to the debounced function return the result of the last `func`
- * invocation.
- *
- * **Note:** If `leading` and `trailing` options are `true`, `func` is
- * invoked on the trailing edge of the timeout only if the debounced function
- * is invoked more than once during the `wait` timeout.
- *
- * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
- * until to the next tick, similar to `setTimeout` with a timeout of `0`.
- *
- * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
- * for details over the differences between `_.debounce` and `_.throttle`.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Function
- * @param {Function} func The function to debounce.
- * @param {number} [wait=0] The number of milliseconds to delay.
- * @param {Object} [options={}] The options object.
- * @param {boolean} [options.leading=false]
- *  Specify invoking on the leading edge of the timeout.
- * @param {number} [options.maxWait]
- *  The maximum time `func` is allowed to be delayed before it's invoked.
- * @param {boolean} [options.trailing=true]
- *  Specify invoking on the trailing edge of the timeout.
- * @returns {Function} Returns the new debounced function.
- * @example
- *
- * // Avoid costly calculations while the window size is in flux.
- * jQuery(window).on('resize', _.debounce(calculateLayout, 150));
- *
- * // Invoke `sendMail` when clicked, debouncing subsequent calls.
- * jQuery(element).on('click', _.debounce(sendMail, 300, {
- *   'leading': true,
- *   'trailing': false
- * }));
- *
- * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
- * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
- * var source = new EventSource('/stream');
- * jQuery(source).on('message', debounced);
- *
- * // Cancel the trailing debounced invocation.
- * jQuery(window).on('popstate', debounced.cancel);
- */
-function debounce(func, wait, options) {
-  var lastArgs,
-      lastThis,
-      maxWait,
-      result,
-      timerId,
-      lastCallTime,
-      lastInvokeTime = 0,
-      leading = false,
-      maxing = false,
-      trailing = true;
-
-  if (typeof func != 'function') {
-    throw new TypeError(FUNC_ERROR_TEXT);
-  }
-  wait = toNumber(wait) || 0;
-  if (isObject(options)) {
-    leading = !!options.leading;
-    maxing = 'maxWait' in options;
-    maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
-    trailing = 'trailing' in options ? !!options.trailing : trailing;
-  }
-
-  function invokeFunc(time) {
-    var args = lastArgs,
-        thisArg = lastThis;
-
-    lastArgs = lastThis = undefined;
-    lastInvokeTime = time;
-    result = func.apply(thisArg, args);
-    return result;
-  }
-
-  function leadingEdge(time) {
-    // Reset any `maxWait` timer.
-    lastInvokeTime = time;
-    // Start the timer for the trailing edge.
-    timerId = setTimeout(timerExpired, wait);
-    // Invoke the leading edge.
-    return leading ? invokeFunc(time) : result;
-  }
-
-  function remainingWait(time) {
-    var timeSinceLastCall = time - lastCallTime,
-        timeSinceLastInvoke = time - lastInvokeTime,
-        timeWaiting = wait - timeSinceLastCall;
-
-    return maxing
-      ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke)
-      : timeWaiting;
-  }
-
-  function shouldInvoke(time) {
-    var timeSinceLastCall = time - lastCallTime,
-        timeSinceLastInvoke = time - lastInvokeTime;
-
-    // Either this is the first call, activity has stopped and we're at the
-    // trailing edge, the system time has gone backwards and we're treating
-    // it as the trailing edge, or we've hit the `maxWait` limit.
-    return (lastCallTime === undefined || (timeSinceLastCall >= wait) ||
-      (timeSinceLastCall < 0) || (maxing && timeSinceLastInvoke >= maxWait));
-  }
-
-  function timerExpired() {
-    var time = now();
-    if (shouldInvoke(time)) {
-      return trailingEdge(time);
-    }
-    // Restart the timer.
-    timerId = setTimeout(timerExpired, remainingWait(time));
-  }
-
-  function trailingEdge(time) {
-    timerId = undefined;
-
-    // Only invoke if we have `lastArgs` which means `func` has been
-    // debounced at least once.
-    if (trailing && lastArgs) {
-      return invokeFunc(time);
-    }
-    lastArgs = lastThis = undefined;
-    return result;
-  }
-
-  function cancel() {
-    if (timerId !== undefined) {
-      clearTimeout(timerId);
-    }
-    lastInvokeTime = 0;
-    lastArgs = lastCallTime = lastThis = timerId = undefined;
-  }
-
-  function flush() {
-    return timerId === undefined ? result : trailingEdge(now());
-  }
-
-  function debounced() {
-    var time = now(),
-        isInvoking = shouldInvoke(time);
-
-    lastArgs = arguments;
-    lastThis = this;
-    lastCallTime = time;
-
-    if (isInvoking) {
-      if (timerId === undefined) {
-        return leadingEdge(lastCallTime);
-      }
-      if (maxing) {
-        // Handle invocations in a tight loop.
-        clearTimeout(timerId);
-        timerId = setTimeout(timerExpired, wait);
-        return invokeFunc(lastCallTime);
-      }
-    }
-    if (timerId === undefined) {
-      timerId = setTimeout(timerExpired, wait);
-    }
-    return result;
-  }
-  debounced.cancel = cancel;
-  debounced.flush = flush;
-  return debounced;
-}
-
-module.exports = debounce;
-
-},{"./isObject":"../node_modules/lodash/isObject.js","./now":"../node_modules/lodash/now.js","./toNumber":"../node_modules/lodash/toNumber.js"}],"../node_modules/rc-tabs/es/ScrollableTabBarNode.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _defineProperty2 = _interopRequireDefault(require("babel-runtime/helpers/defineProperty"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _classnames5 = _interopRequireDefault(require("classnames"));
-
-var _debounce = _interopRequireDefault(require("lodash/debounce"));
-
-var _resizeObserverPolyfill = _interopRequireDefault(require("resize-observer-polyfill"));
-
-var _utils = require("./utils");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ScrollableTabBarNode = function (_React$Component) {
-  (0, _inherits2.default)(ScrollableTabBarNode, _React$Component);
-
-  function ScrollableTabBarNode(props) {
-    (0, _classCallCheck2.default)(this, ScrollableTabBarNode);
-
-    var _this = (0, _possibleConstructorReturn2.default)(this, (ScrollableTabBarNode.__proto__ || Object.getPrototypeOf(ScrollableTabBarNode)).call(this, props));
-
-    _this.prevTransitionEnd = function (e) {
-      if (e.propertyName !== 'opacity') {
-        return;
-      }
-
-      var container = _this.props.getRef('container');
-
-      _this.scrollToActiveTab({
-        target: container,
-        currentTarget: container
-      });
-    };
-
-    _this.scrollToActiveTab = function (e) {
-      var activeTab = _this.props.getRef('activeTab');
-
-      var navWrap = _this.props.getRef('navWrap');
-
-      if (e && e.target !== e.currentTarget || !activeTab) {
-        return;
-      } // when not scrollable or enter scrollable first time, don't emit scrolling
-
-
-      var needToSroll = _this.isNextPrevShown() && _this.lastNextPrevShown;
-
-      _this.lastNextPrevShown = _this.isNextPrevShown();
-
-      if (!needToSroll) {
-        return;
-      }
-
-      var activeTabWH = _this.getScrollWH(activeTab);
-
-      var navWrapNodeWH = _this.getOffsetWH(navWrap);
-
-      var offset = _this.offset;
-
-      var wrapOffset = _this.getOffsetLT(navWrap);
-
-      var activeTabOffset = _this.getOffsetLT(activeTab);
-
-      if (wrapOffset > activeTabOffset) {
-        offset += wrapOffset - activeTabOffset;
-
-        _this.setOffset(offset);
-      } else if (wrapOffset + navWrapNodeWH < activeTabOffset + activeTabWH) {
-        offset -= activeTabOffset + activeTabWH - (wrapOffset + navWrapNodeWH);
-
-        _this.setOffset(offset);
-      }
-    };
-
-    _this.prev = function (e) {
-      _this.props.onPrevClick(e);
-
-      var navWrapNode = _this.props.getRef('navWrap');
-
-      var navWrapNodeWH = _this.getOffsetWH(navWrapNode);
-
-      var offset = _this.offset;
-
-      _this.setOffset(offset + navWrapNodeWH);
-    };
-
-    _this.next = function (e) {
-      _this.props.onNextClick(e);
-
-      var navWrapNode = _this.props.getRef('navWrap');
-
-      var navWrapNodeWH = _this.getOffsetWH(navWrapNode);
-
-      var offset = _this.offset;
-
-      _this.setOffset(offset - navWrapNodeWH);
-    };
-
-    _this.offset = 0;
-    _this.state = {
-      next: false,
-      prev: false
-    };
-    return _this;
-  }
-
-  (0, _createClass2.default)(ScrollableTabBarNode, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      this.componentDidUpdate();
-      this.debouncedResize = (0, _debounce.default)(function () {
-        _this2.setNextPrev();
-
-        _this2.scrollToActiveTab();
-      }, 200);
-      this.resizeObserver = new _resizeObserverPolyfill.default(this.debouncedResize);
-      this.resizeObserver.observe(this.props.getRef('container'));
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate(prevProps) {
-      var props = this.props;
-
-      if (prevProps && prevProps.tabBarPosition !== props.tabBarPosition) {
-        this.setOffset(0);
-        return;
-      }
-
-      var nextPrev = this.setNextPrev(); // wait next, prev show hide
-
-      /* eslint react/no-did-update-set-state:0 */
-
-      if (this.isNextPrevShown(this.state) !== this.isNextPrevShown(nextPrev)) {
-        this.setState({}, this.scrollToActiveTab);
-      } else if (!prevProps || props.activeKey !== prevProps.activeKey) {
-        // can not use props.activeKey
-        this.scrollToActiveTab();
-      }
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      if (this.resizeObserver) {
-        this.resizeObserver.disconnect();
-      }
-
-      if (this.debouncedResize && this.debouncedResize.cancel) {
-        this.debouncedResize.cancel();
-      }
-    }
-  }, {
-    key: 'setNextPrev',
-    value: function setNextPrev() {
-      var navNode = this.props.getRef('nav');
-      var navTabsContainer = this.props.getRef('navTabsContainer');
-      var navNodeWH = this.getScrollWH(navTabsContainer || navNode); // Add 1px to fix `offsetWidth` with decimal in Chrome not correct handle
-      // https://github.com/ant-design/ant-design/issues/13423
-
-      var containerWH = this.getOffsetWH(this.props.getRef('container')) + 1;
-      var navWrapNodeWH = this.getOffsetWH(this.props.getRef('navWrap'));
-      var offset = this.offset;
-      var minOffset = containerWH - navNodeWH;
-      var _state = this.state,
-          next = _state.next,
-          prev = _state.prev;
-
-      if (minOffset >= 0) {
-        next = false;
-        this.setOffset(0, false);
-        offset = 0;
-      } else if (minOffset < offset) {
-        next = true;
-      } else {
-        next = false; // Fix https://github.com/ant-design/ant-design/issues/8861
-        // Test with container offset which is stable
-        // and set the offset of the nav wrap node
-
-        var realOffset = navWrapNodeWH - navNodeWH;
-        this.setOffset(realOffset, false);
-        offset = realOffset;
-      }
-
-      if (offset < 0) {
-        prev = true;
-      } else {
-        prev = false;
-      }
-
-      this.setNext(next);
-      this.setPrev(prev);
-      return {
-        next: next,
-        prev: prev
-      };
-    }
-  }, {
-    key: 'getOffsetWH',
-    value: function getOffsetWH(node) {
-      var tabBarPosition = this.props.tabBarPosition;
-      var prop = 'offsetWidth';
-
-      if (tabBarPosition === 'left' || tabBarPosition === 'right') {
-        prop = 'offsetHeight';
-      }
-
-      return node[prop];
-    }
-  }, {
-    key: 'getScrollWH',
-    value: function getScrollWH(node) {
-      var tabBarPosition = this.props.tabBarPosition;
-      var prop = 'scrollWidth';
-
-      if (tabBarPosition === 'left' || tabBarPosition === 'right') {
-        prop = 'scrollHeight';
-      }
-
-      return node[prop];
-    }
-  }, {
-    key: 'getOffsetLT',
-    value: function getOffsetLT(node) {
-      var tabBarPosition = this.props.tabBarPosition;
-      var prop = 'left';
-
-      if (tabBarPosition === 'left' || tabBarPosition === 'right') {
-        prop = 'top';
-      }
-
-      return node.getBoundingClientRect()[prop];
-    }
-  }, {
-    key: 'setOffset',
-    value: function setOffset(offset) {
-      var checkNextPrev = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-      var target = Math.min(0, offset);
-
-      if (this.offset !== target) {
-        this.offset = target;
-        var navOffset = {};
-        var tabBarPosition = this.props.tabBarPosition;
-        var navStyle = this.props.getRef('nav').style;
-        var transformSupported = (0, _utils.isTransform3dSupported)(navStyle);
-
-        if (tabBarPosition === 'left' || tabBarPosition === 'right') {
-          if (transformSupported) {
-            navOffset = {
-              value: 'translate3d(0,' + target + 'px,0)'
-            };
-          } else {
-            navOffset = {
-              name: 'top',
-              value: target + 'px'
-            };
-          }
-        } else if (transformSupported) {
-          if (this.props.direction === 'rtl') {
-            target = -target;
-          }
-
-          navOffset = {
-            value: 'translate3d(' + target + 'px,0,0)'
-          };
-        } else {
-          navOffset = {
-            name: 'left',
-            value: target + 'px'
-          };
-        }
-
-        if (transformSupported) {
-          (0, _utils.setTransform)(navStyle, navOffset.value);
-        } else {
-          navStyle[navOffset.name] = navOffset.value;
-        }
-
-        if (checkNextPrev) {
-          this.setNextPrev();
-        }
-      }
-    }
-  }, {
-    key: 'setPrev',
-    value: function setPrev(v) {
-      if (this.state.prev !== v) {
-        this.setState({
-          prev: v
-        });
-      }
-    }
-  }, {
-    key: 'setNext',
-    value: function setNext(v) {
-      if (this.state.next !== v) {
-        this.setState({
-          next: v
-        });
-      }
-    }
-  }, {
-    key: 'isNextPrevShown',
-    value: function isNextPrevShown(state) {
-      if (state) {
-        return state.next || state.prev;
-      }
-
-      return this.state.next || this.state.prev;
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _classnames, _classnames2, _classnames3, _classnames4;
-
-      var _state2 = this.state,
-          next = _state2.next,
-          prev = _state2.prev;
-      var _props = this.props,
-          prefixCls = _props.prefixCls,
-          scrollAnimated = _props.scrollAnimated,
-          navWrapper = _props.navWrapper,
-          prevIcon = _props.prevIcon,
-          nextIcon = _props.nextIcon;
-      var showNextPrev = prev || next;
-
-      var prevButton = _react.default.createElement('span', {
-        onClick: prev ? this.prev : null,
-        unselectable: 'unselectable',
-        className: (0, _classnames5.default)((_classnames = {}, (0, _defineProperty2.default)(_classnames, prefixCls + '-tab-prev', 1), (0, _defineProperty2.default)(_classnames, prefixCls + '-tab-btn-disabled', !prev), (0, _defineProperty2.default)(_classnames, prefixCls + '-tab-arrow-show', showNextPrev), _classnames)),
-        onTransitionEnd: this.prevTransitionEnd
-      }, prevIcon || _react.default.createElement('span', {
-        className: prefixCls + '-tab-prev-icon'
-      }));
-
-      var nextButton = _react.default.createElement('span', {
-        onClick: next ? this.next : null,
-        unselectable: 'unselectable',
-        className: (0, _classnames5.default)((_classnames2 = {}, (0, _defineProperty2.default)(_classnames2, prefixCls + '-tab-next', 1), (0, _defineProperty2.default)(_classnames2, prefixCls + '-tab-btn-disabled', !next), (0, _defineProperty2.default)(_classnames2, prefixCls + '-tab-arrow-show', showNextPrev), _classnames2))
-      }, nextIcon || _react.default.createElement('span', {
-        className: prefixCls + '-tab-next-icon'
-      }));
-
-      var navClassName = prefixCls + '-nav';
-      var navClasses = (0, _classnames5.default)((_classnames3 = {}, (0, _defineProperty2.default)(_classnames3, navClassName, true), (0, _defineProperty2.default)(_classnames3, scrollAnimated ? navClassName + '-animated' : navClassName + '-no-animated', true), _classnames3));
-      return _react.default.createElement('div', {
-        className: (0, _classnames5.default)((_classnames4 = {}, (0, _defineProperty2.default)(_classnames4, prefixCls + '-nav-container', 1), (0, _defineProperty2.default)(_classnames4, prefixCls + '-nav-container-scrolling', showNextPrev), _classnames4)),
-        key: 'container',
-        ref: this.props.saveRef('container')
-      }, prevButton, nextButton, _react.default.createElement('div', {
-        className: prefixCls + '-nav-wrap',
-        ref: this.props.saveRef('navWrap')
-      }, _react.default.createElement('div', {
-        className: prefixCls + '-nav-scroll'
-      }, _react.default.createElement('div', {
-        className: navClasses,
-        ref: this.props.saveRef('nav')
-      }, navWrapper(this.props.children)))));
-    }
-  }]);
-  return ScrollableTabBarNode;
-}(_react.default.Component);
-
-var _default = ScrollableTabBarNode;
-exports.default = _default;
-ScrollableTabBarNode.propTypes = {
-  activeKey: _propTypes.default.string,
-  getRef: _propTypes.default.func.isRequired,
-  saveRef: _propTypes.default.func.isRequired,
-  tabBarPosition: _propTypes.default.oneOf(['left', 'right', 'top', 'bottom']),
-  prefixCls: _propTypes.default.string,
-  scrollAnimated: _propTypes.default.bool,
-  onPrevClick: _propTypes.default.func,
-  onNextClick: _propTypes.default.func,
-  navWrapper: _propTypes.default.func,
-  children: _propTypes.default.node,
-  prevIcon: _propTypes.default.node,
-  nextIcon: _propTypes.default.node,
-  direction: _propTypes.default.node
-};
-ScrollableTabBarNode.defaultProps = {
-  tabBarPosition: 'left',
-  prefixCls: '',
-  scrollAnimated: true,
-  onPrevClick: function onPrevClick() {},
-  onNextClick: function onNextClick() {},
-  navWrapper: function navWrapper(ele) {
-    return ele;
-  }
-};
-},{"babel-runtime/helpers/defineProperty":"../node_modules/babel-runtime/helpers/defineProperty.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","lodash/debounce":"../node_modules/lodash/debounce.js","resize-observer-polyfill":"../node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js","./utils":"../node_modules/rc-tabs/es/utils.js"}],"../node_modules/rc-tabs/es/SaveRef.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var SaveRef = function (_React$Component) {
-  (0, _inherits2.default)(SaveRef, _React$Component);
-
-  function SaveRef() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    (0, _classCallCheck2.default)(this, SaveRef);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn2.default)(this, (_ref = SaveRef.__proto__ || Object.getPrototypeOf(SaveRef)).call.apply(_ref, [this].concat(args))), _this), _this.getRef = function (name) {
-      return _this[name];
-    }, _this.saveRef = function (name) {
-      return function (node) {
-        if (node) {
-          _this[name] = node;
-        }
-      };
-    }, _temp), (0, _possibleConstructorReturn2.default)(_this, _ret);
-  }
-
-  (0, _createClass2.default)(SaveRef, [{
-    key: 'render',
-    value: function render() {
-      return this.props.children(this.saveRef, this.getRef);
-    }
-  }]);
-  return SaveRef;
-}(_react.default.Component);
-
-var _default = SaveRef;
-exports.default = _default;
-SaveRef.propTypes = {
-  children: _propTypes.default.func
-};
-SaveRef.defaultProps = {
-  children: function children() {
-    return null;
-  }
-};
-},{"babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js"}],"../node_modules/rc-tabs/es/ScrollableInkTabBar.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
-
-var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _InkTabBarNode = _interopRequireDefault(require("./InkTabBarNode"));
-
-var _TabBarTabsNode = _interopRequireDefault(require("./TabBarTabsNode"));
-
-var _TabBarRootNode = _interopRequireDefault(require("./TabBarRootNode"));
-
-var _ScrollableTabBarNode = _interopRequireDefault(require("./ScrollableTabBarNode"));
-
-var _SaveRef = _interopRequireDefault(require("./SaveRef"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/* eslint-disable react/prefer-stateless-function */
-var ScrollableInkTabBar = function (_React$Component) {
-  (0, _inherits2.default)(ScrollableInkTabBar, _React$Component);
-
-  function ScrollableInkTabBar() {
-    (0, _classCallCheck2.default)(this, ScrollableInkTabBar);
-    return (0, _possibleConstructorReturn2.default)(this, (ScrollableInkTabBar.__proto__ || Object.getPrototypeOf(ScrollableInkTabBar)).apply(this, arguments));
-  }
-
-  (0, _createClass2.default)(ScrollableInkTabBar, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          renderTabBarNode = _props.children,
-          restProps = (0, _objectWithoutProperties2.default)(_props, ['children']);
-      return _react.default.createElement(_SaveRef.default, null, function (saveRef, getRef) {
-        return _react.default.createElement(_TabBarRootNode.default, (0, _extends2.default)({
-          saveRef: saveRef
-        }, restProps), _react.default.createElement(_ScrollableTabBarNode.default, (0, _extends2.default)({
-          saveRef: saveRef,
-          getRef: getRef
-        }, restProps), _react.default.createElement(_TabBarTabsNode.default, (0, _extends2.default)({
-          saveRef: saveRef,
-          renderTabBarNode: renderTabBarNode
-        }, restProps)), _react.default.createElement(_InkTabBarNode.default, (0, _extends2.default)({
-          saveRef: saveRef,
-          getRef: getRef
-        }, restProps))));
-      });
-    }
-  }]);
-  return ScrollableInkTabBar;
-}(_react.default.Component);
-
-var _default = ScrollableInkTabBar;
-exports.default = _default;
-ScrollableInkTabBar.propTypes = {
-  children: _propTypes.default.func
-};
-},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","./InkTabBarNode":"../node_modules/rc-tabs/es/InkTabBarNode.js","./TabBarTabsNode":"../node_modules/rc-tabs/es/TabBarTabsNode.js","./TabBarRootNode":"../node_modules/rc-tabs/es/TabBarRootNode.js","./ScrollableTabBarNode":"../node_modules/rc-tabs/es/ScrollableTabBarNode.js","./SaveRef":"../node_modules/rc-tabs/es/SaveRef.js"}],"../node_modules/antd/es/tabs/TabBar.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _ScrollableInkTabBar = _interopRequireDefault(require("rc-tabs/es/ScrollableInkTabBar"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _icon = _interopRequireDefault(require("../icon"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _createSuper(Derived) {
-  return function () {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (_isNativeReflectConstruct()) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn(this, result);
-  };
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-var TabBar = /*#__PURE__*/function (_React$Component) {
-  _inherits(TabBar, _React$Component);
-
-  var _super = _createSuper(TabBar);
-
-  function TabBar() {
-    _classCallCheck(this, TabBar);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(TabBar, [{
-    key: "render",
-    value: function render() {
-      var _classNames;
-
-      var _this$props = this.props,
-          tabBarStyle = _this$props.tabBarStyle,
-          animated = _this$props.animated,
-          renderTabBar = _this$props.renderTabBar,
-          tabBarExtraContent = _this$props.tabBarExtraContent,
-          tabPosition = _this$props.tabPosition,
-          prefixCls = _this$props.prefixCls,
-          className = _this$props.className,
-          size = _this$props.size,
-          type = _this$props.type;
-      var inkBarAnimated = _typeof(animated) === 'object' ? animated.inkBar : animated;
-      var isVertical = tabPosition === 'left' || tabPosition === 'right';
-      var prevIconType = isVertical ? 'up' : 'left';
-      var nextIconType = isVertical ? 'down' : 'right';
-      var prevIcon = /*#__PURE__*/React.createElement("span", {
-        className: "".concat(prefixCls, "-tab-prev-icon")
-      }, /*#__PURE__*/React.createElement(_icon.default, {
-        type: prevIconType,
-        className: "".concat(prefixCls, "-tab-prev-icon-target")
-      }));
-      var nextIcon = /*#__PURE__*/React.createElement("span", {
-        className: "".concat(prefixCls, "-tab-next-icon")
-      }, /*#__PURE__*/React.createElement(_icon.default, {
-        type: nextIconType,
-        className: "".concat(prefixCls, "-tab-next-icon-target")
-      })); // Additional className for style usage
-
-      var cls = (0, _classnames.default)("".concat(prefixCls, "-").concat(tabPosition, "-bar"), (_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-").concat(size, "-bar"), !!size), _defineProperty(_classNames, "".concat(prefixCls, "-card-bar"), type && type.indexOf('card') >= 0), _classNames), className);
-
-      var renderProps = _extends(_extends({}, this.props), {
-        children: null,
-        inkBarAnimated: inkBarAnimated,
-        extraContent: tabBarExtraContent,
-        style: tabBarStyle,
-        prevIcon: prevIcon,
-        nextIcon: nextIcon,
-        className: cls
-      });
-
-      var RenderTabBar;
-
-      if (renderTabBar) {
-        RenderTabBar = renderTabBar(renderProps, _ScrollableInkTabBar.default);
-      } else {
-        RenderTabBar = /*#__PURE__*/React.createElement(_ScrollableInkTabBar.default, renderProps);
-      }
-
-      return React.cloneElement(RenderTabBar);
-    }
-  }]);
-
-  return TabBar;
-}(React.Component);
-
-exports.default = TabBar;
-TabBar.defaultProps = {
-  animated: true,
-  type: 'line'
-};
-},{"react":"../node_modules/react/index.js","rc-tabs/es/ScrollableInkTabBar":"../node_modules/rc-tabs/es/ScrollableInkTabBar.js","classnames":"../node_modules/classnames/index.js","../icon":"../node_modules/antd/es/icon/index.js"}],"../node_modules/antd/es/_util/styleChecker.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.isFlexSupported = void 0;
-
-var isStyleSupport = function isStyleSupport(styleName) {
-  if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
-    var styleNameList = Array.isArray(styleName) ? styleName : [styleName];
-    var documentElement = window.document.documentElement;
-    return styleNameList.some(function (name) {
-      return name in documentElement.style;
-    });
-  }
-
-  return false;
-};
-
-var isFlexSupported = isStyleSupport(['flex', 'webkitFlex', 'Flex', 'msFlex']);
-exports.isFlexSupported = isFlexSupported;
-var _default = isStyleSupport;
-exports.default = _default;
-},{}],"../node_modules/antd/es/tabs/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var ReactDOM = _interopRequireWildcard(require("react-dom"));
-
-var _rcTabs = _interopRequireWildcard(require("rc-tabs"));
-
-var _TabContent = _interopRequireDefault(require("rc-tabs/es/TabContent"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _omit = _interopRequireDefault(require("omit.js"));
-
-var _TabBar = _interopRequireDefault(require("./TabBar"));
-
-var _icon = _interopRequireDefault(require("../icon"));
-
-var _configProvider = require("../config-provider");
-
-var _warning = _interopRequireDefault(require("../_util/warning"));
-
-var _styleChecker = require("../_util/styleChecker");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _createSuper(Derived) {
-  return function () {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (_isNativeReflectConstruct()) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn(this, result);
-  };
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-var __rest = void 0 && (void 0).__rest || function (s, e) {
-  var t = {};
-
-  for (var p in s) {
-    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
-  }
-
-  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
-  }
-  return t;
-};
-
-var Tabs = /*#__PURE__*/function (_React$Component) {
-  _inherits(Tabs, _React$Component);
-
-  var _super = _createSuper(Tabs);
-
-  function Tabs() {
-    var _this;
-
-    _classCallCheck(this, Tabs);
-
-    _this = _super.apply(this, arguments);
-
-    _this.removeTab = function (targetKey, e) {
-      e.stopPropagation();
-
-      if (!targetKey) {
-        return;
-      }
-
-      var onEdit = _this.props.onEdit;
-
-      if (onEdit) {
-        onEdit(targetKey, 'remove');
-      }
-    };
-
-    _this.handleChange = function (activeKey) {
-      var onChange = _this.props.onChange;
-
-      if (onChange) {
-        onChange(activeKey);
-      }
-    };
-
-    _this.createNewTab = function (targetKey) {
-      var onEdit = _this.props.onEdit;
-
-      if (onEdit) {
-        onEdit(targetKey, 'add');
-      }
-    };
-
-    _this.renderTabs = function (_ref) {
-      var _classNames;
-
-      var getPrefixCls = _ref.getPrefixCls;
-      var _this$props = _this.props,
-          customizePrefixCls = _this$props.prefixCls,
-          _this$props$className = _this$props.className,
-          className = _this$props$className === void 0 ? '' : _this$props$className,
-          size = _this$props.size,
-          _this$props$type = _this$props.type,
-          type = _this$props$type === void 0 ? 'line' : _this$props$type,
-          tabPosition = _this$props.tabPosition,
-          children = _this$props.children,
-          _this$props$animated = _this$props.animated,
-          animated = _this$props$animated === void 0 ? true : _this$props$animated,
-          hideAdd = _this$props.hideAdd;
-      var tabBarExtraContent = _this.props.tabBarExtraContent;
-      var tabPaneAnimated = _typeof(animated) === 'object' ? animated.tabPane : animated; // card tabs should not have animation
-
-      if (type !== 'line') {
-        tabPaneAnimated = 'animated' in _this.props ? tabPaneAnimated : false;
-      }
-
-      (0, _warning.default)(!(type.indexOf('card') >= 0 && (size === 'small' || size === 'large')), 'Tabs', "`type=card|editable-card` doesn't have small or large size, it's by design.");
-      var prefixCls = getPrefixCls('tabs', customizePrefixCls);
-      var cls = (0, _classnames.default)(className, (_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-vertical"), tabPosition === 'left' || tabPosition === 'right'), _defineProperty(_classNames, "".concat(prefixCls, "-").concat(size), !!size), _defineProperty(_classNames, "".concat(prefixCls, "-card"), type.indexOf('card') >= 0), _defineProperty(_classNames, "".concat(prefixCls, "-").concat(type), true), _defineProperty(_classNames, "".concat(prefixCls, "-no-animation"), !tabPaneAnimated), _classNames)); // only card type tabs can be added and closed
-
-      var childrenWithClose = [];
-
-      if (type === 'editable-card') {
-        childrenWithClose = [];
-        React.Children.forEach(children, function (child, index) {
-          if (!React.isValidElement(child)) return child;
-          var closable = child.props.closable;
-          closable = typeof closable === 'undefined' ? true : closable;
-          var closeIcon = closable ? /*#__PURE__*/React.createElement(_icon.default, {
-            type: "close",
-            className: "".concat(prefixCls, "-close-x"),
-            onClick: function onClick(e) {
-              return _this.removeTab(child.key, e);
-            }
-          }) : null;
-          childrenWithClose.push(React.cloneElement(child, {
-            tab: /*#__PURE__*/React.createElement("div", {
-              className: closable ? undefined : "".concat(prefixCls, "-tab-unclosable")
-            }, child.props.tab, closeIcon),
-            key: child.key || index
-          }));
-        }); // Add new tab handler
-
-        if (!hideAdd) {
-          tabBarExtraContent = /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement(_icon.default, {
-            type: "plus",
-            className: "".concat(prefixCls, "-new-tab"),
-            onClick: _this.createNewTab
-          }), tabBarExtraContent);
-        }
-      }
-
-      tabBarExtraContent = tabBarExtraContent ? /*#__PURE__*/React.createElement("div", {
-        className: "".concat(prefixCls, "-extra-content")
-      }, tabBarExtraContent) : null;
-
-      var tabBarProps = __rest(_this.props, []);
-
-      var contentCls = (0, _classnames.default)("".concat(prefixCls, "-").concat(tabPosition, "-content"), type.indexOf('card') >= 0 && "".concat(prefixCls, "-card-content"));
-      return /*#__PURE__*/React.createElement(_rcTabs.default, _extends({}, _this.props, {
-        prefixCls: prefixCls,
-        className: cls,
-        tabBarPosition: tabPosition,
-        renderTabBar: function renderTabBar() {
-          return /*#__PURE__*/React.createElement(_TabBar.default, _extends({}, (0, _omit.default)(tabBarProps, ['className']), {
-            tabBarExtraContent: tabBarExtraContent
-          }));
-        },
-        renderTabContent: function renderTabContent() {
-          return /*#__PURE__*/React.createElement(_TabContent.default, {
-            className: contentCls,
-            animated: tabPaneAnimated,
-            animatedWithMargin: true
-          });
-        },
-        onChange: _this.handleChange
-      }), childrenWithClose.length > 0 ? childrenWithClose : children);
-    };
-
-    return _this;
-  }
-
-  _createClass(Tabs, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var NO_FLEX = ' no-flex';
-      var tabNode = ReactDOM.findDOMNode(this);
-
-      if (tabNode && !_styleChecker.isFlexSupported && tabNode.className.indexOf(NO_FLEX) === -1) {
-        tabNode.className += NO_FLEX;
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/React.createElement(_configProvider.ConfigConsumer, null, this.renderTabs);
-    }
-  }]);
-
-  return Tabs;
-}(React.Component);
-
-exports.default = Tabs;
-Tabs.TabPane = _rcTabs.TabPane;
-Tabs.defaultProps = {
-  hideAdd: false,
-  tabPosition: 'top'
-};
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","rc-tabs":"../node_modules/rc-tabs/es/index.js","rc-tabs/es/TabContent":"../node_modules/rc-tabs/es/TabContent.js","classnames":"../node_modules/classnames/index.js","omit.js":"../node_modules/omit.js/es/index.js","./TabBar":"../node_modules/antd/es/tabs/TabBar.js","../icon":"../node_modules/antd/es/icon/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js","../_util/warning":"../node_modules/antd/es/_util/warning.js","../_util/styleChecker":"../node_modules/antd/es/_util/styleChecker.js"}],"../src/components/FormAttrs.tsx":[function(require,module,exports) {
+},{"antd/es/col":"../node_modules/antd/es/col/index.js","antd/es/row":"../node_modules/antd/es/row/index.js","react":"../node_modules/react/index.js","./Field":"../src/components/Field.tsx"}],"../src/components/FormAttrs.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -91469,6 +91466,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var _exportNames = {};
 exports.default = FormEditor;
 
 var _layout = _interopRequireDefault(require("antd/es/layout"));
@@ -91492,6 +91490,19 @@ var _EditableForm = _interopRequireDefault(require("./components/EditableForm"))
 var _FormAttrsStore = _interopRequireDefault(require("./stores/FormAttrsStore"));
 
 var _FormStore = _interopRequireDefault(require("./stores/FormStore"));
+
+var _GeneratedForm = require("./components/GeneratedForm");
+
+Object.keys(_GeneratedForm).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _GeneratedForm[key];
+    }
+  });
+});
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -91518,7 +91529,7 @@ function FormEditor(props) {
     if (defaultFormAttrs) {
       _FormAttrsStore.default.reset(defaultFormAttrs);
     }
-  }, []);
+  }, [props]);
   return _react.default.createElement(_reactDnd.DndProvider, {
     backend: _reactDndHtml5Backend.default
   }, _react.default.createElement(_layout.default, {
@@ -91548,7 +91559,7 @@ function FormEditor(props) {
     className: "form-editor-content-attrs"
   }, _react.default.createElement(_AttrsPanel.default, null)))));
 }
-},{"antd/es/layout":"../node_modules/antd/es/layout/index.js","./index.less":"../src/index.less","react":"../node_modules/react/index.js","react-dnd":"../node_modules/react-dnd/dist/esm/index.js","react-dnd-html5-backend":"../node_modules/react-dnd-html5-backend/dist/esm/index.js","./components/Toolbar":"../src/components/Toolbar.tsx","./components/FieldList":"../src/components/FieldList.tsx","./components/AttrsPanel":"../src/components/AttrsPanel.tsx","./components/EditableForm":"../src/components/EditableForm.tsx","./stores/FormAttrsStore":"../src/stores/FormAttrsStore.ts","./stores/FormStore":"../src/stores/FormStore.ts"}],"App.tsx":[function(require,module,exports) {
+},{"antd/es/layout":"../node_modules/antd/es/layout/index.js","./index.less":"../src/index.less","react":"../node_modules/react/index.js","react-dnd":"../node_modules/react-dnd/dist/esm/index.js","react-dnd-html5-backend":"../node_modules/react-dnd-html5-backend/dist/esm/index.js","./components/Toolbar":"../src/components/Toolbar.tsx","./components/FieldList":"../src/components/FieldList.tsx","./components/AttrsPanel":"../src/components/AttrsPanel.tsx","./components/EditableForm":"../src/components/EditableForm.tsx","./stores/FormAttrsStore":"../src/stores/FormAttrsStore.ts","./stores/FormStore":"../src/stores/FormStore.ts","./components/GeneratedForm":"../src/components/GeneratedForm.tsx"}],"App.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -91556,25 +91567,75 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = App;
 
-var _react = _interopRequireDefault(require("react"));
+var _tabs = _interopRequireDefault(require("antd/es/tabs"));
 
-var _src = _interopRequireDefault(require("../src"));
+var _react = _interopRequireWildcard(require("react"));
+
+var _src = _interopRequireWildcard(require("../src"));
 
 var _FormStore = require("../src/stores/FormStore");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import FormEditor from '../dist'
+var TabPane = _tabs.default.TabPane;
+
+var initialItems = function initialItems() {
+  return [// createFormItem(FormItemType.INPUT),
+  // createFormItem(FormItemType.NUMBER),
+  // createFormItem(FormItemType.TEXTAREA),
+  // createFormItem(FormItemType.CHECKBOX),
+  (0, _FormStore.createFormItem)(_FormStore.FormItemType.RADIO), // createFormItem(FormItemType.SELECT),
+  // createFormItem(FormItemType.TEXT),
+  (0, _FormStore.createFormItem)(_FormStore.FormItemType.RESULT)];
+};
+
 function App(props) {
-  var items = [(0, _FormStore.createFormItem)(_FormStore.FormItemType.INPUT), (0, _FormStore.createFormItem)(_FormStore.FormItemType.NUMBER), (0, _FormStore.createFormItem)(_FormStore.FormItemType.TEXTAREA), (0, _FormStore.createFormItem)(_FormStore.FormItemType.CHECKBOX), (0, _FormStore.createFormItem)(_FormStore.FormItemType.RADIO), (0, _FormStore.createFormItem)(_FormStore.FormItemType.SELECT), (0, _FormStore.createFormItem)(_FormStore.FormItemType.TEXT), (0, _FormStore.createFormItem)(_FormStore.FormItemType.RESULT)];
-  return _react.default.createElement("div", null, _react.default.createElement(_src.default, {
+  var _a = (0, _react.useState)({
+    items: initialItems(),
+    attrs: {
+      formWidth: 100,
+      labelAlign: 'left',
+      labelWidth: 200,
+      labelWidthUnit: 'px'
+    }
+  }),
+      state = _a[0],
+      setState = _a[1];
+
+  return _react.default.createElement(_tabs.default, null, _react.default.createElement(TabPane, {
+    tab: "\u8868\u5355\u7F16\u8F91\u5668",
+    key: 'editor'
+  }, _react.default.createElement(_src.default, {
     style: {
       height: '100vh'
     },
-    defaultFormItems: items
-  }));
+    defaultFormItems: state.items,
+    defaultFormAttrs: state.attrs,
+    onSave: function onSave(json) {
+      console.log(JSON.parse(json));
+      setState(JSON.parse(json));
+    }
+  })), _react.default.createElement(TabPane, {
+    tab: "\u751F\u6210\u7684\u8868\u5355",
+    key: 'generated-form'
+  }, _react.default.createElement("div", {
+    style: {
+      width: 500,
+      margin: '0 auto'
+    }
+  }, _react.default.createElement(_src.GeneratedForm, {
+    form: {
+      items: state.items,
+      attrs: state.attrs
+    }
+  }))));
 }
-},{"react":"../node_modules/react/index.js","../src":"../src/index.tsx","../src/stores/FormStore":"../src/stores/FormStore.ts"}],"../node_modules/rc-calendar/es/locale/zh_CN.js":[function(require,module,exports) {
+},{"antd/es/tabs":"../node_modules/antd/es/tabs/index.js","react":"../node_modules/react/index.js","../src":"../src/index.tsx","../src/stores/FormStore":"../src/stores/FormStore.ts"}],"../node_modules/rc-calendar/es/locale/zh_CN.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -92301,7 +92362,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64762" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51520" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

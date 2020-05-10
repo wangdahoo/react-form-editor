@@ -700,11 +700,12 @@ function GeneratedForm(props) {
 
     if (newValidationResult.result) {
       if (props.onSubmit) props.onSubmit(formValues);
+      console.log(createFormValues(items));
       setValidationResult({
         result: false,
         errors: {}
       });
-      setFormValues(createFormValues(items));
+      if (props.resetAfterSubmit) setFormValues(createFormValues(items));
     } else {
       setValidationResult(newValidationResult);
     }
@@ -741,7 +742,7 @@ function GeneratedForm(props) {
         errors: errors
       };
     }, {
-      result: false,
+      result: true,
       errors: {}
     });
   }
@@ -997,7 +998,8 @@ function Toolbar(props) {
     footer: null,
     width: 800
   }, modalVisible ? /*#__PURE__*/React.createElement(GeneratedForm, {
-    form: JSON.parse(getJson())
+    form: JSON.parse(getJson()),
+    onSubmit: console.log
   }) : null));
 }
 

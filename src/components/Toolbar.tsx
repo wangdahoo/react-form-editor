@@ -38,7 +38,7 @@ function Toolbar (props: ToolbarProps) {
                 footer={null}
                 width={800}
             >
-                {modalVisible ? <GeneratedForm form={JSON.parse(getJson())} /> : null}
+                {modalVisible ? <GeneratedForm form={JSON.parse(getJson())} onSubmit={console.log} /> : null}
             </Modal>
         </div>
     )
