@@ -1984,9 +1984,10 @@ function FormEditor(props) {
     formStore.setItems(defaultFormItems);
 
     if (defaultFormAttrs) {
+      console.log('reset defaultFormAttrs');
       formAttrsStore.reset(defaultFormAttrs);
     }
-  }, [props]);
+  }, [JSON.stringify(props)]);
   return /*#__PURE__*/React.createElement(DndProvider, {
     backend: Backend
   }, /*#__PURE__*/React.createElement(_Layout, {
