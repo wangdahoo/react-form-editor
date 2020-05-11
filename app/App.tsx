@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Tabs } from 'antd'
 // import FormEditor from '../dist'
 import FormEditor, { GeneratedForm } from '../src'
@@ -25,6 +25,8 @@ const initialItems = () => [
 ]
 
 export default function App (props: Props) {
+    const persistKey = 'react-form-editor'
+
     const [state, setState] = useState({
         items: initialItems(),
         attrs: {
@@ -34,6 +36,16 @@ export default function App (props: Props) {
             labelWidthUnit: 'px'
         }
     })
+
+    useEffect(() => {
+        try {
+            const newState = JSON.parse(localStorage.getItem(persistKey))
+
+            if (newState) {
+                setState(newState)
+            }
+        } catch (e) {}
+    }, [])
 
     return (
         <Tabs>
@@ -47,6 +59,7 @@ export default function App (props: Props) {
                     onSave={json => {
                         console.log(JSON.parse(json))
                         setState(JSON.parse(json))
+                        localStorage.setItem(persistKey, json)
                     }}
                 />
             </TabPane>

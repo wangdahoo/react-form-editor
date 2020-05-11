@@ -86141,11 +86141,11 @@ function GeneratedForm(props) {
     if (newValidationResult.result) {
       if (props.onSubmit) props.onSubmit(formValues);
       console.log(createFormValues(items));
-      setFormValues(createFormValues(items));
       setValidationResult({
         result: false,
         errors: {}
       });
+      if (props.resetAfterSubmit) setFormValues(createFormValues(items));
     } else {
       setValidationResult(newValidationResult);
     }
@@ -91595,6 +91595,8 @@ var initialItems = function initialItems() {
 };
 
 function App(props) {
+  var persistKey = 'react-form-editor';
+
   var _a = (0, _react.useState)({
     items: initialItems(),
     attrs: {
@@ -91607,6 +91609,15 @@ function App(props) {
       state = _a[0],
       setState = _a[1];
 
+  (0, _react.useEffect)(function () {
+    try {
+      var newState = JSON.parse(localStorage.getItem(persistKey));
+
+      if (newState) {
+        setState(newState);
+      }
+    } catch (e) {}
+  }, []);
   return _react.default.createElement(_tabs.default, null, _react.default.createElement(TabPane, {
     tab: "\u8868\u5355\u7F16\u8F91\u5668",
     key: 'editor'
@@ -91619,6 +91630,7 @@ function App(props) {
     onSave: function onSave(json) {
       console.log(JSON.parse(json));
       setState(JSON.parse(json));
+      localStorage.setItem(persistKey, json);
     }
   })), _react.default.createElement(TabPane, {
     tab: "\u751F\u6210\u7684\u8868\u5355",
@@ -92362,7 +92374,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51520" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64095" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
