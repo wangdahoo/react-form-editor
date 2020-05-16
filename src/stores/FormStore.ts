@@ -12,7 +12,8 @@ export enum FormItemType {
     RADIO = 'radio',
     SELECT = 'select',
     LAYOUT = 'layout',
-    RESULT = 'result'
+    RESULT = 'result',
+    SPEC = 'spec'
 }
 
 export type InputItem = {
@@ -87,6 +88,16 @@ export type ResultItem = {
     labelText: string
 }
 
+export type SpecItem = {
+    id: string
+    itemType: FormItemType.SPEC
+    labelText: string
+    defaultValue: number
+    min: number
+    max: number
+    unit: string
+}
+
 export type LayoutItemCol = {
     span: number
 }
@@ -106,7 +117,7 @@ export type TextItem = {
     textAlign: 'center'|'left'|'right'
 }
 
-export type FormItem =  InputItem | NumberItem | TextareaItem | CheckboxItem | RadioItem | SelectItem | ResultItem | LayoutItem | TextItem
+export type FormItem =  InputItem | NumberItem | TextareaItem | CheckboxItem | RadioItem | SelectItem | ResultItem | SpecItem | LayoutItem | TextItem
 
 export type OutputFormItem = FormItem & { isActive: boolean }
 
@@ -114,6 +125,17 @@ export const createFormItem = (itemType: string): FormItem => {
     const id = generate()
 
     switch (itemType) {
+        case FormItemType.SPEC:
+            return {
+                id,
+                itemType,
+                labelText: '检验值',
+                defaultValue: 1,
+                min: 1,
+                max: 100,
+                unit: ''
+            }
+
         case FormItemType.RESULT:
             return {
                 id,

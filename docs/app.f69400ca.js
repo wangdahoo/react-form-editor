@@ -67269,1397 +67269,7 @@ var Divider = function Divider(props) {
 
 var _default = Divider;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js"}],"../node_modules/rmc-feedback/es/TouchFeedback.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var TouchFeedback = function (_React$Component) {
-  (0, _inherits2.default)(TouchFeedback, _React$Component);
-
-  function TouchFeedback() {
-    (0, _classCallCheck2.default)(this, TouchFeedback);
-
-    var _this = (0, _possibleConstructorReturn2.default)(this, (TouchFeedback.__proto__ || Object.getPrototypeOf(TouchFeedback)).apply(this, arguments));
-
-    _this.state = {
-      active: false
-    };
-
-    _this.onTouchStart = function (e) {
-      _this.triggerEvent('TouchStart', true, e);
-    };
-
-    _this.onTouchMove = function (e) {
-      _this.triggerEvent('TouchMove', false, e);
-    };
-
-    _this.onTouchEnd = function (e) {
-      _this.triggerEvent('TouchEnd', false, e);
-    };
-
-    _this.onTouchCancel = function (e) {
-      _this.triggerEvent('TouchCancel', false, e);
-    };
-
-    _this.onMouseDown = function (e) {
-      // pc simulate mobile
-      _this.triggerEvent('MouseDown', true, e);
-    };
-
-    _this.onMouseUp = function (e) {
-      _this.triggerEvent('MouseUp', false, e);
-    };
-
-    _this.onMouseLeave = function (e) {
-      _this.triggerEvent('MouseLeave', false, e);
-    };
-
-    return _this;
-  }
-
-  (0, _createClass2.default)(TouchFeedback, [{
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
-      if (this.props.disabled && this.state.active) {
-        this.setState({
-          active: false
-        });
-      }
-    }
-  }, {
-    key: 'triggerEvent',
-    value: function triggerEvent(type, isActive, ev) {
-      var eventType = 'on' + type;
-      var children = this.props.children;
-
-      if (children.props[eventType]) {
-        children.props[eventType](ev);
-      }
-
-      if (isActive !== this.state.active) {
-        this.setState({
-          active: isActive
-        });
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          children = _props.children,
-          disabled = _props.disabled,
-          activeClassName = _props.activeClassName,
-          activeStyle = _props.activeStyle;
-      var events = disabled ? undefined : {
-        onTouchStart: this.onTouchStart,
-        onTouchMove: this.onTouchMove,
-        onTouchEnd: this.onTouchEnd,
-        onTouchCancel: this.onTouchCancel,
-        onMouseDown: this.onMouseDown,
-        onMouseUp: this.onMouseUp,
-        onMouseLeave: this.onMouseLeave
-      };
-
-      var child = _react.default.Children.only(children);
-
-      if (!disabled && this.state.active) {
-        var _child$props = child.props,
-            style = _child$props.style,
-            className = _child$props.className;
-
-        if (activeStyle !== false) {
-          if (activeStyle) {
-            style = (0, _extends2.default)({}, style, activeStyle);
-          }
-
-          className = (0, _classnames.default)(className, activeClassName);
-        }
-
-        return _react.default.cloneElement(child, (0, _extends2.default)({
-          className: className,
-          style: style
-        }, events));
-      }
-
-      return _react.default.cloneElement(child, events);
-    }
-  }]);
-  return TouchFeedback;
-}(_react.default.Component);
-
-var _default = TouchFeedback;
-exports.default = _default;
-TouchFeedback.defaultProps = {
-  disabled: false
-};
-},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js"}],"../node_modules/rmc-feedback/es/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function () {
-    return _TouchFeedback.default;
-  }
-});
-
-var _TouchFeedback = _interopRequireDefault(require("./TouchFeedback"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./TouchFeedback":"../node_modules/rmc-feedback/es/TouchFeedback.js"}],"../node_modules/rc-input-number/es/InputHandler.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _rmcFeedback = _interopRequireDefault(require("rmc-feedback"));
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var InputHandler = function (_Component) {
-  (0, _inherits2.default)(InputHandler, _Component);
-
-  function InputHandler() {
-    (0, _classCallCheck2.default)(this, InputHandler);
-    return (0, _possibleConstructorReturn2.default)(this, _Component.apply(this, arguments));
-  }
-
-  InputHandler.prototype.render = function render() {
-    var _props = this.props,
-        prefixCls = _props.prefixCls,
-        disabled = _props.disabled,
-        otherProps = (0, _objectWithoutProperties2.default)(_props, ['prefixCls', 'disabled']);
-    return _react.default.createElement(_rmcFeedback.default, {
-      disabled: disabled,
-      activeClassName: prefixCls + '-handler-active'
-    }, _react.default.createElement('span', otherProps));
-  };
-
-  return InputHandler;
-}(_react.Component);
-
-InputHandler.propTypes = {
-  prefixCls: _propTypes.default.string,
-  disabled: _propTypes.default.bool,
-  onTouchStart: _propTypes.default.func,
-  onTouchEnd: _propTypes.default.func,
-  onMouseDown: _propTypes.default.func,
-  onMouseUp: _propTypes.default.func,
-  onMouseLeave: _propTypes.default.func
-};
-var _default = InputHandler;
-exports.default = _default;
-},{"babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","rmc-feedback":"../node_modules/rmc-feedback/es/index.js"}],"../node_modules/rc-input-number/es/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
-
-var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
-
-var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _KeyCode = _interopRequireDefault(require("rc-util/es/KeyCode"));
-
-var _InputHandler = _interopRequireDefault(require("./InputHandler"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function noop() {}
-
-function preventDefault(e) {
-  e.preventDefault();
-}
-
-function defaultParser(input) {
-  return input.replace(/[^\w\.-]+/g, '');
-}
-/**
- * When click and hold on a button - the speed of auto changin the value.
- */
-
-
-var SPEED = 200;
-/**
- * When click and hold on a button - the delay before auto changin the value.
- */
-
-var DELAY = 600;
-/**
- * Max Safe Integer -- on IE this is not available, so manually set the number in that case.
- * The reason this is used, instead of Infinity is because numbers above the MSI are unstable
- */
-
-var MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
-
-var isValidProps = function isValidProps(value) {
-  return value !== undefined && value !== null;
-};
-
-var isEqual = function isEqual(oldValue, newValue) {
-  return newValue === oldValue || typeof newValue === 'number' && typeof oldValue === 'number' && isNaN(newValue) && isNaN(oldValue);
-};
-
-var InputNumber = function (_React$Component) {
-  (0, _inherits2.default)(InputNumber, _React$Component);
-
-  function InputNumber(props) {
-    (0, _classCallCheck2.default)(this, InputNumber);
-
-    var _this = (0, _possibleConstructorReturn2.default)(this, _React$Component.call(this, props));
-
-    _initialiseProps.call(_this);
-
-    var value = void 0;
-
-    if ('value' in props) {
-      value = props.value;
-    } else {
-      value = props.defaultValue;
-    }
-
-    _this.state = {
-      focused: props.autoFocus
-    };
-
-    var validValue = _this.getValidValue(_this.toNumber(value));
-
-    _this.state = (0, _extends2.default)({}, _this.state, {
-      inputValue: _this.toPrecisionAsStep(validValue),
-      value: validValue
-    });
-    return _this;
-  }
-
-  InputNumber.prototype.componentDidMount = function componentDidMount() {
-    this.componentDidUpdate();
-  };
-
-  InputNumber.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
-    var _props = this.props,
-        value = _props.value,
-        onChange = _props.onChange,
-        max = _props.max,
-        min = _props.min;
-    var focused = this.state.focused; // Don't trigger in componentDidMount
-
-    if (prevProps) {
-      if (!isEqual(prevProps.value, value) || !isEqual(prevProps.max, max) || !isEqual(prevProps.min, min)) {
-        var validValue = focused ? value : this.getValidValue(value);
-        var nextInputValue = void 0;
-
-        if (this.pressingUpOrDown) {
-          nextInputValue = validValue;
-        } else if (this.inputting) {
-          nextInputValue = this.rawInput;
-        } else {
-          nextInputValue = this.toPrecisionAsStep(validValue);
-        }
-
-        this.setState({
-          // eslint-disable-line
-          value: validValue,
-          inputValue: nextInputValue
-        });
-      } // Trigger onChange when max or min change
-      // https://github.com/ant-design/ant-design/issues/11574
-
-
-      var nextValue = 'value' in this.props ? value : this.state.value; // ref: null < 20 === true
-      // https://github.com/ant-design/ant-design/issues/14277
-
-      if ('max' in this.props && prevProps.max !== max && typeof nextValue === 'number' && nextValue > max && onChange) {
-        onChange(max);
-      }
-
-      if ('min' in this.props && prevProps.min !== min && typeof nextValue === 'number' && nextValue < min && onChange) {
-        onChange(min);
-      }
-    } // Restore cursor
-
-
-    try {
-      // Firefox set the input cursor after it get focused.
-      // This caused that if an input didn't init with the selection,
-      // set will cause cursor not correct when first focus.
-      // Safari will focus input if set selection. We need skip this.
-      if (this.cursorStart !== undefined && this.state.focused) {
-        // In most cases, the string after cursor is stable.
-        // We can move the cursor before it
-        if ( // If not match full str, try to match part of str
-        !this.partRestoreByAfter(this.cursorAfter) && this.state.value !== this.props.value) {
-          // If not match any of then, let's just keep the position
-          // TODO: Logic should not reach here, need check if happens
-          var pos = this.cursorStart + 1; // If not have last string, just position to the end
-
-          if (!this.cursorAfter) {
-            pos = this.input.value.length;
-          } else if (this.lastKeyCode === _KeyCode.default.BACKSPACE) {
-            pos = this.cursorStart - 1;
-          } else if (this.lastKeyCode === _KeyCode.default.DELETE) {
-            pos = this.cursorStart;
-          }
-
-          this.fixCaret(pos, pos);
-        } else if (this.currentValue === this.input.value) {
-          // Handle some special key code
-          switch (this.lastKeyCode) {
-            case _KeyCode.default.BACKSPACE:
-              this.fixCaret(this.cursorStart - 1, this.cursorStart - 1);
-              break;
-
-            case _KeyCode.default.DELETE:
-              this.fixCaret(this.cursorStart + 1, this.cursorStart + 1);
-              break;
-
-            default: // Do nothing
-
-          }
-        }
-      }
-    } catch (e) {} // Do nothing
-    // Reset last key
-
-
-    this.lastKeyCode = null; // pressingUpOrDown is true means that someone just click up or down button
-
-    if (!this.pressingUpOrDown) {
-      return;
-    }
-
-    if (this.props.focusOnUpDown && this.state.focused) {
-      if (document.activeElement !== this.input) {
-        this.focus();
-      }
-    }
-
-    this.pressingUpOrDown = false;
-  };
-
-  InputNumber.prototype.componentWillUnmount = function componentWillUnmount() {
-    this.stop();
-  };
-
-  InputNumber.prototype.getCurrentValidValue = function getCurrentValidValue(value) {
-    var val = value;
-
-    if (val === '') {
-      val = '';
-    } else if (!this.isNotCompleteNumber(parseFloat(val, 10))) {
-      val = this.getValidValue(val);
-    } else {
-      val = this.state.value;
-    }
-
-    return this.toNumber(val);
-  };
-
-  InputNumber.prototype.getRatio = function getRatio(e) {
-    var ratio = 1;
-
-    if (e.metaKey || e.ctrlKey) {
-      ratio = 0.1;
-    } else if (e.shiftKey) {
-      ratio = 10;
-    }
-
-    return ratio;
-  };
-
-  InputNumber.prototype.getValueFromEvent = function getValueFromEvent(e) {
-    // optimize for chinese input expierence
-    // https://github.com/ant-design/ant-design/issues/8196
-    var value = e.target.value.trim().replace(/。/g, '.');
-
-    if (isValidProps(this.props.decimalSeparator)) {
-      value = value.replace(this.props.decimalSeparator, '.');
-    }
-
-    return value;
-  };
-
-  InputNumber.prototype.getValidValue = function getValidValue(value) {
-    var min = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.props.min;
-    var max = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.props.max;
-    var val = parseFloat(value, 10); // https://github.com/ant-design/ant-design/issues/7358
-
-    if (isNaN(val)) {
-      return value;
-    }
-
-    if (val < min) {
-      val = min;
-    }
-
-    if (val > max) {
-      val = max;
-    }
-
-    return val;
-  };
-
-  InputNumber.prototype.setValue = function setValue(v, callback) {
-    // trigger onChange
-    var precision = this.props.precision;
-    var newValue = this.isNotCompleteNumber(parseFloat(v, 10)) ? null : parseFloat(v, 10);
-    var _state = this.state,
-        _state$value = _state.value,
-        value = _state$value === undefined ? null : _state$value,
-        _state$inputValue = _state.inputValue,
-        inputValue = _state$inputValue === undefined ? null : _state$inputValue; // https://github.com/ant-design/ant-design/issues/7363
-    // https://github.com/ant-design/ant-design/issues/16622
-
-    var newValueInString = typeof newValue === 'number' ? newValue.toFixed(precision) : '' + newValue;
-    var changed = newValue !== value || newValueInString !== '' + inputValue;
-
-    if (!('value' in this.props)) {
-      this.setState({
-        value: newValue,
-        inputValue: this.toPrecisionAsStep(v)
-      }, callback);
-    } else {
-      // always set input value same as value
-      this.setState({
-        inputValue: this.toPrecisionAsStep(this.state.value)
-      }, callback);
-    }
-
-    if (changed) {
-      this.props.onChange(newValue);
-    }
-
-    return newValue;
-  };
-
-  InputNumber.prototype.getPrecision = function getPrecision(value) {
-    if (isValidProps(this.props.precision)) {
-      return this.props.precision;
-    }
-
-    var valueString = value.toString();
-
-    if (valueString.indexOf('e-') >= 0) {
-      return parseInt(valueString.slice(valueString.indexOf('e-') + 2), 10);
-    }
-
-    var precision = 0;
-
-    if (valueString.indexOf('.') >= 0) {
-      precision = valueString.length - valueString.indexOf('.') - 1;
-    }
-
-    return precision;
-  }; // step={1.0} value={1.51}
-  // press +
-  // then value should be 2.51, rather than 2.5
-  // if this.props.precision is undefined
-  // https://github.com/react-component/input-number/issues/39
-
-
-  InputNumber.prototype.getMaxPrecision = function getMaxPrecision(currentValue) {
-    var ratio = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-    var _props2 = this.props,
-        precision = _props2.precision,
-        step = _props2.step;
-
-    if (isValidProps(precision)) {
-      return precision;
-    }
-
-    var ratioPrecision = this.getPrecision(ratio);
-    var stepPrecision = this.getPrecision(step);
-    var currentValuePrecision = this.getPrecision(currentValue);
-
-    if (!currentValue) {
-      return ratioPrecision + stepPrecision;
-    }
-
-    return Math.max(currentValuePrecision, ratioPrecision + stepPrecision);
-  };
-
-  InputNumber.prototype.getPrecisionFactor = function getPrecisionFactor(currentValue) {
-    var ratio = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-    var precision = this.getMaxPrecision(currentValue, ratio);
-    return Math.pow(10, precision);
-  };
-
-  InputNumber.prototype.fixCaret = function fixCaret(start, end) {
-    if (start === undefined || end === undefined || !this.input || !this.input.value) {
-      return;
-    }
-
-    try {
-      var currentStart = this.input.selectionStart;
-      var currentEnd = this.input.selectionEnd;
-
-      if (start !== currentStart || end !== currentEnd) {
-        this.input.setSelectionRange(start, end);
-      }
-    } catch (e) {// Fix error in Chrome:
-      // Failed to read the 'selectionStart' property from 'HTMLInputElement'
-      // http://stackoverflow.com/q/21177489/3040605
-    }
-  };
-
-  InputNumber.prototype.focus = function focus() {
-    this.input.focus();
-    this.recordCursorPosition();
-  };
-
-  InputNumber.prototype.blur = function blur() {
-    this.input.blur();
-  };
-
-  InputNumber.prototype.formatWrapper = function formatWrapper(num) {
-    // http://2ality.com/2012/03/signedzero.html
-    // https://github.com/ant-design/ant-design/issues/9439
-    if (this.props.formatter) {
-      return this.props.formatter(num);
-    }
-
-    return num;
-  };
-
-  InputNumber.prototype.toPrecisionAsStep = function toPrecisionAsStep(num) {
-    if (this.isNotCompleteNumber(num) || num === '') {
-      return num;
-    }
-
-    var precision = Math.abs(this.getMaxPrecision(num));
-
-    if (!isNaN(precision)) {
-      return Number(num).toFixed(precision);
-    }
-
-    return num.toString();
-  }; // '1.' '1x' 'xx' '' => are not complete numbers
-
-
-  InputNumber.prototype.isNotCompleteNumber = function isNotCompleteNumber(num) {
-    return isNaN(num) || num === '' || num === null || num && num.toString().indexOf('.') === num.toString().length - 1;
-  };
-
-  InputNumber.prototype.toNumber = function toNumber(num) {
-    var precision = this.props.precision;
-    var focused = this.state.focused; // num.length > 16 => This is to prevent input of large numbers
-
-    var numberIsTooLarge = num && num.length > 16 && focused;
-
-    if (this.isNotCompleteNumber(num) || numberIsTooLarge) {
-      return num;
-    }
-
-    if (isValidProps(precision)) {
-      return Math.round(num * Math.pow(10, precision)) / Math.pow(10, precision);
-    }
-
-    return Number(num);
-  };
-
-  InputNumber.prototype.upStep = function upStep(val, rat) {
-    var step = this.props.step;
-    var precisionFactor = this.getPrecisionFactor(val, rat);
-    var precision = Math.abs(this.getMaxPrecision(val, rat));
-    var result = ((precisionFactor * val + precisionFactor * step * rat) / precisionFactor).toFixed(precision);
-    return this.toNumber(result);
-  };
-
-  InputNumber.prototype.downStep = function downStep(val, rat) {
-    var step = this.props.step;
-    var precisionFactor = this.getPrecisionFactor(val, rat);
-    var precision = Math.abs(this.getMaxPrecision(val, rat));
-    var result = ((precisionFactor * val - precisionFactor * step * rat) / precisionFactor).toFixed(precision);
-    return this.toNumber(result);
-  };
-
-  InputNumber.prototype.step = function step(type, e) {
-    var _this2 = this;
-
-    var ratio = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
-    var recursive = arguments[3];
-    this.stop();
-
-    if (e) {
-      e.persist();
-      e.preventDefault();
-    }
-
-    var props = this.props;
-
-    if (props.disabled) {
-      return;
-    }
-
-    var value = this.getCurrentValidValue(this.state.inputValue) || 0;
-
-    if (this.isNotCompleteNumber(value)) {
-      return;
-    }
-
-    var val = this[type + 'Step'](value, ratio);
-    var outOfRange = val > props.max || val < props.min;
-
-    if (val > props.max) {
-      val = props.max;
-    } else if (val < props.min) {
-      val = props.min;
-    }
-
-    this.setValue(val);
-    this.setState({
-      focused: true
-    });
-
-    if (outOfRange) {
-      return;
-    }
-
-    this.autoStepTimer = setTimeout(function () {
-      _this2[type](e, ratio, true);
-    }, recursive ? SPEED : DELAY);
-  };
-
-  InputNumber.prototype.render = function render() {
-    var _classNames;
-
-    var props = (0, _extends2.default)({}, this.props);
-    var prefixCls = props.prefixCls,
-        disabled = props.disabled,
-        readOnly = props.readOnly,
-        useTouch = props.useTouch,
-        autoComplete = props.autoComplete,
-        upHandler = props.upHandler,
-        downHandler = props.downHandler,
-        rest = (0, _objectWithoutProperties2.default)(props, ['prefixCls', 'disabled', 'readOnly', 'useTouch', 'autoComplete', 'upHandler', 'downHandler']);
-    var classes = (0, _classnames.default)((_classNames = {}, _classNames[prefixCls] = true, _classNames[props.className] = !!props.className, _classNames[prefixCls + '-disabled'] = disabled, _classNames[prefixCls + '-focused'] = this.state.focused, _classNames));
-    var upDisabledClass = '';
-    var downDisabledClass = '';
-    var value = this.state.value;
-
-    if (value || value === 0) {
-      if (!isNaN(value)) {
-        var val = Number(value);
-
-        if (val >= props.max) {
-          upDisabledClass = prefixCls + '-handler-up-disabled';
-        }
-
-        if (val <= props.min) {
-          downDisabledClass = prefixCls + '-handler-down-disabled';
-        }
-      } else {
-        upDisabledClass = prefixCls + '-handler-up-disabled';
-        downDisabledClass = prefixCls + '-handler-down-disabled';
-      }
-    }
-
-    var dataOrAriaAttributeProps = {};
-
-    for (var key in props) {
-      if (props.hasOwnProperty(key) && (key.substr(0, 5) === 'data-' || key.substr(0, 5) === 'aria-' || key === 'role')) {
-        dataOrAriaAttributeProps[key] = props[key];
-      }
-    }
-
-    var editable = !props.readOnly && !props.disabled; // focus state, show input value
-    // unfocus state, show valid value
-
-    var inputDisplayValue = this.getInputDisplayValue();
-    var upEvents = void 0;
-    var downEvents = void 0;
-
-    if (useTouch) {
-      upEvents = {
-        onTouchStart: editable && !upDisabledClass ? this.up : noop,
-        onTouchEnd: this.stop
-      };
-      downEvents = {
-        onTouchStart: editable && !downDisabledClass ? this.down : noop,
-        onTouchEnd: this.stop
-      };
-    } else {
-      upEvents = {
-        onMouseDown: editable && !upDisabledClass ? this.up : noop,
-        onMouseUp: this.stop,
-        onMouseLeave: this.stop
-      };
-      downEvents = {
-        onMouseDown: editable && !downDisabledClass ? this.down : noop,
-        onMouseUp: this.stop,
-        onMouseLeave: this.stop
-      };
-    }
-
-    var isUpDisabled = !!upDisabledClass || disabled || readOnly;
-    var isDownDisabled = !!downDisabledClass || disabled || readOnly; // ref for test
-
-    return _react.default.createElement('div', {
-      className: classes,
-      style: props.style,
-      title: props.title,
-      onMouseEnter: props.onMouseEnter,
-      onMouseLeave: props.onMouseLeave,
-      onMouseOver: props.onMouseOver,
-      onMouseOut: props.onMouseOut
-    }, _react.default.createElement('div', {
-      className: prefixCls + '-handler-wrap'
-    }, _react.default.createElement(_InputHandler.default, (0, _extends2.default)({
-      ref: this.saveUp,
-      disabled: isUpDisabled,
-      prefixCls: prefixCls,
-      unselectable: 'unselectable'
-    }, upEvents, {
-      role: 'button',
-      'aria-label': 'Increase Value',
-      'aria-disabled': !!isUpDisabled,
-      className: prefixCls + '-handler ' + prefixCls + '-handler-up ' + upDisabledClass
-    }), upHandler || _react.default.createElement('span', {
-      unselectable: 'unselectable',
-      className: prefixCls + '-handler-up-inner',
-      onClick: preventDefault
-    })), _react.default.createElement(_InputHandler.default, (0, _extends2.default)({
-      ref: this.saveDown,
-      disabled: isDownDisabled,
-      prefixCls: prefixCls,
-      unselectable: 'unselectable'
-    }, downEvents, {
-      role: 'button',
-      'aria-label': 'Decrease Value',
-      'aria-disabled': !!isDownDisabled,
-      className: prefixCls + '-handler ' + prefixCls + '-handler-down ' + downDisabledClass
-    }), downHandler || _react.default.createElement('span', {
-      unselectable: 'unselectable',
-      className: prefixCls + '-handler-down-inner',
-      onClick: preventDefault
-    }))), _react.default.createElement('div', {
-      className: prefixCls + '-input-wrap'
-    }, _react.default.createElement('input', (0, _extends2.default)({
-      role: 'spinbutton',
-      'aria-valuemin': props.min,
-      'aria-valuemax': props.max,
-      'aria-valuenow': value,
-      required: props.required,
-      type: props.type,
-      placeholder: props.placeholder,
-      onClick: props.onClick,
-      onMouseUp: this.onMouseUp,
-      className: prefixCls + '-input',
-      tabIndex: props.tabIndex,
-      autoComplete: autoComplete,
-      onFocus: this.onFocus,
-      onBlur: this.onBlur,
-      onKeyDown: editable ? this.onKeyDown : noop,
-      onKeyUp: editable ? this.onKeyUp : noop,
-      autoFocus: props.autoFocus,
-      maxLength: props.maxLength,
-      readOnly: props.readOnly,
-      disabled: props.disabled,
-      max: props.max,
-      min: props.min,
-      step: props.step,
-      name: props.name,
-      title: props.title,
-      id: props.id,
-      onChange: this.onChange,
-      ref: this.saveInput,
-      value: inputDisplayValue,
-      pattern: props.pattern,
-      inputMode: props.inputMode
-    }, dataOrAriaAttributeProps))));
-  };
-
-  return InputNumber;
-}(_react.default.Component);
-
-InputNumber.propTypes = {
-  value: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
-  defaultValue: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
-  focusOnUpDown: _propTypes.default.bool,
-  autoFocus: _propTypes.default.bool,
-  onChange: _propTypes.default.func,
-  onPressEnter: _propTypes.default.func,
-  onKeyDown: _propTypes.default.func,
-  onKeyUp: _propTypes.default.func,
-  prefixCls: _propTypes.default.string,
-  tabIndex: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
-  disabled: _propTypes.default.bool,
-  onFocus: _propTypes.default.func,
-  onBlur: _propTypes.default.func,
-  readOnly: _propTypes.default.bool,
-  max: _propTypes.default.number,
-  min: _propTypes.default.number,
-  step: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
-  upHandler: _propTypes.default.node,
-  downHandler: _propTypes.default.node,
-  useTouch: _propTypes.default.bool,
-  formatter: _propTypes.default.func,
-  parser: _propTypes.default.func,
-  onMouseEnter: _propTypes.default.func,
-  onMouseLeave: _propTypes.default.func,
-  onMouseOver: _propTypes.default.func,
-  onMouseOut: _propTypes.default.func,
-  onMouseUp: _propTypes.default.func,
-  precision: _propTypes.default.number,
-  required: _propTypes.default.bool,
-  pattern: _propTypes.default.string,
-  decimalSeparator: _propTypes.default.string,
-  inputMode: _propTypes.default.string
-};
-InputNumber.defaultProps = {
-  focusOnUpDown: true,
-  useTouch: false,
-  prefixCls: 'rc-input-number',
-  min: -MAX_SAFE_INTEGER,
-  step: 1,
-  style: {},
-  onChange: noop,
-  onKeyDown: noop,
-  onPressEnter: noop,
-  onFocus: noop,
-  onBlur: noop,
-  parser: defaultParser,
-  required: false,
-  autoComplete: 'off'
-};
-
-var _initialiseProps = function _initialiseProps() {
-  var _this3 = this;
-
-  this.onKeyDown = function (e) {
-    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    var _props3 = _this3.props,
-        onKeyDown = _props3.onKeyDown,
-        onPressEnter = _props3.onPressEnter;
-
-    if (e.keyCode === _KeyCode.default.UP) {
-      var ratio = _this3.getRatio(e);
-
-      _this3.up(e, ratio);
-
-      _this3.stop();
-    } else if (e.keyCode === _KeyCode.default.DOWN) {
-      var _ratio = _this3.getRatio(e);
-
-      _this3.down(e, _ratio);
-
-      _this3.stop();
-    } else if (e.keyCode === _KeyCode.default.ENTER && onPressEnter) {
-      onPressEnter(e);
-    } // Trigger user key down
-
-
-    _this3.recordCursorPosition();
-
-    _this3.lastKeyCode = e.keyCode;
-
-    if (onKeyDown) {
-      onKeyDown.apply(undefined, [e].concat(args));
-    }
-  };
-
-  this.onKeyUp = function (e) {
-    for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-      args[_key2 - 1] = arguments[_key2];
-    }
-
-    var onKeyUp = _this3.props.onKeyUp;
-
-    _this3.stop();
-
-    _this3.recordCursorPosition(); // Trigger user key up
-
-
-    if (onKeyUp) {
-      onKeyUp.apply(undefined, [e].concat(args));
-    }
-  };
-
-  this.onChange = function (e) {
-    var onChange = _this3.props.onChange;
-
-    if (_this3.state.focused) {
-      _this3.inputting = true;
-    }
-
-    _this3.rawInput = _this3.props.parser(_this3.getValueFromEvent(e));
-
-    _this3.setState({
-      inputValue: _this3.rawInput
-    });
-
-    onChange(_this3.toNumber(_this3.rawInput)); // valid number or invalid string
-  };
-
-  this.onMouseUp = function () {
-    var onMouseUp = _this3.props.onMouseUp;
-
-    _this3.recordCursorPosition();
-
-    if (onMouseUp) {
-      onMouseUp.apply(undefined, arguments);
-    }
-  };
-
-  this.onFocus = function () {
-    var _props4;
-
-    _this3.setState({
-      focused: true
-    });
-
-    (_props4 = _this3.props).onFocus.apply(_props4, arguments);
-  };
-
-  this.onBlur = function () {
-    var onBlur = _this3.props.onBlur;
-    _this3.inputting = false;
-
-    _this3.setState({
-      focused: false
-    });
-
-    var value = _this3.getCurrentValidValue(_this3.state.inputValue);
-
-    var newValue = _this3.setValue(value);
-
-    if (onBlur) {
-      var originValue = _this3.input.value;
-
-      var inputValue = _this3.getInputDisplayValue({
-        focus: false,
-        value: newValue
-      });
-
-      _this3.input.value = inputValue;
-      onBlur.apply(undefined, arguments);
-      _this3.input.value = originValue;
-    }
-  };
-
-  this.getInputDisplayValue = function (state) {
-    var _ref = state || _this3.state,
-        focused = _ref.focused,
-        inputValue = _ref.inputValue,
-        value = _ref.value;
-
-    var inputDisplayValue = void 0;
-
-    if (focused) {
-      inputDisplayValue = inputValue;
-    } else {
-      inputDisplayValue = _this3.toPrecisionAsStep(value);
-    }
-
-    if (inputDisplayValue === undefined || inputDisplayValue === null) {
-      inputDisplayValue = '';
-    }
-
-    var inputDisplayValueFormat = _this3.formatWrapper(inputDisplayValue);
-
-    if (isValidProps(_this3.props.decimalSeparator)) {
-      inputDisplayValueFormat = inputDisplayValueFormat.toString().replace('.', _this3.props.decimalSeparator);
-    }
-
-    return inputDisplayValueFormat;
-  };
-
-  this.recordCursorPosition = function () {
-    // Record position
-    try {
-      _this3.cursorStart = _this3.input.selectionStart;
-      _this3.cursorEnd = _this3.input.selectionEnd;
-      _this3.currentValue = _this3.input.value;
-      _this3.cursorBefore = _this3.input.value.substring(0, _this3.cursorStart);
-      _this3.cursorAfter = _this3.input.value.substring(_this3.cursorEnd);
-    } catch (e) {// Fix error in Chrome:
-      // Failed to read the 'selectionStart' property from 'HTMLInputElement'
-      // http://stackoverflow.com/q/21177489/3040605
-    }
-  };
-
-  this.restoreByAfter = function (str) {
-    if (str === undefined) return false;
-    var fullStr = _this3.input.value;
-    var index = fullStr.lastIndexOf(str);
-    if (index === -1) return false;
-    var prevCursorPos = _this3.cursorBefore.length;
-
-    if (_this3.lastKeyCode === _KeyCode.default.DELETE && _this3.cursorBefore.charAt(prevCursorPos - 1) === str[0]) {
-      _this3.fixCaret(prevCursorPos, prevCursorPos);
-
-      return true;
-    }
-
-    if (index + str.length === fullStr.length) {
-      _this3.fixCaret(index, index);
-
-      return true;
-    }
-
-    return false;
-  };
-
-  this.partRestoreByAfter = function (str) {
-    if (str === undefined) return false; // For loop from full str to the str with last char to map. e.g. 123
-    // -> 123
-    // -> 23
-    // -> 3
-
-    return Array.prototype.some.call(str, function (_, start) {
-      var partStr = str.substring(start);
-      return _this3.restoreByAfter(partStr);
-    });
-  };
-
-  this.stop = function () {
-    if (_this3.autoStepTimer) {
-      clearTimeout(_this3.autoStepTimer);
-    }
-  };
-
-  this.down = function (e, ratio, recursive) {
-    _this3.pressingUpOrDown = true;
-
-    _this3.step('down', e, ratio, recursive);
-  };
-
-  this.up = function (e, ratio, recursive) {
-    _this3.pressingUpOrDown = true;
-
-    _this3.step('up', e, ratio, recursive);
-  };
-
-  this.saveUp = function (node) {
-    _this3.upHandler = node;
-  };
-
-  this.saveDown = function (node) {
-    _this3.downHandler = node;
-  };
-
-  this.saveInput = function (node) {
-    _this3.input = node;
-  };
-};
-
-var _default = InputNumber;
-exports.default = _default;
-},{"babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","rc-util/es/KeyCode":"../node_modules/rc-util/es/KeyCode.js","./InputHandler":"../node_modules/rc-input-number/es/InputHandler.js"}],"../node_modules/antd/es/input-number/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _rcInputNumber = _interopRequireDefault(require("rc-input-number"));
-
-var _icon = _interopRequireDefault(require("../icon"));
-
-var _configProvider = require("../config-provider");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _createSuper(Derived) {
-  return function () {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (_isNativeReflectConstruct()) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn(this, result);
-  };
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-var __rest = void 0 && (void 0).__rest || function (s, e) {
-  var t = {};
-
-  for (var p in s) {
-    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
-  }
-
-  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
-  }
-  return t;
-};
-
-var InputNumber = /*#__PURE__*/function (_React$Component) {
-  _inherits(InputNumber, _React$Component);
-
-  var _super = _createSuper(InputNumber);
-
-  function InputNumber() {
-    var _this;
-
-    _classCallCheck(this, InputNumber);
-
-    _this = _super.apply(this, arguments);
-
-    _this.saveInputNumber = function (inputNumberRef) {
-      _this.inputNumberRef = inputNumberRef;
-    };
-
-    _this.renderInputNumber = function (_ref) {
-      var _classNames;
-
-      var getPrefixCls = _ref.getPrefixCls;
-
-      var _a = _this.props,
-          className = _a.className,
-          size = _a.size,
-          customizePrefixCls = _a.prefixCls,
-          others = __rest(_a, ["className", "size", "prefixCls"]);
-
-      var prefixCls = getPrefixCls('input-number', customizePrefixCls);
-      var inputNumberClass = (0, _classnames.default)((_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-lg"), size === 'large'), _defineProperty(_classNames, "".concat(prefixCls, "-sm"), size === 'small'), _classNames), className);
-      var upIcon = /*#__PURE__*/React.createElement(_icon.default, {
-        type: "up",
-        className: "".concat(prefixCls, "-handler-up-inner")
-      });
-      var downIcon = /*#__PURE__*/React.createElement(_icon.default, {
-        type: "down",
-        className: "".concat(prefixCls, "-handler-down-inner")
-      });
-      return /*#__PURE__*/React.createElement(_rcInputNumber.default, _extends({
-        ref: _this.saveInputNumber,
-        className: inputNumberClass,
-        upHandler: upIcon,
-        downHandler: downIcon,
-        prefixCls: prefixCls
-      }, others));
-    };
-
-    return _this;
-  }
-
-  _createClass(InputNumber, [{
-    key: "focus",
-    value: function focus() {
-      this.inputNumberRef.focus();
-    }
-  }, {
-    key: "blur",
-    value: function blur() {
-      this.inputNumberRef.blur();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/React.createElement(_configProvider.ConfigConsumer, null, this.renderInputNumber);
-    }
-  }]);
-
-  return InputNumber;
-}(React.Component);
-
-exports.default = InputNumber;
-InputNumber.defaultProps = {
-  step: 1
-};
-},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","rc-input-number":"../node_modules/rc-input-number/es/index.js","../icon":"../node_modules/antd/es/icon/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js"}],"../node_modules/rc-checkbox/es/Checkbox.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js"}],"../node_modules/rc-checkbox/es/Checkbox.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -84443,7 +83053,1397 @@ _radio.default.Button = _radioButton.default;
 _radio.default.Group = _group.default;
 var _default = _radio.default;
 exports.default = _default;
-},{"./radio":"../node_modules/antd/es/radio/radio.js","./group":"../node_modules/antd/es/radio/group.js","./radioButton":"../node_modules/antd/es/radio/radioButton.js"}],"../node_modules/rc-notification/es/Notice.js":[function(require,module,exports) {
+},{"./radio":"../node_modules/antd/es/radio/radio.js","./group":"../node_modules/antd/es/radio/group.js","./radioButton":"../node_modules/antd/es/radio/radioButton.js"}],"../node_modules/rmc-feedback/es/TouchFeedback.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("babel-runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TouchFeedback = function (_React$Component) {
+  (0, _inherits2.default)(TouchFeedback, _React$Component);
+
+  function TouchFeedback() {
+    (0, _classCallCheck2.default)(this, TouchFeedback);
+
+    var _this = (0, _possibleConstructorReturn2.default)(this, (TouchFeedback.__proto__ || Object.getPrototypeOf(TouchFeedback)).apply(this, arguments));
+
+    _this.state = {
+      active: false
+    };
+
+    _this.onTouchStart = function (e) {
+      _this.triggerEvent('TouchStart', true, e);
+    };
+
+    _this.onTouchMove = function (e) {
+      _this.triggerEvent('TouchMove', false, e);
+    };
+
+    _this.onTouchEnd = function (e) {
+      _this.triggerEvent('TouchEnd', false, e);
+    };
+
+    _this.onTouchCancel = function (e) {
+      _this.triggerEvent('TouchCancel', false, e);
+    };
+
+    _this.onMouseDown = function (e) {
+      // pc simulate mobile
+      _this.triggerEvent('MouseDown', true, e);
+    };
+
+    _this.onMouseUp = function (e) {
+      _this.triggerEvent('MouseUp', false, e);
+    };
+
+    _this.onMouseLeave = function (e) {
+      _this.triggerEvent('MouseLeave', false, e);
+    };
+
+    return _this;
+  }
+
+  (0, _createClass2.default)(TouchFeedback, [{
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      if (this.props.disabled && this.state.active) {
+        this.setState({
+          active: false
+        });
+      }
+    }
+  }, {
+    key: 'triggerEvent',
+    value: function triggerEvent(type, isActive, ev) {
+      var eventType = 'on' + type;
+      var children = this.props.children;
+
+      if (children.props[eventType]) {
+        children.props[eventType](ev);
+      }
+
+      if (isActive !== this.state.active) {
+        this.setState({
+          active: isActive
+        });
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          disabled = _props.disabled,
+          activeClassName = _props.activeClassName,
+          activeStyle = _props.activeStyle;
+      var events = disabled ? undefined : {
+        onTouchStart: this.onTouchStart,
+        onTouchMove: this.onTouchMove,
+        onTouchEnd: this.onTouchEnd,
+        onTouchCancel: this.onTouchCancel,
+        onMouseDown: this.onMouseDown,
+        onMouseUp: this.onMouseUp,
+        onMouseLeave: this.onMouseLeave
+      };
+
+      var child = _react.default.Children.only(children);
+
+      if (!disabled && this.state.active) {
+        var _child$props = child.props,
+            style = _child$props.style,
+            className = _child$props.className;
+
+        if (activeStyle !== false) {
+          if (activeStyle) {
+            style = (0, _extends2.default)({}, style, activeStyle);
+          }
+
+          className = (0, _classnames.default)(className, activeClassName);
+        }
+
+        return _react.default.cloneElement(child, (0, _extends2.default)({
+          className: className,
+          style: style
+        }, events));
+      }
+
+      return _react.default.cloneElement(child, events);
+    }
+  }]);
+  return TouchFeedback;
+}(_react.default.Component);
+
+var _default = TouchFeedback;
+exports.default = _default;
+TouchFeedback.defaultProps = {
+  disabled: false
+};
+},{"babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js"}],"../node_modules/rmc-feedback/es/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    return _TouchFeedback.default;
+  }
+});
+
+var _TouchFeedback = _interopRequireDefault(require("./TouchFeedback"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./TouchFeedback":"../node_modules/rmc-feedback/es/TouchFeedback.js"}],"../node_modules/rc-input-number/es/InputHandler.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _rmcFeedback = _interopRequireDefault(require("rmc-feedback"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var InputHandler = function (_Component) {
+  (0, _inherits2.default)(InputHandler, _Component);
+
+  function InputHandler() {
+    (0, _classCallCheck2.default)(this, InputHandler);
+    return (0, _possibleConstructorReturn2.default)(this, _Component.apply(this, arguments));
+  }
+
+  InputHandler.prototype.render = function render() {
+    var _props = this.props,
+        prefixCls = _props.prefixCls,
+        disabled = _props.disabled,
+        otherProps = (0, _objectWithoutProperties2.default)(_props, ['prefixCls', 'disabled']);
+    return _react.default.createElement(_rmcFeedback.default, {
+      disabled: disabled,
+      activeClassName: prefixCls + '-handler-active'
+    }, _react.default.createElement('span', otherProps));
+  };
+
+  return InputHandler;
+}(_react.Component);
+
+InputHandler.propTypes = {
+  prefixCls: _propTypes.default.string,
+  disabled: _propTypes.default.bool,
+  onTouchStart: _propTypes.default.func,
+  onTouchEnd: _propTypes.default.func,
+  onMouseDown: _propTypes.default.func,
+  onMouseUp: _propTypes.default.func,
+  onMouseLeave: _propTypes.default.func
+};
+var _default = InputHandler;
+exports.default = _default;
+},{"babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","rmc-feedback":"../node_modules/rmc-feedback/es/index.js"}],"../node_modules/rc-input-number/es/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("babel-runtime/helpers/objectWithoutProperties"));
+
+var _extends2 = _interopRequireDefault(require("babel-runtime/helpers/extends"));
+
+var _classCallCheck2 = _interopRequireDefault(require("babel-runtime/helpers/classCallCheck"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("babel-runtime/helpers/possibleConstructorReturn"));
+
+var _inherits2 = _interopRequireDefault(require("babel-runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _KeyCode = _interopRequireDefault(require("rc-util/es/KeyCode"));
+
+var _InputHandler = _interopRequireDefault(require("./InputHandler"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function noop() {}
+
+function preventDefault(e) {
+  e.preventDefault();
+}
+
+function defaultParser(input) {
+  return input.replace(/[^\w\.-]+/g, '');
+}
+/**
+ * When click and hold on a button - the speed of auto changin the value.
+ */
+
+
+var SPEED = 200;
+/**
+ * When click and hold on a button - the delay before auto changin the value.
+ */
+
+var DELAY = 600;
+/**
+ * Max Safe Integer -- on IE this is not available, so manually set the number in that case.
+ * The reason this is used, instead of Infinity is because numbers above the MSI are unstable
+ */
+
+var MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
+
+var isValidProps = function isValidProps(value) {
+  return value !== undefined && value !== null;
+};
+
+var isEqual = function isEqual(oldValue, newValue) {
+  return newValue === oldValue || typeof newValue === 'number' && typeof oldValue === 'number' && isNaN(newValue) && isNaN(oldValue);
+};
+
+var InputNumber = function (_React$Component) {
+  (0, _inherits2.default)(InputNumber, _React$Component);
+
+  function InputNumber(props) {
+    (0, _classCallCheck2.default)(this, InputNumber);
+
+    var _this = (0, _possibleConstructorReturn2.default)(this, _React$Component.call(this, props));
+
+    _initialiseProps.call(_this);
+
+    var value = void 0;
+
+    if ('value' in props) {
+      value = props.value;
+    } else {
+      value = props.defaultValue;
+    }
+
+    _this.state = {
+      focused: props.autoFocus
+    };
+
+    var validValue = _this.getValidValue(_this.toNumber(value));
+
+    _this.state = (0, _extends2.default)({}, _this.state, {
+      inputValue: _this.toPrecisionAsStep(validValue),
+      value: validValue
+    });
+    return _this;
+  }
+
+  InputNumber.prototype.componentDidMount = function componentDidMount() {
+    this.componentDidUpdate();
+  };
+
+  InputNumber.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
+    var _props = this.props,
+        value = _props.value,
+        onChange = _props.onChange,
+        max = _props.max,
+        min = _props.min;
+    var focused = this.state.focused; // Don't trigger in componentDidMount
+
+    if (prevProps) {
+      if (!isEqual(prevProps.value, value) || !isEqual(prevProps.max, max) || !isEqual(prevProps.min, min)) {
+        var validValue = focused ? value : this.getValidValue(value);
+        var nextInputValue = void 0;
+
+        if (this.pressingUpOrDown) {
+          nextInputValue = validValue;
+        } else if (this.inputting) {
+          nextInputValue = this.rawInput;
+        } else {
+          nextInputValue = this.toPrecisionAsStep(validValue);
+        }
+
+        this.setState({
+          // eslint-disable-line
+          value: validValue,
+          inputValue: nextInputValue
+        });
+      } // Trigger onChange when max or min change
+      // https://github.com/ant-design/ant-design/issues/11574
+
+
+      var nextValue = 'value' in this.props ? value : this.state.value; // ref: null < 20 === true
+      // https://github.com/ant-design/ant-design/issues/14277
+
+      if ('max' in this.props && prevProps.max !== max && typeof nextValue === 'number' && nextValue > max && onChange) {
+        onChange(max);
+      }
+
+      if ('min' in this.props && prevProps.min !== min && typeof nextValue === 'number' && nextValue < min && onChange) {
+        onChange(min);
+      }
+    } // Restore cursor
+
+
+    try {
+      // Firefox set the input cursor after it get focused.
+      // This caused that if an input didn't init with the selection,
+      // set will cause cursor not correct when first focus.
+      // Safari will focus input if set selection. We need skip this.
+      if (this.cursorStart !== undefined && this.state.focused) {
+        // In most cases, the string after cursor is stable.
+        // We can move the cursor before it
+        if ( // If not match full str, try to match part of str
+        !this.partRestoreByAfter(this.cursorAfter) && this.state.value !== this.props.value) {
+          // If not match any of then, let's just keep the position
+          // TODO: Logic should not reach here, need check if happens
+          var pos = this.cursorStart + 1; // If not have last string, just position to the end
+
+          if (!this.cursorAfter) {
+            pos = this.input.value.length;
+          } else if (this.lastKeyCode === _KeyCode.default.BACKSPACE) {
+            pos = this.cursorStart - 1;
+          } else if (this.lastKeyCode === _KeyCode.default.DELETE) {
+            pos = this.cursorStart;
+          }
+
+          this.fixCaret(pos, pos);
+        } else if (this.currentValue === this.input.value) {
+          // Handle some special key code
+          switch (this.lastKeyCode) {
+            case _KeyCode.default.BACKSPACE:
+              this.fixCaret(this.cursorStart - 1, this.cursorStart - 1);
+              break;
+
+            case _KeyCode.default.DELETE:
+              this.fixCaret(this.cursorStart + 1, this.cursorStart + 1);
+              break;
+
+            default: // Do nothing
+
+          }
+        }
+      }
+    } catch (e) {} // Do nothing
+    // Reset last key
+
+
+    this.lastKeyCode = null; // pressingUpOrDown is true means that someone just click up or down button
+
+    if (!this.pressingUpOrDown) {
+      return;
+    }
+
+    if (this.props.focusOnUpDown && this.state.focused) {
+      if (document.activeElement !== this.input) {
+        this.focus();
+      }
+    }
+
+    this.pressingUpOrDown = false;
+  };
+
+  InputNumber.prototype.componentWillUnmount = function componentWillUnmount() {
+    this.stop();
+  };
+
+  InputNumber.prototype.getCurrentValidValue = function getCurrentValidValue(value) {
+    var val = value;
+
+    if (val === '') {
+      val = '';
+    } else if (!this.isNotCompleteNumber(parseFloat(val, 10))) {
+      val = this.getValidValue(val);
+    } else {
+      val = this.state.value;
+    }
+
+    return this.toNumber(val);
+  };
+
+  InputNumber.prototype.getRatio = function getRatio(e) {
+    var ratio = 1;
+
+    if (e.metaKey || e.ctrlKey) {
+      ratio = 0.1;
+    } else if (e.shiftKey) {
+      ratio = 10;
+    }
+
+    return ratio;
+  };
+
+  InputNumber.prototype.getValueFromEvent = function getValueFromEvent(e) {
+    // optimize for chinese input expierence
+    // https://github.com/ant-design/ant-design/issues/8196
+    var value = e.target.value.trim().replace(/。/g, '.');
+
+    if (isValidProps(this.props.decimalSeparator)) {
+      value = value.replace(this.props.decimalSeparator, '.');
+    }
+
+    return value;
+  };
+
+  InputNumber.prototype.getValidValue = function getValidValue(value) {
+    var min = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.props.min;
+    var max = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this.props.max;
+    var val = parseFloat(value, 10); // https://github.com/ant-design/ant-design/issues/7358
+
+    if (isNaN(val)) {
+      return value;
+    }
+
+    if (val < min) {
+      val = min;
+    }
+
+    if (val > max) {
+      val = max;
+    }
+
+    return val;
+  };
+
+  InputNumber.prototype.setValue = function setValue(v, callback) {
+    // trigger onChange
+    var precision = this.props.precision;
+    var newValue = this.isNotCompleteNumber(parseFloat(v, 10)) ? null : parseFloat(v, 10);
+    var _state = this.state,
+        _state$value = _state.value,
+        value = _state$value === undefined ? null : _state$value,
+        _state$inputValue = _state.inputValue,
+        inputValue = _state$inputValue === undefined ? null : _state$inputValue; // https://github.com/ant-design/ant-design/issues/7363
+    // https://github.com/ant-design/ant-design/issues/16622
+
+    var newValueInString = typeof newValue === 'number' ? newValue.toFixed(precision) : '' + newValue;
+    var changed = newValue !== value || newValueInString !== '' + inputValue;
+
+    if (!('value' in this.props)) {
+      this.setState({
+        value: newValue,
+        inputValue: this.toPrecisionAsStep(v)
+      }, callback);
+    } else {
+      // always set input value same as value
+      this.setState({
+        inputValue: this.toPrecisionAsStep(this.state.value)
+      }, callback);
+    }
+
+    if (changed) {
+      this.props.onChange(newValue);
+    }
+
+    return newValue;
+  };
+
+  InputNumber.prototype.getPrecision = function getPrecision(value) {
+    if (isValidProps(this.props.precision)) {
+      return this.props.precision;
+    }
+
+    var valueString = value.toString();
+
+    if (valueString.indexOf('e-') >= 0) {
+      return parseInt(valueString.slice(valueString.indexOf('e-') + 2), 10);
+    }
+
+    var precision = 0;
+
+    if (valueString.indexOf('.') >= 0) {
+      precision = valueString.length - valueString.indexOf('.') - 1;
+    }
+
+    return precision;
+  }; // step={1.0} value={1.51}
+  // press +
+  // then value should be 2.51, rather than 2.5
+  // if this.props.precision is undefined
+  // https://github.com/react-component/input-number/issues/39
+
+
+  InputNumber.prototype.getMaxPrecision = function getMaxPrecision(currentValue) {
+    var ratio = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+    var _props2 = this.props,
+        precision = _props2.precision,
+        step = _props2.step;
+
+    if (isValidProps(precision)) {
+      return precision;
+    }
+
+    var ratioPrecision = this.getPrecision(ratio);
+    var stepPrecision = this.getPrecision(step);
+    var currentValuePrecision = this.getPrecision(currentValue);
+
+    if (!currentValue) {
+      return ratioPrecision + stepPrecision;
+    }
+
+    return Math.max(currentValuePrecision, ratioPrecision + stepPrecision);
+  };
+
+  InputNumber.prototype.getPrecisionFactor = function getPrecisionFactor(currentValue) {
+    var ratio = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+    var precision = this.getMaxPrecision(currentValue, ratio);
+    return Math.pow(10, precision);
+  };
+
+  InputNumber.prototype.fixCaret = function fixCaret(start, end) {
+    if (start === undefined || end === undefined || !this.input || !this.input.value) {
+      return;
+    }
+
+    try {
+      var currentStart = this.input.selectionStart;
+      var currentEnd = this.input.selectionEnd;
+
+      if (start !== currentStart || end !== currentEnd) {
+        this.input.setSelectionRange(start, end);
+      }
+    } catch (e) {// Fix error in Chrome:
+      // Failed to read the 'selectionStart' property from 'HTMLInputElement'
+      // http://stackoverflow.com/q/21177489/3040605
+    }
+  };
+
+  InputNumber.prototype.focus = function focus() {
+    this.input.focus();
+    this.recordCursorPosition();
+  };
+
+  InputNumber.prototype.blur = function blur() {
+    this.input.blur();
+  };
+
+  InputNumber.prototype.formatWrapper = function formatWrapper(num) {
+    // http://2ality.com/2012/03/signedzero.html
+    // https://github.com/ant-design/ant-design/issues/9439
+    if (this.props.formatter) {
+      return this.props.formatter(num);
+    }
+
+    return num;
+  };
+
+  InputNumber.prototype.toPrecisionAsStep = function toPrecisionAsStep(num) {
+    if (this.isNotCompleteNumber(num) || num === '') {
+      return num;
+    }
+
+    var precision = Math.abs(this.getMaxPrecision(num));
+
+    if (!isNaN(precision)) {
+      return Number(num).toFixed(precision);
+    }
+
+    return num.toString();
+  }; // '1.' '1x' 'xx' '' => are not complete numbers
+
+
+  InputNumber.prototype.isNotCompleteNumber = function isNotCompleteNumber(num) {
+    return isNaN(num) || num === '' || num === null || num && num.toString().indexOf('.') === num.toString().length - 1;
+  };
+
+  InputNumber.prototype.toNumber = function toNumber(num) {
+    var precision = this.props.precision;
+    var focused = this.state.focused; // num.length > 16 => This is to prevent input of large numbers
+
+    var numberIsTooLarge = num && num.length > 16 && focused;
+
+    if (this.isNotCompleteNumber(num) || numberIsTooLarge) {
+      return num;
+    }
+
+    if (isValidProps(precision)) {
+      return Math.round(num * Math.pow(10, precision)) / Math.pow(10, precision);
+    }
+
+    return Number(num);
+  };
+
+  InputNumber.prototype.upStep = function upStep(val, rat) {
+    var step = this.props.step;
+    var precisionFactor = this.getPrecisionFactor(val, rat);
+    var precision = Math.abs(this.getMaxPrecision(val, rat));
+    var result = ((precisionFactor * val + precisionFactor * step * rat) / precisionFactor).toFixed(precision);
+    return this.toNumber(result);
+  };
+
+  InputNumber.prototype.downStep = function downStep(val, rat) {
+    var step = this.props.step;
+    var precisionFactor = this.getPrecisionFactor(val, rat);
+    var precision = Math.abs(this.getMaxPrecision(val, rat));
+    var result = ((precisionFactor * val - precisionFactor * step * rat) / precisionFactor).toFixed(precision);
+    return this.toNumber(result);
+  };
+
+  InputNumber.prototype.step = function step(type, e) {
+    var _this2 = this;
+
+    var ratio = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+    var recursive = arguments[3];
+    this.stop();
+
+    if (e) {
+      e.persist();
+      e.preventDefault();
+    }
+
+    var props = this.props;
+
+    if (props.disabled) {
+      return;
+    }
+
+    var value = this.getCurrentValidValue(this.state.inputValue) || 0;
+
+    if (this.isNotCompleteNumber(value)) {
+      return;
+    }
+
+    var val = this[type + 'Step'](value, ratio);
+    var outOfRange = val > props.max || val < props.min;
+
+    if (val > props.max) {
+      val = props.max;
+    } else if (val < props.min) {
+      val = props.min;
+    }
+
+    this.setValue(val);
+    this.setState({
+      focused: true
+    });
+
+    if (outOfRange) {
+      return;
+    }
+
+    this.autoStepTimer = setTimeout(function () {
+      _this2[type](e, ratio, true);
+    }, recursive ? SPEED : DELAY);
+  };
+
+  InputNumber.prototype.render = function render() {
+    var _classNames;
+
+    var props = (0, _extends2.default)({}, this.props);
+    var prefixCls = props.prefixCls,
+        disabled = props.disabled,
+        readOnly = props.readOnly,
+        useTouch = props.useTouch,
+        autoComplete = props.autoComplete,
+        upHandler = props.upHandler,
+        downHandler = props.downHandler,
+        rest = (0, _objectWithoutProperties2.default)(props, ['prefixCls', 'disabled', 'readOnly', 'useTouch', 'autoComplete', 'upHandler', 'downHandler']);
+    var classes = (0, _classnames.default)((_classNames = {}, _classNames[prefixCls] = true, _classNames[props.className] = !!props.className, _classNames[prefixCls + '-disabled'] = disabled, _classNames[prefixCls + '-focused'] = this.state.focused, _classNames));
+    var upDisabledClass = '';
+    var downDisabledClass = '';
+    var value = this.state.value;
+
+    if (value || value === 0) {
+      if (!isNaN(value)) {
+        var val = Number(value);
+
+        if (val >= props.max) {
+          upDisabledClass = prefixCls + '-handler-up-disabled';
+        }
+
+        if (val <= props.min) {
+          downDisabledClass = prefixCls + '-handler-down-disabled';
+        }
+      } else {
+        upDisabledClass = prefixCls + '-handler-up-disabled';
+        downDisabledClass = prefixCls + '-handler-down-disabled';
+      }
+    }
+
+    var dataOrAriaAttributeProps = {};
+
+    for (var key in props) {
+      if (props.hasOwnProperty(key) && (key.substr(0, 5) === 'data-' || key.substr(0, 5) === 'aria-' || key === 'role')) {
+        dataOrAriaAttributeProps[key] = props[key];
+      }
+    }
+
+    var editable = !props.readOnly && !props.disabled; // focus state, show input value
+    // unfocus state, show valid value
+
+    var inputDisplayValue = this.getInputDisplayValue();
+    var upEvents = void 0;
+    var downEvents = void 0;
+
+    if (useTouch) {
+      upEvents = {
+        onTouchStart: editable && !upDisabledClass ? this.up : noop,
+        onTouchEnd: this.stop
+      };
+      downEvents = {
+        onTouchStart: editable && !downDisabledClass ? this.down : noop,
+        onTouchEnd: this.stop
+      };
+    } else {
+      upEvents = {
+        onMouseDown: editable && !upDisabledClass ? this.up : noop,
+        onMouseUp: this.stop,
+        onMouseLeave: this.stop
+      };
+      downEvents = {
+        onMouseDown: editable && !downDisabledClass ? this.down : noop,
+        onMouseUp: this.stop,
+        onMouseLeave: this.stop
+      };
+    }
+
+    var isUpDisabled = !!upDisabledClass || disabled || readOnly;
+    var isDownDisabled = !!downDisabledClass || disabled || readOnly; // ref for test
+
+    return _react.default.createElement('div', {
+      className: classes,
+      style: props.style,
+      title: props.title,
+      onMouseEnter: props.onMouseEnter,
+      onMouseLeave: props.onMouseLeave,
+      onMouseOver: props.onMouseOver,
+      onMouseOut: props.onMouseOut
+    }, _react.default.createElement('div', {
+      className: prefixCls + '-handler-wrap'
+    }, _react.default.createElement(_InputHandler.default, (0, _extends2.default)({
+      ref: this.saveUp,
+      disabled: isUpDisabled,
+      prefixCls: prefixCls,
+      unselectable: 'unselectable'
+    }, upEvents, {
+      role: 'button',
+      'aria-label': 'Increase Value',
+      'aria-disabled': !!isUpDisabled,
+      className: prefixCls + '-handler ' + prefixCls + '-handler-up ' + upDisabledClass
+    }), upHandler || _react.default.createElement('span', {
+      unselectable: 'unselectable',
+      className: prefixCls + '-handler-up-inner',
+      onClick: preventDefault
+    })), _react.default.createElement(_InputHandler.default, (0, _extends2.default)({
+      ref: this.saveDown,
+      disabled: isDownDisabled,
+      prefixCls: prefixCls,
+      unselectable: 'unselectable'
+    }, downEvents, {
+      role: 'button',
+      'aria-label': 'Decrease Value',
+      'aria-disabled': !!isDownDisabled,
+      className: prefixCls + '-handler ' + prefixCls + '-handler-down ' + downDisabledClass
+    }), downHandler || _react.default.createElement('span', {
+      unselectable: 'unselectable',
+      className: prefixCls + '-handler-down-inner',
+      onClick: preventDefault
+    }))), _react.default.createElement('div', {
+      className: prefixCls + '-input-wrap'
+    }, _react.default.createElement('input', (0, _extends2.default)({
+      role: 'spinbutton',
+      'aria-valuemin': props.min,
+      'aria-valuemax': props.max,
+      'aria-valuenow': value,
+      required: props.required,
+      type: props.type,
+      placeholder: props.placeholder,
+      onClick: props.onClick,
+      onMouseUp: this.onMouseUp,
+      className: prefixCls + '-input',
+      tabIndex: props.tabIndex,
+      autoComplete: autoComplete,
+      onFocus: this.onFocus,
+      onBlur: this.onBlur,
+      onKeyDown: editable ? this.onKeyDown : noop,
+      onKeyUp: editable ? this.onKeyUp : noop,
+      autoFocus: props.autoFocus,
+      maxLength: props.maxLength,
+      readOnly: props.readOnly,
+      disabled: props.disabled,
+      max: props.max,
+      min: props.min,
+      step: props.step,
+      name: props.name,
+      title: props.title,
+      id: props.id,
+      onChange: this.onChange,
+      ref: this.saveInput,
+      value: inputDisplayValue,
+      pattern: props.pattern,
+      inputMode: props.inputMode
+    }, dataOrAriaAttributeProps))));
+  };
+
+  return InputNumber;
+}(_react.default.Component);
+
+InputNumber.propTypes = {
+  value: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+  defaultValue: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+  focusOnUpDown: _propTypes.default.bool,
+  autoFocus: _propTypes.default.bool,
+  onChange: _propTypes.default.func,
+  onPressEnter: _propTypes.default.func,
+  onKeyDown: _propTypes.default.func,
+  onKeyUp: _propTypes.default.func,
+  prefixCls: _propTypes.default.string,
+  tabIndex: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number]),
+  disabled: _propTypes.default.bool,
+  onFocus: _propTypes.default.func,
+  onBlur: _propTypes.default.func,
+  readOnly: _propTypes.default.bool,
+  max: _propTypes.default.number,
+  min: _propTypes.default.number,
+  step: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+  upHandler: _propTypes.default.node,
+  downHandler: _propTypes.default.node,
+  useTouch: _propTypes.default.bool,
+  formatter: _propTypes.default.func,
+  parser: _propTypes.default.func,
+  onMouseEnter: _propTypes.default.func,
+  onMouseLeave: _propTypes.default.func,
+  onMouseOver: _propTypes.default.func,
+  onMouseOut: _propTypes.default.func,
+  onMouseUp: _propTypes.default.func,
+  precision: _propTypes.default.number,
+  required: _propTypes.default.bool,
+  pattern: _propTypes.default.string,
+  decimalSeparator: _propTypes.default.string,
+  inputMode: _propTypes.default.string
+};
+InputNumber.defaultProps = {
+  focusOnUpDown: true,
+  useTouch: false,
+  prefixCls: 'rc-input-number',
+  min: -MAX_SAFE_INTEGER,
+  step: 1,
+  style: {},
+  onChange: noop,
+  onKeyDown: noop,
+  onPressEnter: noop,
+  onFocus: noop,
+  onBlur: noop,
+  parser: defaultParser,
+  required: false,
+  autoComplete: 'off'
+};
+
+var _initialiseProps = function _initialiseProps() {
+  var _this3 = this;
+
+  this.onKeyDown = function (e) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var _props3 = _this3.props,
+        onKeyDown = _props3.onKeyDown,
+        onPressEnter = _props3.onPressEnter;
+
+    if (e.keyCode === _KeyCode.default.UP) {
+      var ratio = _this3.getRatio(e);
+
+      _this3.up(e, ratio);
+
+      _this3.stop();
+    } else if (e.keyCode === _KeyCode.default.DOWN) {
+      var _ratio = _this3.getRatio(e);
+
+      _this3.down(e, _ratio);
+
+      _this3.stop();
+    } else if (e.keyCode === _KeyCode.default.ENTER && onPressEnter) {
+      onPressEnter(e);
+    } // Trigger user key down
+
+
+    _this3.recordCursorPosition();
+
+    _this3.lastKeyCode = e.keyCode;
+
+    if (onKeyDown) {
+      onKeyDown.apply(undefined, [e].concat(args));
+    }
+  };
+
+  this.onKeyUp = function (e) {
+    for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      args[_key2 - 1] = arguments[_key2];
+    }
+
+    var onKeyUp = _this3.props.onKeyUp;
+
+    _this3.stop();
+
+    _this3.recordCursorPosition(); // Trigger user key up
+
+
+    if (onKeyUp) {
+      onKeyUp.apply(undefined, [e].concat(args));
+    }
+  };
+
+  this.onChange = function (e) {
+    var onChange = _this3.props.onChange;
+
+    if (_this3.state.focused) {
+      _this3.inputting = true;
+    }
+
+    _this3.rawInput = _this3.props.parser(_this3.getValueFromEvent(e));
+
+    _this3.setState({
+      inputValue: _this3.rawInput
+    });
+
+    onChange(_this3.toNumber(_this3.rawInput)); // valid number or invalid string
+  };
+
+  this.onMouseUp = function () {
+    var onMouseUp = _this3.props.onMouseUp;
+
+    _this3.recordCursorPosition();
+
+    if (onMouseUp) {
+      onMouseUp.apply(undefined, arguments);
+    }
+  };
+
+  this.onFocus = function () {
+    var _props4;
+
+    _this3.setState({
+      focused: true
+    });
+
+    (_props4 = _this3.props).onFocus.apply(_props4, arguments);
+  };
+
+  this.onBlur = function () {
+    var onBlur = _this3.props.onBlur;
+    _this3.inputting = false;
+
+    _this3.setState({
+      focused: false
+    });
+
+    var value = _this3.getCurrentValidValue(_this3.state.inputValue);
+
+    var newValue = _this3.setValue(value);
+
+    if (onBlur) {
+      var originValue = _this3.input.value;
+
+      var inputValue = _this3.getInputDisplayValue({
+        focus: false,
+        value: newValue
+      });
+
+      _this3.input.value = inputValue;
+      onBlur.apply(undefined, arguments);
+      _this3.input.value = originValue;
+    }
+  };
+
+  this.getInputDisplayValue = function (state) {
+    var _ref = state || _this3.state,
+        focused = _ref.focused,
+        inputValue = _ref.inputValue,
+        value = _ref.value;
+
+    var inputDisplayValue = void 0;
+
+    if (focused) {
+      inputDisplayValue = inputValue;
+    } else {
+      inputDisplayValue = _this3.toPrecisionAsStep(value);
+    }
+
+    if (inputDisplayValue === undefined || inputDisplayValue === null) {
+      inputDisplayValue = '';
+    }
+
+    var inputDisplayValueFormat = _this3.formatWrapper(inputDisplayValue);
+
+    if (isValidProps(_this3.props.decimalSeparator)) {
+      inputDisplayValueFormat = inputDisplayValueFormat.toString().replace('.', _this3.props.decimalSeparator);
+    }
+
+    return inputDisplayValueFormat;
+  };
+
+  this.recordCursorPosition = function () {
+    // Record position
+    try {
+      _this3.cursorStart = _this3.input.selectionStart;
+      _this3.cursorEnd = _this3.input.selectionEnd;
+      _this3.currentValue = _this3.input.value;
+      _this3.cursorBefore = _this3.input.value.substring(0, _this3.cursorStart);
+      _this3.cursorAfter = _this3.input.value.substring(_this3.cursorEnd);
+    } catch (e) {// Fix error in Chrome:
+      // Failed to read the 'selectionStart' property from 'HTMLInputElement'
+      // http://stackoverflow.com/q/21177489/3040605
+    }
+  };
+
+  this.restoreByAfter = function (str) {
+    if (str === undefined) return false;
+    var fullStr = _this3.input.value;
+    var index = fullStr.lastIndexOf(str);
+    if (index === -1) return false;
+    var prevCursorPos = _this3.cursorBefore.length;
+
+    if (_this3.lastKeyCode === _KeyCode.default.DELETE && _this3.cursorBefore.charAt(prevCursorPos - 1) === str[0]) {
+      _this3.fixCaret(prevCursorPos, prevCursorPos);
+
+      return true;
+    }
+
+    if (index + str.length === fullStr.length) {
+      _this3.fixCaret(index, index);
+
+      return true;
+    }
+
+    return false;
+  };
+
+  this.partRestoreByAfter = function (str) {
+    if (str === undefined) return false; // For loop from full str to the str with last char to map. e.g. 123
+    // -> 123
+    // -> 23
+    // -> 3
+
+    return Array.prototype.some.call(str, function (_, start) {
+      var partStr = str.substring(start);
+      return _this3.restoreByAfter(partStr);
+    });
+  };
+
+  this.stop = function () {
+    if (_this3.autoStepTimer) {
+      clearTimeout(_this3.autoStepTimer);
+    }
+  };
+
+  this.down = function (e, ratio, recursive) {
+    _this3.pressingUpOrDown = true;
+
+    _this3.step('down', e, ratio, recursive);
+  };
+
+  this.up = function (e, ratio, recursive) {
+    _this3.pressingUpOrDown = true;
+
+    _this3.step('up', e, ratio, recursive);
+  };
+
+  this.saveUp = function (node) {
+    _this3.upHandler = node;
+  };
+
+  this.saveDown = function (node) {
+    _this3.downHandler = node;
+  };
+
+  this.saveInput = function (node) {
+    _this3.input = node;
+  };
+};
+
+var _default = InputNumber;
+exports.default = _default;
+},{"babel-runtime/helpers/objectWithoutProperties":"../node_modules/babel-runtime/helpers/objectWithoutProperties.js","babel-runtime/helpers/extends":"../node_modules/babel-runtime/helpers/extends.js","babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","classnames":"../node_modules/classnames/index.js","rc-util/es/KeyCode":"../node_modules/rc-util/es/KeyCode.js","./InputHandler":"../node_modules/rc-input-number/es/InputHandler.js"}],"../node_modules/antd/es/input-number/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _rcInputNumber = _interopRequireDefault(require("rc-input-number"));
+
+var _icon = _interopRequireDefault(require("../icon"));
+
+var _configProvider = require("../config-provider");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+var __rest = void 0 && (void 0).__rest || function (s, e) {
+  var t = {};
+
+  for (var p in s) {
+    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  }
+
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+  }
+  return t;
+};
+
+var InputNumber = /*#__PURE__*/function (_React$Component) {
+  _inherits(InputNumber, _React$Component);
+
+  var _super = _createSuper(InputNumber);
+
+  function InputNumber() {
+    var _this;
+
+    _classCallCheck(this, InputNumber);
+
+    _this = _super.apply(this, arguments);
+
+    _this.saveInputNumber = function (inputNumberRef) {
+      _this.inputNumberRef = inputNumberRef;
+    };
+
+    _this.renderInputNumber = function (_ref) {
+      var _classNames;
+
+      var getPrefixCls = _ref.getPrefixCls;
+
+      var _a = _this.props,
+          className = _a.className,
+          size = _a.size,
+          customizePrefixCls = _a.prefixCls,
+          others = __rest(_a, ["className", "size", "prefixCls"]);
+
+      var prefixCls = getPrefixCls('input-number', customizePrefixCls);
+      var inputNumberClass = (0, _classnames.default)((_classNames = {}, _defineProperty(_classNames, "".concat(prefixCls, "-lg"), size === 'large'), _defineProperty(_classNames, "".concat(prefixCls, "-sm"), size === 'small'), _classNames), className);
+      var upIcon = /*#__PURE__*/React.createElement(_icon.default, {
+        type: "up",
+        className: "".concat(prefixCls, "-handler-up-inner")
+      });
+      var downIcon = /*#__PURE__*/React.createElement(_icon.default, {
+        type: "down",
+        className: "".concat(prefixCls, "-handler-down-inner")
+      });
+      return /*#__PURE__*/React.createElement(_rcInputNumber.default, _extends({
+        ref: _this.saveInputNumber,
+        className: inputNumberClass,
+        upHandler: upIcon,
+        downHandler: downIcon,
+        prefixCls: prefixCls
+      }, others));
+    };
+
+    return _this;
+  }
+
+  _createClass(InputNumber, [{
+    key: "focus",
+    value: function focus() {
+      this.inputNumberRef.focus();
+    }
+  }, {
+    key: "blur",
+    value: function blur() {
+      this.inputNumberRef.blur();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement(_configProvider.ConfigConsumer, null, this.renderInputNumber);
+    }
+  }]);
+
+  return InputNumber;
+}(React.Component);
+
+exports.default = InputNumber;
+InputNumber.defaultProps = {
+  step: 1
+};
+},{"react":"../node_modules/react/index.js","classnames":"../node_modules/classnames/index.js","rc-input-number":"../node_modules/rc-input-number/es/index.js","../icon":"../node_modules/antd/es/icon/index.js","../config-provider":"../node_modules/antd/es/config-provider/index.js"}],"../node_modules/rc-notification/es/Notice.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -85688,12 +85688,24 @@ exports.FormItemType = FormItemType;
   FormItemType["SELECT"] = "select";
   FormItemType["LAYOUT"] = "layout";
   FormItemType["RESULT"] = "result";
+  FormItemType["SPEC"] = "spec";
 })(FormItemType || (exports.FormItemType = FormItemType = {}));
 
 var createFormItem = function createFormItem(itemType) {
   var id = (0, _shortid.generate)();
 
   switch (itemType) {
+    case FormItemType.SPEC:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '检验值',
+        defaultValue: 1,
+        min: 1,
+        max: 100,
+        unit: ''
+      };
+
     case FormItemType.RESULT:
       return {
         id: id,
@@ -86048,8 +86060,6 @@ var _divider = _interopRequireDefault(require("antd/es/divider"));
 
 var _empty = _interopRequireDefault(require("antd/es/empty"));
 
-var _inputNumber = _interopRequireDefault(require("antd/es/input-number"));
-
 var _checkbox = _interopRequireDefault(require("antd/es/checkbox"));
 
 var _select = _interopRequireDefault(require("antd/es/select"));
@@ -86057,6 +86067,8 @@ var _select = _interopRequireDefault(require("antd/es/select"));
 var _input = _interopRequireDefault(require("antd/es/input"));
 
 var _radio = _interopRequireDefault(require("antd/es/radio"));
+
+var _inputNumber = _interopRequireDefault(require("antd/es/input-number"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -86192,6 +86204,34 @@ function GeneratedForm(props) {
     var itemType = formItem.itemType;
 
     switch (itemType) {
+      case _FormStore.FormItemType.SPEC:
+        var specItem_1 = formItem;
+        return _react.default.createElement(_inputNumber.default, {
+          style: {
+            width: '100%'
+          },
+          value: formValues.values[specItem_1.id],
+          onChange: function onChange(value) {
+            var _a;
+
+            value = value || specItem_1.min;
+            var values = formValues.values;
+            setFormValues(__assign(__assign({}, formValues), {
+              values: __assign(__assign({}, values), (_a = {}, _a[specItem_1.id] = value, _a))
+            }));
+          },
+          min: specItem_1.min,
+          max: specItem_1.max,
+          formatter: function formatter(value) {
+            if (!value) return specItem_1.min + " " + specItem_1.unit;
+            return value + " " + specItem_1.unit;
+          },
+          parser: function parser(value) {
+            if (!value) return Number(specItem_1.min);
+            return Number(value.replace(" " + specItem_1.unit, ''));
+          }
+        });
+
       case _FormStore.FormItemType.RESULT:
         return _react.default.createElement("div", null, _react.default.createElement(_radio.default.Group, {
           style: {
@@ -86366,7 +86406,7 @@ function GeneratedForm(props) {
       }, textItem.content));
     }
 
-    if ([_FormStore.FormItemType.INPUT, _FormStore.FormItemType.NUMBER, _FormStore.FormItemType.TEXTAREA, _FormStore.FormItemType.RADIO, _FormStore.FormItemType.CHECKBOX, _FormStore.FormItemType.SELECT, _FormStore.FormItemType.RESULT].indexOf(itemType) > -1) {
+    if ([_FormStore.FormItemType.INPUT, _FormStore.FormItemType.NUMBER, _FormStore.FormItemType.TEXTAREA, _FormStore.FormItemType.RADIO, _FormStore.FormItemType.CHECKBOX, _FormStore.FormItemType.SELECT, _FormStore.FormItemType.RESULT, _FormStore.FormItemType.SPEC].indexOf(itemType) > -1) {
       var errMsg = validationResult.errors[item.id];
       return _react.default.createElement("div", {
         className: (0, _classnames.default)('form-item', labelAlign === 'top' ? 'label-standalone' : ''),
@@ -86407,7 +86447,7 @@ function GeneratedForm(props) {
     }
   }, "\u91CD \u7F6E")));
 }
-},{"antd/es/button":"../node_modules/antd/es/button/index.js","antd/es/divider":"../node_modules/antd/es/divider/index.js","antd/es/empty":"../node_modules/antd/es/empty/index.js","antd/es/input-number":"../node_modules/antd/es/input-number/index.js","antd/es/checkbox":"../node_modules/antd/es/checkbox/index.js","antd/es/select":"../node_modules/antd/es/select/index.js","antd/es/input":"../node_modules/antd/es/input/index.js","antd/es/radio":"../node_modules/antd/es/radio/index.js","react":"../node_modules/react/index.js","../stores/FormStore":"../src/stores/FormStore.ts","classnames":"../node_modules/classnames/index.js"}],"../src/components/Toolbar.tsx":[function(require,module,exports) {
+},{"antd/es/button":"../node_modules/antd/es/button/index.js","antd/es/divider":"../node_modules/antd/es/divider/index.js","antd/es/empty":"../node_modules/antd/es/empty/index.js","antd/es/checkbox":"../node_modules/antd/es/checkbox/index.js","antd/es/select":"../node_modules/antd/es/select/index.js","antd/es/input":"../node_modules/antd/es/input/index.js","antd/es/radio":"../node_modules/antd/es/radio/index.js","antd/es/input-number":"../node_modules/antd/es/input-number/index.js","react":"../node_modules/react/index.js","../stores/FormStore":"../src/stores/FormStore.ts","classnames":"../node_modules/classnames/index.js"}],"../src/components/Toolbar.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -87700,6 +87740,9 @@ var fields = {
   //     text: '布局'
   // },
   {
+    name: 'spec',
+    text: '检验值'
+  }, {
     name: 'result',
     text: '检验结果'
   }]
@@ -90968,7 +91011,7 @@ function FieldAttrs(props) {
     }, "\u9009\u586B"))));
   };
 
-  var hasLabelText = [_FormStore.FormItemType.INPUT, _FormStore.FormItemType.NUMBER, _FormStore.FormItemType.TEXTAREA, _FormStore.FormItemType.CHECKBOX, _FormStore.FormItemType.RADIO, _FormStore.FormItemType.SELECT].indexOf(itemType) > -1;
+  var hasLabelText = [_FormStore.FormItemType.INPUT, _FormStore.FormItemType.NUMBER, _FormStore.FormItemType.TEXTAREA, _FormStore.FormItemType.CHECKBOX, _FormStore.FormItemType.RADIO, _FormStore.FormItemType.SELECT, _FormStore.FormItemType.SPEC].indexOf(itemType) > -1;
   var hasValidationAttrs = [_FormStore.FormItemType.INPUT, _FormStore.FormItemType.TEXTAREA, _FormStore.FormItemType.CHECKBOX, _FormStore.FormItemType.RADIO].indexOf(itemType) > -1;
   return _react.default.createElement("div", {
     className: "attrs"
@@ -90992,7 +91035,7 @@ function FieldAttrs(props) {
         labelText: e.target.value
       }));
     }
-  })) : null, itemType === _FormStore.FormItemType.INPUT ? renderInputExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.NUMBER ? renderNumberExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.TEXTAREA ? renderInputExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.CHECKBOX ? renderItemOptions(form.activeItem) : null, itemType === _FormStore.FormItemType.CHECKBOX ? renderCheckboxExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.RADIO ? renderItemOptions(form.activeItem) : null, itemType === _FormStore.FormItemType.RADIO ? renderRadioExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.SELECT ? renderItemOptions(form.activeItem) : null, itemType === _FormStore.FormItemType.SELECT ? renderSelectExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.LAYOUT ? renderLayoutExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.TEXT ? renderTextExtraAttrs(form.activeItem) : null, hasValidationAttrs ? renderValidationAttrs(form.activeItem) : null);
+  })) : null, itemType === _FormStore.FormItemType.INPUT ? renderInputExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.NUMBER ? renderNumberExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.TEXTAREA ? renderInputExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.CHECKBOX ? renderItemOptions(form.activeItem) : null, itemType === _FormStore.FormItemType.CHECKBOX ? renderCheckboxExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.RADIO ? renderItemOptions(form.activeItem) : null, itemType === _FormStore.FormItemType.RADIO ? renderRadioExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.SELECT ? renderItemOptions(form.activeItem) : null, itemType === _FormStore.FormItemType.SELECT ? renderSelectExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.LAYOUT ? renderLayoutExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.SPEC ? renderNumberExtraAttrs(form.activeItem) : null, itemType === _FormStore.FormItemType.TEXT ? renderTextExtraAttrs(form.activeItem) : null, hasValidationAttrs ? renderValidationAttrs(form.activeItem) : null);
 }
 
 var _default = (0, _mobxReact.observer)(FieldAttrs);
@@ -91098,8 +91141,6 @@ var _col = _interopRequireDefault(require("antd/es/col"));
 
 var _row = _interopRequireDefault(require("antd/es/row"));
 
-var _inputNumber = _interopRequireDefault(require("antd/es/input-number"));
-
 var _checkbox = _interopRequireDefault(require("antd/es/checkbox"));
 
 var _select = _interopRequireDefault(require("antd/es/select"));
@@ -91107,6 +91148,8 @@ var _select = _interopRequireDefault(require("antd/es/select"));
 var _input = _interopRequireDefault(require("antd/es/input"));
 
 var _radio = _interopRequireDefault(require("antd/es/radio"));
+
+var _inputNumber = _interopRequireDefault(require("antd/es/input-number"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -91213,6 +91256,23 @@ function EditableField(props) {
     var itemType = formItem.itemType;
 
     switch (itemType) {
+      case _FormStore.FormItemType.SPEC:
+        var specItem_1 = formItem;
+        return _react.default.createElement(_inputNumber.default, {
+          style: {
+            width: '100%'
+          },
+          value: specItem_1.defaultValue,
+          formatter: function formatter(value) {
+            if (!value) return specItem_1.min + " " + specItem_1.unit;
+            return value + " " + specItem_1.unit;
+          },
+          parser: function parser(value) {
+            if (!value) return Number(specItem_1.min);
+            return Number(value.replace(" " + specItem_1.unit, ''));
+          }
+        });
+
       case _FormStore.FormItemType.RESULT:
         // const resultItem = formItem as (ResultItem & { isActive: boolean })
         return _react.default.createElement("div", null, _react.default.createElement(_radio.default.Group, {
@@ -91391,7 +91451,7 @@ function EditableField(props) {
 var _default = (0, _mobxReact.observer)(EditableField);
 
 exports.default = _default;
-},{"antd/es/button":"../node_modules/antd/es/button/index.js","antd/es/col":"../node_modules/antd/es/col/index.js","antd/es/row":"../node_modules/antd/es/row/index.js","antd/es/input-number":"../node_modules/antd/es/input-number/index.js","antd/es/checkbox":"../node_modules/antd/es/checkbox/index.js","antd/es/select":"../node_modules/antd/es/select/index.js","antd/es/input":"../node_modules/antd/es/input/index.js","antd/es/radio":"../node_modules/antd/es/radio/index.js","react":"../node_modules/react/index.js","react-dnd":"../node_modules/react-dnd/dist/esm/index.js","../ItemTypes":"../src/ItemTypes.ts","../stores/FormAttrsStore":"../src/stores/FormAttrsStore.ts","../stores/FormStore":"../src/stores/FormStore.ts","mobx-react":"../node_modules/mobx-react/dist/mobxreact.esm.js","classnames":"../node_modules/classnames/index.js"}],"../src/components/EditableForm.tsx":[function(require,module,exports) {
+},{"antd/es/button":"../node_modules/antd/es/button/index.js","antd/es/col":"../node_modules/antd/es/col/index.js","antd/es/row":"../node_modules/antd/es/row/index.js","antd/es/checkbox":"../node_modules/antd/es/checkbox/index.js","antd/es/select":"../node_modules/antd/es/select/index.js","antd/es/input":"../node_modules/antd/es/input/index.js","antd/es/radio":"../node_modules/antd/es/radio/index.js","antd/es/input-number":"../node_modules/antd/es/input-number/index.js","react":"../node_modules/react/index.js","react-dnd":"../node_modules/react-dnd/dist/esm/index.js","../ItemTypes":"../src/ItemTypes.ts","../stores/FormAttrsStore":"../src/stores/FormAttrsStore.ts","../stores/FormStore":"../src/stores/FormStore.ts","mobx-react":"../node_modules/mobx-react/dist/mobxreact.esm.js","classnames":"../node_modules/classnames/index.js"}],"../src/components/EditableForm.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -92374,7 +92434,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50190" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55409" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

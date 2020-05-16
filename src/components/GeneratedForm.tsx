@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FormItem, FormItemType, SelectItem, CheckboxItem, RadioItem, TextareaItem, InputItem, TextItem, NumberItem } from '../stores/FormStore'
+import { FormItem, FormItemType, SelectItem, CheckboxItem, RadioItem, TextareaItem, InputItem, TextItem, NumberItem, SpecItem } from '../stores/FormStore'
 import { Radio, Input, Select, Checkbox, Divider, Button, InputNumber, Empty } from 'antd'
 import classnames from 'classnames'
 
@@ -131,6 +131,39 @@ export function GeneratedForm (props: GeneratedFormProps) {
         const { itemType } = formItem
 
         switch (itemType) {
+        case FormItemType.SPEC:
+            const specItem = formItem as SpecItem
+
+            return (
+                <InputNumber
+                    style={{width: '100%'}}
+                    value={formValues.values[specItem.id] as number}
+                    onChange={value => {
+                        value = value || specItem.min
+
+                        const values = formValues.values
+
+                        setFormValues({
+                            ...formValues,
+                            values: {
+                                ...values,
+                                [specItem.id]: value
+                            }
+                        })
+                    }}
+                    min={specItem.min}
+                    max={specItem.max}
+                    formatter={value => {
+                        if (!value) return `${specItem.min} ${specItem.unit}`
+                        return `${value} ${specItem.unit}`
+                    }}
+                    parser={value => {
+                        if (!value) return Number(specItem.min)
+                        return Number(value.replace(` ${specItem.unit}`, ''))
+                    }}
+                />
+            )
+
         case FormItemType.RESULT:
             return (
                 <div>
@@ -353,7 +386,8 @@ export function GeneratedForm (props: GeneratedFormProps) {
                     FormItemType.RADIO,
                     FormItemType.CHECKBOX,
                     FormItemType.SELECT,
-                    FormItemType.RESULT
+                    FormItemType.RESULT,
+                    FormItemType.SPEC
                 ].indexOf(itemType) > -1) {
                     const errMsg: string = (validationResult.errors as any)[item.id]
 
@@ -389,4 +423,3 @@ export function GeneratedForm (props: GeneratedFormProps) {
         </div>
     )
 }
-

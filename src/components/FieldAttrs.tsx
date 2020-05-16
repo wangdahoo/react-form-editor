@@ -271,7 +271,8 @@ function FieldAttrs (props: FieldAttrsProps) {
         FormItemType.TEXTAREA,
         FormItemType.CHECKBOX,
         FormItemType.RADIO,
-        FormItemType.SELECT
+        FormItemType.SELECT,
+        FormItemType.SPEC
     ].indexOf(itemType) > -1
 
     const hasValidationAttrs = [
@@ -313,6 +314,7 @@ function FieldAttrs (props: FieldAttrsProps) {
 
             {itemType === FormItemType.LAYOUT ? renderLayoutExtraAttrs(form.activeItem as LayoutItem) : null}
 
+            {itemType === FormItemType.SPEC ? renderNumberExtraAttrs(form.activeItem as NumberItem) : null}
             {itemType === FormItemType.TEXT ? renderTextExtraAttrs(form.activeItem as TextItem) : null}
 
             {hasValidationAttrs ? renderValidationAttrs(form.activeItem as any) : null}

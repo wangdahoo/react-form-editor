@@ -41,6 +41,10 @@ const fields = {
         //     text: '布局'
         // },
         {
+            name: 'spec',
+            text: '检验值'
+        },
+        {
             name: 'result',
             text: '检验结果'
         }

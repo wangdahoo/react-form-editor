@@ -29,10 +29,9 @@ export default function FormEditor (props: FormEditorProps) {
     useEffect(() => {
         formStore.setItems(defaultFormItems)
         if (defaultFormAttrs) {
-            console.log('reset defaultFormAttrs')
             formAttrsStore.reset(defaultFormAttrs)
         }
-    }, [JSON.stringify(props)])
+    }, [props])
 
     return (
         <DndProvider backend={Backend}>

@@ -3,7 +3,7 @@ import { useDrag, useDrop, DragObjectWithType } from 'react-dnd'
 import ItemTypes from '../ItemTypes'
 import { Input, InputNumber, Radio, Checkbox, Select, Button, Row, Col } from 'antd'
 import formAttrs from '../stores/FormAttrsStore'
-import form, { OutputFormItem, FormItemType, InputItem, TextareaItem, RadioItem, CheckboxItem, SelectItem, ResultItem, NumberItem } from '../stores/FormStore'
+import form, { OutputFormItem, FormItemType, InputItem, TextareaItem, RadioItem, CheckboxItem, SelectItem, ResultItem, SpecItem, NumberItem } from '../stores/FormStore'
 import { observer } from 'mobx-react'
 import classnames from 'classnames'
 
@@ -78,6 +78,24 @@ function EditableField (props: EditableFieldProps) {
         const { itemType } = formItem
 
         switch (itemType) {
+        case FormItemType.SPEC:
+            const specItem = formItem as (SpecItem & { isActive: boolean })
+
+            return (
+                <InputNumber
+                    style={{width: '100%'}}
+                    value={specItem.defaultValue}
+                    formatter={value => {
+                        if (!value) return `${specItem.min} ${specItem.unit}`
+                        return `${value} ${specItem.unit}`
+                    }}
+                    parser={value => {
+                        if (!value) return Number(specItem.min)
+                        return Number(value.replace(` ${specItem.unit}`, ''))
+                    }}
+                />
+            )
+
         case FormItemType.RESULT:
             // const resultItem = formItem as (ResultItem & { isActive: boolean })
 
