@@ -82,17 +82,9 @@ function EditableField (props: EditableFieldProps) {
             const specItem = formItem as (SpecItem & { isActive: boolean })
 
             return (
-                <InputNumber
-                    style={{width: '100%'}}
-                    value={specItem.defaultValue}
-                    formatter={value => {
-                        if (!value) return `${specItem.min} ${specItem.unit}`
-                        return `${value} ${specItem.unit}`
-                    }}
-                    parser={value => {
-                        if (!value) return Number(specItem.min)
-                        return Number(value.replace(` ${specItem.unit}`, ''))
-                    }}
+                <Input
+                    value={specItem.defaultValue + ''}
+                    addonAfter={'正常范围'}
                 />
             )
 

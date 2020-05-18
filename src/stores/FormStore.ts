@@ -130,9 +130,9 @@ export const createFormItem = (itemType: string): FormItem => {
                 id,
                 itemType,
                 labelText: '检验值',
-                defaultValue: 1,
-                min: 1,
-                max: 100,
+                defaultValue: 25,
+                min: 25,
+                max: 75,
                 unit: ''
             }
 

@@ -33,7 +33,8 @@ const createFormValues = (items: FormItem[]): GeneratedFormValues => {
             FormItemType.TEXTAREA,
             FormItemType.RADIO,
             FormItemType.CHECKBOX,
-            FormItemType.SELECT
+            FormItemType.SELECT,
+            FormItemType.SPEC
         ].indexOf(item.itemType) > -1) {
             return {
                 ...values,
@@ -60,7 +61,8 @@ const shouldValidateRequired = (item: FormItem) => [
     FormItemType.INPUT,
     FormItemType.TEXTAREA,
     FormItemType.CHECKBOX,
-    FormItemType.RADIO
+    FormItemType.RADIO,
+    FormItemType.SPEC
 ].indexOf(item.itemType) > -1
 
 export function GeneratedForm (props: GeneratedFormProps) {
@@ -134,33 +136,34 @@ export function GeneratedForm (props: GeneratedFormProps) {
         case FormItemType.SPEC:
             const specItem = formItem as SpecItem
 
-            return (
-                <InputNumber
-                    style={{width: '100%'}}
-                    value={formValues.values[specItem.id] as number}
-                    onChange={value => {
-                        value = value || specItem.min
+            const specVal = formValues.values[specItem.id]
+            let tips = '正常范围'
+            if (!/^-?\d+$/.test(specVal + '') || !/^(-?\d+)(\.\d+)?$/.test(specVal + '')) {
+                tips = '请输入数字'
+            } else if (Number(formValues.values[specItem.id]) > specItem.max) {
+                tips = `大于最大值${specItem.max}${specItem.unit}`
+            } else if (Number(formValues.values[specItem.id]) < specItem.min) {
+                tips = `小于最大值${specItem.min}${specItem.unit}`
+            }
 
+            // console.log(specVal, tips)
+
+            return (
+                <Input
+                    defaultValue={specItem.defaultValue + ''}
+                    value={formValues.values[specItem.id] + ''}
+                    onChange={e => {
                         const values = formValues.values
 
                         setFormValues({
                             ...formValues,
                             values: {
                                 ...values,
-                                [specItem.id]: value
+                                [specItem.id]: e.target.value
                             }
                         })
                     }}
-                    min={specItem.min}
-                    max={specItem.max}
-                    formatter={value => {
-                        if (!value) return `${specItem.min} ${specItem.unit}`
-                        return `${value} ${specItem.unit}`
-                    }}
-                    parser={value => {
-                        if (!value) return Number(specItem.min)
-                        return Number(value.replace(` ${specItem.unit}`, ''))
-                    }}
+                    addonAfter={tips}
                 />
             )
 
