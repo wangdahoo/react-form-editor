@@ -10,8 +10,8 @@ import _Empty from 'antd/es/empty';
 import _InputNumber from 'antd/es/input-number';
 import _Checkbox from 'antd/es/checkbox';
 import _Select from 'antd/es/select';
-import _Input from 'antd/es/input';
 import _Radio from 'antd/es/radio';
+import _Input from 'antd/es/input';
 import _message from 'antd/es/message';
 import { observable, computed } from 'mobx';
 import { generate } from 'shortid';
@@ -278,12 +278,24 @@ var FormItemType;
   FormItemType["SELECT"] = "select";
   FormItemType["LAYOUT"] = "layout";
   FormItemType["RESULT"] = "result";
+  FormItemType["SPEC"] = "spec";
 })(FormItemType || (FormItemType = {}));
 
 var createFormItem = function createFormItem(itemType) {
   var id = generate();
 
   switch (itemType) {
+    case FormItemType.SPEC:
+      return {
+        id: id,
+        itemType: itemType,
+        labelText: '检验值',
+        defaultValue: 25,
+        min: 25,
+        max: 75,
+        unit: ''
+      };
+
     case FormItemType.RESULT:
       return {
         id: id,
@@ -647,7 +659,7 @@ var formStore = new FormStore();
 
 var createFormValues = function createFormValues(items) {
   var values = items.reduce(function (values, item) {
-    if ([FormItemType.INPUT, FormItemType.TEXTAREA, FormItemType.RADIO, FormItemType.CHECKBOX, FormItemType.SELECT].indexOf(item.itemType) > -1) {
+    if ([FormItemType.INPUT, FormItemType.TEXTAREA, FormItemType.RADIO, FormItemType.CHECKBOX, FormItemType.SELECT, FormItemType.SPEC].indexOf(item.itemType) > -1) {
       return _objectSpread2({}, values, _defineProperty({}, item.id, item.defaultValue));
     }
 
@@ -661,7 +673,7 @@ var createFormValues = function createFormValues(items) {
 };
 
 var shouldValidateRequired = function shouldValidateRequired(item) {
-  return [FormItemType.INPUT, FormItemType.TEXTAREA, FormItemType.CHECKBOX, FormItemType.RADIO].indexOf(item.itemType) > -1;
+  return [FormItemType.INPUT, FormItemType.TEXTAREA, FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SPEC].indexOf(item.itemType) > -1;
 };
 
 function GeneratedForm(props) {
@@ -751,6 +763,32 @@ function GeneratedForm(props) {
     var itemType = formItem.itemType;
 
     switch (itemType) {
+      case FormItemType.SPEC:
+        var specItem = formItem;
+        var specVal = formValues.values[specItem.id];
+        var tips = '正常范围';
+
+        if (!/^-?\d+$/.test(specVal + '') || !/^(-?\d+)(\.\d+)?$/.test(specVal + '')) {
+          tips = '请输入数字';
+        } else if (Number(formValues.values[specItem.id]) > specItem.max) {
+          tips = "\u5927\u4E8E\u6700\u5927\u503C".concat(specItem.max).concat(specItem.unit);
+        } else if (Number(formValues.values[specItem.id]) < specItem.min) {
+          tips = "\u5C0F\u4E8E\u6700\u5927\u503C".concat(specItem.min).concat(specItem.unit);
+        } // console.log(specVal, tips)
+
+
+        return /*#__PURE__*/React.createElement(_Input, {
+          defaultValue: specItem.defaultValue + '',
+          value: formValues.values[specItem.id] + '',
+          onChange: function onChange(e) {
+            var values = formValues.values;
+            setFormValues(_objectSpread2({}, formValues, {
+              values: _objectSpread2({}, values, _defineProperty({}, specItem.id, e.target.value))
+            }));
+          },
+          addonAfter: tips
+        });
+
       case FormItemType.RESULT:
         return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_Radio.Group, {
           style: {
@@ -913,7 +951,7 @@ function GeneratedForm(props) {
       }, textItem.content));
     }
 
-    if ([FormItemType.INPUT, FormItemType.NUMBER, FormItemType.TEXTAREA, FormItemType.RADIO, FormItemType.CHECKBOX, FormItemType.SELECT, FormItemType.RESULT].indexOf(itemType) > -1) {
+    if ([FormItemType.INPUT, FormItemType.NUMBER, FormItemType.TEXTAREA, FormItemType.RADIO, FormItemType.CHECKBOX, FormItemType.SELECT, FormItemType.RESULT, FormItemType.SPEC].indexOf(itemType) > -1) {
       var errMsg = validationResult.errors[item.id];
       return /*#__PURE__*/React.createElement("div", {
         className: classnames('form-item', labelAlign === 'top' ? 'label-standalone' : ''),
@@ -1069,6 +1107,9 @@ var fields = {
   //     text: '布局'
   // },
   {
+    name: 'spec',
+    text: '检验值'
+  }, {
     name: 'result',
     text: '检验结果'
   }]
@@ -1597,7 +1638,7 @@ function FieldAttrs(props) {
     }, "\u9009\u586B"))));
   };
 
-  var hasLabelText = [FormItemType.INPUT, FormItemType.NUMBER, FormItemType.TEXTAREA, FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT].indexOf(itemType) > -1;
+  var hasLabelText = [FormItemType.INPUT, FormItemType.NUMBER, FormItemType.TEXTAREA, FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SELECT, FormItemType.SPEC].indexOf(itemType) > -1;
   var hasValidationAttrs = [FormItemType.INPUT, FormItemType.TEXTAREA, FormItemType.CHECKBOX, FormItemType.RADIO].indexOf(itemType) > -1;
   return /*#__PURE__*/React.createElement("div", {
     className: "attrs"
@@ -1621,7 +1662,7 @@ function FieldAttrs(props) {
         labelText: e.target.value
       }));
     }
-  })) : null, itemType === FormItemType.INPUT ? renderInputExtraAttrs(form.activeItem) : null, itemType === FormItemType.NUMBER ? renderNumberExtraAttrs(form.activeItem) : null, itemType === FormItemType.TEXTAREA ? renderInputExtraAttrs(form.activeItem) : null, itemType === FormItemType.CHECKBOX ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.CHECKBOX ? renderCheckboxExtraAttrs(form.activeItem) : null, itemType === FormItemType.RADIO ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.RADIO ? renderRadioExtraAttrs(form.activeItem) : null, itemType === FormItemType.SELECT ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.SELECT ? renderSelectExtraAttrs(form.activeItem) : null, itemType === FormItemType.LAYOUT ? renderLayoutExtraAttrs(form.activeItem) : null, itemType === FormItemType.TEXT ? renderTextExtraAttrs(form.activeItem) : null, hasValidationAttrs ? renderValidationAttrs(form.activeItem) : null);
+  })) : null, itemType === FormItemType.INPUT ? renderInputExtraAttrs(form.activeItem) : null, itemType === FormItemType.NUMBER ? renderNumberExtraAttrs(form.activeItem) : null, itemType === FormItemType.TEXTAREA ? renderInputExtraAttrs(form.activeItem) : null, itemType === FormItemType.CHECKBOX ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.CHECKBOX ? renderCheckboxExtraAttrs(form.activeItem) : null, itemType === FormItemType.RADIO ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.RADIO ? renderRadioExtraAttrs(form.activeItem) : null, itemType === FormItemType.SELECT ? renderItemOptions(form.activeItem) : null, itemType === FormItemType.SELECT ? renderSelectExtraAttrs(form.activeItem) : null, itemType === FormItemType.LAYOUT ? renderLayoutExtraAttrs(form.activeItem) : null, itemType === FormItemType.SPEC ? renderNumberExtraAttrs(form.activeItem) : null, itemType === FormItemType.TEXT ? renderTextExtraAttrs(form.activeItem) : null, hasValidationAttrs ? renderValidationAttrs(form.activeItem) : null);
 }
 
 var FieldAttrs$1 = observer(FieldAttrs);
@@ -1748,6 +1789,13 @@ function EditableField(props) {
     var itemType = formItem.itemType;
 
     switch (itemType) {
+      case FormItemType.SPEC:
+        var specItem = formItem;
+        return /*#__PURE__*/React.createElement(_Input, {
+          value: specItem.defaultValue + '',
+          addonAfter: '正常范围'
+        });
+
       case FormItemType.RESULT:
         // const resultItem = formItem as (ResultItem & { isActive: boolean })
         return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_Radio.Group, {
@@ -1984,10 +2032,9 @@ function FormEditor(props) {
     formStore.setItems(defaultFormItems);
 
     if (defaultFormAttrs) {
-      console.log('reset defaultFormAttrs');
       formAttrsStore.reset(defaultFormAttrs);
     }
-  }, [JSON.stringify(props)]);
+  }, [props]);
   return /*#__PURE__*/React.createElement(DndProvider, {
     backend: Backend
   }, /*#__PURE__*/React.createElement(_Layout, {
