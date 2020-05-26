@@ -86151,8 +86151,8 @@ function BareGeneratedForm(props, ref) {
     var newValidationResult = validate(items, formValues); // console.log(newValidationResult)
 
     if (newValidationResult.result) {
-      if (props.onSubmit) props.onSubmit(formValues);
-      console.log(createFormValues(items));
+      if (props.onSubmit) props.onSubmit(formValues); // console.log(createFormValues(items))
+
       setValidationResult({
         result: false,
         errors: {}
@@ -86203,7 +86203,6 @@ function BareGeneratedForm(props, ref) {
   (0, _react.useImperativeHandle)(ref, function () {
     return {
       submit: function submit() {
-        console.log('submit');
         onSubmit();
       }
     };
@@ -86435,7 +86434,7 @@ function BareGeneratedForm(props, ref) {
     }
 
     return null;
-  }), _react.default.createElement(_divider.default, null), _react.default.createElement("div", {
+  }), props.footer === undefined ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_divider.default, null), _react.default.createElement("div", {
     style: {
       paddingLeft: labelAlign !== 'top' ? labelWidth : 0
     }
@@ -86454,7 +86453,7 @@ function BareGeneratedForm(props, ref) {
     style: {
       width: 90
     }
-  }, "\u91CD \u7F6E")));
+  }, "\u91CD \u7F6E"))) : props.footer);
 }
 
 var GeneratedForm = (0, _react.forwardRef)(BareGeneratedForm);
@@ -91710,12 +91709,12 @@ function App(props) {
       items: state.items,
       attrs: state.attrs
     },
-    ref: formRef
+    ref: formRef,
+    footer: null,
+    onSubmit: console.log
   })), _react.default.createElement(_button.default, {
     type: "primary",
     onClick: function onClick() {
-      console.log(formRef);
-
       if (formRef.current) {
         formRef.current.submit();
       }
@@ -92449,7 +92448,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59581" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61198" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -16,6 +16,7 @@ interface GeneratedFormProps {
     },
     onSubmit?: (formValue: GeneratedFormValues) => void
     resetAfterSubmit?: boolean
+    footer?: JSX.Element | undefined
 }
 
 type GeneratedFormValues = {
@@ -423,12 +424,14 @@ function BareGeneratedForm (props: GeneratedFormProps, ref: any) {
                 return null
             })}
 
-            <Divider />
+            {props.footer === undefined ? <>
+                <Divider />
 
-            <div style={{ paddingLeft: labelAlign !== 'top' ? labelWidth : 0 }}>
-                <Button type="primary" onClick={onSubmit} style={{ width: 90, marginRight: 16 }}>提 交</Button>
-                <Button type="default" onClick={() => setFormValues(createFormValues(items))} style={{ width: 90 }}>重 置</Button>
-            </div>
+                <div style={{ paddingLeft: labelAlign !== 'top' ? labelWidth : 0 }}>
+                    <Button type="primary" onClick={onSubmit} style={{ width: 90, marginRight: 16 }}>提 交</Button>
+                    <Button type="default" onClick={() => setFormValues(createFormValues(items))} style={{ width: 90 }}>重 置</Button>
+                </div>
+            </> : props.footer}
         </div>
     )
 }

@@ -70,12 +70,10 @@ export default function App (props: Props) {
                     <GeneratedForm form={{
                         items: state.items,
                         attrs: state.attrs as any
-                    }} ref={formRef} />
+                    }} ref={formRef} footer={null} onSubmit={console.log} />
                 </div>
 
                 <Button type="primary" onClick={() => {
-                    console.log(formRef)
-
                     if (formRef.current) {
                         (formRef.current as any).submit()
                     }
