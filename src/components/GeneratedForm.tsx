@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useImperativeHandle, forwardRef } from 'react'
 import { FormItem, FormItemType, SelectItem, CheckboxItem, RadioItem, TextareaItem, InputItem, TextItem, NumberItem, SpecItem } from '../stores/FormStore'
 import { Radio, Input, Select, Checkbox, Divider, Button, InputNumber, Empty } from 'antd'
 import classnames from 'classnames'
@@ -65,7 +65,7 @@ const shouldValidateRequired = (item: FormItem) => [
     FormItemType.SPEC
 ].indexOf(item.itemType) > -1
 
-export function GeneratedForm (props: GeneratedFormProps) {
+function BareGeneratedForm (props: GeneratedFormProps, ref: any) {
     const { items, attrs } = props.form
     const { formWidth, formWidthUnit, labelAlign, labelWidth, labelWidthUnit } = attrs
     const [formValues, setFormValues] = useState(createFormValues(items))
@@ -83,7 +83,7 @@ export function GeneratedForm (props: GeneratedFormProps) {
 
         if (newValidationResult.result) {
             if (props.onSubmit) props.onSubmit(formValues)
-            console.log(createFormValues(items))
+            // console.log(createFormValues(items))
             setValidationResult({ result: false, errors: {} })
 
             if (props.resetAfterSubmit) setFormValues(createFormValues(items))
@@ -128,6 +128,12 @@ export function GeneratedForm (props: GeneratedFormProps) {
             errors: {}
         })
     }
+
+    useImperativeHandle(ref, () => ({
+        submit: () => {
+            onSubmit()
+        }
+    }))
 
     const renderFormItem = (formItem: FormItem) => {
         const { itemType } = formItem
@@ -426,3 +432,5 @@ export function GeneratedForm (props: GeneratedFormProps) {
         </div>
     )
 }
+
+export const GeneratedForm = forwardRef(BareGeneratedForm)

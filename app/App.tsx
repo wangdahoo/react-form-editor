@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Tabs } from 'antd'
+import React, { useState, useEffect, useRef } from 'react'
+import { Tabs, Button } from 'antd'
 // import FormEditor from '../dist'
 import FormEditor, { GeneratedForm } from '../src'
 import { createFormItem, FormItemType } from '../src/stores/FormStore'
@@ -37,6 +37,8 @@ export default function App (props: Props) {
         }
     })
 
+    const formRef = useRef()
+
     useEffect(() => {
         try {
             const newState = JSON.parse(localStorage.getItem(persistKey))
@@ -68,8 +70,16 @@ export default function App (props: Props) {
                     <GeneratedForm form={{
                         items: state.items,
                         attrs: state.attrs as any
-                    }} />
+                    }} ref={formRef} />
                 </div>
+
+                <Button type="primary" onClick={() => {
+                    console.log(formRef)
+
+                    if (formRef.current) {
+                        (formRef.current as any).submit()
+                    }
+                }}>从外部提交</Button>
             </TabPane>
         </Tabs>
     )

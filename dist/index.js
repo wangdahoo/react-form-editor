@@ -1,5 +1,5 @@
 import _Layout from 'antd/es/layout';
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { forwardRef, useState, useImperativeHandle, useRef, useCallback, useEffect } from 'react';
 import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import Backend from 'react-dnd-html5-backend';
 import _Modal from 'antd/es/modal';
@@ -676,7 +676,7 @@ var shouldValidateRequired = function shouldValidateRequired(item) {
   return [FormItemType.INPUT, FormItemType.TEXTAREA, FormItemType.CHECKBOX, FormItemType.RADIO, FormItemType.SPEC].indexOf(item.itemType) > -1;
 };
 
-function GeneratedForm(props) {
+function BareGeneratedForm(props, ref) {
   var _props$form = props.form,
       items = _props$form.items,
       attrs = _props$form.attrs;
@@ -711,8 +711,8 @@ function GeneratedForm(props) {
     var newValidationResult = validate(items, formValues); // console.log(newValidationResult)
 
     if (newValidationResult.result) {
-      if (props.onSubmit) props.onSubmit(formValues);
-      console.log(createFormValues(items));
+      if (props.onSubmit) props.onSubmit(formValues); // console.log(createFormValues(items))
+
       setValidationResult({
         result: false,
         errors: {}
@@ -758,6 +758,14 @@ function GeneratedForm(props) {
       errors: {}
     });
   }
+
+  useImperativeHandle(ref, function () {
+    return {
+      submit: function submit() {
+        onSubmit();
+      }
+    };
+  });
 
   var renderFormItem = function renderFormItem(formItem) {
     var itemType = formItem.itemType;
@@ -992,6 +1000,8 @@ function GeneratedForm(props) {
     }
   }, "\u91CD \u7F6E")));
 }
+
+var GeneratedForm = forwardRef(BareGeneratedForm);
 
 function Toolbar(props) {
   var form = props.form,
