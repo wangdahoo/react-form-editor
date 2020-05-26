@@ -979,7 +979,7 @@ function BareGeneratedForm(props, ref) {
     }
 
     return null;
-  }), /*#__PURE__*/React.createElement(_Divider, null), /*#__PURE__*/React.createElement("div", {
+  }), props.footer === undefined ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_Divider, null), /*#__PURE__*/React.createElement("div", {
     style: {
       paddingLeft: labelAlign !== 'top' ? labelWidth : 0
     }
@@ -998,7 +998,7 @@ function BareGeneratedForm(props, ref) {
     style: {
       width: 90
     }
-  }, "\u91CD \u7F6E")));
+  }, "\u91CD \u7F6E"))) : props.footer);
 }
 
 var GeneratedForm = forwardRef(BareGeneratedForm);
